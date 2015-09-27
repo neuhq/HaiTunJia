@@ -1,10 +1,3 @@
-//
-//  BaseViewController.m
-//  HaiTunJia
-//
-//  Created by 李哲 on 15/9/27.
-//  Copyright © 2015年 李哲. All rights reserved.
-//
 
 #import "BaseViewController.h"
 
@@ -14,24 +7,39 @@
 
 @implementation BaseViewController
 
+#pragma mark -- lift cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+    
+    [self.navigationItem setHidesBackButton:YES];
+    
 
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark -- UI
+//导航栏左边按钮
+-(UIButton *) leftButton
+{
+    if(!_leftButton)
+    {
+        _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _leftButton.frame = CGRectMake(0, 20, 45, 45);
+//        [_leftButton setBackgroundImage:[UIImage imageNamed:@"按钮-返回1.png"] forState:UIControlStateNormal];
+        _leftButton.backgroundColor = [UIColor redColor];
+        [_leftButton addTarget: self action: @selector(goBackAction) forControlEvents: UIControlEventTouchUpInside];
+        UIBarButtonItem*back=[[UIBarButtonItem alloc]initWithCustomView:_leftButton];
+        self.navigationItem.leftBarButtonItem=back;
+    }
+    return _leftButton;
 }
-*/
 
+
+#pragma mark -- Action
+-(void)goBackAction
+{
+    
+}
 @end
