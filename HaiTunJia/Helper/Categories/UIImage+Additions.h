@@ -55,4 +55,6 @@ typedef enum{
 + (UIImage *)zoomUploadImageWith:(UIImage *)image rate:(CGFloat)rate maxLength:(CGFloat)length quality:(CGFloat)quality limitSize:(long long)spaceSize;
 + (UIImage *)zoomThumbnailWith:(UIImage *)image rate:(CGFloat)rate maxLength:(CGFloat)length;
 + (long long)check:(UIImage *)image;
+//指定宽度按比例缩放
++(UIImage *) imageCompressForWidth:(UIImage *)sourceImage targetWidth:(CGFloat)defineWidth;
 @end

@@ -20,4 +20,5 @@
 
 #import "UIImage+Additions.h"
 
+#import "UILabel+Additions.h"
 #endif

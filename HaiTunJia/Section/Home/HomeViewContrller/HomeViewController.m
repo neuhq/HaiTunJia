@@ -51,6 +51,7 @@ CHTCollectionViewDelegateWaterfallLayout>
     {
         CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
         layout.sectionInset = UIEdgeInsetsMake(0, 10, 10, 10);
+        layout.headerHeight = 100;
         layout.minimumColumnSpacing = 10;
         layout.minimumInteritemSpacing = 10;
         _homeCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
@@ -60,9 +61,9 @@ CHTCollectionViewDelegateWaterfallLayout>
         _homeCollectionView.backgroundColor = [UIColor whiteColor];
         [_homeCollectionView registerClass:[HomeCollectionViewCell class]
             forCellWithReuseIdentifier:HomeViewCollectionViewIndentifer];
-//        [_homeCollectionView registerClass:[HomeCollectionHeaderView  class]
-//            forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader
-//                   withReuseIdentifier:HomeViewHeaderViewIndentifer];
+        [_homeCollectionView registerClass:[HomeCollectionHeaderView  class]
+            forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader
+                   withReuseIdentifier:HomeViewHeaderViewIndentifer];
     }
     return _homeCollectionView;
 }
@@ -72,11 +73,12 @@ CHTCollectionViewDelegateWaterfallLayout>
 - (NSArray *)cellSizes
 {
     if (!_cellSizes) {
+        UIImage *image = [UIImage imageNamed:@"test"];
         _cellSizes = @[
-                       [NSValue valueWithCGSize:CGSizeMake(600, 550)],
-                       [NSValue valueWithCGSize:CGSizeMake(600, 550)],
-                       [NSValue valueWithCGSize:CGSizeMake(600, 550)],
-                       [NSValue valueWithCGSize:CGSizeMake(600, 550)]
+                       [NSValue valueWithCGSize:CGSizeMake(image.size.width, image.size.height+70)],
+                       [NSValue valueWithCGSize:CGSizeMake(image.size.width,image.size.height+70)],
+                       [NSValue valueWithCGSize:CGSizeMake(image.size.width, image.size.height+70)],
+                       [NSValue valueWithCGSize:CGSizeMake(image.size.width, image.size.height+70)],
                        ];
     }
     return _cellSizes;
@@ -106,23 +108,20 @@ CHTCollectionViewDelegateWaterfallLayout>
     HomeCollectionViewCell *cell =
     (HomeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HomeViewCollectionViewIndentifer
                                                                                 forIndexPath:indexPath];
-    cell.goodsImageView.image = [UIImage imageNamed:self.cats[indexPath.item % 4]];
-    cell.bigBgView.frame = CGRectMake(0, 10, kScreenWidth/2 - 15, 200);
-
     return cell;
 }
 
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-//    UICollectionReusableView *reusableView = nil;
-//    
-//    if ([kind isEqualToString:CHTCollectionElementKindSectionHeader])
-//    {
-//        reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-//                                                          withReuseIdentifier:HomeViewHeaderViewIndentifer
-//                                                                forIndexPath:indexPath];
-//    }
-//    return reusableView;
-//}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableView = nil;
+    
+    if ([kind isEqualToString:CHTCollectionElementKindSectionHeader])
+    {
+        reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                          withReuseIdentifier:HomeViewHeaderViewIndentifer
+                                                                forIndexPath:indexPath];
+    }
+    return reusableView;
+}
 
 #pragma mark - CHTCollectionViewDelegateWaterfallLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

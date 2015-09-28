@@ -8,7 +8,7 @@
 @interface HomeCollectionViewCell : UICollectionViewCell
 
 /**头像*/
-@property(nonatomic,strong) UIImageView *avterImageView;
+@property(nonatomic,strong) UIImageView *avatarImageView;
 
 /**姓名*/
 @property(nonatomic,strong) UILabel *name;
@@ -48,5 +48,6 @@
 
 /**横线*/
 @property(nonatomic,strong) UIView *lineView;
+
 
 @end
