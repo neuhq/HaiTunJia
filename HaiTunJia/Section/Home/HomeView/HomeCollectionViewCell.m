@@ -1,6 +1,6 @@
 
 #import "HomeCollectionViewCell.h"
-
+#import "SystemMacro.h"
 @implementation HomeCollectionViewCell
 
 #pragma mark -- UI
@@ -48,10 +48,12 @@
     if (!_goodsImageView)
     {
         _goodsImageView = [[UIImageView alloc]init];
+//        _goodsImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     }
     return _goodsImageView;
 }
 
+//文本
 -(UILabel *)content
 {
     if(!_content)
@@ -113,7 +115,7 @@
     if (!_bigBgView)
     {
         _bigBgView = [[UIView alloc]init];
-        _bigBgView.backgroundColor = [UIColor whiteColor];
+        _bigBgView.backgroundColor = [UIColor redColor];
     }
     return _bigBgView;
 }
@@ -164,23 +166,35 @@
 
 -(id)initWithFrame:(CGRect)frame
 {
-    if (self == [super initWithFrame:frame])
+    self = [super initWithFrame:frame];
+    if (self)
     {
-        [self.contentView addSubview:_bigBgView];
-        [_bigBgView addSubview:_topBgView];
-        [_bigBgView addSubview:_middleBgView];
-        [_bigBgView addSubview:_bottomBgView];
-        [_topBgView addSubview:_avterImageView];
-        [_topBgView addSubview:_name];
-        [_topBgView addSubview:_address];
-        [_middleBgView addSubview:_goodsImageView];
-        [_middleBgView addSubview:_content];
-        [_bottomBgView addSubview:_lineView];
-        [_bottomBgView addSubview:_commentImageButton];
-        [_bottomBgView addSubview:_commentNumButton];
-        [_bottomBgView addSubview:_zanImageButton];
-        [_bottomBgView addSubview:_zanNumButton];
+        [self.contentView addSubview:self.bigBgView];
+        [self.bigBgView addSubview:self.topBgView];
+        [self.bigBgView addSubview:self.middleBgView];
+        [self.bigBgView addSubview:self.bottomBgView];
+        [self.topBgView addSubview:self.avterImageView];
+        [self.topBgView addSubview:self.name];
+        [self.topBgView addSubview:self.address];
+        [self.middleBgView addSubview:self.goodsImageView];
+        [self.middleBgView addSubview:self.content];
+        [self.bottomBgView addSubview:self.lineView];
+        [self.bottomBgView addSubview:self.commentImageButton];
+        [self.bottomBgView addSubview:self.commentNumButton];
+        [self.bottomBgView addSubview:self.zanImageButton];
+        [self.bottomBgView addSubview:self.zanNumButton];
+        
+        self.backgroundColor = [UIColor yellowColor];
+
     }
     return self;
+}
+
+#pragma mark -- Layout
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    
 }
 @end

@@ -17,6 +17,11 @@ CHTCollectionViewDelegateWaterfallLayout>
 
 @property(nonatomic,strong) UICollectionView *homeCollectionView;
 
+
+@property(nonatomic,strong) NSArray *cellSizes;
+
+@property(nonatomic,strong) NSArray *cats;
+
 @end
 
 @implementation HomeViewController
@@ -25,6 +30,10 @@ CHTCollectionViewDelegateWaterfallLayout>
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.hidden = YES;
+    
+    [self.view addSubview:self.homeCollectionView];
     
 }
 
@@ -36,12 +45,12 @@ CHTCollectionViewDelegateWaterfallLayout>
 
 
 #pragma mark -- UI
-- (UICollectionView *)collectionView {
-    if (!_homeCollectionView) {
+- (UICollectionView *)homeCollectionView
+{
+    if (!_homeCollectionView)
+    {
         CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
-        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
-        layout.headerHeight = 15;
-        layout.footerHeight = 10;
+        layout.sectionInset = UIEdgeInsetsMake(0, 10, 10, 10);
         layout.minimumColumnSpacing = 10;
         layout.minimumInteritemSpacing = 10;
         _homeCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
@@ -51,17 +60,74 @@ CHTCollectionViewDelegateWaterfallLayout>
         _homeCollectionView.backgroundColor = [UIColor whiteColor];
         [_homeCollectionView registerClass:[HomeCollectionViewCell class]
             forCellWithReuseIdentifier:HomeViewCollectionViewIndentifer];
-        [_homeCollectionView registerClass:[HomeCollectionHeaderView  class]
-            forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader
-                   withReuseIdentifier:HomeViewHeaderViewIndentifer];
+//        [_homeCollectionView registerClass:[HomeCollectionHeaderView  class]
+//            forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader
+//                   withReuseIdentifier:HomeViewHeaderViewIndentifer];
     }
     return _homeCollectionView;
 }
 
 
 #pragma mark -- helper
+- (NSArray *)cellSizes
+{
+    if (!_cellSizes) {
+        _cellSizes = @[
+                       [NSValue valueWithCGSize:CGSizeMake(600, 550)],
+                       [NSValue valueWithCGSize:CGSizeMake(600, 550)],
+                       [NSValue valueWithCGSize:CGSizeMake(600, 550)],
+                       [NSValue valueWithCGSize:CGSizeMake(600, 550)]
+                       ];
+    }
+    return _cellSizes;
+}
+
+- (NSArray *)cats
+{
+    if (!_cats) {
+        _cats = @[@"cat1.jpg", @"cat2.jpg", @"cat3.jpg", @"cat4.jpg"];
+    }
+    return _cats;
+}
 
 #pragma mark -- Delegate
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 30;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    HomeCollectionViewCell *cell =
+    (HomeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HomeViewCollectionViewIndentifer
+                                                                                forIndexPath:indexPath];
+    cell.goodsImageView.image = [UIImage imageNamed:self.cats[indexPath.item % 4]];
+    cell.bigBgView.frame = CGRectMake(0, 10, kScreenWidth/2 - 15, 200);
+
+    return cell;
+}
+
+//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+//    UICollectionReusableView *reusableView = nil;
+//    
+//    if ([kind isEqualToString:CHTCollectionElementKindSectionHeader])
+//    {
+//        reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+//                                                          withReuseIdentifier:HomeViewHeaderViewIndentifer
+//                                                                forIndexPath:indexPath];
+//    }
+//    return reusableView;
+//}
+
+#pragma mark - CHTCollectionViewDelegateWaterfallLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.cellSizes[indexPath.item % 4] CGSizeValue];
+}
 
 
 #pragma mark -- Action
