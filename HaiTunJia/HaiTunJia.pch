@@ -1,0 +1,21 @@
+//
+//  HaiTunJia.pch
+//  HaiTunJia
+//
+//  Created by lizhe  on 15/9/28.
+//  Copyright (c) 2015年 李哲. All rights reserved.
+//
+
+#ifndef HaiTunJia_HaiTunJia_pch
+#define HaiTunJia_HaiTunJia_pch
+
+//系统库
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
+
+
+//引用头文件
+#import "HeaderMacro.h"
+
+#endif

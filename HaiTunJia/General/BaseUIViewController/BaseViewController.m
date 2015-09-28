@@ -1,6 +1,6 @@
 
 #import "BaseViewController.h"
-
+#import "UIColor+Expanded.h"
 @interface BaseViewController ()
 
 @end
@@ -10,6 +10,9 @@
 #pragma mark -- lift cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //设置通用的背景颜色
+    self.view.backgroundColor = [UIColor colorWithHexString:@"efeff4"];
     
     [self.navigationItem setHidesBackButton:YES];
     
@@ -27,7 +30,6 @@
     {
         _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _leftButton.frame = CGRectMake(0, 20, 45, 45);
-//        [_leftButton setBackgroundImage:[UIImage imageNamed:@"按钮-返回1.png"] forState:UIControlStateNormal];
         _leftButton.backgroundColor = [UIColor redColor];
         [_leftButton addTarget: self action: @selector(goBackAction) forControlEvents: UIControlEventTouchUpInside];
         UIBarButtonItem*back=[[UIBarButtonItem alloc]initWithCustomView:_leftButton];
