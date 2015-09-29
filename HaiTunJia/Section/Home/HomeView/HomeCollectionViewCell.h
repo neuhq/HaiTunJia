@@ -1,6 +1,8 @@
 /************************************
  功能：首页瀑布流
  说明：将每个itemUI分为上中下三部分建立
+            其中下部view又分为左边和右边view
+             布局页面
  ***********************************/
 
 #import <UIKit/UIKit.h>
@@ -26,13 +28,13 @@
 @property(nonatomic,strong) UIButton *commentImageButton;
 
 /**评论数*/
-@property(nonatomic,strong) UIButton *commentNumButton;
+@property(nonatomic,strong) UILabel *commentNum;
 
 /**贊图片*/
 @property(nonatomic,strong) UIButton *zanImageButton;
 
 /**贊数量*/
-@property(nonatomic,strong) UIButton *zanNumButton;
+@property(nonatomic,strong) UILabel *zanNum;
 
 /**大背景view*/
 @property(nonatomic,strong) UIView *bigBgView;
@@ -49,5 +51,10 @@
 /**横线*/
 @property(nonatomic,strong) UIView *lineView;
 
+//**下部背景的左背景*/
+@property(nonatomic,strong) UIButton *bottomLeftView;
+
+//**下部背景的右背景*/
+@property(nonatomic,strong) UIButton *bottomRightView;
 
 @end

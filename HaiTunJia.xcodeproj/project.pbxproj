@@ -117,6 +117,7 @@
 		AD8905911BB9987F00D90221 /* tab_search_active@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD89057B1BB9987F00D90221 /* tab_search_active@3x.png */; settings = {ASSET_TAGS = (); }; };
 		AD8905921BB9987F00D90221 /* tab_search_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD89057C1BB9987F00D90221 /* tab_search_normal@3x.png */; settings = {ASSET_TAGS = (); }; };
 		AD8905941BB998E500D90221 /* icon_love_active@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8905931BB998E500D90221 /* icon_love_active@3x.png */; settings = {ASSET_TAGS = (); }; };
+		AD8905981BBA490000D90221 /* BaseNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8905971BBA490000D90221 /* BaseNetworkService.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -316,6 +317,8 @@
 		AD89057B1BB9987F00D90221 /* tab_search_active@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_search_active@3x.png"; sourceTree = "<group>"; };
 		AD89057C1BB9987F00D90221 /* tab_search_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_search_normal@3x.png"; sourceTree = "<group>"; };
 		AD8905931BB998E500D90221 /* icon_love_active@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_love_active@3x.png"; sourceTree = "<group>"; };
+		AD8905961BBA490000D90221 /* BaseNetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetworkService.h; sourceTree = "<group>"; };
+		AD8905971BBA490000D90221 /* BaseNetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetworkService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -588,6 +591,7 @@
 		AD51D4381BB7CACC00A75753 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				AD8905951BBA48A300D90221 /* Network */,
 				33D4A9EF1BB91F270086D442 /* CollectionViewWaterFallLayout */,
 				AD51D50B1BB7D1F600A75753 /* BaseUIViewController */,
 			);
@@ -833,6 +837,15 @@
 			path = 3x;
 			sourceTree = "<group>";
 		};
+		AD8905951BBA48A300D90221 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AD8905961BBA490000D90221 /* BaseNetworkService.h */,
+				AD8905971BBA490000D90221 /* BaseNetworkService.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1020,6 +1033,7 @@
 				33D4AA191BB9213F0086D442 /* NSFileManager+Additions.m in Sources */,
 				33D4AA261BB9213F0086D442 /* UIWindow+Additions.m in Sources */,
 				33D4AA4D1BB92A9D0086D442 /* UIImage+Additions.m in Sources */,
+				AD8905981BBA490000D90221 /* BaseNetworkService.m in Sources */,
 				AD51D5151BB7F13D00A75753 /* main.m in Sources */,
 				AD51D4FD1BB7CD1300A75753 /* SDImageCache.m in Sources */,
 			);
