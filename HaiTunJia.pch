@@ -13,12 +13,15 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
+#import <systemConfiguration/SystemConfiguration.h>
+#import <mobilecoreservices/MobileCoreServices.h>
 
+#define AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES
 
 //引用头文件
 #import "HeaderMacro.h"
 
-
+#import "AFNetworking.h"
 
 
 #endif

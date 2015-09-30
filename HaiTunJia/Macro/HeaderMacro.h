@@ -21,4 +21,9 @@
 #import "UIImage+Additions.h"
 
 #import "UILabel+Additions.h"
+
+#import "NSString+Extension.h"
+
+#import "MJExtension.h"
+
 #endif

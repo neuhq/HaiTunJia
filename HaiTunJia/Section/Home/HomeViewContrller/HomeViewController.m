@@ -3,7 +3,8 @@
 #import "CHTCollectionViewWaterfallLayout.h"
 #import "HomeCollectionViewCell.h"
 #import "HomeCollectionHeaderView.h"
-
+#import "HomeService.h"
+#import "HomeListModel.h"
 //collectionViewCell标识
 static NSString *const HomeViewCollectionViewIndentifer =  @"HomeViewCollectionViewIndentifer";
 
@@ -17,6 +18,8 @@ CHTCollectionViewDelegateWaterfallLayout>
 
 @property(nonatomic,strong) UICollectionView *homeCollectionView;
 
+/**首页数据模型*/
+@property (nonatomic,strong) HomeListModel *listModel;
 
 @property(nonatomic,strong) NSArray *cellSizes;
 
@@ -31,10 +34,18 @@ CHTCollectionViewDelegateWaterfallLayout>
 {
     [super viewDidLoad];
     
+    //导航栏隐藏
     self.navigationController.navigationBar.hidden = YES;
     
+    //获取首页商品数据
+    [self getHomeListData];
+    
+    //添加列表
     [self.view addSubview:self.homeCollectionView];
     
+   
+    
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,7 +79,16 @@ CHTCollectionViewDelegateWaterfallLayout>
     return _homeCollectionView;
 }
 
-
+#pragma mark -- HTTP
+-(void)getHomeListData
+{
+    __weak HomeViewController *weakSelf = self;
+    HomeService *homeService = [[HomeService alloc]init];
+    [homeService startRequestHomeListDataWithBlock:^(id result) {
+        self.listModel = (HomeListModel *) result;
+        [weakSelf.homeCollectionView reloadData];
+    }];
+}
 #pragma mark -- helper
 - (NSArray *)cellSizes
 {
@@ -97,7 +117,12 @@ CHTCollectionViewDelegateWaterfallLayout>
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 30;
+    if(self.listModel)
+    {
+        return self.listModel.data.count;
+    }
+    else
+        return 0;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -108,6 +133,8 @@ CHTCollectionViewDelegateWaterfallLayout>
     HomeCollectionViewCell *cell =
     (HomeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HomeViewCollectionViewIndentifer
                                                                                 forIndexPath:indexPath];
+    DataModel *model = [self.listModel.data objectAtIndex:indexPath.item];
+    cell.dataModel = model;
     return cell;
 }
 
@@ -125,6 +152,13 @@ CHTCollectionViewDelegateWaterfallLayout>
 
 #pragma mark - CHTCollectionViewDelegateWaterfallLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(self.listModel)
+    {
+        DataModel *model = [self.listModel.data objectAtIndex:indexPath.item];
+        return CGSizeMake(collectionView.width, model.cellHeight);
+    }
+    else
+        return CGSizeMake(0, 0);
     return [self.cellSizes[indexPath.item % 4] CGSizeValue];
 }
 

@@ -7,7 +7,7 @@
 #define HaiTunJia_ApiUrl_h
 
 
-#define kApi_Base              @"https://123.56.129.90/"
+#define kApi_Base              @"http://123.56.129.90/"
 
 #pragma mark -- 用户相关
 

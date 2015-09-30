@@ -1,8 +1,8 @@
 
 #import "HomeCollectionViewCell.h"
 #import "SystemMacro.h"
-
-
+#import "HomeListModel.h"
+#import "UIImageView+WebCache.h"
 static const CGFloat kHomeCellLeftOffset              = 10.0f;
 static const CGFloat kHomeCellTopOffset              = 10.0f;
 static const CGFloat kHomeCellAvatarHeight         =  30.0f;
@@ -246,10 +246,10 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
     [super layoutSubviews];
     
     //头像
-    self.avatarImageView.image  = [UIImage imageNamed:@"icon_love_active"];
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.dataModel.userPic] placeholderImage:nil];
     
     //姓名
-    NSString *nameString  = @"安吉丽娜来得及看到过两个阿里苦尽甘来刚看见过";
+    NSString *nameString  = self.dataModel.userName;
     CGSize nameSize = [nameString sizeWithAttributes:@{NSFontAttributeName:self.name.font}];
     self.name.frame = CGRectMake(self.avatarImageView.right + kHomeCellLeftOffset,
                                                          self.avatarImageView.top,
@@ -272,12 +272,11 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
                                                                 2*kHomeCellTopOffset + kHomeCellAvatarHeight);
     
     //大图
-    UIImage *image  = [UIImage imageNamed:@"test"];
-    self.goodsImageView.frame = CGRectMake(0, 0,self.width,150);
-    self.goodsImageView.image = image;
+    [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:self.dataModel.picture] placeholderImage:nil];
+    self.goodsImageView.frame = CGRectMake(0, 0,self.width,self.dataModel.imageHeight/self.dataModel.imageWidth*self.width);
     
     //描述文本
-    NSString *contentString = @"白净的魅力白净饿魅力时刻看到过健康噶是客观环境阿里看过后两个";
+    NSString *contentString = @"这个是测试数据";
     NSMutableAttributedString * attributedString = [[NSMutableAttributedString alloc] initWithString:contentString];
     NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:5.0f];
@@ -298,6 +297,11 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
                                                                        self.middleBgView.bottom,
                                                                        self.width,
                                                                        50);
+    
+    CGRect rect1 = self.topBgView.frame;
+    CGRect rect2 = self.middleBgView.frame;
+    CGRect rect3 = self.bottomBgView.frame;
+    
 
     self.lineView.frame = CGRectMake(0,
                                                              0,

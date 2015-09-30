@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class DataModel;
 @interface HomeCollectionViewCell : UICollectionViewCell
 
 /**头像*/
@@ -56,5 +57,8 @@
 
 //**下部背景的右背景*/
 @property(nonatomic,strong) UIButton *bottomRightView;
+
+/**列表数据*/
+@property(nonatomic,strong) DataModel *dataModel;
 
 @end
