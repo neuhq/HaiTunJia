@@ -36,7 +36,6 @@ CHTCollectionViewDelegateWaterfallLayout>
     
     //导航栏隐藏
     self.navigationController.navigationBar.hidden = YES;
-    
     //获取首页商品数据
     [self getHomeListData];
     
@@ -46,6 +45,22 @@ CHTCollectionViewDelegateWaterfallLayout>
    
     
    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+    //UIStatusBarStyleDefault = 0 黑色文字，浅色背景时使用
+    //UIStatusBarStyleLightContent = 1 白色文字，深色背景时使用
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return NO; // 返回NO表示要显示，返回YES将hiden
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,10 +77,10 @@ CHTCollectionViewDelegateWaterfallLayout>
     {
         CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
         layout.sectionInset = UIEdgeInsetsMake(0, 10, 10, 10);
-        layout.headerHeight = 100;
+        layout.headerHeight = 230;
         layout.minimumColumnSpacing = 10;
         layout.minimumInteritemSpacing = 10;
-        _homeCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+        _homeCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, -PHONE_STATUSBAR_HEIGHT, kScreenWidth, kScreenHeight - CONTENT_TABBAR_HEIGHT + 40.0f) collectionViewLayout:layout];
         _homeCollectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _homeCollectionView.dataSource = self;
         _homeCollectionView.delegate = self;
@@ -90,27 +105,6 @@ CHTCollectionViewDelegateWaterfallLayout>
     }];
 }
 #pragma mark -- helper
-- (NSArray *)cellSizes
-{
-    if (!_cellSizes) {
-        UIImage *image = [UIImage imageNamed:@"test"];
-        _cellSizes = @[
-                       [NSValue valueWithCGSize:CGSizeMake(image.size.width, image.size.height+70)],
-                       [NSValue valueWithCGSize:CGSizeMake(image.size.width,image.size.height+70)],
-                       [NSValue valueWithCGSize:CGSizeMake(image.size.width, image.size.height+70)],
-                       [NSValue valueWithCGSize:CGSizeMake(image.size.width, image.size.height+70)],
-                       ];
-    }
-    return _cellSizes;
-}
-
-- (NSArray *)cats
-{
-    if (!_cats) {
-        _cats = @[@"cat1.jpg", @"cat2.jpg", @"cat3.jpg", @"cat4.jpg"];
-    }
-    return _cats;
-}
 
 #pragma mark -- Delegate
 
@@ -140,12 +134,13 @@ CHTCollectionViewDelegateWaterfallLayout>
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     UICollectionReusableView *reusableView = nil;
-    
     if ([kind isEqualToString:CHTCollectionElementKindSectionHeader])
     {
-        reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+        HomeCollectionHeaderView *hearderView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                           withReuseIdentifier:HomeViewHeaderViewIndentifer
                                                                 forIndexPath:indexPath];
+        [hearderView setImage];
+        reusableView = hearderView;
     }
     return reusableView;
 }
