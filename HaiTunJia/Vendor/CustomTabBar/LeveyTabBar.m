@@ -41,7 +41,7 @@
 			[btn setImage:[[imageArray objectAtIndex:i] objectForKey:@"Seleted"] forState:UIControlStateSelected];
 			[btn addTarget:self action:@selector(tabBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
             if(btn.tag == 2)
-                btn.backgroundColor = [UIColor blueColor];
+                btn.backgroundColor = [UIColor colorWithHexString:@"3299cc"];
             else
                 btn.backgroundColor = [UIColor whiteColor];
 			[self.buttons addObject:btn];

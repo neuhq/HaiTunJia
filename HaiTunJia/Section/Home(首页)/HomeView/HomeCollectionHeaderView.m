@@ -3,7 +3,10 @@
 #import "UIButton+WebCache.h"
 @interface HomeCollectionHeaderView ()
 <UIScrollViewDelegate>
+
 @property(nonatomic,strong) UIScrollView *scrollView;
+
+@property(nonatomic,strong) UIPageControl *pageControl;
 
 @end
 
@@ -15,6 +18,7 @@
     if (self)
     {
         [self addSubview:self.scrollView];
+        [self addSubview:self.pageControl];
         [self initArray];
     }
     return self;
@@ -45,12 +49,30 @@
         _scrollView.delegate=self;
         _scrollView.pagingEnabled = YES;
         _scrollView.scrollEnabled = YES;
+        
     }
     return _scrollView;
+}
+-(UIPageControl *) pageControl
+{
+    if (!_pageControl)
+    {
+        _pageControl = [[UIPageControl alloc] init];
+        _pageControl.center = CGPointMake(kScreenWidth* 0.5, self.height - 10 - 10 - 5);
+        _pageControl.bounds = CGRectMake(0, 0, 150, 50);
+        // 设置非选中页的圆点颜色
+        _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+        // 设置选中页的圆点颜色
+        _pageControl.currentPageIndicatorTintColor = [UIColor grayColor];
+        // 禁止默认的点击功能
+        _pageControl.enabled = NO;
+    }
+    return _pageControl;
 }
 -(void)setImage
 {
 //    [super layoutSubviews];
+    _pageControl.numberOfPages = self.picArr.count;
     for (int i=0; i<self.picArr.count; i++)
     {
         UIButton *hotelImage=[[UIButton alloc]initWithFrame:CGRectMake(self.bounds.size.width*i, 0,self.scrollView.size.width, self.scrollView.frame.size.height - 10)];
@@ -62,5 +84,14 @@
         
     }
 
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    int page = scrollView.contentOffset.x / scrollView.frame.size.width;
+    //    NSLog(@"%d", page);
+    
+    // 设置页码
+    _pageControl.currentPage = page;
 }
 @end

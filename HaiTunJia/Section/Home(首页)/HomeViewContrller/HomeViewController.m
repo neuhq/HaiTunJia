@@ -21,9 +21,11 @@ CHTCollectionViewDelegateWaterfallLayout>
 /**首页数据模型*/
 @property (nonatomic,strong) HomeListModel *listModel;
 
-@property(nonatomic,strong) NSArray *cellSizes;
+//模型数组
+@property (nonatomic,strong) NSMutableArray *listArray;
 
-@property(nonatomic,strong) NSArray *cats;
+//是否上拉加载更多
+@property (nonatomic,assign) BOOL isLoadMore;
 
 @end
 
@@ -34,6 +36,8 @@ CHTCollectionViewDelegateWaterfallLayout>
 {
     [super viewDidLoad];
     
+    [self initArray];
+    
     //导航栏隐藏
     self.navigationController.navigationBar.hidden = YES;
     //获取首页商品数据
@@ -42,9 +46,7 @@ CHTCollectionViewDelegateWaterfallLayout>
     //添加列表
     [self.view addSubview:self.homeCollectionView];
     
-   
-    
-   
+    [self setRefrashControl];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -100,12 +102,54 @@ CHTCollectionViewDelegateWaterfallLayout>
     __weak HomeViewController *weakSelf = self;
     HomeService *homeService = [[HomeService alloc]init];
     [homeService startRequestHomeListDataWithBlock:^(id result) {
-        self.listModel = (HomeListModel *) result;
+        
+        weakSelf.listModel = (HomeListModel *) result;
+        if(weakSelf.isLoadMore == YES)
+        {
+            for (NSInteger i = 0; i < weakSelf.listModel.data.count; i++)
+            {
+                DataModel *model = [weakSelf.listModel.data objectAtIndex:i];
+                [self.listArray addObject:model];
+            }
+        }
+        else
+        {
+            [weakSelf.listArray removeAllObjects];
+            for (NSInteger i = 0; i < weakSelf.listModel.data.count; i++)
+            {
+                DataModel *model = [weakSelf.listModel.data objectAtIndex:i];
+                [self.listArray addObject:model];
+            }
+        }
+        [weakSelf.homeCollectionView.header endRefreshing];
+        [weakSelf.homeCollectionView.footer endRefreshing];
         [weakSelf.homeCollectionView reloadData];
     }];
 }
 #pragma mark -- helper
+//上下拉刷新控件
+-(void)setRefrashControl
+{
+    // 下拉刷新
+    self.homeCollectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        // 进入刷新状态后会自动调用这个block
+        self.isLoadMore = NO;
+        [self getHomeListData];
+    }];
+    
+    // 上拉刷新
+    self.homeCollectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        // 进入刷新状态后会自动调用这个block
+        self.isLoadMore = YES;
+        [self getHomeListData];
+    }];
+}
 
+//初始化有用数组
+-(void)initArray
+{
+    self.listArray = [[NSMutableArray alloc]init];
+}
 #pragma mark -- Delegate
 
 #pragma mark - UICollectionViewDataSource
@@ -113,7 +157,7 @@ CHTCollectionViewDelegateWaterfallLayout>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if(self.listModel)
     {
-        return self.listModel.data.count;
+        return self.listArray.count;
     }
     else
         return 0;
@@ -127,7 +171,7 @@ CHTCollectionViewDelegateWaterfallLayout>
     HomeCollectionViewCell *cell =
     (HomeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HomeViewCollectionViewIndentifer
                                                                                 forIndexPath:indexPath];
-    DataModel *model = [self.listModel.data objectAtIndex:indexPath.item];
+    DataModel *model = [self.listArray objectAtIndex:indexPath.item];
     cell.dataModel = model;
     return cell;
 }
@@ -147,14 +191,14 @@ CHTCollectionViewDelegateWaterfallLayout>
 
 #pragma mark - CHTCollectionViewDelegateWaterfallLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if(self.listModel)
+    if(self.listArray)
     {
-        DataModel *model = [self.listModel.data objectAtIndex:indexPath.item];
+        DataModel *model = [self.listArray objectAtIndex:indexPath.item];
         return CGSizeMake(collectionView.width, model.cellHeight);
     }
     else
         return CGSizeMake(0, 0);
-    return [self.cellSizes[indexPath.item % 4] CGSizeValue];
+//    return [self.cellSizes[indexPath.item % 4] CGSizeValue];
 }
 
 
