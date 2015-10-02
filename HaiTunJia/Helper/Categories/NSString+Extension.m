@@ -95,4 +95,13 @@
     return  (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)string, NULL, (__bridge CFStringRef)pattern, kCFStringEncodingUTF8);
 }
 
+-(CGSize)getStringRect:(NSString*)aString withSize:(CGSize) size
+{
+    NSAttributedString* atrString = [[NSAttributedString alloc] initWithString:aString];
+    NSRange range = NSMakeRange(0, atrString.length);
+    NSDictionary* dic = [atrString attributesAtIndex:0 effectiveRange:&range];
+    size = [aString boundingRectWithSize:size  options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
+    return  size;
+}
+
 @end

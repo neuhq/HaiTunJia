@@ -31,4 +31,5 @@
 
 @interface NSString(percentEscapes)
 +(NSString *)stringByAddingPercentEscapes:(NSString *)string withEscapsePattern:(NSString *)pattern;
+-(CGSize)getStringRect:(NSString*)aString withSize:(CGSize) size;
 @end

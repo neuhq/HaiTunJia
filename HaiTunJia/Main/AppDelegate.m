@@ -29,9 +29,7 @@
     // 1.创建window
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor blackColor];
-//    HomeViewController *h = [[HomeViewController alloc]init];
-//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:h];
-//    self.window.rootViewController = nav;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [self setRootNavigationController];
     NSArray *imageArr = [self setTabBarImage];
     _leveyTabBarController = [[LeveyTabBarController alloc] initWithViewControllers:self.navigationArray imageArray:imageArr];
@@ -47,7 +45,7 @@
 -(NSArray *)setTabBarImage
 {
     NSMutableDictionary *imgDic1 = [NSMutableDictionary dictionaryWithCapacity:3];
-    [imgDic1 setObject:[UIImage imageNamed:@"tab_home_active"] forKey:@"Default"];
+    [imgDic1 setObject:[UIImage imageNamed:@"tab_home_normal"] forKey:@"Default"];
     [imgDic1 setObject:[UIImage imageNamed:@"tab_home_active"] forKey:@"Highlighted"];
     [imgDic1 setObject:[UIImage imageNamed:@"tab_home_active"] forKey:@"Seleted"];
     NSMutableDictionary *imgDic2 = [NSMutableDictionary dictionaryWithCapacity:3];
