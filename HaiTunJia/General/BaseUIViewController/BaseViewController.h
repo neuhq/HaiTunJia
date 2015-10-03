@@ -8,11 +8,35 @@
 
 @interface BaseViewController : UIViewController
 
+// 自定导航栏
+@property (nonatomic, strong) UIView *customNavigationBar;
 
-/**导航栏左边按钮*/
-@property(nonatomic,strong) UIButton *leftButton;
+// 返回按钮
+@property (nonatomic, assign) BOOL isBackButton;
 
-/**导航栏右边边按钮*/
-@property(nonatomic,strong) UIButton *rightButton;
+// 是否有导航控制器
+@property (nonatomic, assign) BOOL isNavigationBar;
 
+// 左侧导航栏按钮
+@property (nonatomic, strong) UIButton *leftBarButton;
+
+// 右侧导航栏按钮
+@property (nonatomic, strong) UIButton *rightBarButton;
+
+//是否隐藏横线
+@property (nonatomic,assign) BOOL isLineHiden;
+
+/**
+ *  重写navBarTitle方法
+ *
+ *  @param title title description
+ */
+- (void)setTitle:(NSString *)title;
+
+/**
+ *  是否隐藏tabbar
+ *
+ *  @param isHiden yes or no
+ */
+-(void)hideTabbar:(BOOL) isHiden;
 @end

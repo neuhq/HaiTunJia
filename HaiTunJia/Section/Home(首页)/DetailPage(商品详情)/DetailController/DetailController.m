@@ -10,8 +10,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"笔记详情";
-    [self.view addSubview:self.detailTableView];
+//    [self.view addSubview:self.detailTableView];
+    [self setTitle:@"笔记详情"];
 }
 -(void)viewWillAppear:(BOOL)animated
 {

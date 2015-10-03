@@ -43,7 +43,7 @@ static LeveyTabBarController *leveyTabBarController;
 	{
 		_viewControllers = [NSMutableArray arrayWithArray:vcs];
 		
-		_containerView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+		_containerView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
 		
 		_transitionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kTabBarHeight)];
 		_transitionView.backgroundColor =  [UIColor groupTableViewBackgroundColor];

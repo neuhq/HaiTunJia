@@ -94,9 +94,11 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     _requestOperation =   [manager POST:_api_url parameters:attributes success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSDictionary *result = [responseObject objectFromJSONData];
+        NSLog(@"result:%@",result);
                 finishBlock(result);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [operation cancel];
         weakSelf.requestOperation = nil;
     }];
     NSLog(@"%@",_requestOperation);

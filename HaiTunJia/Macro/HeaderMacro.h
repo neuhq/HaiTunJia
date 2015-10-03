@@ -5,6 +5,8 @@
 #ifndef HaiTunJia_HeaderMacro_h
 #define HaiTunJia_HeaderMacro_h
 
+#import "AppDelegate.h"
+
 //系统宏头文件
 #import "SystemMacro.h"
 
@@ -32,5 +34,6 @@
 //刷新控件
 #import "MJRefresh.h"
 
+#import "NetworkErrorCode.h"
 #endif
 

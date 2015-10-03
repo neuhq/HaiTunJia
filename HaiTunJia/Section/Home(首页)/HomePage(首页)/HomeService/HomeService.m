@@ -10,15 +10,16 @@
 
 @implementation HomeService
 
--(void)startRequestHomeListDataWithBlock:(HomeListDataInfoBlock) listInfoBlock withFailureBlock:(FailureBlock) failureBlock
-
+-(void)startRequestHomeListDataWithLastCommodityId:(NSString *) lastCommodityId
+                                                                          withBlock:(HomeListDataInfoBlock) listInfoBlock
+                                                               withFailureBlock:(FailureBlock) failureBlock
 {
     HomeService *homeService = [self initWithApiUrl:kApi_GetCommodityList];
     [homeService requestDataWithParamsBlcok:^{
-        self.userId = @"90";
-        self.lastCommodityId = @"277";
+        self.userId = kUSERID;
+        self.lastCommodityId = lastCommodityId;
     } FinishBlock:^(id result) {
-       self.listModel = [HomeListModel objectWithKeyValues:result];
+        self.listModel = [HomeListModel objectWithKeyValues:result];
         [self.listModel getHeightWithHomeListModel:self.listModel];
         NSLog(@"result:%@",result);
         listInfoBlock(self.listModel);
@@ -26,5 +27,6 @@
         failureBlock(error);
         NSLog(@"错误");
     }];
+
 }
 @end

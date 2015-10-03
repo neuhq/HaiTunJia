@@ -51,6 +51,9 @@
 //导航栏高度
 #define kNavigationBarHeight     64.0f
 
+// 获取状态栏的高度
+#define kStatusBar_Height ((SYSTEM_VERSION_NOLESS_THAN_7) ? 0 : 20)
+
 //iPhone 屏幕尺寸,已去掉status bar的高度
 #define PHONE_SCREEN_SIZE  (CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT - PHONE_STATUSBAR_HEIGHT))
 
@@ -74,5 +77,6 @@ _Pragma("clang diagnostic pop") \
 // url转义字符
 #define URL_PERCENT_ESCAPES @"!*'();:@&=+$,/?%#[]"
 
+#define kUSERID      @"90"
 
 #endif

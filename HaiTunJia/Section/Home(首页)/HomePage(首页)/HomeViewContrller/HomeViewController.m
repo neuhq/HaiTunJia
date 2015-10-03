@@ -5,7 +5,8 @@
 #import "HomeCollectionHeaderView.h"
 #import "HomeService.h"
 #import "HomeListModel.h"
-#import "TLCollectionWaterFallFlow.h"
+#import "DetailController.h"
+#import "LoginViewController.h"
 //collectionViewCell标识
 static NSString *const HomeViewCollectionViewIndentifer =  @"HomeViewCollectionViewIndentifer";
 
@@ -30,7 +31,8 @@ UICollectionViewDelegateFlowLayout>
 //是否上拉加载更多
 @property (nonatomic,assign) BOOL isLoadMore;
 
-@property (nonatomic, strong) TLCollectionWaterFallFlow *layout;
+//用于分页
+@property (nonatomic,strong) NSString * lastCommodityId;
 
 @end
 
@@ -44,7 +46,8 @@ UICollectionViewDelegateFlowLayout>
     [self initArray];
     
     //导航栏隐藏
-    self.navigationController.navigationBar.hidden = YES;
+    self.isNavigationBar = YES;
+    
     //获取首页商品数据
     [self getHomeListData];
     
@@ -56,14 +59,23 @@ UICollectionViewDelegateFlowLayout>
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    self.hidesBottomBarWhenPushed = YES;
     [super viewWillAppear:animated];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
+    [self hideTabbar:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [super viewDidAppear:animated];
 }
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self hideTabbar:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    [super viewWillDisappear:animated];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -80,7 +92,7 @@ UICollectionViewDelegateFlowLayout>
         layout.headerHeight = 230;
         layout.minimumColumnSpacing = 10;
         layout.minimumInteritemSpacing = 10;
-        _homeCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, -PHONE_STATUSBAR_HEIGHT, kScreenWidth, kScreenHeight - CONTENT_TABBAR_HEIGHT + 40.0f) collectionViewLayout:layout];
+        _homeCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth,kScreenHeight - CONTENT_TABBAR_HEIGHT ) collectionViewLayout:layout];
         _homeCollectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _homeCollectionView.dataSource = self;
         _homeCollectionView.delegate = self;
@@ -99,7 +111,7 @@ UICollectionViewDelegateFlowLayout>
 {
     __weak HomeViewController *weakSelf = self;
     HomeService *homeService = [[HomeService alloc]init];
-    [homeService startRequestHomeListDataWithBlock:^(id result) {
+    [homeService startRequestHomeListDataWithLastCommodityId:self.lastCommodityId withBlock:^(id result) {
         weakSelf.listModel = (HomeListModel *) result;
         if(weakSelf.isLoadMore == YES)
         {
@@ -109,7 +121,7 @@ UICollectionViewDelegateFlowLayout>
                 [self.listArray addObject:model];
             }
             DataModel *model = self.listArray.lastObject;
-            homeService.lastCommodityId = [NSString stringWithFormat:@"%ld",model.iD];
+            weakSelf.lastCommodityId = [NSString stringWithFormat:@"%ld",model.iD];
         }
         else
         {
@@ -120,15 +132,14 @@ UICollectionViewDelegateFlowLayout>
                 [self.listArray addObject:model];
             }
             DataModel *model = self.listArray.lastObject;
-            homeService.lastCommodityId = [NSString stringWithFormat:@"%ld",model.iD];
+            weakSelf.lastCommodityId = [NSString stringWithFormat:@"%ld",model.iD];
         }
-        [weakSelf.homeCollectionView.header endRefreshing];
-        [weakSelf.homeCollectionView.footer endRefreshing];
+        [self endRefrashLoad];
         [weakSelf.homeCollectionView reloadData];
 
     } withFailureBlock:^(NSError *error) {
-        [weakSelf.homeCollectionView.header endRefreshing];
-        [weakSelf.homeCollectionView.footer endRefreshing];
+        [self endRefrashLoad];
+
     }];
 }
 #pragma mark -- helper
@@ -140,6 +151,7 @@ UICollectionViewDelegateFlowLayout>
     self.homeCollectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
         weakSelf.isLoadMore = NO;
+        self.lastCommodityId = @"";
         [weakSelf getHomeListData];
     }];
     
@@ -151,11 +163,20 @@ UICollectionViewDelegateFlowLayout>
     }];
 }
 
+//结束刷新状态
+-(void)endRefrashLoad
+{
+    [self.homeCollectionView.header endRefreshing];
+    [self.homeCollectionView.footer endRefreshing];
+
+}
 //初始化有用数组
 -(void)initArray
 {
     self.listArray = [[NSMutableArray alloc]init];
 }
+
+
 #pragma mark -- Delegate
 
 #pragma mark - UICollectionViewDataSource
@@ -194,8 +215,14 @@ UICollectionViewDelegateFlowLayout>
     }
     return reusableView;
 }
-
-#pragma mark - CHTCollectionViewDelegateWaterfallLayout
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//    DetailController *detail = [[DetailController alloc]init];
+//    detail.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:detail animated:YES];
+    LoginViewController *loginVC = [[LoginViewController alloc]init];
+    [self.navigationController pushViewController:loginVC animated:YES];
+}
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if(self.listArray)
     {

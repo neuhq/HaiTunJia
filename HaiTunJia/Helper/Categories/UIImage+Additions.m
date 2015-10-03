@@ -790,7 +790,19 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     UIGraphicsEndImageContext();
     return newImage;
 }
-
++ (UIImage *)createImageWithColor:(UIColor *)color rect:(CGRect)rect
+{
+    // 解决锯齿问题
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, [UIScreen mainScreen].scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return theImage;
+    
+}
 @end
 
 

@@ -96,4 +96,5 @@
 + (void)hue:(CGFloat)h saturation:(CGFloat)s brightness:(CGFloat)v toRed:(CGFloat *)r green:(CGFloat *)g blue:(CGFloat *)b;
 + (void)red:(CGFloat)r green:(CGFloat)g blue:(CGFloat)b toHue:(CGFloat *)h saturation:(CGFloat *)s brightness:(CGFloat *)v;
 
++ (UIColor *)colorWithHex:(NSString *)hexColor withAlpha:(float)alpha_;
 @end

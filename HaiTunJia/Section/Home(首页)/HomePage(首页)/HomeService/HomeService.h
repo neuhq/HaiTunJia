@@ -17,7 +17,8 @@ typedef void (^FailureBlock) (NSError * error);
  *
  *  @param listInfoBlock 返回的商品数据存block,传回controller做逻辑层
  */
--(void)startRequestHomeListDataWithBlock:(HomeListDataInfoBlock) listInfoBlock
-                                            withFailureBlock:(FailureBlock ) failureBlock;
+-(void)startRequestHomeListDataWithLastCommodityId:(NSString *) lastCommodityId
+                                         withBlock:(HomeListDataInfoBlock) listInfoBlock
+                                  withFailureBlock:(FailureBlock) failureBlock;
 
 @end

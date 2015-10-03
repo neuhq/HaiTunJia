@@ -57,4 +57,8 @@ typedef enum{
 + (long long)check:(UIImage *)image;
 //指定宽度按比例缩放
 +(UIImage *) imageCompressForWidth:(UIImage *)sourceImage targetWidth:(CGFloat)defineWidth;
+
+//根据颜色创建一张图片
++ (UIImage *)createImageWithColor:(UIColor *)color rect:(CGRect)rect;
+
 @end
