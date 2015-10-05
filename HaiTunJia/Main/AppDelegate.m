@@ -7,12 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "HomeViewController.h"
 #import "LeveyTabBarController.h"
-#import "UpLoadPhotoController.h"
-#import "HotCategoryViewController.h"
-#import "MessageController.h"
-#import "UINavigationController+FDFullscreenPopGesture.h"
 #import "AppDelegateHelper.h"
 @interface AppDelegate ()
 <UINavigationControllerDelegate>

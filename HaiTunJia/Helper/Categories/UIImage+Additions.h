@@ -61,4 +61,5 @@ typedef enum{
 //根据颜色创建一张图片
 + (UIImage *)createImageWithColor:(UIColor *)color rect:(CGRect)rect;
 
+-(UIImage *)blurryImage:(UIImage *)image withBlurLevel:(CGFloat)blur;
 @end

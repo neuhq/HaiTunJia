@@ -1,11 +1,11 @@
 
 #import "AppDelegateHelper.h"
-#import "UpLoadPhotoController.h"
+#import "PhotoAlbumViewController.h"
 #import "HotCategoryViewController.h"
-#import "MessageController.h"
+#import "MessageIndexViewController.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "HomeViewController.h"
-
+#import "UserViewController.h"
 @interface AppDelegateHelper ()
 
 @end
@@ -43,9 +43,10 @@
 {
     HomeViewController *home = [[HomeViewController alloc]init];
     HotCategoryViewController *hot = [[HotCategoryViewController alloc]init];
-    UpLoadPhotoController *upload = [[UpLoadPhotoController alloc]init];
-    MessageController *message = [[MessageController alloc]init];
-    NSArray *array = [NSArray arrayWithObjects:home,hot,upload,message, nil];
+    PhotoAlbumViewController *photo = [[PhotoAlbumViewController alloc]init];
+    MessageIndexViewController *message = [[MessageIndexViewController alloc]init];
+    UserViewController *user = [[UserViewController alloc]init];
+    NSArray *array = [NSArray arrayWithObjects:home,hot,photo,message, user,nil];
     NSMutableArray *mutArray= [[NSMutableArray alloc]init];
     for(UIViewController *vc in array)
     {

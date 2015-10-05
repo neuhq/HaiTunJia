@@ -58,8 +58,7 @@ UICollectionViewDelegateFlowLayout>
 {
     [super viewDidLoad];
     
-    self.isNavigationBar = NO;
-    [self setTitle:@"搜索"];
+    [self viewConfig];
     
     [self initSpace];
     
@@ -95,6 +94,13 @@ UICollectionViewDelegateFlowLayout>
 }
 
 #pragma mark -- UI
+-(void)viewConfig
+{
+    self.isNavigationBar = NO;
+    [self setTitle:@"搜索"];
+    self.rightBarButton.hidden = NO;
+    self.rightView = @"只看可买";
+}
 - (UICollectionView *)seachResultCollectionView
 {
     if (!_seachResultCollectionView)

@@ -20,11 +20,18 @@
 // 左侧导航栏按钮
 @property (nonatomic, strong) UIButton *leftBarButton;
 
+//左边按钮文字模式
+@property (nonatomic,strong) UIButton *leftButtonWithWord;
+
+@property (nonatomic,strong) NSString *leftButtonWithWordString;
+
 // 右侧导航栏按钮
 @property (nonatomic, strong) UIButton *rightBarButton;
 
 //是否隐藏横线
 @property (nonatomic,assign) BOOL isLineHiden;
+
+@property (nonatomic,strong) id rightView;
 
 /**
  *  重写navBarTitle方法

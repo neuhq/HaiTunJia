@@ -3,6 +3,7 @@
 #import "UIColor+Expanded.h"
 
 static const CGFloat kBaseViewControllerLineHeight = 0.5f;
+static const CGFloat kBaseViewControllerOffset   = 10.0f;
 
 @interface BaseViewController ()
 
@@ -19,11 +20,14 @@ static const CGFloat kBaseViewControllerLineHeight = 0.5f;
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
     //设置通用的背景颜色
-     self.view.backgroundColor = [UIColor colorWithHexString:@"ffffff"];
+     self.view.backgroundColor = [UIColor colorWithHexString:@"efeff4"];
     [self.view addSubview:self.customNavigationBar];
     [self.customNavigationBar addSubview:self.leftBarButton];
+    [self.customNavigationBar addSubview:self.rightBarButton];
     [self.customNavigationBar addSubview:self.navBarTitle];
     [self.customNavigationBar addSubview:self.navBarLine];
+    
+    self.rightBarButton.hidden = YES;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -46,6 +50,7 @@ static const CGFloat kBaseViewControllerLineHeight = 0.5f;
         _customNavigationBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kNavigationBarHeight)];
         _customNavigationBar.backgroundColor = [UIColor whiteColor];
         _customNavigationBar.userInteractionEnabled = YES;
+        _customNavigationBar.userInteractionEnabled = YES;
     }
     return _customNavigationBar;
 }
@@ -54,8 +59,8 @@ static const CGFloat kBaseViewControllerLineHeight = 0.5f;
     if (!_navBarTitle)
     {
         // 2.创建标题视图
-        UIImage *image = [UIImage imageNamed:@"icon_back"];
-         _navBarTitle = [[UILabel alloc] initWithFrame:CGRectMake(self.leftBarButton.right, 20 - kStatusBar_Height, kScreenWidth - 40 - 2*image.size.width, 44)];
+//        UIImage *image = [UIImage imageNamed:@"icon_back"];
+         _navBarTitle = [[UILabel alloc] initWithFrame:CGRectMake(44, 20 - kStatusBar_Height, kScreenWidth  - 88, 44)];
         _navBarTitle.backgroundColor = [UIColor clearColor];
         _navBarTitle.textColor = [UIColor colorWithHexString:@"626a73"];
         _navBarTitle.font = [UIFont boldSystemFontOfSize:17];
@@ -75,13 +80,40 @@ static const CGFloat kBaseViewControllerLineHeight = 0.5f;
         [_leftBarButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
         [_leftBarButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateHighlighted];
         [_leftBarButton sizeToFit];
-        _leftBarButton.frame= CGRectMake(10, (44 - _leftBarButton.height) / 2.0 + (20 -kStatusBar_Height), _leftBarButton.width, _leftBarButton.height);
+        _leftBarButton.frame= CGRectMake(kBaseViewControllerOffset, (44 - _leftBarButton.height) / 2.0 + (20 -kStatusBar_Height), _leftBarButton.width, _leftBarButton.height);
         // 添加按钮事件
         [_leftBarButton addTarget:self action:@selector(goBackAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _leftBarButton;
 }
+- (UIButton *)leftButtonWithWord
+{
+    if(!_leftButtonWithWord)
+    {
+        // 创建返回按钮
+        _leftButtonWithWord = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_leftButtonWithWord sizeToFit];
+        _leftButtonWithWord.frame= CGRectMake(kBaseViewControllerOffset, (44 - _leftBarButton.height) / 2.0 + (20 -kStatusBar_Height), _leftBarButton.width, _leftBarButton.height);
+        // 添加按钮事件
+        _leftButtonWithWord.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+        [_leftButtonWithWord setTitleColor:[UIColor colorWithHexString:@"a4a4ae"] forState:UIControlStateNormal];
+        [_leftButtonWithWord setTitleColor:[UIColor colorWithHex:@"#a4a4ae" withAlpha:0.7f] forState:UIControlStateHighlighted];
+        [_leftButtonWithWord addTarget:self action:@selector(goBackAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _leftButtonWithWord;
+}
 
+-(UIButton *) rightBarButton
+{
+    if (!_rightBarButton)
+    {
+        // 创建返回按钮
+        _rightBarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        // 添加按钮事件
+        [_rightBarButton addTarget:self action:@selector(rightButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _rightBarButton;
+}
 -(UIView *)navBarLine
 {
     if (!_navBarLine)
@@ -115,9 +147,41 @@ static const CGFloat kBaseViewControllerLineHeight = 0.5f;
     [appDelegate.leveyTabBarController  hidesTabBar:isHiden animated:YES];
 
 }
+-(void)setRightView:(NSObject *)rightView
+{
+    if ([rightView isKindOfClass:[UIImage class]])
+    {
+        UIImage *image = (UIImage *) rightView;
+        self.rightBarButton.frame = CGRectMake(kScreenWidth - kBaseViewControllerOffset - image.size.width,(44 - image.size.height) / 2.0 + (20 -kStatusBar_Height) , image.size.width, image.size.height);
+        [self.rightBarButton setBackgroundImage:image forState:UIControlStateNormal];
+        [self.rightBarButton setBackgroundImage:image forState:UIControlStateHighlighted];
+    }
+    else if ([rightView isKindOfClass:[NSString class]])
+    {
+        NSString *string = (NSString *) rightView;
+        UIFont *font = [UIFont systemFontOfSize:14.0f];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        self.rightBarButton.frame = CGRectMake(kScreenWidth - kBaseViewControllerOffset - size.width,(44 - size.height) / 2.0 + (20 -kStatusBar_Height) , size.width, size.height);
+        [self.rightBarButton setTitle:string forState:UIControlStateNormal];
+        [self.rightBarButton setTitle:string forState:UIControlStateHighlighted];
+        self.rightBarButton.titleLabel.font = font;
+        [self.rightBarButton setTitleColor:[UIColor colorWithHexString:@"a4a4ae"] forState:UIControlStateNormal];
+        [self.rightBarButton setTitleColor:[UIColor colorWithHex:@"#a4a4ae" withAlpha:0.7f] forState:UIControlStateHighlighted];
+    }
+}
+-(void)setLeftButtonWithWordString:(NSString *)leftButtonWithWordString
+{
+//    self.leftButtonWithWordString = leftButtonWithWordString;
+    [self.leftButtonWithWord setTitle:leftButtonWithWordString forState:UIControlStateNormal];
+    [self.leftButtonWithWord setTitle:leftButtonWithWordString forState:UIControlStateNormal];
+}
 #pragma mark -- Action
 -(void)goBackAction
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)rightButtonAction
+{
+    
 }
 @end

@@ -182,7 +182,7 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
         [self.bottomRightView       addSubview:self.zanImageButton];
         [self.bottomRightView       addSubview:self.zanNum];
         
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor whiteColor];
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 4.0f;
         self.layer.borderWidth = 0.5f;

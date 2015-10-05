@@ -1,0 +1,310 @@
+
+#import "UserHeaderView.h"
+#import "CustomTabView.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+const CGFloat kUserHeaderTopBgViewHeight  =  124.0f;
+const CGFloat kUserHeaderBottomBgViewHeight  = 55.0f;
+const CGFloat kUserHeaderSamllAvatarBgHeight   = 85.0f;
+const CGFloat kUserHeaderSamllAvatarHeight   = 74.0;
+
+@interface UserHeaderView ()
+<CustomTabViewDelegete>
+
+@property(nonatomic,strong) UIView *bgView;
+
+@property(nonatomic,strong) UIView *topBgView;
+
+@property(nonatomic,strong) UIView *midleBgView;
+
+@property(nonatomic,strong) UIView *bottomBgView;
+
+@property(nonatomic,strong) UIImageView *bigAvatar;
+
+@property(nonatomic,strong) UIView *samllAvatarBgView;
+
+@property(nonatomic,strong) UIButton *smallAvatar;
+
+@property(nonatomic,strong) UILabel *name;
+
+@property(nonatomic,strong) UILabel *concernLabel;
+
+@property(nonatomic,strong) UILabel *concerNum;
+
+@property(nonatomic,strong) UILabel *fansLabel;
+
+@property(nonatomic,strong) UILabel *fansNum;
+
+@property(nonatomic,strong) UILabel *address;
+
+@property(nonatomic,strong) UILabel *Introduction;
+
+@property(nonatomic,strong) CustomTabView *tab;
+
+@property(nonatomic,strong) UIView *line;
+
+@end
+@implementation UserHeaderView
+
+-(id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        self.backgroundColor = [UIColor whiteColor];
+        [self addSubview:self.bgView];
+        [self.bgView addSubview:self.topBgView];
+        [self.topBgView addSubview:self.bigAvatar];
+        [self.topBgView addSubview:self.samllAvatarBgView];
+        [self.topBgView addSubview:self.smallAvatar];
+        
+        [self.midleBgView addSubview:self.name];
+        [self.midleBgView addSubview:self.concerNum];
+        [self.midleBgView addSubview:self.concernLabel];
+        [self.midleBgView addSubview:self.fansLabel];
+        [self.midleBgView addSubview:self.fansNum];
+        [self.midleBgView addSubview:self.address];
+        [self.midleBgView addSubview:self.Introduction];
+        [self.midleBgView addSubview:self.line];
+        [self.bgView addSubview:self.midleBgView];
+        
+        [self.bgView addSubview:self.bottomBgView];
+        [self.bottomBgView addSubview:self.tab];
+    }
+    return self;
+}
+
+-(UIView *) bgView
+{
+    if (!_bgView)
+    {
+        _bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, self.height)];
+        _bgView.backgroundColor = [UIColor whiteColor];
+    }
+    return _bgView;
+}
+-(UIView *) topBgView
+{
+    if (!_topBgView)
+    {
+        _topBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kUserHeaderTopBgViewHeight)];
+        _topBgView.backgroundColor = [UIColor whiteColor];
+    }
+    return _topBgView;
+}
+-(UIView *) midleBgView
+{
+    if (!_midleBgView)
+    {
+        _midleBgView = [[UIView alloc]initWithFrame:CGRectMake(0, self.topBgView.bottom, kScreenWidth, self.Introduction.bottom + 16.0f)];
+        _midleBgView.backgroundColor = [UIColor whiteColor];
+    }
+    return _midleBgView;
+}
+-(UIView *) bottomBgView
+{
+    if (!_bottomBgView)
+    {
+        _bottomBgView = [[UIView alloc]initWithFrame:CGRectMake(0, self.midleBgView.bottom, kScreenWidth, kUserHeaderBottomBgViewHeight)];
+        _bottomBgView.backgroundColor = [UIColor whiteColor];
+    }
+    return _bottomBgView;
+}
+-(UIImageView *) bigAvatar
+{
+    if (!_bigAvatar)
+    {
+        _bigAvatar = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 104)];
+        _bigAvatar.backgroundColor = [UIColor clearColor];
+        [_bigAvatar sd_setImageWithURL:[NSURL URLWithString:@"http://p1.so.qhimg.com/t01a430ba22a2f43b0b.jpg"]];
+    }
+    return _bigAvatar;
+}
+
+-(UIView *) samllAvatarBgView
+{
+    if (!_samllAvatarBgView)
+    {
+        _samllAvatarBgView = [[UIView alloc]initWithFrame:CGRectMake((kScreenWidth - kUserHeaderSamllAvatarBgHeight)/2, self.topBgView.height - kUserHeaderSamllAvatarBgHeight, kUserHeaderSamllAvatarBgHeight, kUserHeaderSamllAvatarBgHeight)];
+        _samllAvatarBgView.backgroundColor = [UIColor whiteColor];
+        _samllAvatarBgView.layer.masksToBounds = YES;
+        _samllAvatarBgView.layer.cornerRadius = kUserHeaderSamllAvatarBgHeight/2;
+        _samllAvatarBgView.layer.borderWidth = 0.5f;
+        _samllAvatarBgView.layer.borderColor = [[UIColor colorWithHex:@"#bbbbbb"] CGColor];
+        
+    }
+    return _samllAvatarBgView;
+}
+-(UIButton *) smallAvatar
+{
+    if (!_smallAvatar)
+    {
+        _smallAvatar = [UIButton buttonWithType:UIButtonTypeCustom];
+        _smallAvatar.frame = CGRectMake((kScreenWidth - kUserHeaderSamllAvatarHeight)/2, self.topBgView.height - kUserHeaderSamllAvatarHeight - 5, kUserHeaderSamllAvatarHeight, kUserHeaderSamllAvatarHeight);
+        _smallAvatar.layer.masksToBounds = YES;
+        _smallAvatar.layer.cornerRadius = kUserHeaderSamllAvatarHeight/2;
+        _smallAvatar.backgroundColor = [UIColor clearColor];
+        [_smallAvatar sd_setImageWithURL:[NSURL URLWithString:@"http://p1.so.qhimg.com/t01a430ba22a2f43b0b.jpg"] forState:UIControlStateNormal];
+    }
+    return _smallAvatar;
+}
+-(UILabel *) name
+{
+    if (!_name)
+    {
+        NSString *string= @"海豚家";
+        UIFont *font = [UIFont boldSystemFontOfSize:18.0f];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        _name = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, kScreenWidth, size.height)];
+        _name.text = string;
+        _name.textColor = [UIColor colorWithHex:@"#464b51"];
+        _name.font = [UIFont systemFontOfSize:18.0f];
+        _name.textAlignment = NSTextAlignmentCenter;
+        _name.backgroundColor = [UIColor clearColor];
+    }
+    return _name;
+}
+-(UILabel *)concerNum
+{
+    if (!_concerNum)
+    {
+        NSString *string= @"809";
+        UIFont *font = [UIFont fontWithName:@"Helvetica-Bold" size:13.0f];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        _concerNum = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth/2 - size.width - 10, self.name.bottom + 12.0f, size.width,size.height)];
+        _concerNum.text = string;
+        _concerNum.textColor = [UIColor colorWithHex:@"#9696a0"];
+        _concerNum.font = font;
+        _concerNum.textAlignment = NSTextAlignmentCenter;
+        _concerNum.backgroundColor = [UIColor clearColor];
+    }
+    return _concerNum;
+}
+
+-(UILabel *)concernLabel
+{
+    if (!_concernLabel)
+    {
+        NSString *string= @"关注：";
+        UIFont *font = [UIFont systemFontOfSize:13.0f];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        _concernLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.concerNum.left - size.width, self.name.bottom + 12.0f,size.width, size.height)];
+        _concernLabel.text = string;
+        _concernLabel.textColor = [UIColor colorWithHex:@"#9696a0"];
+        _concernLabel.font = [UIFont systemFontOfSize:13.0f];
+        _concernLabel.textAlignment = NSTextAlignmentCenter;
+        _concernLabel.backgroundColor = [UIColor clearColor];
+    }
+    return _concernLabel;
+}
+
+-(UILabel *) fansLabel
+{
+    if (!_fansLabel)
+    {
+        NSString *string= @"粉丝：";
+        UIFont *font = [UIFont systemFontOfSize:13.0f];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        _fansLabel = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth/2 + 10, self.concerNum.top,size.width, size.height)];
+        _fansLabel.text = string;
+        _fansLabel.textColor = [UIColor colorWithHex:@"#9696a0"];
+        _fansLabel.font = [UIFont systemFontOfSize:13.0f];
+        _fansLabel.textAlignment = NSTextAlignmentCenter;
+        _fansLabel.backgroundColor = [UIColor clearColor];
+
+    }
+    return _fansLabel;
+}
+-(UILabel *) fansNum
+{
+    if (!_fansNum)
+    {
+        NSString *string= @"809";
+        UIFont *font = [UIFont fontWithName:@"Helvetica-Bold" size:13.0f];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        _fansNum = [[UILabel alloc]initWithFrame:CGRectMake(self.fansLabel.right, self.fansLabel.top, size.width,size.height)];
+        _fansNum.text = string;
+        _fansNum.textColor = [UIColor colorWithHex:@"#9696a0"];
+        _fansNum.font = font;
+        _fansNum.textAlignment = NSTextAlignmentCenter;
+        _fansNum.backgroundColor = [UIColor clearColor];
+    }
+    return _fansNum;
+
+}
+-(UILabel *)address
+{
+    if (!_address)
+    {
+        NSString *string= @"中国，北京" ;
+        UIFont *font = [UIFont systemFontOfSize:12.0f];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        _address = [[UILabel alloc]initWithFrame:CGRectMake(0, self.concernLabel.bottom + 20.0f, kScreenWidth/2, size.height)];
+        _address.text = string;
+        _address.textColor = [UIColor colorWithHex:@"#7a8187"];
+        _address.font = [UIFont systemFontOfSize:12.0f];
+        _address.textAlignment = NSTextAlignmentCenter;
+        _address.backgroundColor = [UIColor clearColor];
+    }
+    return _address;
+}
+-(UILabel *) Introduction
+{
+    if (!_Introduction)
+    {
+        NSString *string= @"简介：爱生活，爱海豚家" ;
+        UIFont *font = [UIFont systemFontOfSize:12.0f];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        _Introduction = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth/2 + 10, self.address.top, kScreenWidth/2 - 20, size.height)];
+        _Introduction.text = string;
+        _Introduction.textColor = [UIColor colorWithHex:@"#7a8187"];
+        _Introduction.font = [UIFont systemFontOfSize:12.0f];
+        _Introduction.textAlignment = NSTextAlignmentCenter;
+        _Introduction.backgroundColor = [UIColor clearColor];
+    }
+    return _Introduction;
+}
+
+-(UIView *) line
+{
+    if (!_line)
+    {
+        _line = [[UIView alloc]initWithFrame:CGRectMake(0, self.midleBgView.height - 0.5f, kScreenWidth, 0.5f)];
+        _line.backgroundColor = [UIColor colorWithHex:@"#7a8187"];
+    }
+    return _line;
+}
+-(CustomTabView *) tab
+{
+    if (!_tab)
+    {
+        _tab = [[CustomTabView alloc]initWithDlegate:self withArr:@[@"笔记",@"收藏"]];
+        _tab.backgroundColor = [UIColor whiteColor];
+    }
+    return _tab;
+}
+#pragma mark -- helper
+-(void)getHeaderHeight
+{
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@end
