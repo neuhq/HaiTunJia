@@ -6,4 +6,6 @@
 
 @property(nonatomic,strong) NSMutableArray *imageListArray;
 
+@property(nonatomic,strong) NSMutableArray *photoModelArray;
+
 @end

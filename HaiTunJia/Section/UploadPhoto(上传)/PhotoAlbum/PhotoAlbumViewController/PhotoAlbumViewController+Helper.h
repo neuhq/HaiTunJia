@@ -6,4 +6,6 @@
 
 -(void)getAllLocalPhotoGroup;
 
+- (void)getImage:(NSString *)urlStr cell:(PhotoAlbumCollectionViewCell *) cell;
+
 @end

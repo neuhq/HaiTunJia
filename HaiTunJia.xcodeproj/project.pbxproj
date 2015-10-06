@@ -183,6 +183,10 @@
 		AD893BB21BC22B890050C5AD /* icon_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD893BB11BC22B890050C5AD /* icon_pic@2x.png */; settings = {ASSET_TAGS = (); }; };
 		AD893BB41BC22B930050C5AD /* icon_pic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD893BB31BC22B930050C5AD /* icon_pic@3x.png */; settings = {ASSET_TAGS = (); }; };
 		AD893BB71BC287B20050C5AD /* PhotoAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD893BB61BC287B20050C5AD /* PhotoAlbumModel.m */; settings = {ASSET_TAGS = (); }; };
+		AD893BBA1BC3724A0050C5AD /* LoginServiceWithVerifyCode.m in Sources */ = {isa = PBXBuildFile; fileRef = AD893BB91BC3724A0050C5AD /* LoginServiceWithVerifyCode.m */; settings = {ASSET_TAGS = (); }; };
+		AD893BBD1BC375140050C5AD /* GetVerifyCodeService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD893BBC1BC375140050C5AD /* GetVerifyCodeService.m */; settings = {ASSET_TAGS = (); }; };
+		AD893BC51BC38B570050C5AD /* MyFansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD893BC41BC38B570050C5AD /* MyFansViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AD893BC81BC38D230050C5AD /* MyFansViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD893BC71BC38D230050C5AD /* MyFansViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		AD9B3D181BBBAA4B001078B9 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9B3D021BBBAA4B001078B9 /* MJDictionaryCache.m */; settings = {ASSET_TAGS = (); }; };
 		AD9B3D191BBBAA4B001078B9 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9B3D051BBBAA4B001078B9 /* MJExtensionConst.m */; settings = {ASSET_TAGS = (); }; };
 		AD9B3D1A1BBBAA4B001078B9 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9B3D071BBBAA4B001078B9 /* MJFoundation.m */; settings = {ASSET_TAGS = (); }; };
@@ -574,6 +578,14 @@
 		AD893BB31BC22B930050C5AD /* icon_pic@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pic@3x.png"; sourceTree = "<group>"; };
 		AD893BB51BC287B20050C5AD /* PhotoAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAlbumModel.h; sourceTree = "<group>"; };
 		AD893BB61BC287B20050C5AD /* PhotoAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAlbumModel.m; sourceTree = "<group>"; };
+		AD893BB81BC3724A0050C5AD /* LoginServiceWithVerifyCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginServiceWithVerifyCode.h; sourceTree = "<group>"; };
+		AD893BB91BC3724A0050C5AD /* LoginServiceWithVerifyCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginServiceWithVerifyCode.m; sourceTree = "<group>"; };
+		AD893BBB1BC375140050C5AD /* GetVerifyCodeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetVerifyCodeService.h; sourceTree = "<group>"; };
+		AD893BBC1BC375140050C5AD /* GetVerifyCodeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetVerifyCodeService.m; sourceTree = "<group>"; };
+		AD893BC31BC38B570050C5AD /* MyFansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFansViewController.h; sourceTree = "<group>"; };
+		AD893BC41BC38B570050C5AD /* MyFansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFansViewController.m; sourceTree = "<group>"; };
+		AD893BC61BC38D230050C5AD /* MyFansViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFansViewCell.h; sourceTree = "<group>"; };
+		AD893BC71BC38D230050C5AD /* MyFansViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFansViewCell.m; sourceTree = "<group>"; };
 		AD9B3D011BBBAA4B001078B9 /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
 		AD9B3D021BBBAA4B001078B9 /* MJDictionaryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDictionaryCache.m; sourceTree = "<group>"; };
 		AD9B3D031BBBAA4B001078B9 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -841,6 +853,7 @@
 		AD13B7E81BBC303600AA3142 /* Message(消息) */ = {
 			isa = PBXGroup;
 			children = (
+				AD893BBE1BC38B380050C5AD /* MyFans */,
 				ADCD774C1BC020E2004B6493 /* MessageIndex */,
 			);
 			path = "Message(消息)";
@@ -1175,6 +1188,10 @@
 		AD51BAAF1BBE725800C94388 /* LoginService */ = {
 			isa = PBXGroup;
 			children = (
+				AD893BB81BC3724A0050C5AD /* LoginServiceWithVerifyCode.h */,
+				AD893BB91BC3724A0050C5AD /* LoginServiceWithVerifyCode.m */,
+				AD893BBB1BC375140050C5AD /* GetVerifyCodeService.h */,
+				AD893BBC1BC375140050C5AD /* GetVerifyCodeService.m */,
 			);
 			path = LoginService;
 			sourceTree = "<group>";
@@ -1563,6 +1580,49 @@
 				ADCD772C1BBFD926004B6493 /* NetworkErrorCode.m */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		AD893BBE1BC38B380050C5AD /* MyFans */ = {
+			isa = PBXGroup;
+			children = (
+				AD893BBF1BC38B380050C5AD /* MyFansModel */,
+				AD893BC01BC38B380050C5AD /* MyFansService */,
+				AD893BC11BC38B380050C5AD /* MyFansView */,
+				AD893BC21BC38B380050C5AD /* MyFansViewController */,
+			);
+			path = MyFans;
+			sourceTree = "<group>";
+		};
+		AD893BBF1BC38B380050C5AD /* MyFansModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MyFansModel;
+			sourceTree = "<group>";
+		};
+		AD893BC01BC38B380050C5AD /* MyFansService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MyFansService;
+			sourceTree = "<group>";
+		};
+		AD893BC11BC38B380050C5AD /* MyFansView */ = {
+			isa = PBXGroup;
+			children = (
+				AD893BC61BC38D230050C5AD /* MyFansViewCell.h */,
+				AD893BC71BC38D230050C5AD /* MyFansViewCell.m */,
+			);
+			path = MyFansView;
+			sourceTree = "<group>";
+		};
+		AD893BC21BC38B380050C5AD /* MyFansViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD893BC31BC38B570050C5AD /* MyFansViewController.h */,
+				AD893BC41BC38B570050C5AD /* MyFansViewController.m */,
+			);
+			path = MyFansViewController;
 			sourceTree = "<group>";
 		};
 		AD9B3D001BBBAA4B001078B9 /* MJExtension */ = {
@@ -2218,7 +2278,10 @@
 				ADCD772A1BBFCAB6004B6493 /* SearchWithKeywordService.m in Sources */,
 				AD51D4F21BB7CD1300A75753 /* MASViewAttribute.m in Sources */,
 				AD51D5001BB7CD1300A75753 /* SDWebImageDownloader.m in Sources */,
+				AD893BC81BC38D230050C5AD /* MyFansViewCell.m in Sources */,
 				AD5267E81BC0C357007350F9 /* MessageIndexViewController+helper.m in Sources */,
+				AD893BBA1BC3724A0050C5AD /* LoginServiceWithVerifyCode.m in Sources */,
+				AD893BBD1BC375140050C5AD /* GetVerifyCodeService.m in Sources */,
 				AD9B3D1C1BBBAA4B001078B9 /* MJPropertyKey.m in Sources */,
 				ADCD771B1BBFADFC004B6493 /* WaterFallListCell.m in Sources */,
 				33D4AA171BB9213F0086D442 /* NSDate+Additions.m in Sources */,
@@ -2238,6 +2301,7 @@
 				AD13B8741BBCC96B00AA3142 /* MJRefreshAutoNormalFooter.m in Sources */,
 				AD51D4E21BB7CD1300A75753 /* AFHTTPRequestOperation.m in Sources */,
 				AD8905601BB9940D00D90221 /* UILabel+Additions.m in Sources */,
+				AD893BC51BC38B570050C5AD /* MyFansViewController.m in Sources */,
 				AD13B8FB1BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.m in Sources */,
 				AD13B86F1BBCC96B00AA3142 /* MJRefreshBackFooter.m in Sources */,
 				33D4AA161BB9213F0086D442 /* NSArray+Additions.m in Sources */,

@@ -12,7 +12,7 @@
 #pragma mark -- 用户相关
 
 //1.获取验证码
-#define kApi_ GetVerifyCode                     [kApi_Base stringByAppendingString:@"api/v1/code"]
+#define kApi_GetVerifyCode                     [kApi_Base stringByAppendingString:@"api/v1/code"]
 
 //2.用户注册
 #define kApi_UserRegist                           [kApi_Base stringByAppendingString:@"api/v1/regist"]

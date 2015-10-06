@@ -70,7 +70,6 @@
                              failureBlock:(FailureBlock)failureBlock
 {
     // 取消之前的网络请求
-    [_requestOperation cancel];
     
     // 判断当前是否有网络
     if (![Reachability reachabilityWithHostname:kApi_Base].isReachable)
@@ -133,23 +132,4 @@
     
     return attributes;
 }
-/*
-- (NSString *)URLWithParameters:(NSDictionary *)parameters{
-    NSMutableString *urlString =[NSMutableString string];   //The URL starts with the base string[urlString appendString:baseString];
-    NSString *escapedString;
-    NSInteger keyIndex = 0;
-    for (id key in parameters) {
-        //First Parameter needs to be prefixed with a ? and any other parameter needs to be prefixed with an &
-        if(keyIndex ==0) {
-            escapedString = [NSString stringByAddingPercentEscapes:[parameters valueForKey:key] withEscapsePattern:URL_PERCENT_ESCAPES];
-            [urlString appendFormat:@"?%@=%@",key,escapedString];
-        }else{
-            escapedString = [NSString stringByAddingPercentEscapes:[parameters valueForKey:key] withEscapsePattern:URL_PERCENT_ESCAPES];
-            [urlString appendFormat:@"&%@=%@",key,escapedString];
-        }
-        keyIndex++;
-    }
-    return urlString;
-}
- */
 @end

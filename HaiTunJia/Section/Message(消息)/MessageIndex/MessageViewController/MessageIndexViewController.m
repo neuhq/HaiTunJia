@@ -2,11 +2,12 @@
 #import "MessageViewCell.h"
 #import "MessageIndexViewController+helper.h"
 #import "MessageHeaderView.h"
-
+#import "MyFansViewController.h"
 @interface MessageIndexViewController ()
 
 @property(nonatomic,strong) MessageHeaderView *headerView;
 
+@property(nonatomic,strong) NSMutableArray *controllerArray;
 @end
 
 @implementation MessageIndexViewController
@@ -20,6 +21,8 @@
     
     [self viewConfig];
     
+    [self addController];
+    
     [self getLocalData];
     
     [self.view addSubview:self.messageTableView];
@@ -31,10 +34,12 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
+    [self  hideTabbar:NO];
     [super viewDidAppear:animated];
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [self hideTabbar:YES];
     [super viewWillDisappear:animated];
 }
 
@@ -69,6 +74,12 @@
 -(void)initArray
 {
     self.listLocalDataArray = [[NSMutableArray alloc]init];
+    self.controllerArray = [[NSMutableArray alloc]init];
+}
+-(void)addController
+{
+    MyFansViewController *myFans = [[MyFansViewController alloc]init];
+    [self.controllerArray addObject:myFans];
 }
 #pragma mark --- Delegate
 
@@ -118,6 +129,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == TableViewCellType_List)
+    {
+        [self.navigationController pushViewController:self.controllerArray[indexPath.row] animated:YES];
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {

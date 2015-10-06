@@ -36,5 +36,7 @@
 
 #import "NetworkErrorCode.h"
 
+#import "iToast.h"
+
 #endif
 

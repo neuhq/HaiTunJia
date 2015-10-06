@@ -3,6 +3,7 @@
 #import "PhotoAlbumCollectionViewCell.h"
 #import "TakePhotoCollectionViewCell.h"
 #import "PhotoAlbumViewController+Helper.h"
+#import "PhotoAlbumModel.h"
 static NSString *kPhotoAlbumImageIndentifer   = @"kPhotoAlbumImageIndentifer";
 static NSString *kPhotoAlbumTakePhotoIndentifer  =  @"kPhotoAlbumTakePhotoIndentifer";
 
@@ -87,6 +88,7 @@ UICollectionViewDataSource>
 -(void)initArray
 {
     self.imageListArray = [[NSMutableArray alloc]init];
+    self.photoModelArray = [[NSMutableArray alloc]init];
 }
 #pragma mark  - delegate
 #pragma mark - UICollectionViewDataSource
@@ -112,7 +114,8 @@ UICollectionViewDataSource>
         PhotoAlbumCollectionViewCell *cell =
         (PhotoAlbumCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kPhotoAlbumImageIndentifer
                                                                                   forIndexPath:indexPath];
-        cell.photoImageView.image = self.imageListArray[indexPath.row - 1];
+//        cell.photoImageView.image = photoModel.photo;
+        [self getImage:self.imageListArray[indexPath.row] cell:cell];
         return cell;
     }
     return nil;
