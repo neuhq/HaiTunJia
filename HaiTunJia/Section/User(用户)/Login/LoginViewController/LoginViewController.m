@@ -2,6 +2,7 @@
 #import "LoginView.h"
 #import "LoginServiceWithVerifyCode.h"
 #import "GetVerifyCodeService.h"
+#import "LoginWithPasswordViewController.h"
  static NSString *kLoginViewControllerTitleName = @"登陆";
 @interface LoginViewController ()
 <LoginViewDelegate>
@@ -91,9 +92,25 @@
         [self getVerifyCode];
     }
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+-(void)getLoginType:(LoginType)loginType
 {
-    [_loginView.phoneTextField resignFirstResponder];
-    [_loginView.codeTextField resignFirstResponder];
+    if (loginType == LoginType_PassWordLogin)
+    {
+        [self jumpLoginWithPasswordController];
+    }
+    else
+    {
+        
+    }
+}
+#pragma mark -- Jump
+-(void)jumpLoginWithPasswordController
+{
+    LoginWithPasswordViewController *passwordController = [[LoginWithPasswordViewController alloc]init];
+    [self.navigationController pushViewController:passwordController animated:YES];
+}
+-(void)wechatLogin
+{
+    
 }
 @end

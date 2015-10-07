@@ -103,7 +103,6 @@
 		AD13B8F31BBD023300AA3142 /* icon_weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD13B8CF1BBD023300AA3142 /* icon_weixin@3x.png */; settings = {ASSET_TAGS = (); }; };
 		AD13B8F41BBD023300AA3142 /* me_edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD13B8D01BBD023300AA3142 /* me_edit@3x.png */; settings = {ASSET_TAGS = (); }; };
 		AD13B8F51BBD023300AA3142 /* pengyouquan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD13B8D11BBD023300AA3142 /* pengyouquan@3x.png */; settings = {ASSET_TAGS = (); }; };
-		AD13B8F81BBD035600AA3142 /* DetailController+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD13B8F71BBD035600AA3142 /* DetailController+TableView.m */; settings = {ASSET_TAGS = (); }; };
 		AD13B8FB1BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = AD13B8FA1BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.m */; settings = {ASSET_TAGS = (); }; };
 		AD51BAAC1BBE4E8500C94388 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD51BAAB1BBE4E8500C94388 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		AD51BAB41BBE727000C94388 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD51BAB31BBE727000C94388 /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -156,6 +155,9 @@
 		AD51D5151BB7F13D00A75753 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD51D5131BB7F13D00A75753 /* main.m */; };
 		AD5267E81BC0C357007350F9 /* MessageIndexViewController+helper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5267E71BC0C357007350F9 /* MessageIndexViewController+helper.m */; settings = {ASSET_TAGS = (); }; };
 		AD5267EB1BC0CC3F007350F9 /* MessageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5267EA1BC0CC3F007350F9 /* MessageHeaderView.m */; settings = {ASSET_TAGS = (); }; };
+		AD8378101BC5070700EC679C /* NoteDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83780F1BC5070700EC679C /* NoteDetailInfoCell.m */; settings = {ASSET_TAGS = (); }; };
+		AD83781D1BC5199800EC679C /* DetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83781C1BC5199800EC679C /* DetailBottomView.m */; settings = {ASSET_TAGS = (); }; };
+		AD8378211BC53DFE00EC679C /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8378201BC53DFE00EC679C /* DWTagList.m */; settings = {ASSET_TAGS = (); }; };
 		AD8905601BB9940D00D90221 /* UILabel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = AD89055F1BB9940D00D90221 /* UILabel+Additions.m */; settings = {ASSET_TAGS = (); }; };
 		AD89057D1BB9987F00D90221 /* icon_love_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8905631BB9987F00D90221 /* icon_love_active@2x.png */; settings = {ASSET_TAGS = (); }; };
 		AD89057E1BB9987F00D90221 /* icon_love_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8905641BB9987F00D90221 /* icon_love_normal@2x.png */; settings = {ASSET_TAGS = (); }; };
@@ -201,8 +203,6 @@
 		AD9BEB261BC0DC0F004D662B /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9BEB251BC0DC0F004D662B /* UserViewController.m */; settings = {ASSET_TAGS = (); }; };
 		AD9BEB291BC0DD54004D662B /* UserHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9BEB281BC0DD54004D662B /* UserHeaderView.m */; settings = {ASSET_TAGS = (); }; };
 		AD9BEB331BC0F1BC004D662B /* CustomTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9BEB321BC0F1BC004D662B /* CustomTabView.m */; settings = {ASSET_TAGS = (); }; };
-		AD9BEB381BC162D7004D662B /* CExpandHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9BEB361BC162D7004D662B /* CExpandHeader.m */; settings = {ASSET_TAGS = (); }; };
-		AD9BEB391BC162D7004D662B /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9BEB371BC162D7004D662B /* image.png */; settings = {ASSET_TAGS = (); }; };
 		AD9BEB3B1BC16AA6004D662B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9BEB3A1BC16AA6004D662B /* Accelerate.framework */; };
 		AD9BEB3D1BC20778004D662B /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9BEB3C1BC20777004D662B /* AssetsLibrary.framework */; };
 		AD9BEB441BC20934004D662B /* PhotoAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9BEB431BC20934004D662B /* PhotoAlbumViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -282,6 +282,10 @@
 		ADCD77591BC0255A004B6493 /* MessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD77581BC0255A004B6493 /* MessageViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		ADCD775B1BC02ABE004B6493 /* list_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADCD775A1BC02ABE004B6493 /* list_arrow@2x.png */; settings = {ASSET_TAGS = (); }; };
 		ADCD775D1BC02ACA004B6493 /* list_arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADCD775C1BC02ACA004B6493 /* list_arrow@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADF6145F1BC4E485004FCABE /* LoginWithPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF6145E1BC4E485004FCABE /* LoginWithPasswordViewController.m */; settings = {ASSET_TAGS = (); }; };
+		ADF614621BC4E4C2004FCABE /* LoginViewPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF614611BC4E4C2004FCABE /* LoginViewPasswordView.m */; settings = {ASSET_TAGS = (); }; };
+		ADF614651BC4F834004FCABE /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF614641BC4F834004FCABE /* ForgetPasswordViewController.m */; settings = {ASSET_TAGS = (); }; };
+		ADF614681BC4F878004FCABE /* ForgetPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF614671BC4F878004FCABE /* ForgetPasswordView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -435,8 +439,6 @@
 		AD13B8CF1BBD023300AA3142 /* icon_weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_weixin@3x.png"; sourceTree = "<group>"; };
 		AD13B8D01BBD023300AA3142 /* me_edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me_edit@3x.png"; sourceTree = "<group>"; };
 		AD13B8D11BBD023300AA3142 /* pengyouquan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pengyouquan@3x.png"; sourceTree = "<group>"; };
-		AD13B8F61BBD035600AA3142 /* DetailController+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DetailController+TableView.h"; sourceTree = "<group>"; };
-		AD13B8F71BBD035600AA3142 /* DetailController+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DetailController+TableView.m"; sourceTree = "<group>"; };
 		AD13B8F91BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCollectionWaterFallFlow.h; sourceTree = "<group>"; };
 		AD13B8FA1BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCollectionWaterFallFlow.m; sourceTree = "<group>"; };
 		AD51BAAB1BBE4E8500C94388 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -548,6 +550,12 @@
 		AD5267E71BC0C357007350F9 /* MessageIndexViewController+helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MessageIndexViewController+helper.m"; sourceTree = "<group>"; };
 		AD5267E91BC0CC3F007350F9 /* MessageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageHeaderView.h; sourceTree = "<group>"; };
 		AD5267EA1BC0CC3F007350F9 /* MessageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageHeaderView.m; sourceTree = "<group>"; };
+		AD83780E1BC5070700EC679C /* NoteDetailInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDetailInfoCell.h; sourceTree = "<group>"; };
+		AD83780F1BC5070700EC679C /* NoteDetailInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDetailInfoCell.m; sourceTree = "<group>"; };
+		AD83781B1BC5199800EC679C /* DetailBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBottomView.h; sourceTree = "<group>"; };
+		AD83781C1BC5199800EC679C /* DetailBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailBottomView.m; sourceTree = "<group>"; };
+		AD83781F1BC53DFE00EC679C /* DWTagList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTagList.h; sourceTree = "<group>"; };
+		AD8378201BC53DFE00EC679C /* DWTagList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTagList.m; sourceTree = "<group>"; };
 		AD89055E1BB9940D00D90221 /* UILabel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Additions.h"; sourceTree = "<group>"; };
 		AD89055F1BB9940D00D90221 /* UILabel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Additions.m"; sourceTree = "<group>"; };
 		AD8905631BB9987F00D90221 /* icon_love_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_love_active@2x.png"; sourceTree = "<group>"; };
@@ -615,9 +623,6 @@
 		AD9BEB281BC0DD54004D662B /* UserHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHeaderView.m; sourceTree = "<group>"; };
 		AD9BEB311BC0F1BC004D662B /* CustomTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabView.h; sourceTree = "<group>"; };
 		AD9BEB321BC0F1BC004D662B /* CustomTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabView.m; sourceTree = "<group>"; };
-		AD9BEB351BC162D7004D662B /* CExpandHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CExpandHeader.h; sourceTree = "<group>"; };
-		AD9BEB361BC162D7004D662B /* CExpandHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CExpandHeader.m; sourceTree = "<group>"; };
-		AD9BEB371BC162D7004D662B /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		AD9BEB3A1BC16AA6004D662B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		AD9BEB3C1BC20777004D662B /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		AD9BEB421BC20934004D662B /* PhotoAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAlbumViewController.h; sourceTree = "<group>"; };
@@ -716,6 +721,14 @@
 		ADCD77581BC0255A004B6493 /* MessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewCell.m; sourceTree = "<group>"; };
 		ADCD775A1BC02ABE004B6493 /* list_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_arrow@2x.png"; sourceTree = "<group>"; };
 		ADCD775C1BC02ACA004B6493 /* list_arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_arrow@3x.png"; sourceTree = "<group>"; };
+		ADF6145D1BC4E485004FCABE /* LoginWithPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWithPasswordViewController.h; sourceTree = "<group>"; };
+		ADF6145E1BC4E485004FCABE /* LoginWithPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWithPasswordViewController.m; sourceTree = "<group>"; };
+		ADF614601BC4E4C2004FCABE /* LoginViewPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewPasswordView.h; sourceTree = "<group>"; };
+		ADF614611BC4E4C2004FCABE /* LoginViewPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewPasswordView.m; sourceTree = "<group>"; };
+		ADF614631BC4F834004FCABE /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		ADF614641BC4F834004FCABE /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		ADF614661BC4F878004FCABE /* ForgetPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordView.h; sourceTree = "<group>"; };
+		ADF614671BC4F878004FCABE /* ForgetPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1051,8 +1064,6 @@
 			children = (
 				AD13B8A01BBCF82300AA3142 /* DetailController.h */,
 				AD13B8A11BBCF82300AA3142 /* DetailController.m */,
-				AD13B8F61BBD035600AA3142 /* DetailController+TableView.h */,
-				AD13B8F71BBD035600AA3142 /* DetailController+TableView.m */,
 			);
 			path = DetailController;
 			sourceTree = "<group>";
@@ -1074,6 +1085,10 @@
 		AD13B89F1BBCF80D00AA3142 /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				AD83780E1BC5070700EC679C /* NoteDetailInfoCell.h */,
+				AD83780F1BC5070700EC679C /* NoteDetailInfoCell.m */,
+				AD83781B1BC5199800EC679C /* DetailBottomView.h */,
+				AD83781C1BC5199800EC679C /* DetailBottomView.m */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -1201,6 +1216,10 @@
 			children = (
 				AD51BAB51BBE735300C94388 /* LoginView.h */,
 				AD51BAB61BBE735300C94388 /* LoginView.m */,
+				ADF614601BC4E4C2004FCABE /* LoginViewPasswordView.h */,
+				ADF614611BC4E4C2004FCABE /* LoginViewPasswordView.m */,
+				ADF614661BC4F878004FCABE /* ForgetPasswordView.h */,
+				ADF614671BC4F878004FCABE /* ForgetPasswordView.m */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -1210,6 +1229,10 @@
 			children = (
 				AD51BAB21BBE727000C94388 /* LoginViewController.h */,
 				AD51BAB31BBE727000C94388 /* LoginViewController.m */,
+				ADF6145D1BC4E485004FCABE /* LoginWithPasswordViewController.h */,
+				ADF6145E1BC4E485004FCABE /* LoginWithPasswordViewController.m */,
+				ADF614631BC4F834004FCABE /* ForgetPasswordViewController.h */,
+				ADF614641BC4F834004FCABE /* ForgetPasswordViewController.m */,
 			);
 			path = LoginViewController;
 			sourceTree = "<group>";
@@ -1322,7 +1345,7 @@
 		AD51D4381BB7CACC00A75753 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				AD9BEB341BC162D7004D662B /* CExpandHeader */,
+				AD83781E1BC53DFE00EC679C /* TagList */,
 				AD9BEB2A1BC0EC79004D662B /* CustomTabView */,
 				ADCD772E1BC012FF004B6493 /* FDFullscreenPopGesture */,
 				ADCD77241BBFC422004B6493 /* WaterFallFlowModel */,
@@ -1499,6 +1522,15 @@
 				AD51D50D1BB7D20C00A75753 /* BaseViewController.m */,
 			);
 			path = BaseUIViewController;
+			sourceTree = "<group>";
+		};
+		AD83781E1BC53DFE00EC679C /* TagList */ = {
+			isa = PBXGroup;
+			children = (
+				AD83781F1BC53DFE00EC679C /* DWTagList.h */,
+				AD8378201BC53DFE00EC679C /* DWTagList.m */,
+			);
+			path = TagList;
 			sourceTree = "<group>";
 		};
 		AD8905611BB9987F00D90221 /* HomeImage */ = {
@@ -1705,16 +1737,6 @@
 				AD9BEB321BC0F1BC004D662B /* CustomTabView.m */,
 			);
 			path = CustomTabView;
-			sourceTree = "<group>";
-		};
-		AD9BEB341BC162D7004D662B /* CExpandHeader */ = {
-			isa = PBXGroup;
-			children = (
-				AD9BEB351BC162D7004D662B /* CExpandHeader.h */,
-				AD9BEB361BC162D7004D662B /* CExpandHeader.m */,
-				AD9BEB371BC162D7004D662B /* image.png */,
-			);
-			path = CExpandHeader;
 			sourceTree = "<group>";
 		};
 		AD9BEB3E1BC208F9004D662B /* PhotoAlbum */ = {
@@ -2189,7 +2211,6 @@
 				AD9BEB661BC21B45004D662B /* icon_xiala@2x.png in Resources */,
 				AD8905831BB9987F00D90221 /* tab_camera_normal@2x.png in Resources */,
 				AD8905801BB9987F00D90221 /* icon_love_normal@3x.png in Resources */,
-				AD9BEB391BC162D7004D662B /* image.png in Resources */,
 				ADCD77041BBFA012004B6493 /* classfy_nanren@2x.png in Resources */,
 				AD9BEB781BC21B45004D662B /* label_rightbg_big@3x.png in Resources */,
 				AD9BEB641BC21B45004D662B /* icon_camera@2x.png in Resources */,
@@ -2245,8 +2266,10 @@
 				AD13B89A1BBCF7ED00AA3142 /* HomeViewController.m in Sources */,
 				33D4AA1F1BB9213F0086D442 /* UIColor+HSV.m in Sources */,
 				AD51D4F71BB7CD1300A75753 /* ViewController+MASAdditions.m in Sources */,
+				AD8378101BC5070700EC679C /* NoteDetailInfoCell.m in Sources */,
 				AD9B3D1B1BBBAA4B001078B9 /* MJProperty.m in Sources */,
 				AD9B3D221BBBAA4B001078B9 /* NSString+MJExtension.m in Sources */,
+				ADF614621BC4E4C2004FCABE /* LoginViewPasswordView.m in Sources */,
 				AD51D5021BB7CD1300A75753 /* SDWebImageManager.m in Sources */,
 				AD13B7D71BBC2EE700AA3142 /* LeveyTabBar.m in Sources */,
 				33D4AA181BB9213F0086D442 /* NSDateFormatter+Additions.m in Sources */,
@@ -2256,7 +2279,6 @@
 				AD9BEB331BC0F1BC004D662B /* CustomTabView.m in Sources */,
 				AD51D4FF1BB7CD1300A75753 /* SDWebImageDecoder.m in Sources */,
 				33D4AA1B1BB9213F0086D442 /* NSTimer+Addition.m in Sources */,
-				AD13B8F81BBD035600AA3142 /* DetailController+TableView.m in Sources */,
 				AD13B8971BBCF7ED00AA3142 /* HomeService.m in Sources */,
 				AD51D4F01BB7CD1300A75753 /* MASConstraintMaker.m in Sources */,
 				33D4AA221BB9213F0086D442 /* UIImage+InternalMethod.m in Sources */,
@@ -2290,6 +2312,7 @@
 				AD51D5081BB7CD1300A75753 /* UIImageView+HighlightedWebCache.m in Sources */,
 				AD9BEB471BC20B32004D662B /* PhotoAlbumCollectionViewCell.m in Sources */,
 				AD51D4FA1BB7CD1300A75753 /* NSData+ImageContentType.m in Sources */,
+				AD8378211BC53DFE00EC679C /* DWTagList.m in Sources */,
 				AD13B8711BBCC96B00AA3142 /* MJRefreshFooter.m in Sources */,
 				AD51D4EE1BB7CD1300A75753 /* MASCompositeConstraint.m in Sources */,
 				AD51D5091BB7CD1300A75753 /* UIImageView+WebCache.m in Sources */,
@@ -2302,6 +2325,7 @@
 				AD51D4E21BB7CD1300A75753 /* AFHTTPRequestOperation.m in Sources */,
 				AD8905601BB9940D00D90221 /* UILabel+Additions.m in Sources */,
 				AD893BC51BC38B570050C5AD /* MyFansViewController.m in Sources */,
+				AD83781D1BC5199800EC679C /* DetailBottomView.m in Sources */,
 				AD13B8FB1BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.m in Sources */,
 				AD13B86F1BBCC96B00AA3142 /* MJRefreshBackFooter.m in Sources */,
 				33D4AA161BB9213F0086D442 /* NSArray+Additions.m in Sources */,
@@ -2317,11 +2341,13 @@
 				AD51D5051BB7CD1300A75753 /* UIImage+GIF.m in Sources */,
 				ADCD77271BBFC441004B6493 /* WaterFallFlowListDataModel.m in Sources */,
 				AD51D4EA1BB7CD1300A75753 /* AFURLSessionManager.m in Sources */,
+				ADF6145F1BC4E485004FCABE /* LoginWithPasswordViewController.m in Sources */,
 				AD13B87A1BBCC96B00AA3142 /* MJRefreshNormalHeader.m in Sources */,
 				AD51D4EF1BB7CD1300A75753 /* MASConstraint.m in Sources */,
 				ADCD77591BC0255A004B6493 /* MessageViewCell.m in Sources */,
 				AD9BEB441BC20934004D662B /* PhotoAlbumViewController.m in Sources */,
 				AD51BAB71BBE735300C94388 /* LoginView.m in Sources */,
+				ADF614651BC4F834004FCABE /* ForgetPasswordViewController.m in Sources */,
 				AD13B8791BBCC96B00AA3142 /* MJRefreshGifHeader.m in Sources */,
 				33D4AA1E1BB9213F0086D442 /* UIColor+Expanded.m in Sources */,
 				AD51D4E31BB7CD1300A75753 /* AFHTTPRequestOperationManager.m in Sources */,
@@ -2353,7 +2379,6 @@
 				AD9BEB291BC0DD54004D662B /* UserHeaderView.m in Sources */,
 				AD51D4E61BB7CD1300A75753 /* AFSecurityPolicy.m in Sources */,
 				AD13B8A21BBCF82300AA3142 /* DetailController.m in Sources */,
-				AD9BEB381BC162D7004D662B /* CExpandHeader.m in Sources */,
 				33D4AA191BB9213F0086D442 /* NSFileManager+Additions.m in Sources */,
 				33D4AA261BB9213F0086D442 /* UIWindow+Additions.m in Sources */,
 				AD51BAB41BBE727000C94388 /* LoginViewController.m in Sources */,
@@ -2361,6 +2386,7 @@
 				AD13B8801BBCC96B00AA3142 /* UIView+MJExtension.m in Sources */,
 				AD13B8761BBCC96B00AA3142 /* MJRefreshBackGifFooter.m in Sources */,
 				AD13B8781BBCC96B00AA3142 /* MJRefreshBackStateFooter.m in Sources */,
+				ADF614681BC4F878004FCABE /* ForgetPasswordView.m in Sources */,
 				AD13B86E1BBCC96B00AA3142 /* MJRefreshAutoFooter.m in Sources */,
 				AD8905981BBA490000D90221 /* BaseNetworkService.m in Sources */,
 				AD13B7D81BBC2EE700AA3142 /* LeveyTabBarController.m in Sources */,

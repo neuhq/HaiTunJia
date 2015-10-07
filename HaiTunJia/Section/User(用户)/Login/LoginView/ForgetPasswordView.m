@@ -1,5 +1,6 @@
 
-#import "LoginView.h"
+
+#import "ForgetPasswordView.h"
 
 static const CGFloat kLoginViewTopOffset = 84.0f;
 static const CGFloat kLoginViewLeftOffset = 25.0f;
@@ -8,7 +9,7 @@ static const CGFloat kLoginViewBottomOffset  = 100.0f;
 static const CGFloat kLoginButtonHeight  = 55.0f;
 static const CGFloat kLoginViewLineHeight   = 0.5f;
 
-@interface LoginView ()
+@interface ForgetPasswordView ()
 <UITextFieldDelegate>
 //+86
 @property(nonatomic,strong) UILabel *code;
@@ -21,26 +22,15 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
 
 @property(nonatomic,strong) UIView *horizontalLine1;
 
-
 //登陆按钮
 @property(nonatomic,strong) UIButton *loginButton;
-
-//使用密码登陆
-@property(nonatomic,strong) UIButton *passWordButton;
-
-//微信登陆
-@property(nonatomic,strong) UIButton *wechatButton;
-
-//第三方登陆
-@property(nonatomic,strong) UILabel *thirdLogin;
 
 //发送验证码
 @property(nonatomic,strong) UIButton *sendCode;
 
-
 @end
 
-@implementation LoginView
+@implementation ForgetPasswordView
 
 -(id)initWithFrame:(CGRect)frame
 {
@@ -55,9 +45,6 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
         [self addSubview:self.codeTextField];
         [self addSubview:self.horizontalLine1];
         [self addSubview:self.loginButton];
-        [self addSubview:self.passWordButton];
-        [self addSubview:self.wechatButton];
-        [self addSubview:self.thirdLogin];
     }
     return self;
 }
@@ -140,58 +127,6 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
     return _loginButton;
 }
 
--(UIButton *) passWordButton
-{
-    if (!_passWordButton)
-    {
-        NSString *passwordString = @"使用密码登陆";
-        CGSize size = [passwordString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f]}];
-        _passWordButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _passWordButton.frame = CGRectMake((kScreenWidth - size.width)/2, self.loginButton.bottom + 20.0f, size.width, size.height);
-        _passWordButton.tag = LoginType_PassWordLogin;
-        _passWordButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-        [_passWordButton setTitle:passwordString forState:UIControlStateNormal];
-        [_passWordButton setTitle:passwordString forState:UIControlStateHighlighted];
-        [_passWordButton setTitleColor:[UIColor colorWithHexString:@"aaaeb2"] forState:UIControlStateNormal];
-        [_passWordButton setTitleColor:[UIColor colorWithHex:@"#aaaeb2" withAlpha:0.8f] forState:UIControlStateHighlighted];
-        _passWordButton.backgroundColor = [UIColor clearColor];
-        [_passWordButton addTarget:self action:@selector(tapLoginType:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _passWordButton;
-}
-
--(UIButton *) wechatButton
-{
-    if (!_wechatButton)
-    {
-        UIImage *image = [UIImage imageNamed:@"regiter_weixin"];
-        _wechatButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _wechatButton.tag = LoginType_WechatLogin;
-        _wechatButton.frame = CGRectMake((kScreenWidth - image.size.width)/2,kScreenHeight - kLoginViewBottomOffset - image.size.height, image.size.width, image.size.height);
-        [_wechatButton setBackgroundImage: image forState:UIControlStateNormal];
-        [_wechatButton setBackgroundImage: image forState:UIControlStateHighlighted];
-        [_wechatButton addTarget:self action:@selector(tapLoginType:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _wechatButton;
-}
-
--(UILabel *) thirdLogin
-{
-    if (!_thirdLogin)
-    {
-        NSString *string = @"第三方账户登陆";
-        UIFont *font = [UIFont systemFontOfSize:12.0f];
-        CGSize thirdSize = [string sizeWithAttributes:@{NSFontAttributeName:font}];
-        _thirdLogin = [[UILabel alloc]initWithFrame:CGRectMake((kScreenWidth - thirdSize.width)/2 , self.wechatButton.top - 24.0f - thirdSize.height, thirdSize.width, thirdSize.height)];
-        _thirdLogin.text = string;
-        _thirdLogin.textAlignment = NSTextAlignmentCenter;
-        _thirdLogin.font = font;
-        _thirdLogin.textColor = [UIColor colorWithHexString:@"aaaeb2"];
-        _thirdLogin.backgroundColor = [UIColor clearColor];
-    }
-    return _thirdLogin;
-}
-
 -(UIButton *) sendCode
 {
     if (!_sendCode)
@@ -229,7 +164,7 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
         _codeTextField.backgroundColor = [UIColor clearColor];
     }
     return _codeTextField;
-
+    
 }
 -(UIView *) horizontalLine1
 {
@@ -261,7 +196,7 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
             [self isEnableLoginButton:NO];
         else
             [self isEnableLoginButton:YES];
-
+        
         
         if (toBeString.length > 4)
             return NO;
@@ -283,12 +218,6 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
     return YES;
 }
 #pragma mark -- Action
-//点击第三方登陆或密码登陆
--(void)tapLoginType:(UIButton *) sender
-{
-    if(self.delegate && [self.delegate respondsToSelector:@selector(getLoginType:)])
-        [self.delegate getLoginType:sender.tag];
-}
 //点击发送验证码或登陆
 -(void)sendVerfifyCode:(UIButton *) sender
 {
@@ -317,11 +246,7 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
     CGRect loginBtnRect = self.loginButton.frame;
     loginBtnRect.origin.y = self.horizontalLine1.bottom + 40.0f;
     self.loginButton.frame = loginBtnRect;
-    
-    CGRect passwordRect = self.passWordButton.frame;
-    passwordRect.origin.y = self.loginButton.bottom + 20;
-    self.passWordButton.frame = passwordRect;
-}
+ }
 
 -(void)showVerifyCodeTextField
 {
@@ -351,9 +276,9 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
 -(void)beginTime:(int) count
 {
     self.count = count;
-   self.timer =   [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(countdown) userInfo:nil repeats:YES];
+    self.timer =   [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(countdown) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
-
+    
 }
 //倒计时方法
 -(void)countdown
@@ -362,7 +287,7 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
     if (self.count == 0)
     {
         [self.timer invalidate];
-         self.timer = nil;
+        self.timer = nil;
         [self setSendCodeButtonTitle:@"重新发送" isEnable:YES];
     }
     else
@@ -381,4 +306,5 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
     [self.phoneTextField resignFirstResponder];
     [self.codeTextField resignFirstResponder];
 }
+
 @end

@@ -20,7 +20,8 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
     //设置通用的背景颜色
-     self.view.backgroundColor = [UIColor colorWithHexString:@"efeff4"];
+//     self.view.backgroundColor = [UIColor colorWithHexString:@"efeff4"];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.customNavigationBar];
     [self.customNavigationBar addSubview:self.leftBarButton];
     [self.customNavigationBar addSubview:self.rightBarButton];

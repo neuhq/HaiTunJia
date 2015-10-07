@@ -1,6 +1,12 @@
+//
+//  ForgetPasswordView.h
+//  HaiTunJia
+//
+//  Created by 李哲 on 15/10/7.
+//  Copyright © 2015年 李哲. All rights reserved.
+//
 
 #import <UIKit/UIKit.h>
-
 
 /**
  获取验证码还是登陆
@@ -11,15 +17,7 @@ typedef enum LoginViewTapButtonActionType{
     
 }LoginViewTapButtonActionType;
 
-/**
- 登陆类型：密码登陆还是第三方微信登陆
- */
-typedef NS_ENUM(NSInteger,LoginType)  {
-    LoginType_PassWordLogin = 100,
-    LoginType_WechatLogin
-};
-
-@protocol LoginViewDelegate <NSObject>
+@protocol FotgetViewDelegate <NSObject>
 
 @optional
 /**
@@ -29,22 +27,16 @@ typedef NS_ENUM(NSInteger,LoginType)  {
  */
 -(void)getVerifyCodeOrLogin:(LoginViewTapButtonActionType) type;
 
-/**
- *  密码登陆还是第三方微信登陆
- *
- *  @param loginType LoginType
- */
--(void)getLoginType:(LoginType) loginType;
 
 @end
 
-@interface LoginView : UIView
+@interface ForgetPasswordView : UIView
 
 @property(nonatomic,strong) UITextField *phoneTextField;
 
 @property(nonatomic,strong) UITextField *codeTextField;
 
-@property(nonatomic,weak) id<LoginViewDelegate> delegate;
+@property(nonatomic,weak) id<FotgetViewDelegate> delegate;
 
 @property(nonatomic,strong) NSTimer *timer;
 

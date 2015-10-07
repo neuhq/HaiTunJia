@@ -2,7 +2,6 @@
 #import "WaterFallListCell.h"
 #import "CHTCollectionViewWaterfallLayout.h"
 #import "UserHeaderView.h"
-#import "CExpandHeader.h"
 #import "UIImageView+WebCache.h"
 static NSString *const kUserCollectionCellIndentifer =  @"kUserCollectionCellIndentifer";
 static NSString *const kUserHeaderViewIndentifer = @"kUserHeaderViewIndentifer";
@@ -12,7 +11,6 @@ CHTCollectionViewDelegateWaterfallLayout,
 UICollectionViewDelegate,
 UICollectionViewDelegateFlowLayout>
 
-@property(nonatomic,strong) CExpandHeader *expandHeader;
 
 @property(nonatomic,strong) UICollectionView *userCollectionView;
 
@@ -75,15 +73,6 @@ UICollectionViewDelegateFlowLayout>
     }
     return _userCollectionView;
 }
--(CExpandHeader *) expandHeader
-{
-    if (!_expandHeader)
-    {
-        _expandHeader = [CExpandHeader expandWithScrollView:_userCollectionView expandView: self.hearderView];
-    }
-    return _expandHeader;
-}
-
 #pragma mark -- helper
 -(void)viewConfig
 {

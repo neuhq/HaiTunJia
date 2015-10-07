@@ -5,6 +5,13 @@
 
 #import "BaseViewController.h"
 
+
+typedef enum DetailCellType{
+    DetailCellType_NoteInfo,
+    DetailCellType_CommentAndLike
+}DetailCellType;
+
+@class DetailBottomView;
 @interface DetailController : BaseViewController
 <UITableViewDataSource,
 UITableViewDelegate>
@@ -15,5 +22,7 @@ UITableViewDelegate>
 
 //笔记id
 @property(nonatomic,strong) NSString *noteId;
+
+@property(nonatomic,strong) DetailBottomView *bottomView;
 
 @end

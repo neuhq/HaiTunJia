@@ -217,11 +217,9 @@ UICollectionViewDelegateFlowLayout>
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    DetailController *detail = [[DetailController alloc]init];
-//    detail.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:detail animated:YES];
-    LoginViewController *loginVC = [[LoginViewController alloc]init];
-    [self.navigationController pushViewController:loginVC animated:YES];
+    [self jumpDetail];
+//    LoginViewController *loginVC = [[LoginViewController alloc]init];
+//    [self.navigationController pushViewController:loginVC animated:YES];
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if(self.listArray)
@@ -237,5 +235,13 @@ UICollectionViewDelegateFlowLayout>
 
 #pragma mark -- Action
 
+
+#pragma mark -- Jump
+//跳转商品详情
+-(void)jumpDetail
+{
+        DetailController *detail = [[DetailController alloc]init];
+        [self.navigationController pushViewController:detail animated:YES];
+}
 
 @end

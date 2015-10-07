@@ -115,7 +115,7 @@ UICollectionViewDataSource>
         (PhotoAlbumCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kPhotoAlbumImageIndentifer
                                                                                   forIndexPath:indexPath];
 //        cell.photoImageView.image = photoModel.photo;
-        [self getImage:self.imageListArray[indexPath.row] cell:cell];
+        [self getImage:self.imageListArray[indexPath.row - 1] cell:cell];
         return cell;
     }
     return nil;
