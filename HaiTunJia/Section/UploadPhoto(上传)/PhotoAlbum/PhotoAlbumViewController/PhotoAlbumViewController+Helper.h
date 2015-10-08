@@ -4,8 +4,10 @@
 @class PhotoAlbumCollectionViewCell;
 @interface PhotoAlbumViewController (Helper)
 
--(void)getAllLocalPhotoGroup;
-
-- (void)getImage:(NSString *)urlStr cell:(PhotoAlbumCollectionViewCell *) cell;
+/**
+ *
+ *  @brief  获取相册分组
+ */
+-(void)getPhotoAllGroup;
 
 @end

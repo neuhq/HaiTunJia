@@ -33,6 +33,11 @@
 
 @property (nonatomic,strong) id rightView;
 
+@property (nonatomic,strong) UIButton *navTitleView;
+
+@property (nonatomic,strong) NSString *naTitle;
+
+
 /**
  *  重写navBarTitle方法
  *

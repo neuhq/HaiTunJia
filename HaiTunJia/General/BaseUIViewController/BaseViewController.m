@@ -11,6 +11,9 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
 
 @property(nonatomic,strong) UIView *navBarLine;
 
+//判断导航头部图片切换
+@property(nonatomic,assign) BOOL isTap;
+
 @end
 
 @implementation BaseViewController
@@ -27,7 +30,7 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
     [self.customNavigationBar addSubview:self.rightBarButton];
     [self.customNavigationBar addSubview:self.navBarTitle];
     [self.customNavigationBar addSubview:self.navBarLine];
-    
+    [self.customNavigationBar addSubview:self.navTitleView];
     self.rightBarButton.hidden = YES;
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -124,6 +127,26 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
     }
     return _navBarLine;
 }
+-(UIButton *) navTitleView
+{
+    if (!_navTitleView)
+    {
+         UIImage *image =  [UIImage imageNamed:@"icon_xiala"];
+        _navTitleView = [UIButton buttonWithType:UIButtonTypeCustom];
+        _navTitleView.frame = CGRectMake(50, 20, kScreenWidth - 100, 44.0f);
+        _navTitleView.imageEdgeInsets = UIEdgeInsetsMake((_navTitleView.height - image.size.height)/2,135, (_navTitleView.height - image.size.height)/2, 0);
+        [_navTitleView setTitleEdgeInsets:UIEdgeInsetsMake(0, -35, 0, 0)];
+        _navTitleView.hidden = YES;
+        [_navTitleView setImage:image forState:UIControlStateNormal];
+        [_navTitleView setImage:image forState:UIControlStateHighlighted];
+        [_navTitleView setTitleColor:[UIColor colorWithHexString:@"626a73"] forState:UIControlStateNormal];
+        [_navTitleView setTitleColor:[UIColor colorWithHexString:@"626a73"] forState:UIControlStateHighlighted];
+        [_navTitleView addTarget:self action:@selector(tapTitleViewAction) forControlEvents:UIControlEventTouchUpInside];
+        _navTitleView.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+        _navTitleView.backgroundColor = [UIColor clearColor];
+    }
+    return _navTitleView;
+}
 #pragma mark - helper
 //重写title
 - (void)setTitle:(NSString *)title
@@ -176,6 +199,12 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
     [self.leftButtonWithWord setTitle:leftButtonWithWordString forState:UIControlStateNormal];
     [self.leftButtonWithWord setTitle:leftButtonWithWordString forState:UIControlStateNormal];
 }
+-(void)setNaTitle:(NSString *)naTitle
+{
+   
+    [self.navTitleView setTitle:naTitle forState:UIControlStateNormal];
+    [self.navTitleView setTitle:naTitle forState:UIControlStateHighlighted];
+}
 #pragma mark -- Action
 -(void)goBackAction
 {
@@ -184,5 +213,19 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
 -(void)rightButtonAction
 {
     
+}
+-(void)tapTitleViewAction
+{
+    _isTap = !_isTap;
+    if (_isTap == YES)
+    {
+        [self.navTitleView setImage:[UIImage imageNamed:@"icon_shangla"] forState:UIControlStateNormal];
+        [self.navTitleView setImage:[UIImage imageNamed:@"icon_shangla"] forState:UIControlStateHighlighted];
+    }
+    else
+    {
+        [_navTitleView setImage:[UIImage imageNamed:@"icon_xiala"] forState:UIControlStateNormal];
+        [_navTitleView setImage:[UIImage imageNamed:@"icon_xiala"] forState:UIControlStateHighlighted];
+    }
 }
 @end

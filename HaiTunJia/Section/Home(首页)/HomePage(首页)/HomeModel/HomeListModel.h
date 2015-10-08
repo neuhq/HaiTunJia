@@ -9,7 +9,7 @@
 
 @property (nonatomic, strong) StateModel *state;
 
-@property (nonatomic, strong) NSArray<DataModel *> *data;
+@property (nonatomic, strong) NSArray*data;
 
 -(void)getHeightWithHomeListModel:(HomeListModel *) listModel;
 

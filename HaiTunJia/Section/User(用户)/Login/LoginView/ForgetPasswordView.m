@@ -301,7 +301,7 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
     [self.sendCode setTitle:title forState:UIControlStateNormal];
     self.sendCode.enabled = isEnable;
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+-(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent *)event
 {
     [self.phoneTextField resignFirstResponder];
     [self.codeTextField resignFirstResponder];

@@ -4,6 +4,7 @@
 #import "TakePhotoCollectionViewCell.h"
 #import "PhotoAlbumViewController+Helper.h"
 #import "PhotoAlbumModel.h"
+#import "SelectPhotoGroupView.h"
 static NSString *kPhotoAlbumImageIndentifer   = @"kPhotoAlbumImageIndentifer";
 static NSString *kPhotoAlbumTakePhotoIndentifer  =  @"kPhotoAlbumTakePhotoIndentifer";
 
@@ -26,7 +27,7 @@ UICollectionViewDataSource>
     
     [self viewConfig];
     
-    [self getAllLocalPhotoGroup];
+    [self getPhotoAllGroup];
     
     [self.view addSubview:self.photoCollectionView];
 
@@ -72,23 +73,31 @@ UICollectionViewDataSource>
                        forCellWithReuseIdentifier:kPhotoAlbumImageIndentifer];
         [_photoCollectionView registerClass:[TakePhotoCollectionViewCell class]
                  forCellWithReuseIdentifier:kPhotoAlbumTakePhotoIndentifer];
-
     }
     return _photoCollectionView;
 }
-
-
+-(SelectPhotoGroupView *) groupView
+{
+    if (!_groupView)
+    {
+        _groupView = [[SelectPhotoGroupView alloc] init];
+        _groupView.backgroundColor = [UIColor clearColor];
+        
+    }
+    return _groupView;
+}
 #pragma mark -- helper
 -(void)viewConfig
 {
     self.leftBarButton.hidden = YES;
     [self.customNavigationBar addSubview:self.leftButtonWithWord];
     self.leftButtonWithWordString = @"取消";
+    self.naTitle = @"相机胶卷";
 }
 -(void)initArray
 {
     self.imageListArray = [[NSMutableArray alloc]init];
-    self.photoModelArray = [[NSMutableArray alloc]init];
+    self.photoGroupArray = [[NSMutableArray alloc]init];
 }
 #pragma mark  - delegate
 #pragma mark - UICollectionViewDataSource
@@ -115,7 +124,8 @@ UICollectionViewDataSource>
         (PhotoAlbumCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kPhotoAlbumImageIndentifer
                                                                                   forIndexPath:indexPath];
 //        cell.photoImageView.image = photoModel.photo;
-        [self getImage:self.imageListArray[indexPath.row - 1] cell:cell];
+//        [self getImage:self.imageListArray[indexPath.row - 1] cell:cell];
+        cell.photoImageView.image = self.imageListArray[indexPath.item - 1];
         return cell;
     }
     return nil;
