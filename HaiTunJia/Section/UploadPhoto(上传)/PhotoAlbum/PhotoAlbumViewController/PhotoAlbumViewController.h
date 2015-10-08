@@ -1,5 +1,5 @@
 #import "BaseViewController.h"
-
+#import <AssetsLibrary/AssetsLibrary.h>
 @class SelectPhotoGroupView;
 @interface PhotoAlbumViewController : BaseViewController
 
@@ -11,4 +11,5 @@
 
 @property(nonatomic,strong) SelectPhotoGroupView *groupView;
 
+@property(nonatomic,strong)  ALAssetsLibrary *assetLibrary;
 @end

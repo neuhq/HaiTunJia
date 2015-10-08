@@ -5,7 +5,7 @@
 @implementation PhotoAlbumViewController (Helper)
 -(void)getPhotoAllGroup
 {
-    ALAssetsLibrary *assetLibrary=[[ALAssetsLibrary alloc] init];
+    self.assetLibrary=[[ALAssetsLibrary alloc] init];
     void (^assetsGroupsEnumerationBlock)(ALAssetsGroup *, BOOL *) = ^(ALAssetsGroup *assetsGroup, BOOL *stop) {
         if(assetsGroup)
         {
@@ -23,19 +23,19 @@
     };
     
     // Enumerate Camera Roll
-    [assetLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:assetsGroupsEnumerationBlock failureBlock:assetsGroupsFailureBlock];
+    [self.assetLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:assetsGroupsEnumerationBlock failureBlock:assetsGroupsFailureBlock];
     
     // Photo Stream
-    [assetLibrary enumerateGroupsWithTypes:ALAssetsGroupPhotoStream usingBlock:assetsGroupsEnumerationBlock failureBlock:assetsGroupsFailureBlock];
+    [self.assetLibrary enumerateGroupsWithTypes:ALAssetsGroupPhotoStream usingBlock:assetsGroupsEnumerationBlock failureBlock:assetsGroupsFailureBlock];
     
     // Album
-    [assetLibrary enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:assetsGroupsEnumerationBlock failureBlock:assetsGroupsFailureBlock];
+    [self.assetLibrary enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:assetsGroupsEnumerationBlock failureBlock:assetsGroupsFailureBlock];
     
     // Event
-    [assetLibrary enumerateGroupsWithTypes:ALAssetsGroupEvent usingBlock:assetsGroupsEnumerationBlock failureBlock:assetsGroupsFailureBlock];
+    [self.assetLibrary enumerateGroupsWithTypes:ALAssetsGroupEvent usingBlock:assetsGroupsEnumerationBlock failureBlock:assetsGroupsFailureBlock];
     
     // Faces
-    [assetLibrary enumerateGroupsWithTypes:ALAssetsGroupFaces usingBlock:assetsGroupsEnumerationBlock failureBlock:assetsGroupsFailureBlock];
+    [self.assetLibrary enumerateGroupsWithTypes:ALAssetsGroupFaces usingBlock:assetsGroupsEnumerationBlock failureBlock:assetsGroupsFailureBlock];
 
 }
 -(void)getAllphotoData:(NSInteger) tag
@@ -43,6 +43,11 @@
     [self.imageListArray removeAllObjects];
     if (self.photoGroupArray.count) {
       ALAssetsGroup *group = [self.photoGroupArray objectAtIndex:tag];
+        self.navTitleView.hidden = NO;
+        NSString *title = [group valueForProperty:ALAssetsGroupPropertyName];
+        if ([title isEqualToString:@"Camera Roll"])
+            title = @"相机胶卷";
+            self.navTitle = title;
         [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
             if (result)
             {

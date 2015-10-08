@@ -26,9 +26,19 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+    
     self.imageView.image = [UIImage imageWithCGImage:self.assetsGroup.posterImage];
-    self.textLabel.text = [NSString stringWithFormat:@"%@(%ld)",[self.assetsGroup valueForProperty:ALAssetsGroupPropertyName],self.assetsGroup.numberOfAssets];
+    self.imageView.frame = CGRectMake(20.0f, 5, 60, 60);
+    
+    NSString *title = [self.assetsGroup valueForProperty:ALAssetsGroupPropertyName];
+    if ([title isEqualToString:@"Camera Roll"])
+        title = @"相机胶卷";
+    
+    
+    self.textLabel.frame = CGRectMake(self.imageView.right + 20.0f, 25, kScreenWidth - self.imageView.right - 20, 0);
+    self.textLabel.text = [NSString stringWithFormat:@"%@(%ld)",title,self.assetsGroup.numberOfAssets];
     self.textLabel.textAlignment = NSTextAlignmentLeft;
     self.textLabel.font = [UIFont systemFontOfSize:15.0f];
+    [self.textLabel sizeToFit];
 }
 @end

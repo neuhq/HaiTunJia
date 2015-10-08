@@ -11,10 +11,13 @@ static NSString *kPhotoAlbumTakePhotoIndentifer  =  @"kPhotoAlbumTakePhotoIndent
 @interface PhotoAlbumViewController ()
 <UICollectionViewDelegate,
 UICollectionViewDelegateFlowLayout,
-UICollectionViewDataSource>
+UICollectionViewDataSource,
+SelectPhotoGroupViewDelegate>
 
+@property (nonatomic,assign) NSInteger index;
 
 @end
+
 @implementation PhotoAlbumViewController
 
 
@@ -57,7 +60,6 @@ UICollectionViewDataSource>
 {
     if(!_photoCollectionView)
     {
-        // UICollectionViewFlowLayout的初始化（与刷新控件无关）
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
         layout.minimumInteritemSpacing = 5;
@@ -80,9 +82,9 @@ UICollectionViewDataSource>
 {
     if (!_groupView)
     {
-        _groupView = [[SelectPhotoGroupView alloc] init];
+        _groupView = [[SelectPhotoGroupView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth, kScreenHeight - kNavigationBarHeight) withPhotoGroupData:self.photoGroupArray];
         _groupView.backgroundColor = [UIColor clearColor];
-        
+        _groupView.delegate = self;
     }
     return _groupView;
 }
@@ -92,14 +94,17 @@ UICollectionViewDataSource>
     self.leftBarButton.hidden = YES;
     [self.customNavigationBar addSubview:self.leftButtonWithWord];
     self.leftButtonWithWordString = @"取消";
-    self.naTitle = @"相机胶卷";
 }
 -(void)initArray
 {
     self.imageListArray = [[NSMutableArray alloc]init];
-    self.photoGroupArray = [[NSMutableArray alloc]init];
+    self.photoGroupArray = [[NSMutableArray alloc]initWithCapacity:10];
 }
 #pragma mark  - delegate
+-(void)selectAtIndex:(NSInteger)index
+{
+    [self getAllphotoData:index];
+}
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -123,8 +128,6 @@ UICollectionViewDataSource>
         PhotoAlbumCollectionViewCell *cell =
         (PhotoAlbumCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kPhotoAlbumImageIndentifer
                                                                                   forIndexPath:indexPath];
-//        cell.photoImageView.image = photoModel.photo;
-//        [self getImage:self.imageListArray[indexPath.row - 1] cell:cell];
         cell.photoImageView.image = self.imageListArray[indexPath.item - 1];
         return cell;
     }
@@ -145,4 +148,19 @@ UICollectionViewDataSource>
 
 
 #pragma mark -- Action/jump
+-(void)tapTitleViewAction
+{
+    [super tapTitleViewAction];
+    if (self.photoGroupArray)
+    {
+        if (self.isTapNavBarTitleView == YES)
+        {
+            [self.view addSubview:self.groupView];
+        }
+        else
+        {
+            [self.groupView removeFromSuperview];
+        }
+    }
+}
 @end

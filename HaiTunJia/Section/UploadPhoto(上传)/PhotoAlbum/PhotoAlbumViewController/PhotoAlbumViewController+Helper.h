@@ -10,4 +10,6 @@
  */
 -(void)getPhotoAllGroup;
 
+-(void)getAllphotoData:(NSInteger) tag;
+
 @end

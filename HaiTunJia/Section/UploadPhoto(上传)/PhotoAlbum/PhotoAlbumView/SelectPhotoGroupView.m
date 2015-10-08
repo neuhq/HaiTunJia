@@ -38,7 +38,7 @@
 {
     if (!_photoGroupTable)
     {
-        _photoGroupTable =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,150)];
+        _photoGroupTable =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,self.height/2)];
         _photoGroupTable.rowHeight = tableCellH;
         _photoGroupTable.separatorStyle = UITableViewCellSeparatorStyleNone;
         _photoGroupTable.delegate = self;
@@ -64,13 +64,20 @@
     {
         cell = [[PhotoGroupViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifer];
     }
+    if(self.groupArray)
+       cell.assetsGroup = self.groupArray[indexPath.row];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     if(self.delegate && [self.delegate respondsToSelector:@selector(selectAtIndex:)])
         [self.delegate selectAtIndex:indexPath.row];
 }
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70.0f;
+}
 @end

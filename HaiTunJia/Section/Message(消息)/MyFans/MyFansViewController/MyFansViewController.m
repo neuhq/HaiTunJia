@@ -1,7 +1,7 @@
 
 #import "MyFansViewController.h"
 #import "MyFansViewCell.h"
-
+#import "FansListService.h"
 @interface MyFansViewController ()
 <UITableViewDelegate,
 UITableViewDataSource>
@@ -18,6 +18,7 @@ UITableViewDataSource>
 {
     [super viewDidLoad];
     [self viewConfig];
+    [self getFansListData];
     [self.view addSubview:self.fansTableView];
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -60,10 +61,21 @@ UITableViewDataSource>
 {
     self.listArray = [[NSMutableArray alloc]init];
 }
+#pragma mark -- HTTP
+-(void)getFansListData
+{
+    FansListService *service = [[FansListService alloc]init];
+    [service startRequestWithResultBlock:^(id obj) {
+        self.listArray = obj;
+        [self.fansTableView reloadData];
+    } withFailed:^(NSError *error) {
+        
+    }];
+}
 #pragma mark -- Delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.listArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -73,6 +85,8 @@ UITableViewDataSource>
     {
         cell = [[MyFansViewCell alloc]initWithStyle: UITableViewCellStyleDefault reuseIdentifier:indentifer];
     }
+    MyFansDataModel *dataModel = self.listArray[indexPath.row];
+    cell.dataModel = dataModel;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,7 +94,10 @@ UITableViewDataSource>
     return  kMyFansViewCellHeight;
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 
 

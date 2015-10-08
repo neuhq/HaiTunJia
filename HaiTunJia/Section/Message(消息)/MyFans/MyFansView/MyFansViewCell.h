@@ -3,6 +3,7 @@
 
 extern const CGFloat kMyFansViewCellHeight;
 
+@class MyFansDataModel;
 @interface MyFansViewCell : UITableViewCell
 
 @property(nonatomic,strong) UIImageView *avatarImageView;
@@ -14,5 +15,7 @@ extern const CGFloat kMyFansViewCellHeight;
 @property(nonatomic,strong) UIButton *concern;
 
 @property(nonatomic,strong) UIView *line;
+
+@property(nonatomic,strong) MyFansDataModel *dataModel;
 
 @end

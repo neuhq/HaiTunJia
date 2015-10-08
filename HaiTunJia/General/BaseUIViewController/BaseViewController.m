@@ -11,9 +11,6 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
 
 @property(nonatomic,strong) UIView *navBarLine;
 
-//判断导航头部图片切换
-@property(nonatomic,assign) BOOL isTap;
-
 @end
 
 @implementation BaseViewController
@@ -195,15 +192,13 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
 }
 -(void)setLeftButtonWithWordString:(NSString *)leftButtonWithWordString
 {
-//    self.leftButtonWithWordString = leftButtonWithWordString;
     [self.leftButtonWithWord setTitle:leftButtonWithWordString forState:UIControlStateNormal];
     [self.leftButtonWithWord setTitle:leftButtonWithWordString forState:UIControlStateNormal];
 }
--(void)setNaTitle:(NSString *)naTitle
+-(void)setNavTitle:(NSString *)navTitle
 {
-   
-    [self.navTitleView setTitle:naTitle forState:UIControlStateNormal];
-    [self.navTitleView setTitle:naTitle forState:UIControlStateHighlighted];
+    [self.navTitleView setTitle:navTitle forState:UIControlStateNormal];
+    [self.navTitleView setTitle:navTitle forState:UIControlStateHighlighted];
 }
 #pragma mark -- Action
 -(void)goBackAction
@@ -216,8 +211,8 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
 }
 -(void)tapTitleViewAction
 {
-    _isTap = !_isTap;
-    if (_isTap == YES)
+    _isTapNavBarTitleView = !_isTapNavBarTitleView;
+    if (_isTapNavBarTitleView == YES)
     {
         [self.navTitleView setImage:[UIImage imageNamed:@"icon_shangla"] forState:UIControlStateNormal];
         [self.navTitleView setImage:[UIImage imageNamed:@"icon_shangla"] forState:UIControlStateHighlighted];

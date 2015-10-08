@@ -35,8 +35,10 @@
 
 @property (nonatomic,strong) UIButton *navTitleView;
 
-@property (nonatomic,strong) NSString *naTitle;
+@property (nonatomic,strong) NSString *navTitle;
 
+//判断导航头部图片切换
+@property(nonatomic,assign) BOOL isTapNavBarTitleView;
 
 /**
  *  重写navBarTitle方法
@@ -51,4 +53,10 @@
  *  @param isHiden yes or no
  */
 -(void)hideTabbar:(BOOL) isHiden;
+
+/**
+ *  重写navBarTitleView点击方法
+ */
+-(void)tapTitleViewAction;
+
 @end
