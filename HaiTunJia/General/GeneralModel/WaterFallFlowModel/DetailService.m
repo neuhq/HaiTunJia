@@ -21,7 +21,8 @@
         }
         else
         {
-            [iToast makeText:model.state.message];
+            iToast *toast =  [[iToast alloc]initWithText:model.state.message];
+            [toast show];
         }
     } failureBlock:^(NSError *error) {
         

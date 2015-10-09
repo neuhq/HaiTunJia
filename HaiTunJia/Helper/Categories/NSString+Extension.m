@@ -103,5 +103,11 @@
     size = [aString boundingRectWithSize:size  options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
     return  size;
 }
-
+- (CGFloat)heightForWidth:(CGFloat)width usingFont:(UIFont *)font
+{
+    NSStringDrawingContext *context = [[NSStringDrawingContext alloc] init];
+    CGSize labelSize = (CGSize){width, FLT_MAX};
+    CGRect r = [self boundingRectWithSize:labelSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: font} context:context];
+    return r.size.height;
+}
 @end

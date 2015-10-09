@@ -19,9 +19,21 @@
         self.userId = kUSERID;
         paramsBlock();
     } FinishBlock:^(id result) {
-        self.list = [WaterFallFlowListDataModel objectWithKeyValues:result];
-//        NSArray *array = [ListModel objectArrayWithKeyValuesArray:result[@"data"]];
-        finishBlock( self.list);
+        WaterFallFlowListDataModel *list = [WaterFallFlowListDataModel objectWithKeyValues:result];
+        if ([list.state.code integerValue] == 30000)
+        {
+            if(list.data.count != 0 && list.data != nil)
+            {
+                [list computeCellHeight:list.data];
+            }
+            finishBlock(list.data);
+        }
+        else
+        {
+            iToast *toast = [[iToast alloc]initWithText:list.state.message];
+            [toast show];
+        }
+        
     } failureBlock:^(NSError *error) {
         
     }];

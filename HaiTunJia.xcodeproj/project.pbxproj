@@ -113,6 +113,7 @@
 		AD13B8F41BBD023300AA3142 /* me_edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD13B8D01BBD023300AA3142 /* me_edit@3x.png */; };
 		AD13B8F51BBD023300AA3142 /* pengyouquan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD13B8D11BBD023300AA3142 /* pengyouquan@3x.png */; };
 		AD13B8FB1BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = AD13B8FA1BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.m */; };
+		AD4D20811BC81CCA00732CC0 /* UserCollectService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4D20801BC81CCA00732CC0 /* UserCollectService.m */; settings = {ASSET_TAGS = (); }; };
 		AD51BAAC1BBE4E8500C94388 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD51BAAB1BBE4E8500C94388 /* Images.xcassets */; };
 		AD51BAB41BBE727000C94388 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD51BAB31BBE727000C94388 /* LoginViewController.m */; };
 		AD51BAB71BBE735300C94388 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD51BAB61BBE735300C94388 /* LoginView.m */; };
@@ -467,6 +468,8 @@
 		AD13B8D11BBD023300AA3142 /* pengyouquan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pengyouquan@3x.png"; sourceTree = "<group>"; };
 		AD13B8F91BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCollectionWaterFallFlow.h; sourceTree = "<group>"; };
 		AD13B8FA1BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCollectionWaterFallFlow.m; sourceTree = "<group>"; };
+		AD4D207F1BC81CCA00732CC0 /* UserCollectService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCollectService.h; sourceTree = "<group>"; };
+		AD4D20801BC81CCA00732CC0 /* UserCollectService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCollectService.m; sourceTree = "<group>"; };
 		AD51BAAB1BBE4E8500C94388 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AD51BAB21BBE727000C94388 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		AD51BAB31BBE727000C94388 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -1757,6 +1760,8 @@
 		AD9BEB201BC0DBD3004D662B /* UserService */ = {
 			isa = PBXGroup;
 			children = (
+				AD4D207F1BC81CCA00732CC0 /* UserCollectService.h */,
+				AD4D20801BC81CCA00732CC0 /* UserCollectService.m */,
 			);
 			path = UserService;
 			sourceTree = "<group>";
@@ -2378,6 +2383,7 @@
 				AD51D5031BB7CD1300A75753 /* SDWebImagePrefetcher.m in Sources */,
 				AD9BEB261BC0DC0F004D662B /* UserViewController.m in Sources */,
 				AD5267EB1BC0CC3F007350F9 /* MessageHeaderView.m in Sources */,
+				AD4D20811BC81CCA00732CC0 /* UserCollectService.m in Sources */,
 				AD13B8981BBCF7ED00AA3142 /* HomeCollectionHeaderView.m in Sources */,
 				AD9B3D201BBBAA4B001078B9 /* NSObject+MJKeyValue.m in Sources */,
 				AD51D4F61BB7CD1300A75753 /* View+MASAdditions.m in Sources */,

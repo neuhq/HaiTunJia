@@ -61,5 +61,6 @@
 
 @property(nonatomic,assign) CGSize size;
 
+-(void)setListData:(ListModel *) listModel;
 
 @end

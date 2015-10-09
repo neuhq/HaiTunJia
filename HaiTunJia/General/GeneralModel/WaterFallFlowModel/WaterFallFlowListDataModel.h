@@ -7,80 +7,17 @@
 #import "StateModel.h"
 
 @class ListModel;
+
 @interface WaterFallFlowListDataModel : NSObject
 
 @property (nonatomic, strong) StateModel *state;
 
 @property (nonatomic, strong) NSArray *data;
 
-@end
-/*
-@class ListModel;
-
-@class StateModel,ListModel;
-@interface WaterFallFlowListDataModel : NSObject
-
-@property (nonatomic, strong) StateModel *state;
-
-@property (nonatomic, strong) NSArray *data;
+//计算cell高
+-(void)computeCellHeight:(NSArray *) array;
 
 @end
-
-
-
-@interface ListModel : NSObject
-
-@property (nonatomic, assign) NSInteger collectNum;
-
-@property (nonatomic, copy) NSString *location;
-
-//商品状态
-@property (nonatomic, assign) NSInteger status;
-
-//当前用户是否对该商品点赞：0：未点赞；1：已点赞
-@property (nonatomic, assign) NSInteger isPraised;
-
-//商品图
-@property (nonatomic, copy) NSString *picture;
-
-//发布时间
-@property (nonatomic, assign) long long gmtCreate;
-
-//点赞数
-@property (nonatomic, assign) NSInteger likeNum;
-
-//发布人头像
-@property (nonatomic, copy) NSString *userPic;
-
-//商品名
-@property (nonatomic, copy) NSString *name;
-
-//商品ID
-@property (nonatomic, assign) NSInteger iD;
-
-//评论数
-@property (nonatomic, assign) NSInteger commentNum;
-
-//货币类型
-@property (nonatomic, copy) NSString *moneyType;
-
-//当前用户是否对该商品点赞：0：未点赞；1：已点赞
-@property (nonatomic, assign) NSInteger isCollected;
-
-//发布人姓名
-@property (nonatomic, copy) NSString *userName;
-
-//商品价格
-@property (nonatomic, assign) NSInteger price;
-
-@property (nonatomic, copy) NSString *content;
-
-@property (nonatomic, assign) NSInteger userId;
-
- 
-@end
-*/
-
 
 @interface ListModel : NSObject
 
@@ -135,6 +72,13 @@
 @property (nonatomic, copy) NSString *content;
 
 @property (nonatomic, assign) NSInteger userId;
+
+@property (nonatomic,assign) CGFloat cellHeight;
+
+@property (nonatomic,assign) CGFloat bigImageHeight;
+
+@property (nonatomic,assign) CGSize cellSize;
+
 
 @end
 

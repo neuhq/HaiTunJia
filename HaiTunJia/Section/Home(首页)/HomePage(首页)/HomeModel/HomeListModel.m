@@ -23,8 +23,8 @@
         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.picture]];
         UIImage *image = [UIImage imageWithData:imageData];
         model.imageHeight = (image.size.height/image.size.width * width);
-        CGSize size = [model.name getStringRect:model.name withSize:CGSizeMake(width - 20.0f, 0)];
-        model.cellHeight =  50 +  model.imageHeight + size.height + messageImage.size.height + 10.0f + 20.0f;
+        CGSize size = [model.name sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0f]}];
+        model.cellHeight =  50 +  model.imageHeight + (size.height*2 + 20.0f) + messageImage.size.height + 10.0f ;
     }
     
 }

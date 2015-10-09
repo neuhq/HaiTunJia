@@ -97,7 +97,7 @@ UICollectionViewDelegateFlowLayout>
 -(void)viewConfig
 {
     self.isNavigationBar = NO;
-    [self setTitle:@"搜索"];
+    [self setTitle:self.keyword];
     self.rightBarButton.hidden = NO;
     self.rightView = @"只看可买";
 }
@@ -132,6 +132,8 @@ UICollectionViewDelegateFlowLayout>
         self.lastCommodityId = nil;
         if(self.isKeywordSearch == YES)
             [self getSearchResultDataWithKeyword];
+        else
+            [self getSearchResultDataWithTag];
         
     }];
     
@@ -141,6 +143,8 @@ UICollectionViewDelegateFlowLayout>
         weakSelf.isLoadMore = YES;
         if(self.isKeywordSearch == YES)
             [self getSearchResultDataWithKeyword];
+        else
+            [self getSearchResultDataWithTag];
     }];
 }
 
@@ -166,12 +170,37 @@ UICollectionViewDelegateFlowLayout>
     __weak SearchResultViewController *weakSelf = self;
     SearchWithTagService *search = [[SearchWithTagService alloc]init];
     [search startRequestDataWithParamsBlcok:^{
-        search.tag = weakSelf.tag;
+        search.tag = weakSelf.keyword;
         search.lastCommodityId = weakSelf.lastCommodityId;
     } FinishBlock:^(id result) {
+        NSArray *array = result;
         
+        if (weakSelf.isLoadMore == YES)
+        {
+            for(ListModel * model in array)
+            {
+                [weakSelf.listArray addObject:model];
+            }
+            ListModel *model = weakSelf.listArray.lastObject;
+            weakSelf.lastCommodityId = [NSString stringWithFormat:@"%ld",model.iD];
+        }
+        else
+        {
+            [weakSelf.listArray removeAllObjects];
+            for(ListModel * model in array)
+            {
+                [weakSelf.listArray addObject:model];
+            }
+            ListModel *model = weakSelf.listArray.lastObject;
+            self.lastCommodityId = [NSString stringWithFormat:@"%ld",model.iD];
+            
+        }
+        [weakSelf.seachResultCollectionView reloadData];
+        [weakSelf endRefrashLoad];
+
     } failureBlock:^(NSError *error) {
-        
+        [weakSelf endRefrashLoad];
+
     }];
 }
 //根据搜索关键字获取搜索数据
@@ -228,15 +257,16 @@ UICollectionViewDelegateFlowLayout>
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     WaterFallListCell *cell =
     (WaterFallListCell *)[collectionView dequeueReusableCellWithReuseIdentifier:WaterFallFlowViewCollectionViewIndentifer forIndexPath:indexPath];
-    
-    return cell;
+    NSLog(@"%ld",indexPath.item);
+    if(self.listArray.count)
+        [cell setListData:self.listArray[indexPath.item]];
+        return cell;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if(self.listArray)
     {
-//        DataModel *model = [self.listArray objectAtIndex:indexPath.item];
-//        return CGSizeMake((kScreenWidth - 30)/2,model.cellHeight);
-        return CGSizeMake((kScreenWidth - 30)/2, (kScreenWidth - 30)/2 + 80);
+        ListModel *model = [self.listArray objectAtIndex:indexPath.item];
+        return model.cellSize;
     }
     else
         return CGSizeMake(0, 0);

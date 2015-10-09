@@ -283,13 +283,19 @@ const CGFloat kUserHeaderSamllAvatarHeight   = 74.0;
     }
     return _tab;
 }
+
 #pragma mark -- helper
 -(void)getHeaderHeight
 {
     
 }
 
-
+#pragma mark -- 
+-(void)tapIndex:(NSInteger)index
+{
+    if(self.delegate &&[self.delegate respondsToSelector:@selector(selectTabAtIndex:)])
+        [self.delegate selectTabAtIndex:index];
+}
 
 
 

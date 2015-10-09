@@ -1,36 +1,35 @@
 
-#import "SearchWithTagService.h"
+#import "UserCollectService.h"
 #import "WaterFallFlowListDataModel.h"
 
-@implementation SearchWithTagService
-
--(void)startRequestDataWithParamsBlcok:(SetParamsBlock)paramsBlock
-                           FinishBlock:(WaterFallFowListInfoBlock)finishBlock
-                          failureBlock:(FailureBlock)failureBlock
+@implementation UserCollectService
+-(void)startRequestUserCollectWithParams:(SetParamsBlock) params
+       withResponsDataWithUserColletInfo:(UserCollectInfoBlock) info
+                              withFailed:(FailureBlock) fail
 {
-    //TODO:根据标签tag搜索
-    SearchWithTagService *search = [self initWithApiUrl:kApi_GetHotTagSeachList];
-    [search requestDataWithParamsBlcok:^{
+    UserCollectService *service = [self initWithApiUrl:kApi_GetUserCollectList];
+    [service requestDataWithParamsBlcok:^{
         self.userId = kUSERID;
-        paramsBlock();
+        params();
     } FinishBlock:^(id result) {
         WaterFallFlowListDataModel *list = [WaterFallFlowListDataModel objectWithKeyValues:result];
-        if ([list.state.code integerValue] == 30000)
+        if ([list.state.code integerValue] == 0)
         {
             if(list.data.count != 0 && list.data != nil)
             {
                 [list computeCellHeight:list.data];
             }
-            finishBlock(list.data);
+            info(list.data);
         }
         else
         {
             iToast *toast = [[iToast alloc]initWithText:list.state.message];
             [toast show];
         }
-
+        
     } failureBlock:^(NSError *error) {
         
     }];
+
 }
 @end

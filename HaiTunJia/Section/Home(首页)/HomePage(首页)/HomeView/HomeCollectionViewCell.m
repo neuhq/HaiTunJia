@@ -282,14 +282,15 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
 //    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
 //    [paragraphStyle setLineSpacing:5.0f];
 //    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [contentString length])];
-    CGSize contentSize = [contentString getStringRect:contentString withSize:CGSizeMake(self.width - 2*kHomeCellLeftOffset, 0)];
+//    CGSize contentSize = [contentString getStringRect:contentString withSize:CGSizeMake(self.width - 2*kHomeCellLeftOffset, 0)];
+    CGSize size = [contentString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0f]}];
+
     self.content.frame = CGRectMake(kHomeCellLeftOffset,
                                                            self.goodsImageView.bottom + kHomeCellTopOffset,
                                                            self.width - 2*kHomeCellLeftOffset,
-                                                           contentSize.height);
+                                                           size.height * 2);
     self.content.text = contentString;
     self.content.numberOfLines = 2;
-    [self.content sizeToFit];
     
     self.middleBgView.frame = CGRectMake(0,
                                                                       self.topBgView.bottom,
@@ -351,7 +352,7 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
     self.bottomBgView.frame = CGRectMake(0,
                                          self.middleBgView.bottom,
                                          self.width,
-                                         self.commentImageButton.bottom + 5.0f);
+                                         5.0f + loveImage.size.width+ 5.0f);
     self.bigBgView.frame = CGRectMake(0, 0, self.width, self.bottomBgView.bottom);
     [self.bottomLeftView addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomRightView addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];

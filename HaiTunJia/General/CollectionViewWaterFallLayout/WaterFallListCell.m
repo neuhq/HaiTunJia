@@ -188,41 +188,46 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
         self.layer.borderWidth = 0.5f;
         self.layer.borderColor = [[UIColor colorWithHexString:@"e5e5e6"] CGColor];
         self.userInteractionEnabled = YES;
+        
+        [self setNeedsDisplay];
     }
     return self;
 }
 
 #pragma mark -- Layout
--(void)layoutSubviews
+-(void)setListData:(ListModel *) listModel
 {
-    [super layoutSubviews];
+    self.listModel = listModel;
     
     
     
     //大图
-    [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:@"http://p3.so.qhimg.com/t01164281f4865ad883.jpg"] placeholderImage:nil];
-    self.goodsImageView.frame = CGRectMake(0, 0,self.width,self.width);
+    [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:self.listModel.picture] placeholderImage:nil];
+    self.goodsImageView.frame = CGRectMake(0, 0,self.width,self.listModel.bigImageHeight);
     
     self.topBgView.frame = CGRectMake(0,
                                                                  0,
                                                                  self.width,
-                                                                 self.width);
+                                                                 self.goodsImageView.height);
 
     
     //描述文本
-    NSString *contentString = @"这个是测试数据这个事测试数据这个是测试数据";
-    //    NSMutableAttributedString * attributedString = [[NSMutableAttributedString alloc] initWithString:contentString];
-    //    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    //    [paragraphStyle setLineSpacing:5.0f];
-    //    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [contentString length])];
-    CGSize contentSize = [contentString getStringRect:contentString withSize:CGSizeMake(self.width - 2*kHomeCellLeftOffset, 0)];
+    NSString *contentString = self.listModel.content;
+    CGSize size = [contentString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0f]}];
+
+//    CGSize boundingRectSize = CGSizeMake(self.width - 2*kHomeCellLeftOffset, CGFLOAT_MAX);
+//    NSDictionary *attributes = @{NSFontAttributeName :self.content.font};
+//    CGRect contentSize = [contentString boundingRectWithSize:boundingRectSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+//                                              attributes:attributes
+//                                                 context:nil];
+
     self.content.frame = CGRectMake(kHomeCellLeftOffset,
                                                             kHomeCellTopOffset,
                                                             self.width - 2*kHomeCellLeftOffset,
-                                                            contentSize.height);
+                                                            size.height * 2);
     self.content.text = contentString;
     self.content.numberOfLines = 2;
-    [self.content sizeToFit];
+//    [self.content sizeToFit];
     
     self.middleBgView.frame = CGRectMake(0,
                                          self.topBgView.bottom,
@@ -245,14 +250,13 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
     [self.commentImageButton setBackgroundImage:commentImage forState:UIControlStateHighlighted];
     
     //评论数
-    NSString *commentNumStr = [NSString stringWithFormat:@"%@",@"26"];
+    NSString *commentNumStr = [NSString stringWithFormat:@"%ld",self.listModel.commentNum];
     CGSize commentNumSize = [commentNumStr sizeWithAttributes:@{NSFontAttributeName:self.commentNum.font}];
     self.commentNum.frame = CGRectMake(self.commentImageButton.right,
                                        kHomeCellTopOffset,
                                        commentNumSize.width,
                                        commentNumSize.height);
     self.commentNum.text = commentNumStr;
-    
     
     self.bottomLeftView.frame = CGRectMake(0,
                                            self.lineView.bottom,
@@ -264,7 +268,7 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
                                             self.bottomLeftView.height);
     
     //赞数量
-    NSString *zanNumStr =  [NSString stringWithFormat:@"%@",@"56"];
+    NSString *zanNumStr =  [NSString stringWithFormat:@"%ld",self.listModel.likeNum];
     CGSize zanNumSize = [zanNumStr sizeWithAttributes:@{NSFontAttributeName:self.zanNum.font}];
     self.zanNum.frame = CGRectMake(self.bottomRightView.width - kHomeCellLeftOffset - zanNumSize.width,
                                    kHomeCellTopOffset,
@@ -288,6 +292,7 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
     self.bigBgView.frame = CGRectMake(0, 0, self.width, self.bottomBgView.bottom);
     [self.bottomLeftView addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomRightView addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 -(void)test
 {

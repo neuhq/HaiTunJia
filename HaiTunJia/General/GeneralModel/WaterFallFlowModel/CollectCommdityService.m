@@ -13,15 +13,10 @@
         params();
     } FinishBlock:^(id result) {
         NSDictionary *dic = result[@"state"];
-        if ([dic[@"code"] integerValue] == 0)
-        {
-            info(dic);
-        }
-        else
-        {
-            [iToast makeText:dic[@"message"]];
-        }
-        
+        iToast *toast = [[iToast alloc]initWithText:dic[@"message"]];
+        [toast show];
+        info(dic);
+
     } failureBlock:^(NSError *error) {
         
     }];

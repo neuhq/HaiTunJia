@@ -164,18 +164,19 @@ UICollectionViewDataSource>
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self jumpSearchPage:NO];
+//    [self jumpSearchPage:NO];
 }
 
 #pragma mark -- Action
 -(void)tapItem:(UIButton *) sender
 {
-    [self jumpSearchPage:NO];
+        self.keyword = self.titleArray[sender.tag];
+        [self jumpSearchPage:NO];
 }
 //跳转搜索结果
 -(void)jumpSearchPage:(BOOL) isKeywordSearch
 {
-    SearchResultViewController *searchResultVC = [[SearchResultViewController alloc]initWithIsKeywordSearch:isKeywordSearch withTag:@"10" withKeyword:self.keyword];
+    SearchResultViewController *searchResultVC = [[SearchResultViewController alloc]initWithIsKeywordSearch:isKeywordSearch withTag:self.keyword withKeyword:self.keyword];
     [self.navigationController pushViewController:searchResultVC animated:YES];
 }
 @end

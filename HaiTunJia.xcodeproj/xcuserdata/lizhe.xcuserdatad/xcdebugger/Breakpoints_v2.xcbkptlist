@@ -99,13 +99,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Section/Home(&#x9996;&#x9875;)/DetailPage(&#x5546;&#x54c1;&#x8be6;&#x60c5;)/DetailController/DetailController.m"
-            timestampString = "465919879.821432"
+            filePath = "HaiTunJia/Section/Search(&#x641c;&#x7d22;)/HotCategory/HotCategoryController/SearchResultViewController.m"
+            timestampString = "466095113.149358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-numberOfSectionsInTableView:"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "-getSearchResultDataWithKeyword"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -115,29 +115,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Section/Home(&#x9996;&#x9875;)/DetailPage(&#x5546;&#x54c1;&#x8be6;&#x60c5;)/DetailController/DetailController.m"
-            timestampString = "465919880.69312"
+            filePath = "HaiTunJia/Section/Search(&#x641c;&#x7d22;)/HotCategory/HotCategoryController/SearchResultViewController.m"
+            timestampString = "466095113.149358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "-tableView:numberOfRowsInSection:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Section/Home(&#x9996;&#x9875;)/DetailPage(&#x5546;&#x54c1;&#x8be6;&#x60c5;)/DetailController/DetailController.m"
-            timestampString = "465920208.940533"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "-getSearchResultDataWithKeyword"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

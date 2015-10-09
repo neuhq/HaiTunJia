@@ -3,13 +3,16 @@
 #import "CHTCollectionViewWaterfallLayout.h"
 #import "UserHeaderView.h"
 #import "UIImageView+WebCache.h"
+#import "UserCollectService.h"
 static NSString *const kUserCollectionCellIndentifer =  @"kUserCollectionCellIndentifer";
 static NSString *const kUserHeaderViewIndentifer = @"kUserHeaderViewIndentifer";
 @interface UserViewController ()
 <UICollectionViewDataSource,
 CHTCollectionViewDelegateWaterfallLayout,
 UICollectionViewDelegate,
-UICollectionViewDelegateFlowLayout>
+UICollectionViewDelegateFlowLayout,
+UserHeaderViewDelegate>
+
 
 
 @property(nonatomic,strong) UICollectionView *userCollectionView;
@@ -32,8 +35,10 @@ UICollectionViewDelegateFlowLayout>
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self initArray];
     [self viewConfig];
     [self.view addSubview:self.userCollectionView];
+    [self setRefrashControl];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -81,19 +86,88 @@ UICollectionViewDelegateFlowLayout>
     self.leftBarButton.hidden = YES;
     
 }
+-(void)initArray
+{
+    self.listArray = [[NSMutableArray alloc]init];
+}
+//上下拉刷新控件
+-(void)setRefrashControl
+{
+    // 下拉刷新
+    // 上拉刷新
+    __weak UserViewController *weakSelf = self;
+    self.userCollectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        // 进入刷新状态后会自动调用这个block
+        weakSelf.isLoadMore = YES;
+        [self getUserCollectList];
+    }];
+}
 
+//结束刷新状态
+-(void)endRefrashLoad
+{
+    [self.userCollectionView.header endRefreshing];
+    [self.userCollectionView.footer endRefreshing];
+    
+}
+
+#pragma mark -- HTTP
+-(void)getUserCollectList
+{
+    UserCollectService *service = [[UserCollectService alloc]init];
+    [service startRequestUserCollectWithParams:^{
+        service.lastCommodityId = self.lastCommodityId;
+    } withResponsDataWithUserColletInfo:^(id object) {
+        NSArray *array = object;
+        
+        if (self.isLoadMore == YES)
+        {
+            for(ListModel * model in array)
+            {
+                [self.listArray addObject:model];
+            }
+            ListModel *model = self.listArray.lastObject;
+            self.lastCommodityId = [NSString stringWithFormat:@"%ld",model.iD];
+        }
+        else
+        {
+            [self.listArray removeAllObjects];
+            for(ListModel * model in array)
+            {
+                [self.listArray addObject:model];
+            }
+            ListModel *model = self.listArray.lastObject;
+            self.lastCommodityId = [NSString stringWithFormat:@"%ld",model.iD];
+            
+        }
+        [self.userCollectionView reloadData];
+        [self endRefrashLoad];
+    } withFailed:^(NSError *error) {
+        [self endRefrashLoad];
+    }];
+
+}
 #pragma mark -- delegate
+-(void)selectTabAtIndex:(NSInteger)index
+{
+    if (index == 0)
+    {
+        
+    }
+    else
+    {
+        [self getUserCollectList];
+    }
+}
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    //    if(self.listModel)
-    //    {
-    ////        return self.listArray.count;
-    //        return 30.0f;
-    //    }
-    //    else
-    //        return 0;
-    return 30.0f;
+        if(self.listArray)
+        {
+            return self.listArray.count;
+        }
+        else
+            return 0;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -104,19 +178,17 @@ UICollectionViewDelegateFlowLayout>
     WaterFallListCell *cell =
     (WaterFallListCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kUserCollectionCellIndentifer
                                                                    forIndexPath:indexPath];
-    
+    [cell setListData:self.listArray[indexPath.item]];
     return cell;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if(self.listArray)
-//    {
-        //        DataModel *model = [self.listArray objectAtIndex:indexPath.item];
-        //        return CGSizeMake((kScreenWidth - 30)/2,model.cellHeight);
-        return CGSizeMake((kScreenWidth - 30)/2, (kScreenWidth - 30)/2 + 80);
-//    }
-//    else
-//        return CGSizeMake(0, 0);
-    //    return [self.cellSizes[indexPath.item % 4] CGSizeValue];
+    if(self.listArray)
+    {
+        ListModel *model = [self.listArray objectAtIndex:indexPath.item];
+        return model.cellSize;
+    }
+    else
+        return CGSizeMake(0, 0);
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     UICollectionReusableView *reusableView = nil;
@@ -125,6 +197,7 @@ UICollectionViewDelegateFlowLayout>
          self.hearderView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                                    withReuseIdentifier:kUserHeaderViewIndentifer
                                                                                           forIndexPath:indexPath];
+        self.hearderView.delegate = self;
         reusableView = self.hearderView;
     }
     return reusableView;
