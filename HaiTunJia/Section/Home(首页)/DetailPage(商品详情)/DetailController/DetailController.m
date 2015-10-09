@@ -3,7 +3,10 @@
 #import "DetailBottomView.h"
 #import "DetailService.h"
 #import "DetailModel.h"
+#import "CollectCommdityService.h"
+
 @interface DetailController ()
+<DetailBottomViewDelegate>
 
 @property(nonatomic,assign) BOOL isScrollDown;
 
@@ -62,6 +65,7 @@
     {
         _bottomView = [[DetailBottomView alloc]initWithFrame:CGRectMake(0, kScreenHeight - 44.0f, kScreenWidth, 44.0f)];
         _bottomView.backgroundColor = [UIColor whiteColor];
+        _bottomView.delegate = self;
     }
     return _bottomView;
 }
@@ -71,6 +75,7 @@
     [self setTitle:@"笔记详情"];
 }
 #pragma mark -- HTTP
+//详情请求
 -(void)getNoteDetailInfo
 {
     DetailService *service =[[DetailService alloc]init];
@@ -83,8 +88,48 @@
         
     }];
 }
+//收藏商品
+-(void)collectCommodity
+{
+    CollectCommdityService *service = [[CollectCommdityService alloc]init];
+    [service startRequestUserCollectWithParams:^{
+        service.commodityId = self.noteId;
+    } withResponsDataWithUserColletInfo:^(id object) {
+        
+    } withFailed:^(NSError *error) {
+        
+    }];
+}
 #pragma mark -- Delegate
-
+-(void)selectBottomButtonAnIndx:(DetailBottomViewButtonType)type
+{
+    switch (type)
+    {
+        case DetailBottomViewButtonType_Pengyou:
+        {
+            
+        }
+            break;
+        case DetailBottomViewButtonType_weixin:
+        {
+            
+        }
+            break;
+        case DetailBottomViewButtonType_like:
+        {
+            
+        }
+            break;
+        case DetailBottomViewButtonType_collect:
+        {
+            [self collectCommodity];
+        }
+            break;
+        default:
+            break;
+    }
+}
+#pragma mark -- TableViewDelegate/TableViewDataSource
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
@@ -97,7 +142,6 @@
 {
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     return cell.frame.size.height;
-//    return 300;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

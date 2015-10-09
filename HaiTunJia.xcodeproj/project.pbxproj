@@ -15,6 +15,7 @@
 		33CDF0161BC783B00023CF09 /* StateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF0151BC783B00023CF09 /* StateModel.m */; };
 		33CDF0191BC7AB690023CF09 /* DetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF0181BC7AB690023CF09 /* DetailService.m */; };
 		33CDF01F1BC7B1B50023CF09 /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF01E1BC7B1B50023CF09 /* DetailModel.m */; };
+		33CDF0221BC7D02E0023CF09 /* CollectCommdityService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF0211BC7D02E0023CF09 /* CollectCommdityService.m */; };
 		33D4A9F21BB91F550086D442 /* CHTCollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4A9F11BB91F550086D442 /* CHTCollectionViewWaterfallLayout.m */; };
 		33D4AA161BB9213F0086D442 /* NSArray+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4A9F51BB9213F0086D442 /* NSArray+Additions.m */; };
 		33D4AA171BB9213F0086D442 /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4A9F71BB9213F0086D442 /* NSDate+Additions.m */; };
@@ -322,6 +323,8 @@
 		33CDF0181BC7AB690023CF09 /* DetailService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailService.m; path = HaiTunJia/General/GeneralModel/WaterFallFlowModel/DetailService.m; sourceTree = SOURCE_ROOT; };
 		33CDF01D1BC7B1B50023CF09 /* DetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailModel.h; path = HaiTunJia/General/GeneralModel/WaterFallFlowModel/DetailModel.h; sourceTree = SOURCE_ROOT; };
 		33CDF01E1BC7B1B50023CF09 /* DetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailModel.m; path = HaiTunJia/General/GeneralModel/WaterFallFlowModel/DetailModel.m; sourceTree = SOURCE_ROOT; };
+		33CDF0201BC7D02E0023CF09 /* CollectCommdityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectCommdityService.h; path = HaiTunJia/General/GeneralModel/WaterFallFlowModel/CollectCommdityService.h; sourceTree = SOURCE_ROOT; };
+		33CDF0211BC7D02E0023CF09 /* CollectCommdityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectCommdityService.m; path = HaiTunJia/General/GeneralModel/WaterFallFlowModel/CollectCommdityService.m; sourceTree = SOURCE_ROOT; };
 		33D4A9ED1BB91BF20086D442 /* ApiUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiUrl.h; sourceTree = "<group>"; };
 		33D4A9EE1BB91BF20086D442 /* SystemMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMacro.h; sourceTree = "<group>"; };
 		33D4A9F01BB91F550086D442 /* CHTCollectionViewWaterfallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTCollectionViewWaterfallLayout.h; sourceTree = "<group>"; };
@@ -1118,6 +1121,8 @@
 			children = (
 				33CDF0171BC7AB690023CF09 /* DetailService.h */,
 				33CDF0181BC7AB690023CF09 /* DetailService.m */,
+				33CDF0201BC7D02E0023CF09 /* CollectCommdityService.h */,
+				33CDF0211BC7D02E0023CF09 /* CollectCommdityService.m */,
 			);
 			path = DetailService;
 			sourceTree = "<group>";
@@ -2439,6 +2444,7 @@
 				AD51D5151BB7F13D00A75753 /* main.m in Sources */,
 				ADCD76DF1BBF7BEA004B6493 /* HotCategoryViewController.m in Sources */,
 				AD51D4FD1BB7CD1300A75753 /* SDImageCache.m in Sources */,
+				33CDF0221BC7D02E0023CF09 /* CollectCommdityService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

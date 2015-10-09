@@ -40,10 +40,12 @@
         UIImage *image = [UIImage imageNamed:@"icon_focus_sel"];
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(47*i+23.0f, (self.height - image.size.height)/2, image.size.width, image.size.height);
+        button.tag = i;
         [button setBackgroundImage:self.normalImageArray[i] forState:UIControlStateNormal];
         [button setBackgroundImage:self.selectImageArray[i] forState:UIControlStateHighlighted];
         [button setBackgroundImage:self.selectImageArray[i] forState:UIControlStateSelected];
         button.backgroundColor = [UIColor whiteColor];
+        [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
     }
     [self addSubview:self.buyButton];
@@ -69,5 +71,10 @@
         _buyButton.layer.cornerRadius = 4.0f;
     }
     return _buyButton;
+}
+-(void)buttonAction:(UIButton *) sender
+{
+    if(self.delegate && [self.delegate respondsToSelector:@selector(selectBottomButtonAnIndx:)])
+        [self.delegate selectBottomButtonAnIndx:sender.tag];
 }
 @end
