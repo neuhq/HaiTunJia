@@ -1,7 +1,9 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailController.h"
+#import "DetailModel.h"
 @class DetailController;
+
 
 @interface NoteDetailInfoCell : UITableViewCell
 
@@ -10,7 +12,7 @@
       withCellType:(DetailCellType) cellType;
 
 
--(void)setData;
+-(void)setDataWithModel:(CommodityModel*)commodityModel;
 
 -(void)setCommentAndLikeData;
 @end

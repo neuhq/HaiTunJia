@@ -10,6 +10,11 @@
 		339984911BC62FA800AEECB7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339984901BC62FA800AEECB7 /* MobileCoreServices.framework */; };
 		339984941BC63B7E00AEECB7 /* SelectPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 339984931BC63B7E00AEECB7 /* SelectPhotoGroupView.m */; };
 		339984971BC63E1000AEECB7 /* PhotoGroupViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 339984961BC63E1000AEECB7 /* PhotoGroupViewCell.m */; };
+		33CDF00C1BC771E70023CF09 /* SearchWithKeywordService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF0091BC771E70023CF09 /* SearchWithKeywordService.m */; };
+		33CDF00D1BC771E70023CF09 /* SearchWithTagService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF00B1BC771E70023CF09 /* SearchWithTagService.m */; };
+		33CDF0161BC783B00023CF09 /* StateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF0151BC783B00023CF09 /* StateModel.m */; };
+		33CDF0191BC7AB690023CF09 /* DetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF0181BC7AB690023CF09 /* DetailService.m */; };
+		33CDF01F1BC7B1B50023CF09 /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF01E1BC7B1B50023CF09 /* DetailModel.m */; };
 		33D4A9F21BB91F550086D442 /* CHTCollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4A9F11BB91F550086D442 /* CHTCollectionViewWaterfallLayout.m */; };
 		33D4AA161BB9213F0086D442 /* NSArray+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4A9F51BB9213F0086D442 /* NSArray+Additions.m */; };
 		33D4AA171BB9213F0086D442 /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4A9F71BB9213F0086D442 /* NSDate+Additions.m */; };
@@ -161,8 +166,8 @@
 		AD8378101BC5070700EC679C /* NoteDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83780F1BC5070700EC679C /* NoteDetailInfoCell.m */; };
 		AD83781D1BC5199800EC679C /* DetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83781C1BC5199800EC679C /* DetailBottomView.m */; };
 		AD8378211BC53DFE00EC679C /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8378201BC53DFE00EC679C /* DWTagList.m */; };
-		AD8378241BC6AF0B00EC679C /* FansListService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8378231BC6AF0B00EC679C /* FansListService.m */; settings = {ASSET_TAGS = (); }; };
-		AD8378271BC6B1FF00EC679C /* MyFansListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8378261BC6B1FF00EC679C /* MyFansListModel.m */; settings = {ASSET_TAGS = (); }; };
+		AD8378241BC6AF0B00EC679C /* FansListService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8378231BC6AF0B00EC679C /* FansListService.m */; };
+		AD8378271BC6B1FF00EC679C /* MyFansListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8378261BC6B1FF00EC679C /* MyFansListModel.m */; };
 		AD8905601BB9940D00D90221 /* UILabel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = AD89055F1BB9940D00D90221 /* UILabel+Additions.m */; };
 		AD89057D1BB9987F00D90221 /* icon_love_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8905631BB9987F00D90221 /* icon_love_active@2x.png */; };
 		AD89057E1BB9987F00D90221 /* icon_love_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8905641BB9987F00D90221 /* icon_love_normal@2x.png */; };
@@ -267,9 +272,7 @@
 		ADCD77181BBFA605004B6493 /* HotCategoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD77171BBFA605004B6493 /* HotCategoryHeaderView.m */; };
 		ADCD771B1BBFADFC004B6493 /* WaterFallListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD771A1BBFADFC004B6493 /* WaterFallListCell.m */; };
 		ADCD771E1BBFB86E004B6493 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD771D1BBFB86E004B6493 /* SearchResultViewController.m */; };
-		ADCD77231BBFC102004B6493 /* SearchWithTagService.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD77221BBFC102004B6493 /* SearchWithTagService.m */; };
 		ADCD77271BBFC441004B6493 /* WaterFallFlowListDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD77261BBFC441004B6493 /* WaterFallFlowListDataModel.m */; };
-		ADCD772A1BBFCAB6004B6493 /* SearchWithKeywordService.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD77291BBFCAB6004B6493 /* SearchWithKeywordService.m */; };
 		ADCD772D1BBFD926004B6493 /* NetworkErrorCode.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD772C1BBFD926004B6493 /* NetworkErrorCode.m */; };
 		ADCD77311BC012FF004B6493 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD77301BC012FF004B6493 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		ADCD77341BC013F5004B6493 /* AppDelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD77331BC013F5004B6493 /* AppDelegateHelper.m */; };
@@ -309,6 +312,16 @@
 		339984931BC63B7E00AEECB7 /* SelectPhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPhotoGroupView.m; sourceTree = "<group>"; };
 		339984951BC63E1000AEECB7 /* PhotoGroupViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGroupViewCell.h; sourceTree = "<group>"; };
 		339984961BC63E1000AEECB7 /* PhotoGroupViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGroupViewCell.m; sourceTree = "<group>"; };
+		33CDF0081BC771E70023CF09 /* SearchWithKeywordService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWithKeywordService.h; sourceTree = "<group>"; };
+		33CDF0091BC771E70023CF09 /* SearchWithKeywordService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchWithKeywordService.m; sourceTree = "<group>"; };
+		33CDF00A1BC771E70023CF09 /* SearchWithTagService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWithTagService.h; sourceTree = "<group>"; };
+		33CDF00B1BC771E70023CF09 /* SearchWithTagService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchWithTagService.m; sourceTree = "<group>"; };
+		33CDF0141BC783B00023CF09 /* StateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateModel.h; sourceTree = "<group>"; };
+		33CDF0151BC783B00023CF09 /* StateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateModel.m; sourceTree = "<group>"; };
+		33CDF0171BC7AB690023CF09 /* DetailService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailService.h; path = HaiTunJia/General/GeneralModel/WaterFallFlowModel/DetailService.h; sourceTree = SOURCE_ROOT; };
+		33CDF0181BC7AB690023CF09 /* DetailService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailService.m; path = HaiTunJia/General/GeneralModel/WaterFallFlowModel/DetailService.m; sourceTree = SOURCE_ROOT; };
+		33CDF01D1BC7B1B50023CF09 /* DetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailModel.h; path = HaiTunJia/General/GeneralModel/WaterFallFlowModel/DetailModel.h; sourceTree = SOURCE_ROOT; };
+		33CDF01E1BC7B1B50023CF09 /* DetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailModel.m; path = HaiTunJia/General/GeneralModel/WaterFallFlowModel/DetailModel.m; sourceTree = SOURCE_ROOT; };
 		33D4A9ED1BB91BF20086D442 /* ApiUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiUrl.h; sourceTree = "<group>"; };
 		33D4A9EE1BB91BF20086D442 /* SystemMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMacro.h; sourceTree = "<group>"; };
 		33D4A9F01BB91F550086D442 /* CHTCollectionViewWaterfallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTCollectionViewWaterfallLayout.h; sourceTree = "<group>"; };
@@ -707,12 +720,8 @@
 		ADCD771A1BBFADFC004B6493 /* WaterFallListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFallListCell.m; sourceTree = "<group>"; };
 		ADCD771C1BBFB86E004B6493 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		ADCD771D1BBFB86E004B6493 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
-		ADCD77211BBFC102004B6493 /* SearchWithTagService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWithTagService.h; sourceTree = "<group>"; };
-		ADCD77221BBFC102004B6493 /* SearchWithTagService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchWithTagService.m; sourceTree = "<group>"; };
 		ADCD77251BBFC441004B6493 /* WaterFallFlowListDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFallFlowListDataModel.h; sourceTree = "<group>"; };
 		ADCD77261BBFC441004B6493 /* WaterFallFlowListDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFallFlowListDataModel.m; sourceTree = "<group>"; };
-		ADCD77281BBFCAB6004B6493 /* SearchWithKeywordService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWithKeywordService.h; sourceTree = "<group>"; };
-		ADCD77291BBFCAB6004B6493 /* SearchWithKeywordService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchWithKeywordService.m; sourceTree = "<group>"; };
 		ADCD772B1BBFD926004B6493 /* NetworkErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkErrorCode.h; sourceTree = "<group>"; };
 		ADCD772C1BBFD926004B6493 /* NetworkErrorCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkErrorCode.m; sourceTree = "<group>"; };
 		ADCD772F1BC012FF004B6493 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
@@ -783,6 +792,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33CDF0071BC771E70023CF09 /* HotCategoryService */ = {
+			isa = PBXGroup;
+			children = (
+				33CDF0081BC771E70023CF09 /* SearchWithKeywordService.h */,
+				33CDF0091BC771E70023CF09 /* SearchWithKeywordService.m */,
+				33CDF00A1BC771E70023CF09 /* SearchWithTagService.h */,
+				33CDF00B1BC771E70023CF09 /* SearchWithTagService.m */,
+			);
+			path = HotCategoryService;
+			sourceTree = "<group>";
+		};
 		33D4A9EC1BB91BF20086D442 /* Macro */ = {
 			isa = PBXGroup;
 			children = (
@@ -1087,6 +1107,8 @@
 		AD13B89D1BBCF80D00AA3142 /* DetailModel */ = {
 			isa = PBXGroup;
 			children = (
+				33CDF01D1BC7B1B50023CF09 /* DetailModel.h */,
+				33CDF01E1BC7B1B50023CF09 /* DetailModel.m */,
 			);
 			path = DetailModel;
 			sourceTree = "<group>";
@@ -1094,6 +1116,8 @@
 		AD13B89E1BBCF80D00AA3142 /* DetailService */ = {
 			isa = PBXGroup;
 			children = (
+				33CDF0171BC7AB690023CF09 /* DetailService.h */,
+				33CDF0181BC7AB690023CF09 /* DetailService.m */,
 			);
 			path = DetailService;
 			sourceTree = "<group>";
@@ -1863,8 +1887,8 @@
 		ADCD76D31BBF7B14004B6493 /* HotCategory */ = {
 			isa = PBXGroup;
 			children = (
+				33CDF0071BC771E70023CF09 /* HotCategoryService */,
 				ADCD77201BBFC063004B6493 /* HotCategoryModel */,
-				ADCD771F1BBFC042004B6493 /* HotCategoryHTTP */,
 				ADCD76D41BBF7B14004B6493 /* HotCategoryController */,
 				ADCD76D51BBF7B14004B6493 /* HotCategoryView */,
 			);
@@ -1942,17 +1966,6 @@
 			path = 3x;
 			sourceTree = "<group>";
 		};
-		ADCD771F1BBFC042004B6493 /* HotCategoryHTTP */ = {
-			isa = PBXGroup;
-			children = (
-				ADCD77211BBFC102004B6493 /* SearchWithTagService.h */,
-				ADCD77221BBFC102004B6493 /* SearchWithTagService.m */,
-				ADCD77281BBFCAB6004B6493 /* SearchWithKeywordService.h */,
-				ADCD77291BBFCAB6004B6493 /* SearchWithKeywordService.m */,
-			);
-			path = HotCategoryHTTP;
-			sourceTree = "<group>";
-		};
 		ADCD77201BBFC063004B6493 /* HotCategoryModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1965,6 +1978,8 @@
 			children = (
 				ADCD77251BBFC441004B6493 /* WaterFallFlowListDataModel.h */,
 				ADCD77261BBFC441004B6493 /* WaterFallFlowListDataModel.m */,
+				33CDF0141BC783B00023CF09 /* StateModel.h */,
+				33CDF0151BC783B00023CF09 /* StateModel.m */,
 			);
 			name = WaterFallFlowModel;
 			path = GeneralModel/WaterFallFlowModel;
@@ -2305,6 +2320,7 @@
 				33D4AA1B1BB9213F0086D442 /* NSTimer+Addition.m in Sources */,
 				AD13B8971BBCF7ED00AA3142 /* HomeService.m in Sources */,
 				AD51D4F01BB7CD1300A75753 /* MASConstraintMaker.m in Sources */,
+				33CDF00C1BC771E70023CF09 /* SearchWithKeywordService.m in Sources */,
 				33D4AA221BB9213F0086D442 /* UIImage+InternalMethod.m in Sources */,
 				AD51D5071BB7CD1300A75753 /* UIImage+WebP.m in Sources */,
 				AD51D4F91BB7CD1300A75753 /* MKAnnotationView+WebCache.m in Sources */,
@@ -2313,7 +2329,6 @@
 				33D4AA231BB9213F0086D442 /* UITableView+Additions.m in Sources */,
 				AD51D4E71BB7CD1300A75753 /* AFURLConnectionOperation.m in Sources */,
 				AD51D4EC1BB7CD1300A75753 /* JSONKit.m in Sources */,
-				ADCD77231BBFC102004B6493 /* SearchWithTagService.m in Sources */,
 				33D4A9F21BB91F550086D442 /* CHTCollectionViewWaterfallLayout.m in Sources */,
 				AD13B87F1BBCC96B00AA3142 /* UIScrollView+MJRefresh.m in Sources */,
 				AD51D50E1BB7D20C00A75753 /* BaseViewController.m in Sources */,
@@ -2321,7 +2336,6 @@
 				ADCD76E21BBF7CDE004B6493 /* CustomSearchBar.m in Sources */,
 				AD9BEB7C1BC222C6004D662B /* PhotoAlbumViewController+Helper.m in Sources */,
 				AD9B3D1D1BBBAA4B001078B9 /* MJPropertyType.m in Sources */,
-				ADCD772A1BBFCAB6004B6493 /* SearchWithKeywordService.m in Sources */,
 				AD51D4F21BB7CD1300A75753 /* MASViewAttribute.m in Sources */,
 				AD51D5001BB7CD1300A75753 /* SDWebImageDownloader.m in Sources */,
 				AD893BC81BC38D230050C5AD /* MyFansViewCell.m in Sources */,
@@ -2337,7 +2351,9 @@
 				AD51D5081BB7CD1300A75753 /* UIImageView+HighlightedWebCache.m in Sources */,
 				AD9BEB471BC20B32004D662B /* PhotoAlbumCollectionViewCell.m in Sources */,
 				AD51D4FA1BB7CD1300A75753 /* NSData+ImageContentType.m in Sources */,
+				33CDF0161BC783B00023CF09 /* StateModel.m in Sources */,
 				AD8378211BC53DFE00EC679C /* DWTagList.m in Sources */,
+				33CDF00D1BC771E70023CF09 /* SearchWithTagService.m in Sources */,
 				AD13B8711BBCC96B00AA3142 /* MJRefreshFooter.m in Sources */,
 				AD51D4EE1BB7CD1300A75753 /* MASCompositeConstraint.m in Sources */,
 				AD51D5091BB7CD1300A75753 /* UIImageView+WebCache.m in Sources */,
@@ -2368,6 +2384,7 @@
 				AD51D4EA1BB7CD1300A75753 /* AFURLSessionManager.m in Sources */,
 				ADF6145F1BC4E485004FCABE /* LoginWithPasswordViewController.m in Sources */,
 				AD8378241BC6AF0B00EC679C /* FansListService.m in Sources */,
+				33CDF01F1BC7B1B50023CF09 /* DetailModel.m in Sources */,
 				AD13B87A1BBCC96B00AA3142 /* MJRefreshNormalHeader.m in Sources */,
 				AD51D4EF1BB7CD1300A75753 /* MASConstraint.m in Sources */,
 				ADCD77591BC0255A004B6493 /* MessageViewCell.m in Sources */,
@@ -2404,6 +2421,7 @@
 				AD51D4F51BB7CD1300A75753 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				AD8378271BC6B1FF00EC679C /* MyFansListModel.m in Sources */,
 				AD9BEB291BC0DD54004D662B /* UserHeaderView.m in Sources */,
+				33CDF0191BC7AB690023CF09 /* DetailService.m in Sources */,
 				AD51D4E61BB7CD1300A75753 /* AFSecurityPolicy.m in Sources */,
 				AD13B8A21BBCF82300AA3142 /* DetailController.m in Sources */,
 				33D4AA191BB9213F0086D442 /* NSFileManager+Additions.m in Sources */,

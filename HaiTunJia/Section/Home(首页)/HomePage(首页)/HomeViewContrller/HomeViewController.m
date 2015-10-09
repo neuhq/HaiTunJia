@@ -217,9 +217,9 @@ UICollectionViewDelegateFlowLayout>
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self jumpDetail];
-//    LoginViewController *loginVC = [[LoginViewController alloc]init];
-//    [self.navigationController pushViewController:loginVC animated:YES];
+    DataModel *dataModel = [self.listArray objectAtIndex:indexPath.item];
+    DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if(self.listArray)

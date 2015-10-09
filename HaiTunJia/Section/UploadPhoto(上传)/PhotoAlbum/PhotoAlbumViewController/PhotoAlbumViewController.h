@@ -12,4 +12,6 @@
 @property(nonatomic,strong) SelectPhotoGroupView *groupView;
 
 @property(nonatomic,strong)  ALAssetsLibrary *assetLibrary;
+
+@property(nonatomic,strong) ALAssetsGroup *group;
 @end

@@ -11,6 +11,8 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
 
 @property(nonatomic,strong) UIView *navBarLine;
 
+@property(nonatomic,strong) UIButton *xiaLaButton;
+
 @end
 
 @implementation BaseViewController
@@ -28,6 +30,7 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
     [self.customNavigationBar addSubview:self.navBarTitle];
     [self.customNavigationBar addSubview:self.navBarLine];
     [self.customNavigationBar addSubview:self.navTitleView];
+    [self.navTitleView addSubview:self.xiaLaButton];
     self.rightBarButton.hidden = YES;
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -128,21 +131,27 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
 {
     if (!_navTitleView)
     {
-         UIImage *image =  [UIImage imageNamed:@"icon_xiala"];
         _navTitleView = [UIButton buttonWithType:UIButtonTypeCustom];
-        _navTitleView.frame = CGRectMake(50, 20, kScreenWidth - 100, 44.0f);
-        _navTitleView.imageEdgeInsets = UIEdgeInsetsMake((_navTitleView.height - image.size.height)/2,135, (_navTitleView.height - image.size.height)/2, 0);
-        [_navTitleView setTitleEdgeInsets:UIEdgeInsetsMake(0, -35, 0, 0)];
+        _navTitleView.frame = CGRectMake(50, 20, kScreenWidth - 100, 43);
         _navTitleView.hidden = YES;
-        [_navTitleView setImage:image forState:UIControlStateNormal];
-        [_navTitleView setImage:image forState:UIControlStateHighlighted];
         [_navTitleView setTitleColor:[UIColor colorWithHexString:@"626a73"] forState:UIControlStateNormal];
         [_navTitleView setTitleColor:[UIColor colorWithHexString:@"626a73"] forState:UIControlStateHighlighted];
         [_navTitleView addTarget:self action:@selector(tapTitleViewAction) forControlEvents:UIControlEventTouchUpInside];
         _navTitleView.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-        _navTitleView.backgroundColor = [UIColor clearColor];
+        _navTitleView.backgroundColor = [UIColor whiteColor];
     }
     return _navTitleView;
+}
+-(UIButton *) xiaLaButton
+{
+    if (!_xiaLaButton)
+    {
+        _xiaLaButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_xiaLaButton setBackgroundImage:[UIImage imageNamed:@"icon_xiala"] forState:UIControlStateNormal];
+        [_xiaLaButton setBackgroundImage:[UIImage imageNamed:@"icon_xiala"] forState:UIControlStateHighlighted];
+        _xiaLaButton.backgroundColor = [UIColor clearColor];
+    }
+    return _xiaLaButton;
 }
 #pragma mark - helper
 //重写title
@@ -197,6 +206,9 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
 }
 -(void)setNavTitle:(NSString *)navTitle
 {
+    UIImage *image = [UIImage imageNamed:@"icon_xiala"];
+    CGSize size = [navTitle sizeWithAttributes:@{NSFontAttributeName:self.navTitleView.titleLabel.font}];
+    self.xiaLaButton.frame = CGRectMake((_navTitleView.width - size.width)/2+ size.width + 5, (self.navTitleView.height - image.size.height)/2, image.size.width, image.size.height);
     [self.navTitleView setTitle:navTitle forState:UIControlStateNormal];
     [self.navTitleView setTitle:navTitle forState:UIControlStateHighlighted];
 }
@@ -214,13 +226,13 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
     _isTapNavBarTitleView = !_isTapNavBarTitleView;
     if (_isTapNavBarTitleView == YES)
     {
-        [self.navTitleView setImage:[UIImage imageNamed:@"icon_shangla"] forState:UIControlStateNormal];
-        [self.navTitleView setImage:[UIImage imageNamed:@"icon_shangla"] forState:UIControlStateHighlighted];
+        [self.xiaLaButton setBackgroundImage:[UIImage imageNamed:@"icon_xiala"] forState:UIControlStateNormal];
+        [self.xiaLaButton setBackgroundImage:[UIImage imageNamed:@"icon_xiala"] forState:UIControlStateHighlighted];
     }
     else
     {
-        [_navTitleView setImage:[UIImage imageNamed:@"icon_xiala"] forState:UIControlStateNormal];
-        [_navTitleView setImage:[UIImage imageNamed:@"icon_xiala"] forState:UIControlStateHighlighted];
+        [self.xiaLaButton setBackgroundImage:[UIImage imageNamed:@"icon_shangla"] forState:UIControlStateNormal];
+        [self.xiaLaButton setBackgroundImage:[UIImage imageNamed:@"icon_shangla"] forState:UIControlStateHighlighted];
     }
 }
 @end

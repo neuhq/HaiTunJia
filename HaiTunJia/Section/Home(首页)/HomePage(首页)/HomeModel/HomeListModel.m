@@ -30,9 +30,6 @@
 }
 
 @end
-@implementation StateModel
-
-@end
 
 
 @implementation DataModel

@@ -129,12 +129,18 @@ UICollectionViewDelegateFlowLayout>
     self.seachResultCollectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
         weakSelf.isLoadMore = NO;
+        self.lastCommodityId = nil;
+        if(self.isKeywordSearch == YES)
+            [self getSearchResultDataWithKeyword];
+        
     }];
     
     // 上拉刷新
     self.seachResultCollectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
         weakSelf.isLoadMore = YES;
+        if(self.isKeywordSearch == YES)
+            [self getSearchResultDataWithKeyword];
     }];
 }
 
@@ -177,10 +183,33 @@ UICollectionViewDelegateFlowLayout>
      [service startRequestDataWithParamsDic:^{
          service.search = weakSelf.keyword;
          service.lastCommodityId = self.lastCommodityId;
-     } FinishBlock:^(id result) {
+     } FinishBlock:^(id object) {
+         NSArray *array = object;
          
+         if (self.isLoadMore == YES)
+         {
+            for(ListModel * model in array)
+            {
+                [self.listArray addObject:model];
+            }
+             ListModel *model = self.listArray.lastObject;
+             self.lastCommodityId = [NSString stringWithFormat:@"%ld",model.iD];
+         }
+         else
+         {
+             [self.listArray removeAllObjects];
+             for(ListModel * model in array)
+             {
+                 [self.listArray addObject:model];
+             }
+             ListModel *model = self.listArray.lastObject;
+             self.lastCommodityId = [NSString stringWithFormat:@"%ld",model.iD];
+
+         }
+         [self.seachResultCollectionView reloadData];
+         [self endRefrashLoad];
      } failureBlock:^(NSError *error) {
-         
+         [self endRefrashLoad];
      }];
 }
 #pragma mark -- Delegate
@@ -188,14 +217,8 @@ UICollectionViewDelegateFlowLayout>
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-//    if(self.listModel)
-//    {
-////        return self.listArray.count;
-//        return 30.0f;
-//    }
-//    else
-//        return 0;
-    return 30.0f;
+
+    return self.listArray.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -204,9 +227,8 @@ UICollectionViewDelegateFlowLayout>
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     WaterFallListCell *cell =
-    (WaterFallListCell *)[collectionView dequeueReusableCellWithReuseIdentifier:WaterFallFlowViewCollectionViewIndentifer
-                                                                        forIndexPath:indexPath];
-
+    (WaterFallListCell *)[collectionView dequeueReusableCellWithReuseIdentifier:WaterFallFlowViewCollectionViewIndentifer forIndexPath:indexPath];
+    
     return cell;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

@@ -1,7 +1,7 @@
 
 #import "BaseNetworkService.h"
 
-typedef void (^SearchResultInfoBlock) (id result);
+typedef void (^SearchResultInfoBlock) (id object);
 
 @interface SearchWithKeywordService : BaseNetworkService
 

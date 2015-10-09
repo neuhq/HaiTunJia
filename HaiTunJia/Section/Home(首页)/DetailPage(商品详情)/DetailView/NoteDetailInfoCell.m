@@ -70,7 +70,7 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     {
         if (cellType == DetailCellType_NoteInfo)
         {
-            [self initViews];
+//            [self initViews];
             self.tagArray = [NSArray arrayWithObjects:@"巴黎春天百货",@"时尚艺术",@"历史古迹",@"新艺术肢体",@"展览",@"新型服装",@"美女",@"世博会",@"琅琊榜", nil];
             [self cellConfig];
             
@@ -193,189 +193,189 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     
     
 }
-//-(UIView *) topView
-//{
-//    if (!_topView)
-//    {
-//        _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kNoteDetailInfoCellFirstPartHeight)];
-//        _topView.backgroundColor = [UIColor whiteColor];
-//    }
-//    return _topView;
-//}
-//-(UIImageView *) avatarImageView
-//{
-//    if (!_avatarImageView)
-//    {
-//        _avatarImageView = [[UIImageView alloc]initWithFrame:CGRectMake(kNoteDetailInfoCellLeftOffset, (kNoteDetailInfoCellFirstPartHeight - kNoteDetailInfoCellAvatarImageViewHeight)/2, kNoteDetailInfoCellAvatarImageViewHeight, kNoteDetailInfoCellAvatarImageViewHeight)];
-//        _avatarImageView.image = [UIImage imageNamed:@"classfy_muying"];
-//        _avatarImageView.backgroundColor = [UIColor clearColor];
-//    }
-//    return _avatarImageView;
-//}
-//-(UILabel *) name
-//{
-//    if (!_name)
-//    {
-//        NSString *string = @"海豚小溪";
-//        UIFont *font = [UIFont systemFontOfSize:16.0f];
-//        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
-//        _name = [[UILabel alloc]initWithFrame:CGRectMake(self.avatarImageView.right + 10.0f, self.avatarImageView.top, size.width, size.height)];
-//        _name.text = string;
-//        _name.textAlignment = NSTextAlignmentLeft;
-//        _name.textColor = [UIColor colorWithHexString:@"626a73"];
-//        _name.font = font;
-//        _name.backgroundColor = [UIColor clearColor];
-//    }
-//    return _name;
-//}
-//-(UILabel *) address
-//{
-//    if (!_address)
-//    {
-//        NSString *string = @"北京，海淀区，上地十街";
-//        UIFont *font = [UIFont systemFontOfSize:11.0f   ];
-//        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
-//        _address = [[UILabel alloc]initWithFrame:CGRectMake(self.avatarImageView.right + 10.0f, self.name.bottom + 10.0f, size.width, size.height)];
-//        _address.text = string;
-//        _address.textAlignment = NSTextAlignmentLeft;
-//        _address.textColor = [UIColor colorWithHexString:@"aeaeb2"];
-//        _address.font = font;
-//        _address.backgroundColor = [UIColor clearColor];
-//    }
-//    return _address;
-//    
-//}
-//-(UIButton *) concern
-//{
-//    if (!_concern)
-//    {
-//        _concern = [UIButton buttonWithType:UIButtonTypeCustom];
-//        _concern.frame =CGRectMake(kScreenWidth - kNoteDetailInfoCellLeftOffset - 50.0f, (kNoteDetailInfoCellFirstPartHeight - 27.0f)/2, 55.0f, 27.0f);
-//        _concern.backgroundColor = [UIColor whiteColor];
-//        _concern.layer.masksToBounds = YES;
-//        _concern.layer.cornerRadius = 4.0f;
-//        _concern.layer.borderWidth = 0.5f;
-//        _concern.layer.borderColor = [[UIColor colorWithHexString:@"aeaeb2"] CGColor];
-//        [_concern setTitle:@"关注" forState:UIControlStateNormal];
-//        [_concern setTitle:@"关注" forState:UIControlStateHighlighted];
-//        _concern.titleLabel.font = [UIFont systemFontOfSize:12.0f];
-//        [_concern setTitleColor:[UIColor colorWithHexString:@"'aeaeb2"] forState:UIControlStateNormal];
-//        [_concern setTitleColor:[UIColor colorWithHexString:@"'aeaeb2"] forState:UIControlStateHighlighted];
-//        [_concern setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    }
-//    return _concern;
-//}
-//-(UIView *) middleView
-//{
-//    if (!_middleView)
-//    {
-//        _middleView = [[UIView alloc]init];
-//        _middleView.backgroundColor = [UIColor whiteColor];
-//    }
-//    return _middleView;
-//}
-//-(UIImageView *) goodsImageView
-//{
-//    if (!_goodsImageView)
-//    {
-//        _goodsImageView = [[UIImageView alloc]init];
-//        _goodsImageView.backgroundColor = [UIColor whiteColor];
-//    }
-//    return _goodsImageView;
-//}
-//-(UILabel *) content
-//{
-//    if (!_content)
-//    {
-//        _content = [[UILabel alloc]init];
-//        _content.textColor = [UIColor colorWithHexString:@"626a73"];
-//        _content.textAlignment = NSTextAlignmentCenter;
-//        _content.font = [UIFont systemFontOfSize:14.0f];
-//        _content.backgroundColor = [UIColor whiteColor];
-//    }
-//    return _content;
-//}
-//-(UIImageView *)tagImageView
-//{
-//    if (!_tagImageView)
-//    {
-//        UIImage *image = [UIImage imageNamed:@"icon_labelcolor"];
-//        _tagImageView = [[UIImageView alloc]initWithFrame:CGRectMake(kNoteDetailInfoCellLeftOffset, 0, image.size.width, image.size.height)];
-//        _tagImageView.image = image;
-//        _tagImageView.backgroundColor = [UIColor clearColor];
-//    }
-//    return _tagImageView;
-//}
-//-(DWTagList *) tagView
-//{
-//    if (!_tagView)
-//    {
-//        _tagView = [[DWTagList alloc]init];
-//    }
-//    return _tagView;
-//}
-//
-//-(UIImageView *) timeImageView
-//{
-//    if (!_timeImageView)
-//    {
-//        _timeImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_clock"]];
-//        _timeImageView.backgroundColor = [UIColor clearColor];
-//    }
-//    return _timeImageView;
-//}
-//-(UILabel *) time
-//{
-//    if (!_time)
-//    {
-//        _time = [[UILabel alloc]init];
-//        _time.textColor = [UIColor colorWithHexString:@"b6babf"];
-//        _time.textAlignment = NSTextAlignmentLeft;
-//        _time.font = [UIFont systemFontOfSize:11.0f];
-//        _time.backgroundColor = [UIColor whiteColor];
-//    }
-//    return _time;
-//}
-//-(UIView *)bottomView
-//{
-//    if (!_bottomView)
-//    {
-//        _bottomView = [[UIView alloc]init];
-//        _bottomView.backgroundColor = [UIColor whiteColor];
-//    }
-//    return _bottomView;
-//}
-//-(UILabel *) commentAndLike
-//{
-//    if (!_commentAndLike)
-//    {
-//        _commentAndLike = [[UILabel alloc]init];
-//        _commentAndLike.textColor = [UIColor colorWithHexString:@"b6babf"];
-//        _commentAndLike.textAlignment = NSTextAlignmentLeft;
-//        _commentAndLike.font = [UIFont systemFontOfSize:11.0f];
-//        _commentAndLike.backgroundColor = [UIColor whiteColor];
-//    }
-//    return _commentAndLike;
-//}
-//-(UIView *)line1
-//{
-//    if (!_line1)
-//    {
-//        _line1 = [[UIView alloc]initWithFrame:CGRectMake(0, 31, kScreenWidth, 0.5f)];
-//        _line1.backgroundColor = [UIColor colorWithHexString:@"cccccf"];
-////        _line1.backgroundColor = [UIColor redColor];
-//    }
-//    return _line1;
-//}
-//-(UIView *)line2
-//{
-//    if (!_line2)
-//    {
-//        _line2 = [[UIView alloc]init];
-//        _line2.backgroundColor = [UIColor colorWithHexString:@"cccccf"];
-//    }
-//    return _line2;
-//}
+-(UIView *) topView
+{
+    if (!_topView)
+    {
+        _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kNoteDetailInfoCellFirstPartHeight)];
+        _topView.backgroundColor = [UIColor whiteColor];
+    }
+    return _topView;
+}
+-(UIImageView *) avatarImageView
+{
+    if (!_avatarImageView)
+    {
+        _avatarImageView = [[UIImageView alloc]initWithFrame:CGRectMake(kNoteDetailInfoCellLeftOffset, (kNoteDetailInfoCellFirstPartHeight - kNoteDetailInfoCellAvatarImageViewHeight)/2, kNoteDetailInfoCellAvatarImageViewHeight, kNoteDetailInfoCellAvatarImageViewHeight)];
+        _avatarImageView.image = [UIImage imageNamed:@"classfy_muying"];
+        _avatarImageView.backgroundColor = [UIColor clearColor];
+    }
+    return _avatarImageView;
+}
+-(UILabel *) name
+{
+    if (!_name)
+    {
+        NSString *string = @"海豚小溪";
+        UIFont *font = [UIFont systemFontOfSize:16.0f];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        _name = [[UILabel alloc]initWithFrame:CGRectMake(self.avatarImageView.right + 10.0f, self.avatarImageView.top, size.width, size.height)];
+        _name.text = string;
+        _name.textAlignment = NSTextAlignmentLeft;
+        _name.textColor = [UIColor colorWithHexString:@"626a73"];
+        _name.font = font;
+        _name.backgroundColor = [UIColor clearColor];
+    }
+    return _name;
+}
+-(UILabel *) address
+{
+    if (!_address)
+    {
+        NSString *string = @"北京，海淀区，上地十街";
+        UIFont *font = [UIFont systemFontOfSize:11.0f   ];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        _address = [[UILabel alloc]initWithFrame:CGRectMake(self.avatarImageView.right + 10.0f, self.name.bottom + 10.0f, size.width, size.height)];
+        _address.text = string;
+        _address.textAlignment = NSTextAlignmentLeft;
+        _address.textColor = [UIColor colorWithHexString:@"aeaeb2"];
+        _address.font = font;
+        _address.backgroundColor = [UIColor clearColor];
+    }
+    return _address;
+    
+}
+-(UIButton *) concern
+{
+    if (!_concern)
+    {
+        _concern = [UIButton buttonWithType:UIButtonTypeCustom];
+        _concern.frame =CGRectMake(kScreenWidth - kNoteDetailInfoCellLeftOffset - 50.0f, (kNoteDetailInfoCellFirstPartHeight - 27.0f)/2, 55.0f, 27.0f);
+        _concern.backgroundColor = [UIColor whiteColor];
+        _concern.layer.masksToBounds = YES;
+        _concern.layer.cornerRadius = 4.0f;
+        _concern.layer.borderWidth = 0.5f;
+        _concern.layer.borderColor = [[UIColor colorWithHexString:@"aeaeb2"] CGColor];
+        [_concern setTitle:@"关注" forState:UIControlStateNormal];
+        [_concern setTitle:@"关注" forState:UIControlStateHighlighted];
+        _concern.titleLabel.font = [UIFont systemFontOfSize:12.0f];
+        [_concern setTitleColor:[UIColor colorWithHexString:@"'aeaeb2"] forState:UIControlStateNormal];
+        [_concern setTitleColor:[UIColor colorWithHexString:@"'aeaeb2"] forState:UIControlStateHighlighted];
+        [_concern setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    return _concern;
+}
+-(UIView *) middleView
+{
+    if (!_middleView)
+    {
+        _middleView = [[UIView alloc]init];
+        _middleView.backgroundColor = [UIColor whiteColor];
+    }
+    return _middleView;
+}
+-(UIImageView *) goodsImageView
+{
+    if (!_goodsImageView)
+    {
+        _goodsImageView = [[UIImageView alloc]init];
+        _goodsImageView.backgroundColor = [UIColor whiteColor];
+    }
+    return _goodsImageView;
+}
+-(UILabel *) content
+{
+    if (!_content)
+    {
+        _content = [[UILabel alloc]init];
+        _content.textColor = [UIColor colorWithHexString:@"626a73"];
+        _content.textAlignment = NSTextAlignmentCenter;
+        _content.font = [UIFont systemFontOfSize:14.0f];
+        _content.backgroundColor = [UIColor whiteColor];
+    }
+    return _content;
+}
+-(UIImageView *)tagImageView
+{
+    if (!_tagImageView)
+    {
+        UIImage *image = [UIImage imageNamed:@"icon_labelcolor"];
+        _tagImageView = [[UIImageView alloc]initWithFrame:CGRectMake(kNoteDetailInfoCellLeftOffset, 0, image.size.width, image.size.height)];
+        _tagImageView.image = image;
+        _tagImageView.backgroundColor = [UIColor clearColor];
+    }
+    return _tagImageView;
+}
+-(DWTagList *) tagView
+{
+    if (!_tagView)
+    {
+        _tagView = [[DWTagList alloc]init];
+    }
+    return _tagView;
+}
+
+-(UIImageView *) timeImageView
+{
+    if (!_timeImageView)
+    {
+        _timeImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_clock"]];
+        _timeImageView.backgroundColor = [UIColor clearColor];
+    }
+    return _timeImageView;
+}
+-(UILabel *) time
+{
+    if (!_time)
+    {
+        _time = [[UILabel alloc]init];
+        _time.textColor = [UIColor colorWithHexString:@"b6babf"];
+        _time.textAlignment = NSTextAlignmentLeft;
+        _time.font = [UIFont systemFontOfSize:11.0f];
+        _time.backgroundColor = [UIColor whiteColor];
+    }
+    return _time;
+}
+-(UIView *)bottomView
+{
+    if (!_bottomView)
+    {
+        _bottomView = [[UIView alloc]init];
+        _bottomView.backgroundColor = [UIColor whiteColor];
+    }
+    return _bottomView;
+}
+-(UILabel *) commentAndLike
+{
+    if (!_commentAndLike)
+    {
+        _commentAndLike = [[UILabel alloc]init];
+        _commentAndLike.textColor = [UIColor colorWithHexString:@"b6babf"];
+        _commentAndLike.textAlignment = NSTextAlignmentLeft;
+        _commentAndLike.font = [UIFont systemFontOfSize:11.0f];
+        _commentAndLike.backgroundColor = [UIColor whiteColor];
+    }
+    return _commentAndLike;
+}
+-(UIView *)line1
+{
+    if (!_line1)
+    {
+        _line1 = [[UIView alloc]initWithFrame:CGRectMake(0, 31, kScreenWidth, 0.5f)];
+        _line1.backgroundColor = [UIColor colorWithHexString:@"cccccf"];
+//        _line1.backgroundColor = [UIColor redColor];
+    }
+    return _line1;
+}
+-(UIView *)line2
+{
+    if (!_line2)
+    {
+        _line2 = [[UIView alloc]init];
+        _line2.backgroundColor = [UIColor colorWithHexString:@"cccccf"];
+    }
+    return _line2;
+}
 
 #pragma mark -- helper
 -(NSInteger) getIconMaxCount
@@ -388,10 +388,10 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
         return 6;
 }
 #pragma mark -- layout
--(void)setData
+-(void)setDataWithModel:(CommodityModel*)commodityModel
 {
 //    [super layoutSubviews];
-    NSString *string = @"http://p1.so.qhimg.com/t01a430ba22a2f43b0b.jpg";
+    NSString *string = commodityModel.picture;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:string]];
     UIImage *image = [UIImage imageWithData:imageData];
     CGFloat imageHeight = image.size.height/image.size.width*kScreenWidth;
@@ -424,7 +424,7 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     self.timeImageView.image = timeImg;
 //
     self.time.frame = CGRectMake(self.tagView.left, self.timeImageView.top, self.tagView.width, 11.0f);
-    self.time.text = @"发布于三天前";
+    self.time.text = [NSString stringWithFormat:@"发布于:%@",commodityModel.publishTime];
     
     self.bottomView.frame = CGRectMake(0, self.middleView.bottom + 31, kScreenWidth,self.timeImageView.bottom + 31.0f);
 //

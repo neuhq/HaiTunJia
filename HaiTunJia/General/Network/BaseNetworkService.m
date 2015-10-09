@@ -72,12 +72,14 @@
     // 取消之前的网络请求
     
     // 判断当前是否有网络
-    if (![Reachability reachabilityWithHostname:kApi_Base].isReachable)
+    if (![Reachability reachabilityWithHostname:@"www.baidu.com"].isReachable)
     {
         NSError *error= [NSError errorWithDomain:@"当前无网络" code:9999 userInfo:nil];  //直接返回网络错误
         failureBlock(error);
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
         return;
      }
+//    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES ;
     // 添加请求对象参数配置设置block
     if (paramsBlock != nil) {
         paramsBlock();
@@ -95,10 +97,12 @@
                 NSDictionary *result = [responseObject objectFromJSONData];
         NSLog(@"result:%@",result);
                 finishBlock(result);
+//        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         [operation cancel];
         weakSelf.requestOperation = nil;
+//        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
     }];
     NSLog(@"%@",_requestOperation);
 }

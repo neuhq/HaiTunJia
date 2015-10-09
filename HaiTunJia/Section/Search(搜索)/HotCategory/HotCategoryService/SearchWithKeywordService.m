@@ -1,6 +1,12 @@
 
 #import "SearchWithKeywordService.h"
+#import "WaterFallFlowListDataModel.h"
 
+@interface SearchWithKeywordService  ()
+
+@property(nonatomic,strong) WaterFallFlowListDataModel *list;
+
+@end
 @implementation SearchWithKeywordService
 
 -(void)startRequestDataWithParamsDic:(SetParamsBlock)paramsBlock
@@ -13,10 +19,15 @@
         self.userId = kUSERID;
         paramsBlock();
     } FinishBlock:^(id result) {
-        
+        self.list = [WaterFallFlowListDataModel objectWithKeyValues:result];
+//        NSArray *array = [ListModel objectArrayWithKeyValuesArray:result[@"data"]];
+        finishBlock( self.list);
     } failureBlock:^(NSError *error) {
         
     }];
 
 }
+
+
 @end
+

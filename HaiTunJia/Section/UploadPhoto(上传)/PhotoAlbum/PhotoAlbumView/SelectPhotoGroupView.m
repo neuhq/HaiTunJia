@@ -4,9 +4,9 @@
 #define tableCellH 70
 @interface SelectPhotoGroupView ()
 
+
 @property(nonatomic,strong) NSArray *groupArray;
 
-@property(nonatomic,strong) UIView *bgView;
 
 @end
 
@@ -21,7 +21,7 @@
         self.groupArray = groupArray;
         
         [self addSubview:self.bgView];
-        [self.bgView addSubview:self.photoGroupTable];
+        [self addSubview:self.photoGroupTable];
     }
     return self;
 }
@@ -30,7 +30,8 @@
     if (!_bgView)
     {
         _bgView = [[UIView alloc]initWithFrame:self.bounds];
-        _bgView.backgroundColor = [UIColor clearColor];
+        _bgView.backgroundColor = [UIColor whiteColor];
+        _bgView.alpha = 0.8f;
     }
     return _bgView;
 }
@@ -47,6 +48,14 @@
     }
     return _photoGroupTable;
 }
+#pragma mark -- Methord
+-(void) show
+{
+    [UIView animateWithDuration:0.3f animations:^{
+        self.photoGroupTable.frame = CGRectMake(0, 0, kScreenWidth, self.height/2);
+    }];
+}
+#pragma mark -- Delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -80,4 +89,5 @@
 {
     return 70.0f;
 }
+
 @end

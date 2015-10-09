@@ -1,21 +1,35 @@
 #import "DetailController.h"
 #import "NoteDetailInfoCell.h"
 #import "DetailBottomView.h"
+#import "DetailService.h"
+#import "DetailModel.h"
 @interface DetailController ()
 
 @property(nonatomic,assign) BOOL isScrollDown;
 
 @property(nonatomic,assign) CGFloat lastOffset_y;
+
+@property(nonatomic,strong) DetailModel *detailModel;
+
 @end
 
 @implementation DetailController
 
-
+-(id)initWithId:(NSString *) noteId
+{
+    self = [super init];
+    if (self)
+    {
+        self.noteId = noteId;
+    }
+    return self;
+}
 #pragma mark -- life cycle
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     [self viewConfig];
+    [self getNoteDetailInfo];
     [self.view addSubview:self.detailTableView];
     [self.view addSubview:self.bottomView];
 }
@@ -56,6 +70,19 @@
 {
     [self setTitle:@"笔记详情"];
 }
+#pragma mark -- HTTP
+-(void)getNoteDetailInfo
+{
+    DetailService *service =[[DetailService alloc]init];
+    [service startRequestDetailInfoWithParams:^{
+        service.commodityId = self.noteId;
+    } withDetailInfo:^(id object) {
+        self.detailModel = object;
+        [self.detailTableView reloadData];
+    } withFailed:^(NSError *error) {
+        
+    }];
+}
 #pragma mark -- Delegate
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
@@ -68,9 +95,9 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-//    return cell.frame.size.height;
-    return 300;
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
+//    return 300;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -82,7 +109,8 @@
         {
             cell = [[NoteDetailInfoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noteInfoIndentifer withCellType:DetailCellType_NoteInfo];
         }
-        [cell setData];
+        if(self.detailModel)
+           [cell setDataWithModel:self.detailModel.data.commodity];
         return cell;
     }
     else if (indexPath.section == DetailCellType_CommentAndLike)

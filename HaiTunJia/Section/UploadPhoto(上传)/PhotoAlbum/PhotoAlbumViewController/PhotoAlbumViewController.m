@@ -12,7 +12,8 @@ static NSString *kPhotoAlbumTakePhotoIndentifer  =  @"kPhotoAlbumTakePhotoIndent
 <UICollectionViewDelegate,
 UICollectionViewDelegateFlowLayout,
 UICollectionViewDataSource,
-SelectPhotoGroupViewDelegate>
+SelectPhotoGroupViewDelegate,
+UIGestureRecognizerDelegate>
 
 @property (nonatomic,assign) NSInteger index;
 
@@ -85,6 +86,9 @@ SelectPhotoGroupViewDelegate>
         _groupView = [[SelectPhotoGroupView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth, kScreenHeight - kNavigationBarHeight) withPhotoGroupData:self.photoGroupArray];
         _groupView.backgroundColor = [UIColor clearColor];
         _groupView.delegate = self;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapBgViewAction)];
+        tap.delegate = self;
+        [_groupView.bgView addGestureRecognizer:tap];
     }
     return _groupView;
 }
@@ -104,6 +108,21 @@ SelectPhotoGroupViewDelegate>
 -(void)selectAtIndex:(NSInteger)index
 {
     [self getAllphotoData:index];
+    self.index = index;
+    [self.groupView removeFromSuperview];
+    self.isTapNavBarTitleView = NO;
+    [self.groupView.photoGroupTable selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    // 输出点击的view的类名
+    NSLog(@"%@", NSStringFromClass([touch.view class]));
+    
+    // 若为UITableViewCellContentView（即点击了tableViewCell），则不截获Touch事件
+    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
+        return NO;
+    }
+    return  YES;
 }
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -162,5 +181,9 @@ SelectPhotoGroupViewDelegate>
             [self.groupView removeFromSuperview];
         }
     }
+}
+-(void)tapBgViewAction
+{
+    [self.groupView removeFromSuperview];
 }
 @end

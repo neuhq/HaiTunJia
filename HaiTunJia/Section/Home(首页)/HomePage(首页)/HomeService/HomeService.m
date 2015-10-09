@@ -19,9 +19,17 @@
         self.userId = kUSERID;
         self.lastCommodityId = lastCommodityId;
     } FinishBlock:^(id result) {
-        self.listModel = [HomeListModel objectWithKeyValues:result];
-        [self.listModel getHeightWithHomeListModel:self.listModel];
-        NSLog(@"result:%@",result);
+        NSDictionary *dic = result[@"state"];
+        if ([dic[@"code"]integerValue] == 30000)
+        {
+            self.listModel = [HomeListModel objectWithKeyValues:result];
+            [self.listModel getHeightWithHomeListModel:self.listModel];
+            NSLog(@"result:%@",result);
+        }
+        else
+        {
+            [iToast makeText:dic[@"message"]];
+        }
         listInfoBlock(self.listModel);
     } failureBlock:^(NSError *error) {
         failureBlock(error);

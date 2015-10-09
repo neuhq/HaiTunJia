@@ -25,4 +25,6 @@ UITableViewDelegate>
 
 @property(nonatomic,strong) DetailBottomView *bottomView;
 
+-(id)initWithId:(NSString *) noteId;
+
 @end

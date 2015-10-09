@@ -16,7 +16,10 @@ UITableViewDataSource>
 
 @property(nonatomic,weak) id<SelectPhotoGroupViewDelegate> delegate;
 
+@property(nonatomic,strong) UIView *bgView;
+
 -(id)initWithFrame:(CGRect)frame
 withPhotoGroupData:(NSArray *) groupArray;
 
+-(void) show;
 @end

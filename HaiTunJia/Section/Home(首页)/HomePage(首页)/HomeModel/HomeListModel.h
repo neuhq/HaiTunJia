@@ -3,8 +3,10 @@
  备注：MJExtention实现
  *********************************/
 #import <Foundation/Foundation.h>
+#import "StateModel.h"
 
-@class StateModel,DataModel;
+
+@class DataModel;
 @interface HomeListModel : NSObject
 
 @property (nonatomic, strong) StateModel *state;
@@ -12,13 +14,6 @@
 @property (nonatomic, strong) NSArray*data;
 
 -(void)getHeightWithHomeListModel:(HomeListModel *) listModel;
-
-@end
-@interface StateModel : NSObject
-
-@property (nonatomic, copy) NSString *message;
-
-@property (nonatomic, copy) NSString *code;
 
 @end
 

@@ -2,6 +2,7 @@
 #import "PhotoAlbumViewController+Helper.h"
 #import "PhotoAlbumCollectionViewCell.h"
 #import "PhotoAlbumModel.h"
+#import "SelectPhotoGroupView.h"
 @implementation PhotoAlbumViewController (Helper)
 -(void)getPhotoAllGroup
 {
@@ -42,13 +43,13 @@
 {
     [self.imageListArray removeAllObjects];
     if (self.photoGroupArray.count) {
-      ALAssetsGroup *group = [self.photoGroupArray objectAtIndex:tag];
+      self.group = [self.photoGroupArray objectAtIndex:tag];
         self.navTitleView.hidden = NO;
-        NSString *title = [group valueForProperty:ALAssetsGroupPropertyName];
+        NSString *title = [self.group valueForProperty:ALAssetsGroupPropertyName];
         if ([title isEqualToString:@"Camera Roll"])
             title = @"相机胶卷";
             self.navTitle = title;
-        [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+        [self.group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
             if (result)
             {
                 NSString *type=[result valueForProperty:ALAssetPropertyType];

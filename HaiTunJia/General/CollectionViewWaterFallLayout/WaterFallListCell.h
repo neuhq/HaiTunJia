@@ -4,8 +4,8 @@
  备注：
  ****************************************/
 #import <UIKit/UIKit.h>
+#import "WaterFallFlowListDataModel.h"
 
-@class DataModel;
 @interface WaterFallListCell : UICollectionViewCell
 
 /**头像*/
@@ -57,7 +57,7 @@
 @property(nonatomic,strong) UIButton *bottomRightView;
 
 /**列表数据*/
-@property(nonatomic,strong) DataModel *dataModel;
+@property(nonatomic,strong) ListModel *listModel;
 
 @property(nonatomic,assign) CGSize size;
 
