@@ -6,6 +6,7 @@
 -(void)selectTabAtIndex:(NSInteger )index;
 
 @end
+
 @interface UserHeaderView : UICollectionReusableView
 
 @property(weak,nonatomic) id<UserHeaderViewDelegate> delegate;

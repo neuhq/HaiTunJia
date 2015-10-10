@@ -63,5 +63,45 @@
     }
 
 }
-
+-(void)getCamera
+{
+    self.picker = [[UIImagePickerController alloc]init];
+    //判断相机是否可用,因为模拟机是不可以的
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        self.picker.sourceType=UIImagePickerControllerSourceTypeCamera;//设置 pick 的类型为相机
+        self.picker.allowsEditing=NO;//设置是否可以编辑相片涂鸦
+        self.picker.delegate=self;
+        [self presentViewController:self.picker animated:true completion:nil];
+    }
+    else
+    {
+        NSLog(@"相机不可用");
+    }
+}
+///代理方法
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    NSLog(@"xuanze");
+    NSString *type=[info objectForKey:UIImagePickerControllerMediaType];
+    //判断选择的是否是图片,这个 public.image和public.movie是固定的字段.
+    if ([type isEqualToString:@"public.image"])
+    {
+        UIImage *image=[info objectForKey:UIImagePickerControllerOriginalImage];
+        //这一步主要是判断当是用相机拍摄的时候，保存到相册
+        if (picker.sourceType==UIImagePickerControllerSourceTypeCamera) {
+            UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+        }        
+    }
+    //判断选择的是否是视频
+    if ([type isEqualToString:@"public.movie"]) {
+        
+    }
+    [picker dismissViewControllerAnimated:false completion:nil];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    NSLog(@"取消");
+    [picker dismissViewControllerAnimated:false completion:nil];
+}
 @end

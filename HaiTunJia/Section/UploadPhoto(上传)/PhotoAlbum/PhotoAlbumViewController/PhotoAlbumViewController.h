@@ -14,4 +14,7 @@
 @property(nonatomic,strong)  ALAssetsLibrary *assetLibrary;
 
 @property(nonatomic,strong) ALAssetsGroup *group;
+
+@property(nonatomic,strong) UIImagePickerController *picker;
+
 @end

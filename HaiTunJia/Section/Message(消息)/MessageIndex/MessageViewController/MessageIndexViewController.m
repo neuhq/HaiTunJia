@@ -3,6 +3,10 @@
 #import "MessageIndexViewController+helper.h"
 #import "MessageHeaderView.h"
 #import "MyFansViewController.h"
+#import "CommentViewController.h"
+#import "PraiseViewController.h"
+#import "NoticeViewController.h"
+
 @interface MessageIndexViewController ()
 
 @property(nonatomic,strong) MessageHeaderView *headerView;
@@ -79,7 +83,14 @@
 -(void)addController
 {
     MyFansViewController *myFans = [[MyFansViewController alloc]init];
+    CommentViewController *comment = [[CommentViewController alloc]init];
+    PraiseViewController *praise = [[PraiseViewController alloc]init];
+    NoticeViewController *notice = [[NoticeViewController alloc]init];
     [self.controllerArray addObject:myFans];
+    [self.controllerArray addObject:comment];
+    [self.controllerArray addObject:praise];
+    [self.controllerArray addObject:notice];
+
 }
 #pragma mark --- Delegate
 
@@ -129,7 +140,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == TableViewCellType_List)
+    if (indexPath.section == TableViewCellType_List)
     {
         [self.navigationController pushViewController:self.controllerArray[indexPath.row] animated:YES];
     }
@@ -153,3 +164,5 @@
         return nil;
 }
 @end
+
+

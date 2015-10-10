@@ -154,7 +154,7 @@
             cell = [[NoteDetailInfoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noteInfoIndentifer withCellType:DetailCellType_NoteInfo];
         }
         if(self.detailModel)
-           [cell setDataWithModel:self.detailModel.data.commodity];
+           [cell setDataWithModel:self.detailModel.data];
         return cell;
     }
     else if (indexPath.section == DetailCellType_CommentAndLike)

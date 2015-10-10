@@ -161,7 +161,14 @@ UIGestureRecognizerDelegate>
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    if (indexPath.row == 0)
+    {
+         [self getCamera];
+    }
+    else
+    {
+       
+    }
 }
 
 

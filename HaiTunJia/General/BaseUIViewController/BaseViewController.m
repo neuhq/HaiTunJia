@@ -21,6 +21,7 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
+    self.isLoadView = YES;
     //设置通用的背景颜色
 //     self.view.backgroundColor = [UIColor colorWithHexString:@"efeff4"];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -39,7 +40,11 @@ static const CGFloat kBaseViewControllerOffset   = 10.0f;
     [super viewWillAppear:animated];
     
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    if(self.isLoadView)
+        self.isLoadView = NO;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

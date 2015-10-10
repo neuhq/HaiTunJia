@@ -11,7 +11,7 @@
         NSDictionary *dic = (NSDictionary *) result;
         resultBlock(dic);
     } failureBlock:^(NSError *error) {
-        
+        failed(error);
     }];
 }
 @end

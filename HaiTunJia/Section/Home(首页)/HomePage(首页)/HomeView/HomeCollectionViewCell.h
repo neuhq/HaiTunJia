@@ -63,4 +63,6 @@
 
 @property(nonatomic,assign) CGSize size;
 
+-(void)setCellData:(DataModel *) dataModel;
+
 @end

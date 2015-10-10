@@ -66,6 +66,7 @@
 
 @property(nonatomic,assign) CGFloat cellHeight;
 
+@property(nonatomic,assign) CGSize cellSize;
 
 @end
 

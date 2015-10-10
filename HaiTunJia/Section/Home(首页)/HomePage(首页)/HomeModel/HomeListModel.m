@@ -17,14 +17,18 @@
 -(void)getHeightWithHomeListModel:(HomeListModel *) listModel
 {
     UIImage *messageImage = [UIImage imageNamed:@"icon_message"];
-    CGFloat width = kScreenWidth/2 - 15;
+    CGFloat width = (kScreenWidth - 30)/2;
+    
     for(DataModel *model in listModel.data)
     {
         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.picture]];
         UIImage *image = [UIImage imageWithData:imageData];
         model.imageHeight = (image.size.height/image.size.width * width);
         CGSize size = [model.name sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0f]}];
-        model.cellHeight =  50 +  model.imageHeight + (size.height*2 + 20.0f) + messageImage.size.height + 10.0f ;
+//        float height = [model.name heightForWidth:width usingFont:[UIFont systemFontOfSize:12.0f]];
+        model.cellHeight =  50 +  model.imageHeight + (size.height * 2 + 20.0f) + messageImage.size.height + 10.0f ;
+        model.cellSize = CGSizeMake(width, model.cellHeight);
+
     }
     
 }

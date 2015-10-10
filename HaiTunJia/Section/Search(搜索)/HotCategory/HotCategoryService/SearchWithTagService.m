@@ -30,7 +30,7 @@
         }
 
     } failureBlock:^(NSError *error) {
-        
+        failureBlock(error);
     }];
 }
 @end

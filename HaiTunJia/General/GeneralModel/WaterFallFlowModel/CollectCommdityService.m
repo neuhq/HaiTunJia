@@ -18,7 +18,7 @@
         info(dic);
 
     } failureBlock:^(NSError *error) {
-        
+        fail(error);
     }];
 }
 @end

@@ -79,7 +79,7 @@
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
         return;
      }
-//    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES ;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES ;
     // 添加请求对象参数配置设置block
     if (paramsBlock != nil) {
         paramsBlock();
@@ -95,14 +95,15 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     _requestOperation =   [manager POST:_api_url parameters:attributes success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSDictionary *result = [responseObject objectFromJSONData];
-        NSLog(@"result:%@",result);
+        NSString *string = [result JSONString];
+        NSLog(@"string:%@",string);
                 finishBlock(result);
-//        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         [operation cancel];
         weakSelf.requestOperation = nil;
-//        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
     }];
     NSLog(@"%@",_requestOperation);
 }
@@ -135,5 +136,10 @@
     }
     
     return attributes;
+}
+-(void)showResponsMessage:(NSString *) message
+{
+    iToast *toast = [[iToast alloc]initWithText:message];
+    [toast show];
 }
 @end

@@ -25,7 +25,7 @@
             [toast show];
         }
     } failureBlock:^(NSError *error) {
-        
+        failed(error);
     }];
 }
 @end

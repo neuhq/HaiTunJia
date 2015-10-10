@@ -7,6 +7,7 @@
 #import "WaterFallListCell.h"
 #import "SearchWithTagService.h"
 #import "SearchWithKeywordService.h"
+#import "DetailController.h"
 static NSString *const WaterFallFlowViewCollectionViewIndentifer =  @"WaterFallFlowViewCollectionViewIndentifer";
 
 @interface SearchResultViewController ()
@@ -270,9 +271,13 @@ UICollectionViewDelegateFlowLayout>
     }
     else
         return CGSizeMake(0, 0);
-    //    return [self.cellSizes[indexPath.item % 4] CGSizeValue];
 }
 
-
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ListModel *model = [self.listArray objectAtIndex:indexPath.item];
+    DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",model.iD]];
+    [self.navigationController pushViewController:detail animated:YES];
+}
 
 @end

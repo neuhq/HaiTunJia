@@ -12,7 +12,7 @@
       withCellType:(DetailCellType) cellType;
 
 
--(void)setDataWithModel:(CommodityModel*)commodityModel;
+-(void)setDataWithModel:(DetailDataModel*) detailModel;
 
 -(void)setCommentAndLikeData;
 @end

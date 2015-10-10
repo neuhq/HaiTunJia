@@ -24,13 +24,12 @@
         {
             self.listModel = [HomeListModel objectWithKeyValues:result];
             [self.listModel getHeightWithHomeListModel:self.listModel];
-            NSLog(@"result:%@",result);
+            listInfoBlock(self.listModel);
         }
         else
         {
             [iToast makeText:dic[@"message"]];
         }
-        listInfoBlock(self.listModel);
     } failureBlock:^(NSError *error) {
         failureBlock(error);
         NSLog(@"错误");

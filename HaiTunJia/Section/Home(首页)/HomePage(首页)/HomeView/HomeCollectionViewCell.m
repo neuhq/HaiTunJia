@@ -242,10 +242,8 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
 }
 
 #pragma mark -- Layout
--(void)layoutSubviews
-{
-    [super layoutSubviews];
-    
+-(void)setCellData:(DataModel *)dataModel{
+    self.dataModel = dataModel;
     //头像
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.dataModel.userPic] placeholderImage:nil];
     
@@ -278,20 +276,13 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
     
     //描述文本
     NSString *contentString = self.dataModel.name;
-//    NSMutableAttributedString * attributedString = [[NSMutableAttributedString alloc] initWithString:contentString];
-//    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-//    [paragraphStyle setLineSpacing:5.0f];
-//    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [contentString length])];
-//    CGSize contentSize = [contentString getStringRect:contentString withSize:CGSizeMake(self.width - 2*kHomeCellLeftOffset, 0)];
     CGSize size = [contentString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0f]}];
-
     self.content.frame = CGRectMake(kHomeCellLeftOffset,
                                                            self.goodsImageView.bottom + kHomeCellTopOffset,
                                                            self.width - 2*kHomeCellLeftOffset,
                                                            size.height * 2);
     self.content.text = contentString;
     self.content.numberOfLines = 2;
-    
     self.middleBgView.frame = CGRectMake(0,
                                                                       self.topBgView.bottom,
                                                                       self.width,

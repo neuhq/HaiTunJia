@@ -2,6 +2,7 @@
 #import "MyFansViewController.h"
 #import "MyFansViewCell.h"
 #import "FansListService.h"
+#import "FollowService.h"
 @interface MyFansViewController ()
 <UITableViewDelegate,
 UITableViewDataSource>
@@ -18,7 +19,8 @@ UITableViewDataSource>
 {
     [super viewDidLoad];
     [self viewConfig];
-    [self getFansListData];
+//    [self getFansListData];
+    [self getFollowListData];
     [self.view addSubview:self.fansTableView];
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -62,6 +64,7 @@ UITableViewDataSource>
     self.listArray = [[NSMutableArray alloc]init];
 }
 #pragma mark -- HTTP
+//粉丝列表
 -(void)getFansListData
 {
     FansListService *service = [[FansListService alloc]init];
@@ -69,6 +72,18 @@ UITableViewDataSource>
         self.listArray = obj;
         [self.fansTableView reloadData];
     } withFailed:^(NSError *error) {
+        
+    }];
+}
+//关注列表
+-(void)getFollowListData
+{
+    FollowService *service = [[FollowService alloc]init];
+    [service startRequestFollowWithParams:^{
+        
+    } respons:^(id object) {
+        
+    } failed:^(NSError *error) {
         
     }];
 }

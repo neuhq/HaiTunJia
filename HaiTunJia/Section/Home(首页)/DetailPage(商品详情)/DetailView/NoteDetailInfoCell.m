@@ -2,6 +2,7 @@
 #import "NoteDetailInfoCell.h"
 #import "UIImageView+WebCache.h"
 #import "DWTagList.h"
+#import "UIImageView+WebCache.h"
 const CGFloat kNoteDetailInfoCellFirstPartHeight  = 60.0f;
 const CGFloat kNoteDetailInfoCellAvatarImageViewHeight   = 40.0f;
 const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
@@ -207,8 +208,10 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     if (!_avatarImageView)
     {
         _avatarImageView = [[UIImageView alloc]initWithFrame:CGRectMake(kNoteDetailInfoCellLeftOffset, (kNoteDetailInfoCellFirstPartHeight - kNoteDetailInfoCellAvatarImageViewHeight)/2, kNoteDetailInfoCellAvatarImageViewHeight, kNoteDetailInfoCellAvatarImageViewHeight)];
-        _avatarImageView.image = [UIImage imageNamed:@"classfy_muying"];
+//        _avatarImageView.image = [UIImage imageNamed:@"classfy_muying"];
         _avatarImageView.backgroundColor = [UIColor clearColor];
+        _avatarImageView.layer.masksToBounds = YES;
+        _avatarImageView.layer.cornerRadius = kNoteDetailInfoCellAvatarImageViewHeight/2;
     }
     return _avatarImageView;
 }
@@ -216,11 +219,10 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
 {
     if (!_name)
     {
-        NSString *string = @"海豚小溪";
+        NSString *string = @"海豚小溪海豚消息海豚消息海豚消息";
         UIFont *font = [UIFont systemFontOfSize:16.0f];
         CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
         _name = [[UILabel alloc]initWithFrame:CGRectMake(self.avatarImageView.right + 10.0f, self.avatarImageView.top, size.width, size.height)];
-        _name.text = string;
         _name.textAlignment = NSTextAlignmentLeft;
         _name.textColor = [UIColor colorWithHexString:@"626a73"];
         _name.font = font;
@@ -232,11 +234,10 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
 {
     if (!_address)
     {
-        NSString *string = @"北京，海淀区，上地十街";
-        UIFont *font = [UIFont systemFontOfSize:11.0f   ];
+        NSString *string = @"北京，海淀区，上地十街，上地世界是世界世界世界";
+        UIFont *font = [UIFont systemFontOfSize:11.0f];
         CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
         _address = [[UILabel alloc]initWithFrame:CGRectMake(self.avatarImageView.right + 10.0f, self.name.bottom + 10.0f, size.width, size.height)];
-        _address.text = string;
         _address.textAlignment = NSTextAlignmentLeft;
         _address.textColor = [UIColor colorWithHexString:@"aeaeb2"];
         _address.font = font;
@@ -388,10 +389,11 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
         return 6;
 }
 #pragma mark -- layout
--(void)setDataWithModel:(CommodityModel*)commodityModel
+-(void)setDataWithModel:(DetailDataModel*) detailModel
 {
-//    [super layoutSubviews];
-    NSString *string = commodityModel.picture;
+    self.name.text = detailModel.follow.userName;
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] placeholderImage:nil];
+    NSString *string = detailModel.commodity.picture;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:string]];
     UIImage *image = [UIImage imageWithData:imageData];
     CGFloat imageHeight = image.size.height/image.size.width*kScreenWidth;
@@ -399,7 +401,7 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:string] placeholderImage:nil];
     
     self.content.frame = CGRectMake(kNoteDetailInfoCellLeftOffset, self.goodsImageView.bottom + kNoteDetailInfoCellLeftOffset, kScreenWidth - 2*kNoteDetailInfoCellLeftOffset, 0);
-    NSString *contentString = @"这个是测试数据这个是测试数据这个是测试数据这个是测试数据这个是测试数据这个是测试数据这个是测试数据这个是测试数据这个是测试数据这个是测试数据这个是测试数据这个是测试数据这个是测试数据";
+    NSString *contentString =detailModel.commodity.content;
     NSMutableAttributedString * attributedString1 = [[NSMutableAttributedString alloc] initWithString:contentString];
     NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle1 setLineSpacing:10];
@@ -424,7 +426,7 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     self.timeImageView.image = timeImg;
 //
     self.time.frame = CGRectMake(self.tagView.left, self.timeImageView.top, self.tagView.width, 11.0f);
-    self.time.text = [NSString stringWithFormat:@"发布于:%@",commodityModel.publishTime];
+    self.time.text = [NSString stringWithFormat:@"发布于:%@",detailModel.commodity.publishTime];
     
     self.bottomView.frame = CGRectMake(0, self.middleView.bottom + 31, kScreenWidth,self.timeImageView.bottom + 31.0f);
 //

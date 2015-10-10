@@ -4,6 +4,7 @@
 #import "UserHeaderView.h"
 #import "UIImageView+WebCache.h"
 #import "UserCollectService.h"
+#import "UserNoteListService.h"
 static NSString *const kUserCollectionCellIndentifer =  @"kUserCollectionCellIndentifer";
 static NSString *const kUserHeaderViewIndentifer = @"kUserHeaderViewIndentifer";
 @interface UserViewController ()
@@ -28,6 +29,8 @@ UserHeaderViewDelegate>
 
 @property (nonatomic,strong) UserHeaderView *hearderView;
 
+@property (nonatomic,assign) NSInteger tabAtIndex;
+
 @end
 
 @implementation UserViewController
@@ -39,6 +42,7 @@ UserHeaderViewDelegate>
     [self viewConfig];
     [self.view addSubview:self.userCollectionView];
     [self setRefrashControl];
+    [self selectTabAtIndex:0];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -99,7 +103,10 @@ UserHeaderViewDelegate>
     self.userCollectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
         weakSelf.isLoadMore = YES;
-        [self getUserCollectList];
+        if(self.tabAtIndex == 0)
+            [self getNoteListData];
+        else
+            [self getUserCollectList];
     }];
 }
 
@@ -147,12 +154,53 @@ UserHeaderViewDelegate>
     }];
 
 }
+-(void)getNoteListData
+{
+    __weak UserViewController *weakSelf = self;
+    UserNoteListService *service = [[UserNoteListService alloc]init];
+    [service startRequestUserNoteListWithParams:^{
+        service.userId = kUSERID;
+        service.lastCommodityId = weakSelf.lastCommodityId;
+    } responsDataWithResult:^(id object) {
+        NSArray *array = object;
+        
+        if (weakSelf.isLoadMore == YES)
+        {
+            for(ListModel * model in array)
+            {
+                [weakSelf.listArray addObject:model];
+            }
+            ListModel *model = weakSelf.listArray.lastObject;
+            self.lastCommodityId = [NSString stringWithFormat:@"%ld",model.iD];
+        }
+        else
+        {
+            [weakSelf.listArray removeAllObjects];
+            for(ListModel * model in array)
+            {
+                [weakSelf.listArray addObject:model];
+            }
+            ListModel *model = weakSelf.listArray.lastObject;
+            weakSelf.lastCommodityId = [NSString stringWithFormat:@"%ld",model.iD];
+            
+        }
+        [weakSelf.userCollectionView reloadData];
+        [weakSelf endRefrashLoad];
+
+    } failedWithResult:^(NSError *error) {
+        [self endRefrashLoad];
+
+    }];
+}
 #pragma mark -- delegate
 -(void)selectTabAtIndex:(NSInteger)index
 {
+    self.tabAtIndex = index;
+    self.lastCommodityId = nil;
+    self.isLoadMore = NO;
     if (index == 0)
     {
-        
+        [self getNoteListData];
     }
     else
     {

@@ -7,6 +7,7 @@
 #import "HomeListModel.h"
 #import "DetailController.h"
 #import "LoginViewController.h"
+#import "TLCollectionWaterFallFlow.h"
 //collectionViewCell标识
 static NSString *const HomeViewCollectionViewIndentifer =  @"HomeViewCollectionViewIndentifer";
 
@@ -87,6 +88,12 @@ UICollectionViewDelegateFlowLayout>
 {
     if (!_homeCollectionView)
     {
+//        TLCollectionWaterFallFlow *layout  = [[TLCollectionWaterFallFlow alloc] init];
+//        layout.minimumInteritemSpacing = 10;
+//        layout.minimumLineSpacing = 10;
+////        layout.headerHeight = 230;
+//        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+        
         CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
         layout.sectionInset = UIEdgeInsetsMake(0, 10, 10, 10);
         layout.headerHeight = 230;
@@ -198,8 +205,11 @@ UICollectionViewDelegateFlowLayout>
     HomeCollectionViewCell *cell =
     (HomeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:HomeViewCollectionViewIndentifer
                                                                                 forIndexPath:indexPath];
+    if(!self.listArray)
+        return nil;
+    
     DataModel *model = [self.listArray objectAtIndex:indexPath.item];
-    cell.dataModel = model;
+    [cell setCellData:model];
     return cell;
 }
 
@@ -217,19 +227,21 @@ UICollectionViewDelegateFlowLayout>
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(!self.listArray)
+        return;
+    
     DataModel *dataModel = [self.listArray objectAtIndex:indexPath.item];
     DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
     [self.navigationController pushViewController:detail animated:YES];
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if(self.listArray)
+    if(self.listArray.count != 0 && self.listArray != nil)
     {
         DataModel *model = [self.listArray objectAtIndex:indexPath.item];
-        return CGSizeMake((kScreenWidth - 30)/2,model.cellHeight);
+        return model.cellSize;
     }
     else
         return CGSizeMake(0, 0);
-//    return [self.cellSizes[indexPath.item % 4] CGSizeValue];
 }
 
 

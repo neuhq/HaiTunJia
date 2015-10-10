@@ -40,6 +40,8 @@
 //判断导航头部图片切换
 @property(nonatomic,assign) BOOL isTapNavBarTitleView;
 
+@property(nonatomic,assign) BOOL isLoadView;
+
 /**
  *  重写navBarTitle方法
  *

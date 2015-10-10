@@ -13,7 +13,7 @@
     } FinishBlock:^(id result) {
         
     } failureBlock:^(NSError *error) {
-        
+        failed(error);
     }];
 }
 @end

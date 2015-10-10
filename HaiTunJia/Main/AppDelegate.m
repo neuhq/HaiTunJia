@@ -28,8 +28,8 @@
     _leveyTabBarController.tabBar.backgroundColor = [UIColor whiteColor];
     [_leveyTabBarController setTabBarTransparent:YES];
     [self.window addSubview:_leveyTabBarController.view];
-    self.window.rootViewController = _leveyTabBarController;
     [self.window makeKeyAndVisible];
+    self.window.rootViewController = _leveyTabBarController;
 
     return YES;
 }

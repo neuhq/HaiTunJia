@@ -28,7 +28,7 @@
         }
         
     } failureBlock:^(NSError *error) {
-        
+        fail(error);
     }];
 
 }
