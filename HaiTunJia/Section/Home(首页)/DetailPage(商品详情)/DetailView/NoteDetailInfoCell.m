@@ -3,6 +3,7 @@
 #import "UIImageView+WebCache.h"
 #import "DWTagList.h"
 #import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 const CGFloat kNoteDetailInfoCellFirstPartHeight  = 60.0f;
 const CGFloat kNoteDetailInfoCellAvatarImageViewHeight   = 40.0f;
 const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
@@ -72,7 +73,7 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
         if (cellType == DetailCellType_NoteInfo)
         {
 //            [self initViews];
-            self.tagArray = [NSArray arrayWithObjects:@"巴黎春天百货",@"时尚艺术",@"历史古迹",@"新艺术肢体",@"展览",@"新型服装",@"美女",@"世博会",@"琅琊榜", nil];
+//            self.tagArray = [NSArray arrayWithObjects:@"巴黎春天百货",@"时尚艺术",@"历史古迹",@"新艺术肢体",@"展览",@"新型服装",@"美女",@"世博会",@"琅琊榜", nil];
             [self cellConfig];
             
             [self.contentView addSubview:self.topView];
@@ -92,9 +93,9 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
         }
         else
         {
-//            [self.contentView addSubview:self.line1];
-//            [self.contentView addSubview:self.commentAndLike];
-//            [self.contentView addSubview:self.line2];
+            [self.contentView addSubview:self.line1];
+            [self.contentView addSubview:self.commentAndLike];
+            [self.contentView addSubview:self.line2];
         }
     }
     return self;
@@ -105,95 +106,6 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     self.backgroundColor = [UIColor whiteColor];
 }
 #pragma mark -- UI
-
--(void)initViews
-{
-    _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kNoteDetailInfoCellFirstPartHeight)];
-    _topView.backgroundColor = [UIColor whiteColor];
-    
-    _avatarImageView = [[UIImageView alloc]initWithFrame:CGRectMake(kNoteDetailInfoCellLeftOffset, (kNoteDetailInfoCellFirstPartHeight - kNoteDetailInfoCellAvatarImageViewHeight)/2, kNoteDetailInfoCellAvatarImageViewHeight, kNoteDetailInfoCellAvatarImageViewHeight)];
-    _avatarImageView.image = [UIImage imageNamed:@"classfy_muying"];
-    _avatarImageView.backgroundColor = [UIColor clearColor];
-    
-    NSString *string = @"海豚小溪";
-    UIFont *font = [UIFont systemFontOfSize:16.0f];
-    CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
-    _name = [[UILabel alloc]initWithFrame:CGRectMake(self.avatarImageView.right + 10.0f, self.avatarImageView.top, size.width, size.height)];
-    _name.text = string;
-    _name.textAlignment = NSTextAlignmentLeft;
-    _name.textColor = [UIColor colorWithHexString:@"626a73"];
-    _name.font = font;
-    _name.backgroundColor = [UIColor clearColor];
-
-    string = @"北京，海淀区，上地十街";
-    font = [UIFont systemFontOfSize:11.0f   ];
-    size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
-    _address = [[UILabel alloc]initWithFrame:CGRectMake(self.avatarImageView.right + 10.0f, self.name.bottom + 10.0f, size.width, size.height)];
-    _address.text = string;
-    _address.textAlignment = NSTextAlignmentLeft;
-    _address.textColor = [UIColor colorWithHexString:@"aeaeb2"];
-    _address.font = font;
-    _address.backgroundColor = [UIColor clearColor];
-    
-    _concern = [UIButton buttonWithType:UIButtonTypeCustom];
-    _concern.frame =CGRectMake(kScreenWidth - kNoteDetailInfoCellLeftOffset - 50.0f, (kNoteDetailInfoCellFirstPartHeight - 27.0f)/2, 55.0f, 27.0f);
-    _concern.backgroundColor = [UIColor whiteColor];
-    _concern.layer.masksToBounds = YES;
-    _concern.layer.cornerRadius = 4.0f;
-    _concern.layer.borderWidth = 0.5f;
-    _concern.layer.borderColor = [[UIColor colorWithHexString:@"aeaeb2"] CGColor];
-    [_concern setTitle:@"关注" forState:UIControlStateNormal];
-    [_concern setTitle:@"关注" forState:UIControlStateHighlighted];
-    _concern.titleLabel.font = [UIFont systemFontOfSize:12.0f];
-    [_concern setTitleColor:[UIColor colorWithHexString:@"'aeaeb2"] forState:UIControlStateNormal];
-    [_concern setTitleColor:[UIColor colorWithHexString:@"'aeaeb2"] forState:UIControlStateHighlighted];
-    [_concern setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-
-    _middleView = [[UIView alloc]init];
-    _middleView.backgroundColor = [UIColor whiteColor];
-    
-    _goodsImageView = [[UIImageView alloc]init];
-    _goodsImageView.backgroundColor = [UIColor whiteColor];
-    
-    _content = [[UILabel alloc]init];
-    _content.textColor = [UIColor colorWithHexString:@"626a73"];
-    _content.textAlignment = NSTextAlignmentCenter;
-    _content.font = [UIFont systemFontOfSize:14.0f];
-
-    UIImage *image = [UIImage imageNamed:@"icon_labelcolor"];
-    _tagImageView = [[UIImageView alloc]initWithFrame:CGRectMake(kNoteDetailInfoCellLeftOffset, 0, image.size.width, image.size.height)];
-    _tagImageView.image = image;
-    _tagImageView.backgroundColor = [UIColor clearColor];
-    
-    _tagView = [[DWTagList alloc]init];
-
-    _timeImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_clock"]];
-    _timeImageView.backgroundColor = [UIColor clearColor];
-
-    _time = [[UILabel alloc]init];
-    _time.textColor = [UIColor colorWithHexString:@"b6babf"];
-    _time.textAlignment = NSTextAlignmentLeft;
-    _time.font = [UIFont systemFontOfSize:11.0f];
-    _time.backgroundColor = [UIColor whiteColor];
-    
-    _bottomView = [[UIView alloc]init];
-    _bottomView.backgroundColor = [UIColor whiteColor];
-
-//    _commentAndLike = [[UILabel alloc]init];
-//    _commentAndLike.textColor = [UIColor colorWithHexString:@"b6babf"];
-//    _commentAndLike.textAlignment = NSTextAlignmentLeft;
-//    _commentAndLike.font = [UIFont systemFontOfSize:11.0f];
-//    _commentAndLike.backgroundColor = [UIColor whiteColor];
-//    
-//    _line1 = [[UIView alloc]initWithFrame:CGRectMake(0, 31, kScreenWidth, 0.5f)];
-//    _line1.backgroundColor = [UIColor colorWithHexString:@"cccccf"];
-//    
-//    _line2 = [[UIView alloc]init];
-//    _line2.backgroundColor = [UIColor colorWithHexString:@"cccccf"];
-
-    
-    
-}
 -(UIView *) topView
 {
     if (!_topView)
@@ -362,7 +274,7 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
 {
     if (!_line1)
     {
-        _line1 = [[UIView alloc]initWithFrame:CGRectMake(0, 31, kScreenWidth, 0.5f)];
+        _line1 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 0.5f)];
         _line1.backgroundColor = [UIColor colorWithHexString:@"cccccf"];
 //        _line1.backgroundColor = [UIColor redColor];
     }
@@ -382,15 +294,16 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
 -(NSInteger) getIconMaxCount
 {
     if (iPhone6)
-        return 8;
+        return 9;
     else if (iPhone6Plus)
-        return 8;
+        return 9;
     else
-        return 6;
+        return 7;
 }
 #pragma mark -- layout
 -(void)setDataWithModel:(DetailDataModel*) detailModel
 {
+    self.tagArray = [NSArray arrayWithObjects:detailModel.commodity.tag1,detailModel.commodity.tag2,detailModel.commodity.tag3 ,nil];
     self.name.text = detailModel.follow.userName;
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] placeholderImage:nil];
     NSString *string = detailModel.commodity.picture;
@@ -429,15 +342,15 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     self.time.text = [NSString stringWithFormat:@"发布于:%@",detailModel.commodity.publishTime];
     
     self.bottomView.frame = CGRectMake(0, self.middleView.bottom + 31, kScreenWidth,self.timeImageView.bottom + 31.0f);
-//
-    self.frame = CGRectMake(0, 0, kScreenWidth, self.topView.height + self.middleView.height + self.bottomView.height);
+
+    self.frame = CGRectMake(0, 0, kScreenWidth, self.bottomView.bottom);
 
 }
 
--(void)setCommentAndLikeData
+-(void)setCommentAndLikeData:(DetailDataModel *) detailModel
 {
-    NSString *likeCountString = @"400";
-    NSString *comentCountString = @"88";
+    NSString *likeCountString = [NSString stringWithFormat:@"%ld",detailModel.praises.count];
+    NSString *comentCountString = [NSString stringWithFormat:@"%ld",detailModel.comments.count];
     NSString *string = [NSString stringWithFormat:@"总共有%@个赞,%@条评论",likeCountString,comentCountString];
     CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:self.commentAndLike.font}];
     NSMutableAttributedString *mutableAttributedString= [[NSMutableAttributedString alloc] initWithString:string];
@@ -453,18 +366,26 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
             [view removeAllSubviews];
         }
     }
+    NSInteger imageCount = detailModel.praises.count;
     NSInteger count = [self getIconMaxCount];
-    for (NSInteger i = 0; i < count; i++)
+    if (imageCount > count)
     {
-        UIImage *image = [UIImage imageNamed:@"classfy_hufu"];
+        imageCount = count;
+    }
+    for (NSInteger i = 0; i < imageCount; i++)
+    {
+        PraisesModel *model = detailModel.praises[i];
+//        UIImage *image = [UIImage imageNamed:@"classfy_hufu"];
+        NSURL *url = [NSURL URLWithString:model.userPic];
         UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(44*i+15, self.commentAndLike.bottom + 10.0f, 30.0f, 30.0f)];
         self.commentAndLikeImagevView = button;
-        [button setBackgroundImage:image forState:UIControlStateNormal];
-        [button setBackgroundImage:image forState:UIControlStateHighlighted];
+        [button sd_setImageWithURL:url forState:UIControlStateNormal] ;
+        [button sd_setImageWithURL:url forState:UIControlStateHighlighted] ;
         button.layer.masksToBounds = YES;
         button.layer.cornerRadius = 30.0/2;
         [self.contentView addSubview:button];
     }
+    self.line2.frame = CGRectMake(0, self.commentAndLikeImagevView.bottom + 25.0f, kScreenWidth, 0.5f);
     self.frame = CGRectMake(0, 0, kScreenWidth, self.commentAndLikeImagevView.bottom + 25.0f);
 }
 

@@ -4,7 +4,7 @@
 #import "DetailService.h"
 #import "DetailModel.h"
 #import "CollectCommdityService.h"
-
+#import "CommentListCell.h"
 @interface DetailController ()
 <DetailBottomViewDelegate>
 
@@ -132,11 +132,17 @@
 #pragma mark -- TableViewDelegate/TableViewDataSource
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    if(section == DetailCellType_NoteInfo)
+         return 1;
+    else if (section == DetailCellType_CommentAndLike)
+        return 1;
+    else if (section == DetailCellType_CommentList)
+        return self.detailModel.data.comments.count;
+    return 0;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -165,18 +171,37 @@
         {
             cell = [[NoteDetailInfoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:likeIndentifer withCellType:DetailCellType_CommentAndLike];
         }
-//        [cell setCommentAndLikeData];
+        if (self.detailModel)
+             [cell setCommentAndLikeData:self.detailModel.data];
         return cell;
+    }
+    else if (indexPath.section == DetailCellType_CommentList)
+    {
+        static NSString *commentIndentifer = @"commentIndentifer";
+        CommentListCell *cell = [tableView dequeueReusableCellWithIdentifier:commentIndentifer];
+        if (cell == nil)
+        {
+            cell = [[CommentListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:commentIndentifer];
+        }
+        if (self.detailModel.data.comments)
+        {
+            CommentsModel *model = [self.detailModel.data.comments objectAtIndex:indexPath.row];
+            [cell setCellDataWithCommentModel:model row:indexPath.row];
+        }
     }
     return nil;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 0.01f;
+    return 0.1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0.01f;
+    return 0.1;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {

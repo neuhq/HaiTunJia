@@ -8,7 +8,8 @@
 
 typedef enum DetailCellType{
     DetailCellType_NoteInfo,
-    DetailCellType_CommentAndLike
+    DetailCellType_CommentAndLike,
+    DetailCellType_CommentList
 }DetailCellType;
 
 @class DetailBottomView;

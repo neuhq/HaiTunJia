@@ -61,4 +61,9 @@
  */
 -(void)tapTitleViewAction;
 
+
+-(void)rightButtonAction;
+
+-(void)goBackAction;
+
 @end

@@ -14,5 +14,6 @@
 
 -(void)setDataWithModel:(DetailDataModel*) detailModel;
 
--(void)setCommentAndLikeData;
+-(void)setCommentAndLikeData:(DetailDataModel *) detailModel;
+
 @end

@@ -88,7 +88,8 @@ UserHeaderViewDelegate>
     self.isNavigationBar = NO;
     [self setTitle:@"海豚小溪"];
     self.leftBarButton.hidden = YES;
-    
+    self.rightBarButton.hidden = NO;
+    self.rightView = [UIImage imageNamed:@"icon_setting"];
 }
 -(void)initArray
 {
@@ -251,5 +252,9 @@ UserHeaderViewDelegate>
     return reusableView;
 }
 
-
+#pragma mark -- Action
+-(void)rightButtonAction
+{
+    
+}
 @end
