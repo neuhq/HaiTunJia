@@ -70,12 +70,9 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
+        [self cellConfig];
         if (cellType == DetailCellType_NoteInfo)
         {
-//            [self initViews];
-//            self.tagArray = [NSArray arrayWithObjects:@"巴黎春天百货",@"时尚艺术",@"历史古迹",@"新艺术肢体",@"展览",@"新型服装",@"美女",@"世博会",@"琅琊榜", nil];
-            [self cellConfig];
-            
             [self.contentView addSubview:self.topView];
             [self.contentView addSubview:self.bottomView];
             [self.topView addSubview:self.avatarImageView];
@@ -378,17 +375,25 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
 //        UIImage *image = [UIImage imageNamed:@"classfy_hufu"];
         NSURL *url = [NSURL URLWithString:model.userPic];
         UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(44*i+15, self.commentAndLike.bottom + 10.0f, 30.0f, 30.0f)];
+        button.tag = i;
         self.commentAndLikeImagevView = button;
         [button sd_setImageWithURL:url forState:UIControlStateNormal] ;
         [button sd_setImageWithURL:url forState:UIControlStateHighlighted] ;
         button.layer.masksToBounds = YES;
         button.layer.cornerRadius = 30.0/2;
+        [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:button];
     }
-    self.line2.frame = CGRectMake(0, self.commentAndLikeImagevView.bottom + 25.0f, kScreenWidth, 0.5f);
-    self.frame = CGRectMake(0, 0, kScreenWidth, self.commentAndLikeImagevView.bottom + 25.0f);
+    self.line2.frame = CGRectMake(0, self.commentAndLike.bottom + 10 + self.commentAndLikeImagevView.height + 25.0f, kScreenWidth, 0.5f);
+    self.frame = CGRectMake(0, 0, kScreenWidth, self.line2.bottom);
 }
-
+-(void)buttonAction:(UIButton *) sender
+{
+    if (self.delegate &&[self.delegate respondsToSelector:@selector(seeUser:)])
+    {
+        [self.delegate seeUser:sender.tag];
+    }
+}
 
 
 

@@ -20,6 +20,8 @@ const CGFloat kCommentListCellTopOffset    =  15.0f;
 
 @property(nonatomic,strong) UILabel *time;
 
+@property(nonatomic,strong) UIView *line;
+
 @end
 @implementation CommentListCell
 
@@ -37,6 +39,7 @@ const CGFloat kCommentListCellTopOffset    =  15.0f;
         [self.contentView addSubview:self.praiseButton];
         [self.contentView addSubview:self.time];
         [self.contentView addSubview:self.title];
+        [self.contentView addSubview:self.line];
     }
     return self;
 }
@@ -74,11 +77,11 @@ const CGFloat kCommentListCellTopOffset    =  15.0f;
     if (!_title)
     {
         UIFont *font = [UIFont systemFontOfSize:16.0f];
-        _content = [[UILabel alloc]init];
-        _content.textColor = [UIColor colorWithHexString:@"626a73"];
-        _content.textAlignment = NSTextAlignmentCenter;
-        _content.backgroundColor = [UIColor clearColor];
-        _content.font = font;
+        _title = [[UILabel alloc]init];
+        _title.textColor = [UIColor colorWithHexString:@"626a73"];
+        _title.textAlignment = NSTextAlignmentLeft;
+        _title.backgroundColor = [UIColor clearColor];
+        _title.font = font;
 
     }
     return _title;
@@ -116,6 +119,15 @@ const CGFloat kCommentListCellTopOffset    =  15.0f;
     }
     return _praiseButton;
 }
+-(UIView *) line
+{
+    if (!_line)
+    {
+        _line = [[UIView alloc]init];
+        _line.backgroundColor = [UIColor colorWithHexString:@"cccccf"];
+    }
+    return _line;
+}
 -(void)setCellDataWithCommentModel:(CommentsModel *) commentsModel row:(NSInteger) row
 {
     if (row ==0)
@@ -127,7 +139,7 @@ const CGFloat kCommentListCellTopOffset    =  15.0f;
     }
     else if (row == 1)
     {
-        self.hot.text = @"所以评论";
+        self.hot.text = @"所有评论";
         self.hot.hidden = NO;
         self.avatarButton.frame = CGRectMake(kCommentListCellLeftOffset, self.hot.bottom + 13.0f, 30.0f, 30.0f);
 
@@ -146,14 +158,15 @@ const CGFloat kCommentListCellTopOffset    =  15.0f;
     self.title.text = titleString;
     
     NSString *content = commentsModel.content;
-    CGSize contentSize = [content getStringRect:content withSize:CGSizeMake(kScreenWidth - kCommentListCellLeftOffset - self.title.left, 0)];
-    self.content.frame = CGRectMake(self.title.left, self.title.bottom + 15.0f, contentSize.width, contentSize.height);
+    CGFloat width = kScreenWidth - kCommentListCellLeftOffset - self.title.left;
+    CGFloat height = [content heightForWidth:width usingFont:self.title.font];
+    self.content.frame = CGRectMake(self.title.left, self.title.bottom + 15.0f,width,height);
     self.content.numberOfLines = 0;
     self.content.text = content;
     [self.content sizeToFit];
     
-    
-    
+    self.frame = CGRectMake(0, 0, kScreenWidth, self.content.bottom + kCommentListCellLeftOffset);
+    self.line.frame = CGRectMake(0, self.height - 0.5f, kScreenWidth, 0.5f);
     
 }
 @end

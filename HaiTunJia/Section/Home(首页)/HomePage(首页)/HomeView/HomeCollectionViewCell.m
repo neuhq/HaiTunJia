@@ -331,8 +331,12 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
                                        zanNumSize.height);
     self.zanNum.text = zanNumStr;
 
-    
-    UIImage *loveImage = [UIImage imageNamed:@"icon_love_normal"];
+    UIImage *loveImage;
+    if (self.dataModel.isPraised == 0)
+            loveImage = [UIImage imageNamed:@"icon_love_normal"];
+    else
+            loveImage = [UIImage imageNamed:@"icon_love_active"];
+
     self.zanImageButton.frame = CGRectMake(self.zanNum.left - loveImage.size.width,
                                                5.0f,
                                                loveImage.size.width,

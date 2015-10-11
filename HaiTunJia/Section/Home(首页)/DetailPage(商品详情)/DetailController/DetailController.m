@@ -6,7 +6,8 @@
 #import "CollectCommdityService.h"
 #import "CommentListCell.h"
 @interface DetailController ()
-<DetailBottomViewDelegate>
+<DetailBottomViewDelegate,
+NoteDetailInfoCellDelegate>
 
 @property(nonatomic,assign) BOOL isScrollDown;
 
@@ -32,8 +33,8 @@
 {
     [super viewDidLoad];
     [self viewConfig];
-    [self getNoteDetailInfo];
     [self.view addSubview:self.detailTableView];
+    [self getNoteDetailInfo];
     [self.view addSubview:self.bottomView];
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -129,6 +130,10 @@
             break;
     }
 }
+-(void)seeUser:(NSInteger)index
+{
+    
+}
 #pragma mark -- TableViewDelegate/TableViewDataSource
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -141,7 +146,7 @@
     else if (section == DetailCellType_CommentAndLike)
         return 1;
     else if (section == DetailCellType_CommentList)
-        return self.detailModel.data.comments.count;
+        return self.detailModel.data.comments.count + 1;
     return 0;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -171,6 +176,7 @@
         {
             cell = [[NoteDetailInfoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:likeIndentifer withCellType:DetailCellType_CommentAndLike];
         }
+        cell.delegate = self;
         if (self.detailModel)
              [cell setCommentAndLikeData:self.detailModel.data];
         return cell;
@@ -183,11 +189,20 @@
         {
             cell = [[CommentListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:commentIndentifer];
         }
-        if (self.detailModel.data.comments)
+        if (self.detailModel.data.comments.count != 0)
         {
-            CommentsModel *model = [self.detailModel.data.comments objectAtIndex:indexPath.row];
-            [cell setCellDataWithCommentModel:model row:indexPath.row];
+            if(indexPath.row == 0)
+            {
+                CommentsModel *model = [self.detailModel.data.comments objectAtIndex:indexPath.row];
+                [cell setCellDataWithCommentModel:model row:indexPath.row];
+            }
+            else
+            {
+                CommentsModel *model = [self.detailModel.data.comments objectAtIndex:indexPath.row - 1];
+                [cell setCellDataWithCommentModel:model row:indexPath.row];
+            }
         }
+        return cell;
     }
     return nil;
 }

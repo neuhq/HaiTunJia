@@ -88,12 +88,6 @@ UICollectionViewDelegateFlowLayout>
 {
     if (!_homeCollectionView)
     {
-//        TLCollectionWaterFallFlow *layout  = [[TLCollectionWaterFallFlow alloc] init];
-//        layout.minimumInteritemSpacing = 10;
-//        layout.minimumLineSpacing = 10;
-////        layout.headerHeight = 230;
-//        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
-        
         CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
         layout.sectionInset = UIEdgeInsetsMake(0, 10, 10, 10);
         layout.headerHeight = 230;
@@ -148,6 +142,18 @@ UICollectionViewDelegateFlowLayout>
         [self endRefrashLoad];
 
     }];
+}
+-(void)praiseRequestWithId:(NSInteger) iD
+{
+    
+//    PraiseService *service = [[PraiseService alloc]init];
+//    [service startRequestPraiseWithParams:^{
+//        service.commodityId = [NSString stringWithFormat:@"%ld",iD];
+//    } respons:^(id object) {
+//        
+//    } failed:^(NSError *error) {
+//        
+//    }];
 }
 #pragma mark -- helper
 //上下拉刷新控件
@@ -210,6 +216,9 @@ UICollectionViewDelegateFlowLayout>
     
     DataModel *model = [self.listArray objectAtIndex:indexPath.item];
     [cell setCellData:model];
+    [cell.zanImageButton addTarget:self action:@selector(praiseAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.bottomRightView addTarget:self action:@selector(praiseAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.bottomLeftView addTarget:self action:@selector(seeComment:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
@@ -246,8 +255,15 @@ UICollectionViewDelegateFlowLayout>
 
 
 #pragma mark -- Action
-
-
+-(void)praiseAction:(UIButton *) sender
+{
+    DataModel *model = self.listArray[sender.tag];
+    [self praiseRequestWithId:model.iD];
+}
+-(void)seeComment:(UIButton *) sender
+{
+    
+}
 #pragma mark -- Jump
 //跳转商品详情
 -(void)jumpDetail
