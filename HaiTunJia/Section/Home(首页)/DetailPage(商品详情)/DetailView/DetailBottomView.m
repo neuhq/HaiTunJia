@@ -26,8 +26,8 @@
 
 -(void)initArray
 {
-    self.normalImageArray = [NSArray arrayWithObjects:[UIImage imageNamed:@"icon_pengyouquan"],[UIImage imageNamed:@"icon_weixin"],[UIImage imageNamed:@"icon_love_normal"],[UIImage imageNamed:@"icon_focus_normal"], nil];
-    self.selectImageArray = [NSArray arrayWithObjects:[UIImage imageNamed:@"icon_pengyouquan"],[UIImage imageNamed:@"regiter_weixin"],[UIImage imageNamed:@"icon_love_active"],[UIImage imageNamed:@"icon_focus_sel"],nil ];
+    self.normalImageArray = [NSArray arrayWithObjects:[UIImage imageNamed:@"icon_pengyouquan"],[UIImage imageNamed:@"icon_weixin"],[UIImage imageNamed:@"icon_love_normal1"],[UIImage imageNamed:@"icon_focus_normal"], nil];
+    self.selectImageArray = [NSArray arrayWithObjects:[UIImage imageNamed:@"icon_pengyouquan"],[UIImage imageNamed:@"regiter_weixin"],[UIImage imageNamed:@"icon_love_normal2"],[UIImage imageNamed:@"icon_focus_sel"],nil ];
 }
 -(void)initViews
 {

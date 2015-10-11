@@ -83,6 +83,7 @@
 -(void)addController
 {
     MyFansViewController *myFans = [[MyFansViewController alloc]init];
+    myFans.type = MyFansOrFocusType_Myfans;
     CommentViewController *comment = [[CommentViewController alloc]init];
     PraiseViewController *praise = [[PraiseViewController alloc]init];
     NoticeViewController *notice = [[NoticeViewController alloc]init];

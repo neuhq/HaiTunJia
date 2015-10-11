@@ -7,7 +7,8 @@
 #import "HomeListModel.h"
 #import "DetailController.h"
 #import "LoginViewController.h"
-#import "TLCollectionWaterFallFlow.h"
+#import "PraiseCommodityService.h"
+
 //collectionViewCell标识
 static NSString *const HomeViewCollectionViewIndentifer =  @"HomeViewCollectionViewIndentifer";
 
@@ -49,9 +50,6 @@ UICollectionViewDelegateFlowLayout>
     //导航栏隐藏
     self.isNavigationBar = YES;
     
-    //获取首页商品数据
-    [self getHomeListData];
-    
     //添加列表
     [self.view addSubview:self.homeCollectionView];
     
@@ -66,6 +64,9 @@ UICollectionViewDelegateFlowLayout>
 -(void)viewDidAppear:(BOOL)animated
 {
     [self hideTabbar:NO];
+    if(self.isLoadView)
+        //获取首页商品数据
+        [self getHomeListData];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [super viewDidAppear:animated];
@@ -143,17 +144,34 @@ UICollectionViewDelegateFlowLayout>
 
     }];
 }
--(void)praiseRequestWithId:(NSInteger) iD
+-(void)praiseRequestWithId:(NSInteger) iD withIndex:(NSInteger) index
 {
-    
-//    PraiseService *service = [[PraiseService alloc]init];
-//    [service startRequestPraiseWithParams:^{
-//        service.commodityId = [NSString stringWithFormat:@"%ld",iD];
-//    } respons:^(id object) {
-//        
-//    } failed:^(NSError *error) {
-//        
-//    }];
+    PraiseCommodityService *service = [[PraiseCommodityService alloc]init];
+    [service startRquestPraiseCommodity:^{
+        service.commodityId = [NSString stringWithFormat:@"%ld",iD];
+    } praiseRespons:^(id obj) {
+        NSDictionary *dic = obj;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        HomeCollectionViewCell *cell = (HomeCollectionViewCell *)[self.homeCollectionView cellForItemAtIndexPath:indexPath];
+        DataModel *dataModel = self.listArray[index];
+        if([dic[@"code"] integerValue] == 0)
+        {
+            [cell.zanImageButton setBackgroundImage:[UIImage imageNamed:@"icon_love_active"] forState:UIControlStateNormal];
+            cell.zanNum.text = [NSString stringWithFormat:@"%ld",dataModel.likeNum +1];
+            dataModel.likeNum++;
+            dataModel.isPraised = 1;
+        }
+        else
+        {
+            [cell.zanImageButton setBackgroundImage:[UIImage imageNamed:@"icon_love_normal"] forState:UIControlStateNormal];
+            cell.zanNum.text = [NSString stringWithFormat:@"%ld",dataModel.likeNum - 1];
+            dataModel.likeNum--;
+            dataModel.isPraised = 0;
+        }
+        [cell upDateLayout:cell];
+    } failed:^(NSError *error) {
+        
+    }];
 }
 #pragma mark -- helper
 //上下拉刷新控件
@@ -216,6 +234,10 @@ UICollectionViewDelegateFlowLayout>
     
     DataModel *model = [self.listArray objectAtIndex:indexPath.item];
     [cell setCellData:model];
+    cell.zanImageButton.tag = indexPath.item;
+    cell.bottomRightView.tag = indexPath.item;
+    cell.bottomLeftView.tag = indexPath.item;
+
     [cell.zanImageButton addTarget:self action:@selector(praiseAction:) forControlEvents:UIControlEventTouchUpInside];
     [cell.bottomRightView addTarget:self action:@selector(praiseAction:) forControlEvents:UIControlEventTouchUpInside];
     [cell.bottomLeftView addTarget:self action:@selector(seeComment:) forControlEvents:UIControlEventTouchUpInside];
@@ -258,11 +280,13 @@ UICollectionViewDelegateFlowLayout>
 -(void)praiseAction:(UIButton *) sender
 {
     DataModel *model = self.listArray[sender.tag];
-    [self praiseRequestWithId:model.iD];
+    [self praiseRequestWithId:model.iD withIndex:sender.tag];
 }
 -(void)seeComment:(UIButton *) sender
 {
-    
+    DataModel *dataModel = [self.listArray objectAtIndex:sender.tag];
+    DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 #pragma mark -- Jump
 //跳转商品详情

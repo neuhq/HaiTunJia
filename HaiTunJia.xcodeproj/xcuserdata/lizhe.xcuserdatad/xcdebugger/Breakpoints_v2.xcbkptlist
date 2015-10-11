@@ -96,94 +96,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Section/Search(&#x641c;&#x7d22;)/HotCategory/HotCategoryController/SearchResultViewController.m"
-            timestampString = "466095113.149358"
+            filePath = "HaiTunJia/Section/Home(&#x9996;&#x9875;)/HomePage(&#x9996;&#x9875;)/HomeViewContrller/HomeViewController.m"
+            timestampString = "466261534.407724"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "-getSearchResultDataWithKeyword"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "-praiseRequestWithId:withIndex:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SearchResultViewController getSearchResultDataWithKeyword]"
-                  moduleName = "HaiTunJia"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Section/Search(%E6%90%9C%E7%B4%A2)/HotCategory/HotCategoryController/SearchResultViewController.m"
-                  timestampString = "466185301.302085"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "216"
-                  endingLineNumber = "216"
-                  offsetFromSymbolStart = "316">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__60-[SearchResultViewController getSearchResultDataWithKeyword]_block_invoke"
-                  moduleName = "HaiTunJia"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Section/Search(%E6%90%9C%E7%B4%A2)/HotCategory/HotCategoryController/SearchResultViewController.m"
-                  timestampString = "466185301.302283"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "216"
-                  endingLineNumber = "216"
-                  offsetFromSymbolStart = "220">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_156"
-                  moduleName = "HaiTunJia"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Section/Search(%E6%90%9C%E7%B4%A2)/HotCategory/HotCategoryController/SearchResultViewController.m"
-                  timestampString = "466185301.302445"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_157"
-                  moduleName = "HaiTunJia"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Section/Search(%E6%90%9C%E7%B4%A2)/HotCategory/HotCategoryController/SearchResultViewController.m"
-                  timestampString = "466185301.302615"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__60-[SearchResultViewController getSearchResultDataWithKeyword]_block_invoke159"
-                  moduleName = "HaiTunJia"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Section/Search(%E6%90%9C%E7%B4%A2)/HotCategory/HotCategoryController/SearchResultViewController.m"
-                  timestampString = "466185301.302786"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "216"
-                  endingLineNumber = "216"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -192,13 +115,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Section/Search(&#x641c;&#x7d22;)/HotCategory/HotCategoryController/SearchResultViewController.m"
-            timestampString = "466095113.149358"
+            filePath = "HaiTunJia/Section/User(&#x7528;&#x6237;)/User/UserViewController/UserViewController.m"
+            timestampString = "466267829.462217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
-            landmarkName = "-getSearchResultDataWithKeyword"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
+            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

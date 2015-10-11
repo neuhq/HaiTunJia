@@ -214,6 +214,7 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
     self = [super initWithFrame:frame];
     if (self)
     {
+        
         [self.contentView               addSubview:self.bigBgView];
         [self.bigBgView                  addSubview:self.topBgView];
         [self.bigBgView                  addSubview:self.middleBgView];
@@ -349,11 +350,20 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
                                          self.width,
                                          5.0f + loveImage.size.width+ 5.0f);
     self.bigBgView.frame = CGRectMake(0, 0, self.width, self.bottomBgView.bottom);
-    [self.bottomLeftView addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
-    [self.bottomRightView addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
 }
--(void)test
+-(void)upDateLayout:(HomeCollectionViewCell *) cell
 {
-    NSLog(@"123");
+    //赞数量
+    NSString *zanNumStr =  [NSString stringWithFormat:@"%ld",cell.dataModel.likeNum];
+    CGSize zanNumSize = [zanNumStr sizeWithAttributes:@{NSFontAttributeName:cell.zanNum.font}];
+    cell.zanNum.frame = CGRectMake(self.bottomRightView.width - kHomeCellLeftOffset - zanNumSize.width,
+                                   kHomeCellTopOffset,
+                                   zanNumSize.width,
+                                   zanNumSize.height);
+    UIImage * loveImage = [UIImage imageNamed:@"icon_love_normal"];
+    cell.zanImageButton.frame = CGRectMake(cell.zanNum.left - loveImage.size.width,
+                                           5.0f,
+                                           loveImage.size.width,
+                                           loveImage.size.height);
 }
 @end

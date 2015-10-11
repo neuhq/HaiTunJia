@@ -8,6 +8,8 @@
 #import "SearchWithTagService.h"
 #import "SearchWithKeywordService.h"
 #import "DetailController.h"
+#import "PraiseCommodityService.h"
+#import "PraiseResult.h"
 static NSString *const WaterFallFlowViewCollectionViewIndentifer =  @"WaterFallFlowViewCollectionViewIndentifer";
 
 @interface SearchResultViewController ()
@@ -242,6 +244,7 @@ UICollectionViewDelegateFlowLayout>
          [self endRefrashLoad];
      }];
 }
+
 #pragma mark -- Delegate
 
 #pragma mark - UICollectionViewDataSource
@@ -260,7 +263,13 @@ UICollectionViewDelegateFlowLayout>
     (WaterFallListCell *)[collectionView dequeueReusableCellWithReuseIdentifier:WaterFallFlowViewCollectionViewIndentifer forIndexPath:indexPath];
     NSLog(@"%ld",indexPath.item);
     if(self.listArray.count)
+    {
         [cell setListData:self.listArray[indexPath.item]];
+        cell.zanImageButton.tag = indexPath.item;
+        cell.bottomLeftView.tag = indexPath.item;
+        [cell.bottomLeftView addTarget:self action:@selector(jumpDetail:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.zanImageButton addTarget:self action:@selector(praiseAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
         return cell;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -279,5 +288,16 @@ UICollectionViewDelegateFlowLayout>
     DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",model.iD]];
     [self.navigationController pushViewController:detail animated:YES];
 }
-
+#pragma mark -- Action
+-(void)praiseAction:(UIButton *) sender
+{
+    ListModel *model = self.listArray[sender.tag];
+    [PraiseResult praiseRequestWithId:model.iD withIndex:sender.tag withCollectionView:self.seachResultCollectionView withListArra:self.listArray];
+}
+-(void)jumpDetail:(UIButton *) sender
+{
+    ListModel *dataModel = [self.listArray objectAtIndex:sender.tag];
+    DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
+    [self.navigationController pushViewController:detail animated:YES];
+}
 @end

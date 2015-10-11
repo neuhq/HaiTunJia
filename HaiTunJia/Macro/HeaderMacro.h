@@ -38,5 +38,7 @@
 
 #import "iToast.h"
 
+#import "NotificationNameMacro.h"
+
 #endif
 

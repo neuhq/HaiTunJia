@@ -63,4 +63,6 @@
 
 -(void)setListData:(ListModel *) listModel;
 
+-(void)upDateLayout:(WaterFallListCell *) cell;
+
 @end

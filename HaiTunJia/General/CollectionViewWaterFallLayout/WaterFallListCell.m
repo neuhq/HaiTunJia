@@ -215,12 +215,6 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
     NSString *contentString = self.listModel.content;
     CGSize size = [contentString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0f]}];
 
-//    CGSize boundingRectSize = CGSizeMake(self.width - 2*kHomeCellLeftOffset, CGFLOAT_MAX);
-//    NSDictionary *attributes = @{NSFontAttributeName :self.content.font};
-//    CGRect contentSize = [contentString boundingRectWithSize:boundingRectSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-//                                              attributes:attributes
-//                                                 context:nil];
-
     self.content.frame = CGRectMake(kHomeCellLeftOffset,
                                                             kHomeCellTopOffset,
                                                             self.width - 2*kHomeCellLeftOffset,
@@ -297,6 +291,21 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
 -(void)test
 {
     NSLog(@"123");
+}
+-(void)upDateLayout:(WaterFallListCell *) cell
+{
+    //赞数量
+    NSString *zanNumStr =  [NSString stringWithFormat:@"%ld",cell.listModel.likeNum];
+    CGSize zanNumSize = [zanNumStr sizeWithAttributes:@{NSFontAttributeName:cell.zanNum.font}];
+    cell.zanNum.frame = CGRectMake(self.bottomRightView.width - kHomeCellLeftOffset - zanNumSize.width,
+                                   kHomeCellTopOffset,
+                                   zanNumSize.width,
+                                   zanNumSize.height);
+    UIImage * loveImage = [UIImage imageNamed:@"icon_love_normal"];
+    cell.zanImageButton.frame = CGRectMake(cell.zanNum.left - loveImage.size.width,
+                                           5.0f,
+                                           loveImage.size.width,
+                                           loveImage.size.height);
 }
 
 @end

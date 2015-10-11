@@ -5,6 +5,9 @@
 #import "UIImageView+WebCache.h"
 #import "UserCollectService.h"
 #import "UserNoteListService.h"
+#import "PraiseResult.h"
+#import "DetailController.h"
+
 static NSString *const kUserCollectionCellIndentifer =  @"kUserCollectionCellIndentifer";
 static NSString *const kUserHeaderViewIndentifer = @"kUserHeaderViewIndentifer";
 @interface UserViewController ()
@@ -42,7 +45,6 @@ UserHeaderViewDelegate>
     [self viewConfig];
     [self.view addSubview:self.userCollectionView];
     [self setRefrashControl];
-    [self selectTabAtIndex:0];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -51,10 +53,16 @@ UserHeaderViewDelegate>
 }
 -(void)viewDidAppear:(BOOL)animated
 {
+    [self  hideTabbar:NO];
+    if (self.isLoadView)
+    {
+        [self selectTabAtIndex:0];
+    }
     [super viewDidAppear:animated];
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [self hideTabbar:YES];
     [super viewWillDisappear:animated];
 }
 #pragma mark -- UI
@@ -227,7 +235,14 @@ UserHeaderViewDelegate>
     WaterFallListCell *cell =
     (WaterFallListCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kUserCollectionCellIndentifer
                                                                    forIndexPath:indexPath];
-    [cell setListData:self.listArray[indexPath.item]];
+    if (self.listArray.count)
+    {
+        [cell setListData:self.listArray[indexPath.item]];
+        cell.zanImageButton.tag = indexPath.item;
+        cell.bottomLeftView.tag = indexPath.item;
+        [cell.bottomLeftView addTarget:self action:@selector(jumpDetail:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.zanImageButton addTarget:self action:@selector(praiseAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
     return cell;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -251,10 +266,29 @@ UserHeaderViewDelegate>
     }
     return reusableView;
 }
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ListModel *dataModel = [self.listArray objectAtIndex:indexPath.row];
+    DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
+    [self.navigationController pushViewController:detail animated:YES];
 
+}
 #pragma mark -- Action
 -(void)rightButtonAction
 {
     
 }
+-(void)praiseAction:(UIButton *) sender
+{
+    ListModel *model = self.listArray[sender.tag];
+    [PraiseResult praiseRequestWithId:model.iD withIndex:sender.tag withCollectionView:self.userCollectionView withListArra:self.listArray];
+}
+
+-(void)jumpDetail:(UIButton *) sender
+{
+    ListModel *dataModel = [self.listArray objectAtIndex:sender.tag];
+    DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
+    [self.navigationController pushViewController:detail animated:YES];
+}
+
 @end

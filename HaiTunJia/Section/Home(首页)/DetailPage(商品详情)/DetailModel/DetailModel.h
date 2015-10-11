@@ -2,7 +2,9 @@
 
 #import <Foundation/Foundation.h>
 #import "StateModel.h"
+
 @class DetailDataModel,CommodityModel,FollowModel,PraisesModel,CommentsModel;
+
 @interface DetailModel : NSObject
 
 @property (nonatomic,strong) StateModel *state;
@@ -50,7 +52,7 @@
 
 @property (nonatomic, copy) NSString *name;
 
-@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, assign) NSInteger iD;
 
 @property (nonatomic, copy) NSString *tag3Location;
 
@@ -98,7 +100,7 @@
 
 @property (nonatomic, assign) long long gmtCreate;
 
-@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, assign) NSInteger iD;
 
 @property (nonatomic, assign) NSInteger commodityId;
 
@@ -136,7 +138,7 @@
 
 @property (nonatomic, assign) NSInteger downs;
 
-@property (nonatomic, assign) NSInteger id;
+@property (nonatomic, assign) NSInteger iD;
 
 @property (nonatomic, assign) NSInteger parentId;
 

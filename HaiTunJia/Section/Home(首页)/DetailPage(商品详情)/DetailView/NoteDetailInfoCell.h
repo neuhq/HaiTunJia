@@ -2,7 +2,6 @@
 #import <UIKit/UIKit.h>
 #import "DetailController.h"
 #import "DetailModel.h"
-@class DetailController;
 
 @protocol NoteDetailInfoCellDelegate <NSObject>
 

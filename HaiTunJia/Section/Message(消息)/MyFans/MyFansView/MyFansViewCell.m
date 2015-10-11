@@ -77,11 +77,9 @@ const CGFloat kMyFansViewCellHeight = 65.0f;
         _concern.layer.cornerRadius = 6.0f;
         _concern.layer.borderWidth = 0.5f;
         _concern.layer.borderColor = [[UIColor colorWithHexString:@"ced3d9"] CGColor];
-        [_concern setTitle:@"关注" forState:UIControlStateNormal];
-        [_concern setTitle:@"关注" forState:UIControlStateHighlighted];
         _concern.titleLabel.font = [UIFont systemFontOfSize:12.0f];
-        [_concern setTitleColor:[UIColor colorWithHex:@"'626a73"] forState:UIControlStateNormal];
-        [_concern setTitleColor:[UIColor colorWithHex:@"'626a73"] forState:UIControlStateHighlighted];
+        [_concern setTitleColor:[UIColor colorWithHexString:@"'626a73"] forState:UIControlStateNormal];
+        [_concern setTitleColor:[UIColor colorWithHexString:@"'626a73"] forState:UIControlStateHighlighted];
     }
     return _concern;
 }

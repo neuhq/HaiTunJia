@@ -65,4 +65,6 @@
 
 -(void)setCellData:(DataModel *) dataModel;
 
+-(void)upDateLayout:(HomeCollectionViewCell *) cell;
+
 @end

@@ -19,8 +19,6 @@ UITableViewDataSource>
 {
     [super viewDidLoad];
     [self viewConfig];
-//    [self getFansListData];
-    [self getFollowListData];
     [self.view addSubview:self.fansTableView];
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -29,6 +27,18 @@ UITableViewDataSource>
 }
 -(void)viewDidAppear:(BOOL)animated
 {
+    if (self.isLoadView)
+    {
+        if (self.type == MyFansOrFocusType_Myfans)
+        {
+            [self getFansListData];
+        }
+        else
+        {
+            [self getFollowListData];
+        }
+    }
+
     [super viewDidAppear:animated];
 }
 -(void)viewWillDisappear:(BOOL)animated
@@ -82,7 +92,8 @@ UITableViewDataSource>
     [service startRequestFollowWithParams:^{
         
     } respons:^(id object) {
-        
+        self.listArray = object;
+        [self.fansTableView reloadData];
     } failed:^(NSError *error) {
         
     }];
