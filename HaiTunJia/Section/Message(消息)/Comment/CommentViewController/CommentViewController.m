@@ -19,9 +19,10 @@ UITableViewDataSource>
 #pragma mark -- life cycle
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
     [self viewConfig];
-    [self getCommentList];
+    [self.view addSubview:self.commetListTable];
+    [super viewDidLoad];
+   
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -30,6 +31,10 @@ UITableViewDataSource>
 }
 -(void)viewDidAppear:(BOOL)animated
 {
+    if (self.isLoadView)
+    {
+        [self getCommentList];
+    }
     [super viewDidAppear:animated];
 }
 
@@ -40,11 +45,12 @@ UITableViewDataSource>
     {
         if (!_commetListTable)
         {
-            _commetListTable = [[UITableView alloc]initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth, kScreenHeight - kNavigationBarHeight - CONTENT_TABBAR_HEIGHT) style:UITableViewStyleGrouped];
+            _commetListTable = [[UITableView alloc]initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth, kScreenHeight - kNavigationBarHeight)];
             _commetListTable.delegate = self;
             _commetListTable.dataSource = self;
             _commetListTable.backgroundColor = [UIColor clearColor];
             _commetListTable.bounces = YES;
+            _commetListTable.separatorStyle=UITableViewCellSeparatorStyleNone;
         }
     }
     return _commetListTable;
@@ -68,7 +74,7 @@ UITableViewDataSource>
         
     } responsResult:^(id object) {
         self.commentListArray = object;
-        
+        [self.commetListTable reloadData];
     } failed:^(NSError *error) {
         
     }];
@@ -76,10 +82,6 @@ UITableViewDataSource>
 #pragma mark -- Delegate
 
 #pragma mark -- UITableViewDelegate/UITableViewDataSource
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
@@ -102,6 +104,10 @@ UITableViewDataSource>
         [cell setDataWithModel:self.commentListArray[indexPath.row]];
     }
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

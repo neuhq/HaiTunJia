@@ -69,7 +69,8 @@
                               FinishBlock:(FinishBlock)finishBlock
                              failureBlock:(FailureBlock)failureBlock
 {
-    // 取消之前的网络请求
+    [WSProgressHUD showWithStatus:@"Loading..." maskType:WSProgressHUDMaskTypeDefault];
+
     
     // 判断当前是否有网络
     if (![Reachability reachabilityWithHostname:@"www.baidu.com"].isReachable)
@@ -99,8 +100,10 @@
         NSLog(@"string:%@",string);
                 finishBlock(result);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
+        [WSProgressHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [WSProgressHUD dismiss];
         [operation cancel];
         weakSelf.requestOperation = nil;
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;

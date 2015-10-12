@@ -8,7 +8,7 @@
 #import "DetailController.h"
 #import "LoginViewController.h"
 #import "PraiseCommodityService.h"
-
+#import "RegisterViewController.h"
 //collectionViewCell标识
 static NSString *const HomeViewCollectionViewIndentifer =  @"HomeViewCollectionViewIndentifer";
 
@@ -260,10 +260,12 @@ UICollectionViewDelegateFlowLayout>
 {
     if(!self.listArray)
         return;
+    RegisterViewController *registerVC = [[RegisterViewController alloc]init];
+    [self.navigationController pushViewController:registerVC animated:YES];
     
-    DataModel *dataModel = [self.listArray objectAtIndex:indexPath.item];
-    DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
-    [self.navigationController pushViewController:detail animated:YES];
+//    DataModel *dataModel = [self.listArray objectAtIndex:indexPath.item];
+//    DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
+//    [self.navigationController pushViewController:detail animated:YES];
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if(self.listArray.count != 0 && self.listArray != nil)

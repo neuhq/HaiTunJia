@@ -17,4 +17,6 @@
 
 @property(nonatomic,strong) UIImagePickerController *picker;
 
+@property(nonatomic,strong) NSMutableArray *fullImageArray;
+
 @end

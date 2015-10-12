@@ -3,6 +3,8 @@
 #import "PhotoAlbumCollectionViewCell.h"
 #import "PhotoAlbumModel.h"
 #import "SelectPhotoGroupView.h"
+#import "EditPhotoViewController.h"
+
 @implementation PhotoAlbumViewController (Helper)
 -(void)getPhotoAllGroup
 {
@@ -56,6 +58,8 @@
                 if ([type isEqualToString:ALAssetTypePhoto])
                 {
                     [self.imageListArray addObject:[UIImage imageWithCGImage:[result thumbnail]]];
+                    [self.fullImageArray addObject:result];
+                    
                 }
                 [self.photoCollectionView reloadData];
             }
@@ -88,6 +92,8 @@
     if ([type isEqualToString:@"public.image"])
     {
         UIImage *image=[info objectForKey:UIImagePickerControllerOriginalImage];
+        EditPhotoViewController *edit = [[EditPhotoViewController alloc]initWithImage:image];
+        [self.navigationController pushViewController:edit animated:YES];
         //这一步主要是判断当是用相机拍摄的时候，保存到相册
         if (picker.sourceType==UIImagePickerControllerSourceTypeCamera) {
             UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);

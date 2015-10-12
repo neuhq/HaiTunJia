@@ -123,7 +123,7 @@ const CGFloat kMessageViewCellOffset = 9.0f;
     {
         _leftImageView.image = [self.dataDic objectForKey:@"image"];
         _text.text = [self.dataDic objectForKey:@"title"];
-        self.messageNum = @"10000";
+//        self.messageNum = @"10000";
         CGSize size = [self.messageNum sizeWithAttributes:@{NSFontAttributeName:self.messageNumButton.titleLabel.font}];
         self.messageNumButton.frame = CGRectMake(kScreenWidth - self.rightImgeView.width - 7.0f - size.width, (kMessageViewCellForListTypeHeight - (size.height +10))/2, size.width + 10, size.height + 10);
         [self.messageNumButton setTitle:self.messageNum forState:UIControlStateNormal];

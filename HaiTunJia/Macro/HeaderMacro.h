@@ -40,5 +40,7 @@
 
 #import "NotificationNameMacro.h"
 
+#import "WSProgressHUD.h"
+
 #endif
 

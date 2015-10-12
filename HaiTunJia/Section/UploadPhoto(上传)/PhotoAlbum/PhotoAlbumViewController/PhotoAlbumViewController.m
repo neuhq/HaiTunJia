@@ -5,6 +5,8 @@
 #import "PhotoAlbumViewController+Helper.h"
 #import "PhotoAlbumModel.h"
 #import "SelectPhotoGroupView.h"
+#import "EditPhotoViewController.h"
+#import "HTJCommon.h"
 static NSString *kPhotoAlbumImageIndentifer   = @"kPhotoAlbumImageIndentifer";
 static NSString *kPhotoAlbumTakePhotoIndentifer  =  @"kPhotoAlbumTakePhotoIndentifer";
 
@@ -103,6 +105,7 @@ UIGestureRecognizerDelegate>
 {
     self.imageListArray = [[NSMutableArray alloc]init];
     self.photoGroupArray = [[NSMutableArray alloc]initWithCapacity:10];
+    self.fullImageArray = [[NSMutableArray alloc]init];
 }
 #pragma mark  - delegate
 -(void)selectAtIndex:(NSInteger)index
@@ -167,7 +170,10 @@ UIGestureRecognizerDelegate>
     }
     else
     {
-       
+        ALAsset *result = self.fullImageArray[indexPath.item - 1];
+        UIImage *img =  [HTJCommon orientationALAsset:result];
+        EditPhotoViewController *edit = [[EditPhotoViewController alloc]initWithImage:img];
+        [self.navigationController pushViewController:edit animated:YES];
     }
 }
 

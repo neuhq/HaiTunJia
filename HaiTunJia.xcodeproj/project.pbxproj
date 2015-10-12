@@ -19,6 +19,17 @@
 		33747EAB1BC8F1C60076D921 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33747EAA1BC8F1C60076D921 /* NoticeViewController.m */; };
 		33747EB41BC8F8720076D921 /* FollowService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33747EB31BC8F8720076D921 /* FollowService.m */; };
 		33747EB81BC8F9B10076D921 /* FollowInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33747EB71BC8F9B10076D921 /* FollowInfoModel.m */; };
+		33973FCE1BCB585D00551BF6 /* FBShimmeringLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 33973FC41BCB585D00551BF6 /* FBShimmeringLayer.m */; };
+		33973FCF1BCB585D00551BF6 /* FBShimmeringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33973FC61BCB585D00551BF6 /* FBShimmeringView.m */; };
+		33973FD01BCB585D00551BF6 /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 33973FC81BCB585D00551BF6 /* MMMaterialDesignSpinner.m */; };
+		33973FD11BCB585D00551BF6 /* WSIndefiniteAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33973FCA1BCB585D00551BF6 /* WSIndefiniteAnimationView.m */; };
+		33973FD21BCB585D00551BF6 /* WSProgressBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 33973FCB1BCB585D00551BF6 /* WSProgressBundle.bundle */; };
+		33973FD31BCB585D00551BF6 /* WSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 33973FCD1BCB585D00551BF6 /* WSProgressHUD.m */; };
+		3397400C1BCB890300551BF6 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3397400B1BCB890300551BF6 /* RegisterViewController.m */; };
+		339740121BCB8A1E00551BF6 /* RegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 339740111BCB8A1E00551BF6 /* RegisterTextField.m */; };
+		339740151BCB98CD00551BF6 /* RegisterService.m in Sources */ = {isa = PBXBuildFile; fileRef = 339740141BCB98CD00551BF6 /* RegisterService.m */; };
+		3397401B1BCB9FAD00551BF6 /* EditPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3397401A1BCB9FAD00551BF6 /* EditPhotoViewController.m */; };
+		339740221BCBB8A300551BF6 /* HTJCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 339740211BCBB8A300551BF6 /* HTJCommon.m */; };
 		339984911BC62FA800AEECB7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339984901BC62FA800AEECB7 /* MobileCoreServices.framework */; };
 		339984941BC63B7E00AEECB7 /* SelectPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 339984931BC63B7E00AEECB7 /* SelectPhotoGroupView.m */; };
 		339984971BC63E1000AEECB7 /* PhotoGroupViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 339984961BC63E1000AEECB7 /* PhotoGroupViewCell.m */; };
@@ -121,17 +132,17 @@
 		AD13B8F41BBD023300AA3142 /* me_edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD13B8D01BBD023300AA3142 /* me_edit@3x.png */; };
 		AD13B8F51BBD023300AA3142 /* pengyouquan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD13B8D11BBD023300AA3142 /* pengyouquan@3x.png */; };
 		AD13B8FB1BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = AD13B8FA1BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.m */; };
-		AD4C58831BCA756700C3E83C /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C587D1BCA756700C3E83C /* DetailModel.m */; settings = {ASSET_TAGS = (); }; };
-		AD4C58841BCA756700C3E83C /* CollectCommdityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58801BCA756700C3E83C /* CollectCommdityService.m */; settings = {ASSET_TAGS = (); }; };
-		AD4C58851BCA756700C3E83C /* DetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58821BCA756700C3E83C /* DetailService.m */; settings = {ASSET_TAGS = (); }; };
-		AD4C588C1BCA758800C3E83C /* StateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58891BCA758800C3E83C /* StateModel.m */; settings = {ASSET_TAGS = (); }; };
-		AD4C588D1BCA758800C3E83C /* WaterFallFlowListDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C588B1BCA758800C3E83C /* WaterFallFlowListDataModel.m */; settings = {ASSET_TAGS = (); }; };
-		AD4C58911BCA76AD00C3E83C /* PraiseCommodityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58901BCA76AD00C3E83C /* PraiseCommodityService.m */; settings = {ASSET_TAGS = (); }; };
-		AD4C58951BCAA4C000C3E83C /* PraiseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58941BCAA4C000C3E83C /* PraiseResult.m */; settings = {ASSET_TAGS = (); }; };
+		AD4C58831BCA756700C3E83C /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C587D1BCA756700C3E83C /* DetailModel.m */; };
+		AD4C58841BCA756700C3E83C /* CollectCommdityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58801BCA756700C3E83C /* CollectCommdityService.m */; };
+		AD4C58851BCA756700C3E83C /* DetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58821BCA756700C3E83C /* DetailService.m */; };
+		AD4C588C1BCA758800C3E83C /* StateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58891BCA758800C3E83C /* StateModel.m */; };
+		AD4C588D1BCA758800C3E83C /* WaterFallFlowListDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C588B1BCA758800C3E83C /* WaterFallFlowListDataModel.m */; };
+		AD4C58911BCA76AD00C3E83C /* PraiseCommodityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58901BCA76AD00C3E83C /* PraiseCommodityService.m */; };
+		AD4C58951BCAA4C000C3E83C /* PraiseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58941BCAA4C000C3E83C /* PraiseResult.m */; };
 		AD4D20811BC81CCA00732CC0 /* UserCollectService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4D20801BC81CCA00732CC0 /* UserCollectService.m */; };
-		AD4D208E1BC948A400732CC0 /* icon_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD4D208B1BC948A400732CC0 /* icon_setting@2x.png */; settings = {ASSET_TAGS = (); }; };
-		AD4D208F1BC948A400732CC0 /* icon_setting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD4D208D1BC948A400732CC0 /* icon_setting@3x.png */; settings = {ASSET_TAGS = (); }; };
-		AD4D20921BC9611400732CC0 /* CommentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4D20911BC9611400732CC0 /* CommentListCell.m */; settings = {ASSET_TAGS = (); }; };
+		AD4D208E1BC948A400732CC0 /* icon_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD4D208B1BC948A400732CC0 /* icon_setting@2x.png */; };
+		AD4D208F1BC948A400732CC0 /* icon_setting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD4D208D1BC948A400732CC0 /* icon_setting@3x.png */; };
+		AD4D20921BC9611400732CC0 /* CommentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4D20911BC9611400732CC0 /* CommentListCell.m */; };
 		AD51BAAC1BBE4E8500C94388 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD51BAAB1BBE4E8500C94388 /* Images.xcassets */; };
 		AD51BAB41BBE727000C94388 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD51BAB31BBE727000C94388 /* LoginViewController.m */; };
 		AD51BAB71BBE735300C94388 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD51BAB61BBE735300C94388 /* LoginView.m */; };
@@ -349,6 +360,29 @@
 		33747EB31BC8F8720076D921 /* FollowService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowService.m; sourceTree = "<group>"; };
 		33747EB61BC8F9B10076D921 /* FollowInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowInfoModel.h; sourceTree = "<group>"; };
 		33747EB71BC8F9B10076D921 /* FollowInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowInfoModel.m; sourceTree = "<group>"; };
+		33973FC11BCB585D00551BF6 /* FBShimmering-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FBShimmering-Prefix.pch"; sourceTree = "<group>"; };
+		33973FC21BCB585D00551BF6 /* FBShimmering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmering.h; sourceTree = "<group>"; };
+		33973FC31BCB585D00551BF6 /* FBShimmeringLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringLayer.h; sourceTree = "<group>"; };
+		33973FC41BCB585D00551BF6 /* FBShimmeringLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringLayer.m; sourceTree = "<group>"; };
+		33973FC51BCB585D00551BF6 /* FBShimmeringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringView.h; sourceTree = "<group>"; };
+		33973FC61BCB585D00551BF6 /* FBShimmeringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringView.m; sourceTree = "<group>"; };
+		33973FC71BCB585D00551BF6 /* MMMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMaterialDesignSpinner.h; sourceTree = "<group>"; };
+		33973FC81BCB585D00551BF6 /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
+		33973FC91BCB585D00551BF6 /* WSIndefiniteAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSIndefiniteAnimationView.h; sourceTree = "<group>"; };
+		33973FCA1BCB585D00551BF6 /* WSIndefiniteAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSIndefiniteAnimationView.m; sourceTree = "<group>"; };
+		33973FCB1BCB585D00551BF6 /* WSProgressBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WSProgressBundle.bundle; sourceTree = "<group>"; };
+		33973FCC1BCB585D00551BF6 /* WSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSProgressHUD.h; sourceTree = "<group>"; };
+		33973FCD1BCB585D00551BF6 /* WSProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSProgressHUD.m; sourceTree = "<group>"; };
+		3397400A1BCB890300551BF6 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		3397400B1BCB890300551BF6 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		339740101BCB8A1E00551BF6 /* RegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterTextField.h; sourceTree = "<group>"; };
+		339740111BCB8A1E00551BF6 /* RegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterTextField.m; sourceTree = "<group>"; };
+		339740131BCB98CD00551BF6 /* RegisterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterService.h; sourceTree = "<group>"; };
+		339740141BCB98CD00551BF6 /* RegisterService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterService.m; sourceTree = "<group>"; };
+		339740191BCB9FAD00551BF6 /* EditPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPhotoViewController.h; sourceTree = "<group>"; };
+		3397401A1BCB9FAD00551BF6 /* EditPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPhotoViewController.m; sourceTree = "<group>"; };
+		339740201BCBB8A300551BF6 /* HTJCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTJCommon.h; sourceTree = "<group>"; };
+		339740211BCBB8A300551BF6 /* HTJCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTJCommon.m; sourceTree = "<group>"; };
 		339984901BC62FA800AEECB7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		339984921BC63B7E00AEECB7 /* SelectPhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPhotoGroupView.h; sourceTree = "<group>"; };
 		339984931BC63B7E00AEECB7 /* SelectPhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPhotoGroupView.m; sourceTree = "<group>"; };
@@ -1008,6 +1042,60 @@
 			path = FollowModel;
 			sourceTree = "<group>";
 		};
+		33973FC01BCB585D00551BF6 /* WSProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				33973FC11BCB585D00551BF6 /* FBShimmering-Prefix.pch */,
+				33973FC21BCB585D00551BF6 /* FBShimmering.h */,
+				33973FC31BCB585D00551BF6 /* FBShimmeringLayer.h */,
+				33973FC41BCB585D00551BF6 /* FBShimmeringLayer.m */,
+				33973FC51BCB585D00551BF6 /* FBShimmeringView.h */,
+				33973FC61BCB585D00551BF6 /* FBShimmeringView.m */,
+				33973FC71BCB585D00551BF6 /* MMMaterialDesignSpinner.h */,
+				33973FC81BCB585D00551BF6 /* MMMaterialDesignSpinner.m */,
+				33973FC91BCB585D00551BF6 /* WSIndefiniteAnimationView.h */,
+				33973FCA1BCB585D00551BF6 /* WSIndefiniteAnimationView.m */,
+				33973FCB1BCB585D00551BF6 /* WSProgressBundle.bundle */,
+				33973FCC1BCB585D00551BF6 /* WSProgressHUD.h */,
+				33973FCD1BCB585D00551BF6 /* WSProgressHUD.m */,
+			);
+			path = WSProgressHUD;
+			sourceTree = "<group>";
+		};
+		339740161BCB9F7A00551BF6 /* EditPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				339740171BCB9F7A00551BF6 /* EditPhotoView */,
+				339740181BCB9F7A00551BF6 /* EditPhotoViewController */,
+			);
+			path = EditPhoto;
+			sourceTree = "<group>";
+		};
+		339740171BCB9F7A00551BF6 /* EditPhotoView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EditPhotoView;
+			sourceTree = "<group>";
+		};
+		339740181BCB9F7A00551BF6 /* EditPhotoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				339740191BCB9FAD00551BF6 /* EditPhotoViewController.h */,
+				3397401A1BCB9FAD00551BF6 /* EditPhotoViewController.m */,
+			);
+			path = EditPhotoViewController;
+			sourceTree = "<group>";
+		};
+		3397401F1BCBB89300551BF6 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				339740201BCBB8A300551BF6 /* HTJCommon.h */,
+				339740211BCBB8A300551BF6 /* HTJCommon.m */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
 		33CDF0071BC771E70023CF09 /* HotCategoryService */ = {
 			isa = PBXGroup;
 			children = (
@@ -1140,6 +1228,7 @@
 		AD13B7EC1BBC303600AA3142 /* UploadPhoto(上传) */ = {
 			isa = PBXGroup;
 			children = (
+				339740161BCB9F7A00551BF6 /* EditPhoto */,
 				AD9BEB3E1BC208F9004D662B /* PhotoAlbum */,
 			);
 			path = "UploadPhoto(上传)";
@@ -1527,6 +1616,8 @@
 				AD893BB91BC3724A0050C5AD /* LoginServiceWithVerifyCode.m */,
 				AD893BBB1BC375140050C5AD /* GetVerifyCodeService.h */,
 				AD893BBC1BC375140050C5AD /* GetVerifyCodeService.m */,
+				339740131BCB98CD00551BF6 /* RegisterService.h */,
+				339740141BCB98CD00551BF6 /* RegisterService.m */,
 			);
 			path = LoginService;
 			sourceTree = "<group>";
@@ -1540,6 +1631,8 @@
 				ADF614611BC4E4C2004FCABE /* LoginViewPasswordView.m */,
 				ADF614661BC4F878004FCABE /* ForgetPasswordView.h */,
 				ADF614671BC4F878004FCABE /* ForgetPasswordView.m */,
+				339740101BCB8A1E00551BF6 /* RegisterTextField.h */,
+				339740111BCB8A1E00551BF6 /* RegisterTextField.m */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -1553,6 +1646,8 @@
 				ADF6145E1BC4E485004FCABE /* LoginWithPasswordViewController.m */,
 				ADF614631BC4F834004FCABE /* ForgetPasswordViewController.h */,
 				ADF614641BC4F834004FCABE /* ForgetPasswordViewController.m */,
+				3397400A1BCB890300551BF6 /* RegisterViewController.h */,
+				3397400B1BCB890300551BF6 /* RegisterViewController.m */,
 			);
 			path = LoginViewController;
 			sourceTree = "<group>";
@@ -1640,6 +1735,7 @@
 		AD51D4351BB7CAB300A75753 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				33973FC01BCB585D00551BF6 /* WSProgressHUD */,
 				AD13B8411BBCC96B00AA3142 /* MJRefresh */,
 				AD13B7D21BBC2EE700AA3142 /* CustomTabBar */,
 				AD9B3D001BBBAA4B001078B9 /* MJExtension */,
@@ -1666,6 +1762,7 @@
 		AD51D4381BB7CACC00A75753 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				3397401F1BCBB89300551BF6 /* common */,
 				AD4C588E1BCA76AD00C3E83C /* GeneralService */,
 				AD4C58861BCA758800C3E83C /* GeneralModel */,
 				AD83781E1BC53DFE00EC679C /* TagList */,
@@ -2429,6 +2526,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33973FD21BCB585D00551BF6 /* WSProgressBundle.bundle in Resources */,
 				ADCD774A1BC01F5B004B6493 /* list_man@3x.png in Resources */,
 				AD9BEB6E1BC21B45004D662B /* label_rightbg_small@2x.png in Resources */,
 				AD9BEB6D1BC21B45004D662B /* label_leftbg_small@2x.png in Resources */,
@@ -2575,6 +2673,7 @@
 				AD51D4F31BB7CD1300A75753 /* MASViewConstraint.m in Sources */,
 				33747EA01BC8EF060076D921 /* PraiseService.m in Sources */,
 				AD9BEB4A1BC21915004D662B /* TakePhotoCollectionViewCell.m in Sources */,
+				33973FCF1BCB585D00551BF6 /* FBShimmeringView.m in Sources */,
 				AD13B87B1BBCC96B00AA3142 /* MJRefreshStateHeader.m in Sources */,
 				AD9B3D191BBBAA4B001078B9 /* MJExtensionConst.m in Sources */,
 				AD13B89A1BBCF7ED00AA3142 /* HomeViewController.m in Sources */,
@@ -2594,6 +2693,7 @@
 				AD9BEB331BC0F1BC004D662B /* CustomTabView.m in Sources */,
 				33747E811BC8DA900076D921 /* UserNoteListService.m in Sources */,
 				AD51D4FF1BB7CD1300A75753 /* SDWebImageDecoder.m in Sources */,
+				3397400C1BCB890300551BF6 /* RegisterViewController.m in Sources */,
 				33D4AA1B1BB9213F0086D442 /* NSTimer+Addition.m in Sources */,
 				AD13B8971BBCF7ED00AA3142 /* HomeService.m in Sources */,
 				AD51D4F01BB7CD1300A75753 /* MASConstraintMaker.m in Sources */,
@@ -2644,6 +2744,7 @@
 				AD9B3D1E1BBBAA4B001078B9 /* NSObject+MJClass.m in Sources */,
 				AD51D5061BB7CD1300A75753 /* UIImage+MultiFormat.m in Sources */,
 				AD4C58911BCA76AD00C3E83C /* PraiseCommodityService.m in Sources */,
+				3397401B1BCB9FAD00551BF6 /* EditPhotoViewController.m in Sources */,
 				AD9B3D211BBBAA4B001078B9 /* NSObject+MJProperty.m in Sources */,
 				AD51D5041BB7CD1300A75753 /* UIButton+WebCache.m in Sources */,
 				AD13B8741BBCC96B00AA3142 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -2686,15 +2787,20 @@
 				AD51D4E41BB7CD1300A75753 /* AFHTTPSessionManager.m in Sources */,
 				AD13B8771BBCC96B00AA3142 /* MJRefreshBackNormalFooter.m in Sources */,
 				AD13B8961BBCF7ED00AA3142 /* HomeListModel.m in Sources */,
+				339740221BCBB8A300551BF6 /* HTJCommon.m in Sources */,
+				33973FD01BCB585D00551BF6 /* MMMaterialDesignSpinner.m in Sources */,
 				AD9B3D1A1BBBAA4B001078B9 /* MJFoundation.m in Sources */,
 				AD13B8751BBCC96B00AA3142 /* MJRefreshAutoStateFooter.m in Sources */,
 				33D4AA1A1BB9213F0086D442 /* NSString+Extension.m in Sources */,
 				AD51D4821BB7CCF700A75753 /* UIViewExt.m in Sources */,
 				AD893BB71BC287B20050C5AD /* PhotoAlbumModel.m in Sources */,
 				AD51D4E91BB7CD1300A75753 /* AFURLResponseSerialization.m in Sources */,
+				33973FCE1BCB585D00551BF6 /* FBShimmeringLayer.m in Sources */,
 				AD9B3D181BBBAA4B001078B9 /* MJDictionaryCache.m in Sources */,
+				33973FD11BCB585D00551BF6 /* WSIndefiniteAnimationView.m in Sources */,
 				AD13B87E1BBCC96B00AA3142 /* UIScrollView+MJExtension.m in Sources */,
 				33747E881BC8E3F70076D921 /* CommentViewController.m in Sources */,
+				339740151BCB98CD00551BF6 /* RegisterService.m in Sources */,
 				AD4D20921BC9611400732CC0 /* CommentListCell.m in Sources */,
 				AD13B8721BBCC96B00AA3142 /* MJRefreshHeader.m in Sources */,
 				AD51D4E81BB7CD1300A75753 /* AFURLRequestSerialization.m in Sources */,
@@ -2706,7 +2812,9 @@
 				AD51D5011BB7CD1300A75753 /* SDWebImageDownloaderOperation.m in Sources */,
 				ADCD76DC1BBF7BBB004B6493 /* HotCategoryViewCell.m in Sources */,
 				ADC13D3A1BBAA20400AD6289 /* Reachability.m in Sources */,
+				33973FD31BCB585D00551BF6 /* WSProgressHUD.m in Sources */,
 				AD51D4F11BB7CD1300A75753 /* MASLayoutConstraint.m in Sources */,
+				339740121BCB8A1E00551BF6 /* RegisterTextField.m in Sources */,
 				ADCD77181BBFA605004B6493 /* HotCategoryHeaderView.m in Sources */,
 				AD51D50A1BB7CD1300A75753 /* UIView+WebCacheOperation.m in Sources */,
 				AD51D4F51BB7CD1300A75753 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
