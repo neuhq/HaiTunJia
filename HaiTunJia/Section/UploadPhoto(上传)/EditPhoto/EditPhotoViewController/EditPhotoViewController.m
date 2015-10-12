@@ -1,6 +1,7 @@
 
 
 #import "EditPhotoViewController.h"
+#import "PublishViewController.h"
 
 @interface EditPhotoViewController ()
 
@@ -27,6 +28,7 @@
 #pragma mark -- life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isNavigationBar = YES;
     self.view.backgroundColor = [UIColor colorWithHexString:@"f2f2f2"];
     [self.view addSubview:self.photo];
     [self.view addSubview:self.bottomView];
@@ -60,10 +62,21 @@
 {
     if (!_photo)
     {
-        CGFloat height = self.photoImage.size.height/self.photoImage.size.width*kScreenWidth;
-        _photo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,kScreenWidth, height)];
+        
+        CGFloat height = self.photoImage.size.height/self.photoImage.size.width;
+        if (height>1)
+        {
+            height = self.photoImage.size.width/self.photoImage.size.height * (kScreenHeight/2);
+            _photo = [[UIImageView alloc]initWithFrame:CGRectMake((kScreenWidth - height)/2, 0,height, kScreenHeight/2)];
+        }
+        else
+        {
+            height =  self.photoImage.size.height/self.photoImage.size.width*kScreenWidth;
+            _photo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,kScreenWidth, height)];
+        }
         _photo.image = self.photoImage;
         _photo.backgroundColor = [UIColor clearColor];
+        
     }
     return _photo;
 }
@@ -81,8 +94,10 @@
     if (!_sureButton)
     {
         _sureButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _sureButton.frame = CGRectMake(kScreenWidth - 64, 0, 64, 64);
-        _sureButton.backgroundColor = [UIColor redColor];
+        _sureButton.frame = CGRectMake(kScreenWidth - 64, 0, 64, self.bottomView.height);
+        _sureButton.backgroundColor = [UIColor colorWithHexString:@"03a9f6"];
+        [_sureButton setImage:[UIImage imageNamed:@"icon_ok"] forState:UIControlStateNormal];
+        [_sureButton setImage:[UIImage imageNamed:@"icon_ok"] forState:UIControlStateHighlighted];
         [_sureButton addTarget:self action:@selector(sureAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _sureButton;
@@ -104,7 +119,9 @@
 #pragma mark -- Action
 -(void)sureAction:(UIButton *) sender
 {
-    
+    PublishViewController *publish = [[PublishViewController alloc]init];
+    publish.publishImage = self.photoImage;
+    [self.navigationController pushViewController:publish animated:YES];
 }
 -(void)back
 {
