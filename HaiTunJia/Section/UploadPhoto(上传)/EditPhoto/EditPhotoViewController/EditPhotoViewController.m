@@ -128,8 +128,7 @@
     }
     else
     {
-        PublishViewController *publish = [[PublishViewController alloc]init];
-        publish.publishImage = self.photoImage;
+        PublishViewController *publish = [[PublishViewController alloc]initWithPublishImge:self.photoImage];
         [self.navigationController pushViewController:publish animated:YES];
     }
     

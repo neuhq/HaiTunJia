@@ -107,7 +107,7 @@ const CGFloat kPublishCellHeight = 90.0f;
         UIFont *font = [UIFont systemFontOfSize:14.0f];
         CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
         _discriLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.photoImageView.right + 15.0f, self.photoImageView.top, size.width, size.height)];
-        _discriLabel.textColor = [UIColor clearColor];
+        _discriLabel.textColor = [UIColor colorWithHexString:@"626A73"];
         _discriLabel.textAlignment = NSTextAlignmentLeft;
         _discriLabel.font = font;
         _discriLabel.text = string;
@@ -150,6 +150,8 @@ const CGFloat kPublishCellHeight = 90.0f;
 }
 -(void)setSecendCellData:(UIImage *) addImage
 {
+    self.discriLabel.text = @"添加补充图片";
+    
     [_addImageButton setBackgroundImage:addImage forState:UIControlStateNormal];
     [_addImageButton setBackgroundImage:addImage forState:UIControlStateHighlighted];
     self.frame  = CGRectMake(0, 0, kScreenWidth, self.addImageButton.bottom + 15.0f);

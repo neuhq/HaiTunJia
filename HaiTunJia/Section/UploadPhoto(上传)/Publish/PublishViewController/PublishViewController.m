@@ -64,7 +64,7 @@ UITableViewDataSource>
 {
     if (!_publishTable)
     {
-        _publishTable = [[UITableView alloc]initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth, kScreenHeight - kNavigationBarHeight - CONTENT_TABBAR_HEIGHT) style:UITableViewStyleGrouped];
+        _publishTable = [[UITableView alloc]initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth, kScreenHeight - kNavigationBarHeight ) style:UITableViewStyleGrouped];
         _publishTable.delegate = self;
         _publishTable.dataSource = self;
         _publishTable.backgroundColor = [UIColor colorWithHexString:@"f4f4f4"];

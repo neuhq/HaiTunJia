@@ -10,4 +10,6 @@
 
 -(void)addNewImage:(UIImage *) newImage;
 
+-(id)initWithPublishImge:(UIImage *) image;
+
 @end
