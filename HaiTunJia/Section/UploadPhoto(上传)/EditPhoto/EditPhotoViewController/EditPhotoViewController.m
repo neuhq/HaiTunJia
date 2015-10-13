@@ -119,9 +119,20 @@
 #pragma mark -- Action
 -(void)sureAction:(UIButton *) sender
 {
-    PublishViewController *publish = [[PublishViewController alloc]init];
-    publish.publishImage = self.photoImage;
-    [self.navigationController pushViewController:publish animated:YES];
+    if ([HTJCommon sharedManager].isAddImage == YES)
+    {
+        PublishViewController *publish =[PublishViewController sharedManager];
+        publish.publishImage = self.photoImage;
+        [self.navigationController pushViewController:publish animated:YES];
+        [HTJCommon sharedManager].isAddImage = NO;
+    }
+    else
+    {
+        PublishViewController *publish = [[PublishViewController alloc]init];
+        publish.publishImage = self.photoImage;
+        [self.navigationController pushViewController:publish animated:YES];
+    }
+    
 }
 -(void)back
 {

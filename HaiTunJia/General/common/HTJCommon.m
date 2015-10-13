@@ -3,6 +3,16 @@
 #import "HTJCommon.h"
 
 @implementation HTJCommon
++ (HTJCommon *)sharedManager
+{
+    static HTJCommon *sharedAccountManagerInstance = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        sharedAccountManagerInstance = [[self alloc] init];
+    });
+    return sharedAccountManagerInstance;
+}
+
 +(UIImage *)orientationALAsset:(ALAsset *) asset
 {
     ALAssetRepresentation *assetRepresentation = [asset defaultRepresentation];

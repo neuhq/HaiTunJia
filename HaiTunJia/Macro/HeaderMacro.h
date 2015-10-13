@@ -42,5 +42,7 @@
 
 #import "WSProgressHUD.h"
 
+#import "HTJCommon.h"
+
 #endif
 

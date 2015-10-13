@@ -1,11 +1,15 @@
 #import "PublishViewController.h"
 #import "PublishCell.h"
+#import "TagCell.h"
+#import "PhotoAlbumViewController.h"
 
 @interface PublishViewController ()
 <UITableViewDelegate,
 UITableViewDataSource>
 
 @property(nonatomic,strong) UITableView *publishTable;
+
+@property(nonatomic,strong) UIImage *addImage;
 
 @end
 
@@ -17,8 +21,18 @@ UITableViewDataSource>
     if (self)
     {
         self.publishImage = [UIImage scaleToSize:image size:CGSizeMake(60, 60)];
+        self.addImage = [UIImage imageNamed:@"add"];
     }
     return self;
+}
++ (PublishViewController *)sharedManager
+{
+    static PublishViewController *sharedAccountManagerInstance = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        sharedAccountManagerInstance = [[self alloc] init];
+    });
+    return sharedAccountManagerInstance;
 }
 #pragma mark -- life cycle
 - (void)viewDidLoad {
@@ -53,13 +67,19 @@ UITableViewDataSource>
         _publishTable = [[UITableView alloc]initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth, kScreenHeight - kNavigationBarHeight - CONTENT_TABBAR_HEIGHT) style:UITableViewStyleGrouped];
         _publishTable.delegate = self;
         _publishTable.dataSource = self;
-        _publishTable.backgroundColor = [UIColor clearColor];
+        _publishTable.backgroundColor = [UIColor colorWithHexString:@"f4f4f4"];
         _publishTable.bounces = YES;
         _publishTable.separatorStyle=UITableViewCellSeparatorStyleNone;
     }
     return _publishTable;
 }
 #pragma mark  -- Delegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    PublishCell *cell = (PublishCell *)[self.publishTable cellForRowAtIndexPath:indexPath];
+    [cell.contentTV resignFirstResponder];
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section == 1 || section == 2)
@@ -67,14 +87,35 @@ UITableViewDataSource>
     else
         return 2;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 3.5f;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section == 0)
+        return 0.1f;
+    return 3.5f;
+}
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return cell.frame.size.height;
+    if (indexPath.section == 0)
+    {
+        if(indexPath.row == 0)
+            return kPublishCellHeight;
+        else
+            return KtagCellHeight;
+    }
+    else if (indexPath.section == 1)
+    {
+        UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+        return cell.frame.size.height;
+    }
+    return 0.0f;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -88,27 +129,33 @@ UITableViewDataSource>
             {
                 cell = [[PublishCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifer withSection:indexPath.section];
             }
-            cell.publishImageView.image = self.publishImage;
+            [cell setFirstCellData:self.publishImage];
             return cell;
         }
         else
         {
             static NSString *defaultIndentifer = @"defaultIndentifer";
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:defaultIndentifer];
+            TagCell *cell = [tableView dequeueReusableCellWithIdentifier:defaultIndentifer];
             if (cell == nil)
             {
-                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultIndentifer];
+                cell = [[TagCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultIndentifer];
             }
-            cell.imageView.image = [UIImage imageNamed:@"icon_smalllabel"];
-            cell.textLabel.text = @"标签";
-            cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
-            cell.textLabel.textColor = [UIColor colorWithHexString:@"626a73"];
+            [cell setData];
             return cell;
         }
     }
     else if (indexPath.section == 1)
     {
-        
+        static NSString *indentifer1 = @"indentifer1";
+        PublishCell *cell = [tableView dequeueReusableCellWithIdentifier:indentifer1];
+        if (cell == nil)
+        {
+            cell = [[PublishCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifer1 withSection:indexPath.section];
+        }
+        [cell.addImageButton addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
+        [cell setSecendCellData:self.addImage];
+        return cell;
+
     }
     else
     {
@@ -117,8 +164,16 @@ UITableViewDataSource>
     return nil;
 }
 
-
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+-(void)addImage:(UIButton *) sender
+{
+    [HTJCommon sharedManager].isAddImage = YES;
+    PhotoAlbumViewController *album = [[PhotoAlbumViewController alloc]init];
+    [self.navigationController pushViewController:album animated:YES];
+}
 
 
 

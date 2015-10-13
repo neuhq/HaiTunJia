@@ -1,6 +1,7 @@
 
 #import "PublishCell.h"
 
+const CGFloat kPublishCellHeight = 90.0f;
 
 @interface PublishCell ()
 
@@ -10,8 +11,14 @@
 
 @property(nonatomic,strong) UILabel *tagLabel;
 
+@property(nonatomic,strong) UILabel *placeHolder;
 
 @property(nonatomic,assign) NSInteger section;
+
+@property(nonatomic,strong) UIImageView *photoImageView;
+
+@property(nonatomic,strong) UILabel *discriLabel;
+
 
 @end
 @implementation PublishCell
@@ -22,8 +29,6 @@
     if (self)
     {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
         if (section == 0)
         {
             [self.contentView addSubview:self.publishImageView];
@@ -32,6 +37,9 @@
         }
         else if(section == 1)
         {
+            [self.contentView addSubview:self.photoImageView];
+            [self.contentView addSubview:self.discriLabel];
+            [self.contentView addSubview:self.addImageButton];
             
         }
         else
@@ -56,12 +64,13 @@
 {
     if (!_contentTV)
     {
-        _contentTV = [[UITextView alloc] initWithFrame:CGRectMake(self.publishImageView.right + 10.0f,self.publishImageView.top,kScreenWidth - _contentTV.right - 20.0f,self.publishImageView.height)];
+        _contentTV = [[UITextView alloc] initWithFrame:CGRectMake(self.publishImageView.right + 10.0f,self.publishImageView.top,kScreenWidth - 2*15 - self.publishImageView.right,self.publishImageView.height)];
         _contentTV.font = [UIFont systemFontOfSize:16];
         _contentTV.textColor = [UIColor colorWithHexString:@"4a4b4d"];
         _contentTV.delegate = self;
+        _contentTV.editable = YES;
         _contentTV.text = @"分享您的购买使用心得吧！";
-        _contentTV.keyboardType = UIKeyboardTypeNumberPad;
+        _contentTV.keyboardType = UIKeyboardTypeDefault;
         _contentTV.autocorrectionType = UITextAutocorrectionTypeNo;
         _contentTV.autocapitalizationType = UITextAutocapitalizationTypeNone;
         _contentTV.backgroundColor = [UIColor clearColor];
@@ -73,14 +82,78 @@
 {
     if (!_line)
     {
-        _line = [[UIView alloc]initWithFrame:CGRectMake(0, self.publishImageView.bottom + 15.0f, kScreenWidth, 0.5f)];
+        _line = [[UIView alloc]init];
         _line.backgroundColor = [UIColor colorWithHexString:@"cccccf"];
     }
     return _line;
 }
 
+-(UIImageView *) photoImageView
+{
+    if (!_photoImageView)
+    {
+        UIImage *image = [UIImage imageNamed:@"icon_pic"];
+        _photoImageView = [[UIImageView alloc]initWithFrame:CGRectMake(15.0f, 15.0f, image.size.width, image.size.height)];
+        _photoImageView.image = image;
+        _photoImageView.backgroundColor = [UIColor clearColor];
+    }
+    return _photoImageView;
+}
+-(UILabel *) discriLabel
+{
+    if (!_discriLabel)
+    {
+        NSString *string = @"添加补充图片";
+        UIFont *font = [UIFont systemFontOfSize:14.0f];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        _discriLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.photoImageView.right + 15.0f, self.photoImageView.top, size.width, size.height)];
+        _discriLabel.textColor = [UIColor clearColor];
+        _discriLabel.textAlignment = NSTextAlignmentLeft;
+        _discriLabel.font = font;
+        _discriLabel.text = string;
+        _discriLabel.backgroundColor = [UIColor clearColor];
 
+    }
+    return _discriLabel;
+}
+-(UIButton *) addImageButton
+{
+    if (!_addImageButton)
+    {
+        _addImageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _addImageButton.frame = CGRectMake(40, self.photoImageView.bottom + 15.0f, 60, 60);
+        _addImageButton.backgroundColor = [UIColor clearColor];
+    }
+    return _addImageButton;
+}
+#pragma mark -- Delegate
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if ([textView.text isEqualToString:@"分享您的购买使用心得吧！"]) {
+        textView.text = @"";
+    }
+}
+//在结束编辑的代理方法中进行如下操作
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if (textView.text.length<1) {
+        textView.text = @"分享您的购买使用心得吧！";
+    }
+}
+-(void)setFirstCellData:(UIImage *) photoImage
+{
+    _publishImageView.image = photoImage;
+    
+//    _contentTV.frame = CGRectMake(self.publishImageView.right + 10.0f,self.publishImageView.top,kScreenWidth - _contentTV.right - 20.0f,self.publishImageView.height);
+    
+    _line.frame = CGRectMake(0,kPublishCellHeight - 0.5f,kScreenWidth,0.5f);
+    self.frame = CGRectMake(0, 0, kScreenWidth, self.line.bottom);
 
+}
+-(void)setSecendCellData:(UIImage *) addImage
+{
+    [_addImageButton setBackgroundImage:addImage forState:UIControlStateNormal];
+    [_addImageButton setBackgroundImage:addImage forState:UIControlStateHighlighted];
+    self.frame  = CGRectMake(0, 0, kScreenWidth, self.addImageButton.bottom + 15.0f);
+}
 
 
 

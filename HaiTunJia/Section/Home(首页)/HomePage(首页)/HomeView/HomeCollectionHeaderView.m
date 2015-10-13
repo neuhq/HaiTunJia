@@ -77,7 +77,7 @@
     {
         UIButton *hotelImage=[[UIButton alloc]initWithFrame:CGRectMake(self.bounds.size.width*i, 0,self.scrollView.size.width, self.scrollView.frame.size.height - 10)];
         [hotelImage sd_setBackgroundImageWithURL:[NSURL URLWithString:self.picArr[i]] forState: UIControlStateNormal placeholderImage:nil];
-        hotelImage.backgroundColor=[UIColor yellowColor];
+        hotelImage.backgroundColor=[UIColor whiteColor];
         hotelImage.userInteractionEnabled=YES;
         [self.scrollView addSubview:hotelImage];
         self.scrollView.contentSize=CGSizeMake(self.bounds.size.width*(i+1), 0);

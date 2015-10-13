@@ -45,6 +45,7 @@ UIGestureRecognizerDelegate>
 }
 -(void)viewDidAppear:(BOOL)animated
 {
+    if([HTJCommon sharedManager].isAddImage == NO)
     [self hideTabbar:NO];
     [super viewDidAppear:animated];
 }
@@ -67,7 +68,10 @@ UIGestureRecognizerDelegate>
         layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
         layout.minimumInteritemSpacing = 5;
         layout.minimumLineSpacing = 5;
-        _photoCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth,kScreenHeight - kNavigationBarHeight - CONTENT_TABBAR_HEIGHT) collectionViewLayout:layout];
+        if([HTJCommon sharedManager].isAddImage == NO)
+            _photoCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth,kScreenHeight - kNavigationBarHeight - CONTENT_TABBAR_HEIGHT) collectionViewLayout:layout];
+        else
+             _photoCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth,kScreenHeight - kNavigationBarHeight) collectionViewLayout:layout];
         _photoCollectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _photoCollectionView.dataSource = self;
         _photoCollectionView.delegate = self;
