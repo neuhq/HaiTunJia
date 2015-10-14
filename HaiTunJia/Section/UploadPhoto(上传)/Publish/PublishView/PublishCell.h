@@ -11,6 +11,9 @@ extern const CGFloat kPublishCellHeight;
 
 @property(nonatomic,strong) UIButton *addImageButton;
 
+@property(nonatomic,strong) UILabel *linkLabel;
+
+@property(nonatomic,strong) UITextField *linkTF;
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withSection:(NSInteger) section;
 

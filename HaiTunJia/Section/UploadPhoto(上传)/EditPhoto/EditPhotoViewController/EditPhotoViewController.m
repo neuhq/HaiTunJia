@@ -122,14 +122,21 @@
     if ([HTJCommon sharedManager].isAddImage == YES)
     {
         PublishViewController *publish =[PublishViewController sharedManager];
-        publish.publishImage = self.photoImage;
-        [self.navigationController pushViewController:publish animated:YES];
+        publish.addImage = self.photoImage;
+        [publish addNewImage:self.photoImage];
         [HTJCommon sharedManager].isAddImage = NO;
+        NSArray *array = self.navigationController.viewControllers;
+        [self.navigationController popToViewController:array[2] animated:YES];
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+//        [self presentViewController:publish animated:YES completion:nil];
+
     }
     else
     {
-        PublishViewController *publish = [[PublishViewController alloc]initWithPublishImge:self.photoImage];
+        PublishViewController *publish = [PublishViewController sharedManager];
+        publish.publishImage = self.photoImage;
         [self.navigationController pushViewController:publish animated:YES];
+//        [self presentViewController:publish animated:YES completion:nil];
     }
     
 }

@@ -43,7 +43,8 @@
 {
     HomeViewController *home = [[HomeViewController alloc]init];
     HotCategoryViewController *hot = [[HotCategoryViewController alloc]init];
-    PhotoAlbumViewController *photo = [[PhotoAlbumViewController alloc]init];
+    PhotoAlbumViewController *photo = [PhotoAlbumViewController sharedManager];
+    photo.isHidenLeftButton = YES;
     MessageIndexViewController *message = [[MessageIndexViewController alloc]init];
     UserViewController *user = [[UserViewController alloc]init];
     NSArray *array = [NSArray arrayWithObjects:home,hot,photo,message, user,nil];

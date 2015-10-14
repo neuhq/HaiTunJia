@@ -6,6 +6,8 @@
 
 @property(nonatomic,strong) UIImage *publishImage;
 
+@property(nonatomic,strong) UIImage *addImage;
+
 + (PublishViewController *)sharedManager;
 
 -(void)addNewImage:(UIImage *) newImage;

@@ -22,7 +22,15 @@ UIGestureRecognizerDelegate>
 @end
 
 @implementation PhotoAlbumViewController
-
++ (PhotoAlbumViewController *)sharedManager
+{
+    static PhotoAlbumViewController *sharedAccountManagerInstance = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        sharedAccountManagerInstance = [[PhotoAlbumViewController alloc] init];
+    });
+    return sharedAccountManagerInstance;
+}
 
 #pragma mark  --- life cycle
 -(void)viewDidLoad
@@ -46,7 +54,17 @@ UIGestureRecognizerDelegate>
 -(void)viewDidAppear:(BOOL)animated
 {
     if([HTJCommon sharedManager].isAddImage == NO)
-    [self hideTabbar:NO];
+          [self hideTabbar:NO];
+    
+    if (self.isHidenLeftButton)
+    {
+        self.leftBarButton.hidden = YES;
+    }
+    else
+    {
+        self.leftBarButton.hidden = NO;
+        [self.leftButtonWithWord setTitle:@"取消" forState:UIControlStateNormal];
+    }
     [super viewDidAppear:animated];
 }
 -(void)viewWillDisappear:(BOOL)animated
@@ -101,9 +119,9 @@ UIGestureRecognizerDelegate>
 #pragma mark -- helper
 -(void)viewConfig
 {
-    self.leftBarButton.hidden = YES;
-    [self.customNavigationBar addSubview:self.leftButtonWithWord];
-    self.leftButtonWithWordString = @"取消";
+//    self.leftBarButton.hidden = YES;
+//    [self.customNavigationBar addSubview:self.leftButtonWithWord];
+//    self.leftButtonWithWordString = @"取消";
 }
 -(void)initArray
 {
@@ -202,5 +220,9 @@ UIGestureRecognizerDelegate>
 -(void)tapBgViewAction
 {
     [self.groupView removeFromSuperview];
+}
+-(void)goBackAction
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

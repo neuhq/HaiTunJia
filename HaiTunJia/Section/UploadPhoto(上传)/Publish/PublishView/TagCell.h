@@ -5,6 +5,8 @@ extern const CGFloat KtagCellHeight;
 
 @interface TagCell : UITableViewCell
 
--(void)setData;
+@property(nonatomic,strong) UILabel *detailLabel;
+
+-(void)setData:(NSMutableArray *) array;
 
 @end

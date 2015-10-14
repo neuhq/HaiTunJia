@@ -19,6 +19,7 @@ const CGFloat kPublishCellHeight = 90.0f;
 
 @property(nonatomic,strong) UILabel *discriLabel;
 
+@property(nonatomic,strong) UIImageView *linkImge;
 
 @end
 @implementation PublishCell
@@ -44,7 +45,8 @@ const CGFloat kPublishCellHeight = 90.0f;
         }
         else
         {
-            
+            [self.contentView addSubview:self.linkImge];
+            [self.contentView addSubview:self.linkTF];
         }
            
     }
@@ -126,6 +128,31 @@ const CGFloat kPublishCellHeight = 90.0f;
     }
     return _addImageButton;
 }
+-(UIImageView *) linkImge
+{
+    if (!_linkImge)
+    {
+        UIImage *image = [UIImage imageNamed:@"icon_link"];
+        _linkImge = [[UIImageView alloc]initWithFrame:CGRectMake(15.0f, (46 - image.size.height)/2, image.size.width, image.size.height)];
+        _linkImge.image = image;
+    }
+    return _linkImge;
+}
+-(UITextField *) linkTF
+{
+    if (!_linkTF)
+    {
+        _linkTF = [[UITextField alloc] initWithFrame:CGRectMake(self.linkImge.right + 10.0f,0,kScreenWidth - 2*15 - self.linkImge.right,46)];
+        _linkTF.font = [UIFont systemFontOfSize:16];
+        _linkTF.textColor = [UIColor colorWithHexString:@"4a4b4d"];
+        _linkTF.placeholder = @"添加购买链接";
+        _linkTF.keyboardType = UIKeyboardTypeDefault;
+        _linkTF.autocorrectionType = UITextAutocorrectionTypeNo;
+        _linkTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        _linkTF.backgroundColor = [UIColor clearColor];
+    }
+    return _linkTF;
+}
 #pragma mark -- Delegate
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     if ([textView.text isEqualToString:@"分享您的购买使用心得吧！"]) {
@@ -157,7 +184,10 @@ const CGFloat kPublishCellHeight = 90.0f;
     self.frame  = CGRectMake(0, 0, kScreenWidth, self.addImageButton.bottom + 15.0f);
 }
 
-
+-(void)setThirdCellData
+{
+    
+}
 
 
 

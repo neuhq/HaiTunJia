@@ -2,14 +2,19 @@
 #import "PublishCell.h"
 #import "TagCell.h"
 #import "PhotoAlbumViewController.h"
+#import "AddTagViewController.h"
 
 @interface PublishViewController ()
 <UITableViewDelegate,
-UITableViewDataSource>
+UITableViewDataSource,
+UITextFieldDelegate>
 
 @property(nonatomic,strong) UITableView *publishTable;
 
-@property(nonatomic,strong) UIImage *addImage;
+@property(nonatomic,strong) UITextField *linkTF;
+
+@property(nonatomic,strong) NSMutableArray *tagArray;
+
 
 @end
 
@@ -20,7 +25,9 @@ UITableViewDataSource>
     self = [super init];
     if (self)
     {
-        self.publishImage = [UIImage scaleToSize:image size:CGSizeMake(60, 60)];
+//        self.publishImage = [UIImage scaleToSize:image size:CGSizeMake(60, 60)];
+        self.publishImage = [image copy];
+        
         self.addImage = [UIImage imageNamed:@"add"];
     }
     return self;
@@ -30,18 +37,28 @@ UITableViewDataSource>
     static PublishViewController *sharedAccountManagerInstance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
-        sharedAccountManagerInstance = [[self alloc] init];
+        sharedAccountManagerInstance = [[PublishViewController alloc] init];
     });
     return sharedAccountManagerInstance;
 }
 #pragma mark -- life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.publishTable];
+    self.fd_interactivePopDisabled = NO;
+    self.addImage = [UIImage imageNamed:@"add"];
+    self.rightView = @"发布";
+    self.rightBarButton.hidden = NO;
+    [self.rightBarButton setTitleColor:[UIColor colorWithHexString:@"03a9f6"] forState:UIControlStateNormal];
+//    [self.view addSubview:self.publishTable];
     
 }
 -(void)viewDidAppear:(BOOL)animated
 {
+    self.fd_interactivePopDisabled = YES;
+    if (self.isLoadView)
+    {
+        [self.view addSubview:self.publishTable];
+    }
     [super viewDidAppear:animated];
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -79,6 +96,11 @@ UITableViewDataSource>
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     PublishCell *cell = (PublishCell *)[self.publishTable cellForRowAtIndexPath:indexPath];
     [cell.contentTV resignFirstResponder];
+    
+    NSIndexPath *indexPath1 = [NSIndexPath indexPathForRow:0 inSection:2];
+    PublishCell *cell1 = (PublishCell *)[self.publishTable cellForRowAtIndexPath:indexPath1];
+    [cell1.linkTF resignFirstResponder];
+    
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -99,7 +121,7 @@ UITableViewDataSource>
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -114,6 +136,10 @@ UITableViewDataSource>
     {
         UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
         return cell.frame.size.height;
+    }
+    else
+    {
+        return KtagCellHeight;
     }
     return 0.0f;
 }
@@ -140,7 +166,7 @@ UITableViewDataSource>
             {
                 cell = [[TagCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:defaultIndentifer];
             }
-            [cell setData];
+            [cell setData:self.tagArray];
             return cell;
         }
     }
@@ -159,7 +185,16 @@ UITableViewDataSource>
     }
     else
     {
-        
+        static NSString *indentifer2 = @"indentifer2";
+        PublishCell *cell = [tableView dequeueReusableCellWithIdentifier:indentifer2];
+        if (cell == nil)
+        {
+            cell = [[PublishCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifer2 withSection:indexPath.section];
+        }
+        cell.linkTF.delegate = self;
+        self.linkTF = cell.linkTF;
+        return cell;
+
     }
     return nil;
 }
@@ -167,16 +202,43 @@ UITableViewDataSource>
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0)
+    {
+        if (indexPath.row == 1)
+        {
+            AddTagViewController *tag = [[AddTagViewController alloc]initWithTagArray:self.tagArray];
+            tag.passTagValueBlock = ^(id object)
+            {
+                self.tagArray = object;
+                [self.publishTable reloadData];
+            };
+            [self.navigationController pushViewController:tag animated:YES];
+        }
+    }
 }
 -(void)addImage:(UIButton *) sender
 {
     [HTJCommon sharedManager].isAddImage = YES;
     PhotoAlbumViewController *album = [[PhotoAlbumViewController alloc]init];
+    album.isHidenLeftButton = NO;
     [self.navigationController pushViewController:album animated:YES];
 }
+-(void)addNewImage:(UIImage *) newImage
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+    PublishCell *cell = (PublishCell *)[self.publishTable cellForRowAtIndexPath:indexPath];
+    [cell.addImageButton setBackgroundImage:newImage forState:UIControlStateNormal];
+}
+-(void)goBackAction
+{
+    [super goBackAction];
+    [HTJCommon sharedManager].isAddImage = NO;
+}
 
-
-
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+}
 
 
 

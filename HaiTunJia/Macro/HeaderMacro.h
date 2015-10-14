@@ -44,5 +44,8 @@
 
 #import "HTJCommon.h"
 
+#import "UINavigationController+FDFullscreenPopGesture.h"
+
+
 #endif
 

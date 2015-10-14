@@ -38,6 +38,8 @@
 		339984911BC62FA800AEECB7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339984901BC62FA800AEECB7 /* MobileCoreServices.framework */; };
 		339984941BC63B7E00AEECB7 /* SelectPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 339984931BC63B7E00AEECB7 /* SelectPhotoGroupView.m */; };
 		339984971BC63E1000AEECB7 /* PhotoGroupViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 339984961BC63E1000AEECB7 /* PhotoGroupViewCell.m */; };
+		33B2B6B01BCE2FC4007809FC /* AddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B2B6AF1BCE2FC4007809FC /* AddTagViewController.m */; };
+		33B2B6B31BCE315F007809FC /* TagListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B2B6B21BCE315F007809FC /* TagListCell.m */; };
 		33CDF00C1BC771E70023CF09 /* SearchWithKeywordService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF0091BC771E70023CF09 /* SearchWithKeywordService.m */; };
 		33CDF00D1BC771E70023CF09 /* SearchWithTagService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF00B1BC771E70023CF09 /* SearchWithTagService.m */; };
 		33D4A9F21BB91F550086D442 /* CHTCollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4A9F11BB91F550086D442 /* CHTCollectionViewWaterfallLayout.m */; };
@@ -409,6 +411,10 @@
 		339984931BC63B7E00AEECB7 /* SelectPhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPhotoGroupView.m; sourceTree = "<group>"; };
 		339984951BC63E1000AEECB7 /* PhotoGroupViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGroupViewCell.h; sourceTree = "<group>"; };
 		339984961BC63E1000AEECB7 /* PhotoGroupViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGroupViewCell.m; sourceTree = "<group>"; };
+		33B2B6AE1BCE2FC4007809FC /* AddTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTagViewController.h; sourceTree = "<group>"; };
+		33B2B6AF1BCE2FC4007809FC /* AddTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTagViewController.m; sourceTree = "<group>"; };
+		33B2B6B11BCE315F007809FC /* TagListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagListCell.h; sourceTree = "<group>"; };
+		33B2B6B21BCE315F007809FC /* TagListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagListCell.m; sourceTree = "<group>"; };
 		33CDF0081BC771E70023CF09 /* SearchWithKeywordService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWithKeywordService.h; sourceTree = "<group>"; };
 		33CDF0091BC771E70023CF09 /* SearchWithKeywordService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchWithKeywordService.m; sourceTree = "<group>"; };
 		33CDF00A1BC771E70023CF09 /* SearchWithTagService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWithTagService.h; sourceTree = "<group>"; };
@@ -1574,6 +1580,8 @@
 				AD37CF741BCC006100B064A6 /* PublishCell.m */,
 				334A52DC1BCCF74700F5ECDD /* TagCell.h */,
 				334A52DD1BCCF74700F5ECDD /* TagCell.m */,
+				33B2B6B11BCE315F007809FC /* TagListCell.h */,
+				33B2B6B21BCE315F007809FC /* TagListCell.m */,
 			);
 			path = PublishView;
 			sourceTree = "<group>";
@@ -1583,6 +1591,8 @@
 			children = (
 				AD37CF701BCBFEAE00B064A6 /* PublishViewController.h */,
 				AD37CF711BCBFEAE00B064A6 /* PublishViewController.m */,
+				33B2B6AE1BCE2FC4007809FC /* AddTagViewController.h */,
+				33B2B6AF1BCE2FC4007809FC /* AddTagViewController.m */,
 			);
 			path = PublishViewController;
 			sourceTree = "<group>";
@@ -2834,6 +2844,7 @@
 				AD13B8711BBCC96B00AA3142 /* MJRefreshFooter.m in Sources */,
 				AD51D4EE1BB7CD1300A75753 /* MASCompositeConstraint.m in Sources */,
 				33747E921BC8E52B0076D921 /* CommentService.m in Sources */,
+				33B2B6B31BCE315F007809FC /* TagListCell.m in Sources */,
 				AD51D5091BB7CD1300A75753 /* UIImageView+WebCache.m in Sources */,
 				AD13B87D1BBCC96B00AA3142 /* MJRefreshConst.m in Sources */,
 				AD9B3D1E1BBBAA4B001078B9 /* NSObject+MJClass.m in Sources */,
@@ -2854,6 +2865,7 @@
 				33D4AA161BB9213F0086D442 /* NSArray+Additions.m in Sources */,
 				334A52DE1BCCF74700F5ECDD /* TagCell.m in Sources */,
 				AD51D5031BB7CD1300A75753 /* SDWebImagePrefetcher.m in Sources */,
+				33B2B6B01BCE2FC4007809FC /* AddTagViewController.m in Sources */,
 				AD9BEB261BC0DC0F004D662B /* UserViewController.m in Sources */,
 				AD5267EB1BC0CC3F007350F9 /* MessageHeaderView.m in Sources */,
 				AD4D20811BC81CCA00732CC0 /* UserCollectService.m in Sources */,
