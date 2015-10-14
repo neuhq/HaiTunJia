@@ -9,6 +9,8 @@
 
 @property(nonatomic,strong) NSArray *selectImageArray;
 
+@property(nonatomic,strong) NSMutableArray *buttonArray;
+
 @end
 
 @implementation DetailBottomView
@@ -28,6 +30,7 @@
 {
     self.normalImageArray = [NSArray arrayWithObjects:[UIImage imageNamed:@"icon_pengyouquan"],[UIImage imageNamed:@"icon_weixin"],[UIImage imageNamed:@"icon_love_normal1"],[UIImage imageNamed:@"icon_focus_normal"], nil];
     self.selectImageArray = [NSArray arrayWithObjects:[UIImage imageNamed:@"icon_pengyouquan"],[UIImage imageNamed:@"regiter_weixin"],[UIImage imageNamed:@"icon_love_normal2"],[UIImage imageNamed:@"icon_focus_sel"],nil ];
+    self.buttonArray = [[NSMutableArray alloc]init];
 }
 -(void)initViews
 {
@@ -47,6 +50,7 @@
         button.backgroundColor = [UIColor whiteColor];
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
+        [self.buttonArray addObject:button];
     }
     [self addSubview:self.buyButton];
 }

@@ -16,7 +16,7 @@
 {
     HomeService *homeService = [self initWithApiUrl:kApi_GetCommodityList];
     [homeService requestDataWithParamsBlcok:^{
-        self.userId = kUSERID;
+//        self.userId = kUSERID;
         self.lastCommodityId = lastCommodityId;
     } FinishBlock:^(id result) {
         NSDictionary *dic = result[@"state"];

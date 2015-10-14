@@ -132,7 +132,7 @@
             NSString *property_name = [[NSString alloc] initWithCString:char_property_name encoding:NSUTF8StringEncoding];
             // 获取当前属性对应的内容
             id value = [self valueForKey:property_name];
-            if ([value isKindOfClass:[NSData class]] || (value != nil && [value intValue] != -100)) {
+            if ([value isKindOfClass:[NSData class]] || (value != nil && [value integerValue] != -100)) {
                 [attributes setObject:value forKey:property_name];
             }
         }

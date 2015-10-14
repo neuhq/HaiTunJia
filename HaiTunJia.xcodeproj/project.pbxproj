@@ -149,6 +149,7 @@
 		AD37CF6B1BCBFCFB00B064A6 /* icon_smalllabel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD37CF681BCBFCFB00B064A6 /* icon_smalllabel@3x.png */; };
 		AD37CF721BCBFEAE00B064A6 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF711BCBFEAE00B064A6 /* PublishViewController.m */; };
 		AD37CF751BCC006100B064A6 /* PublishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF741BCC006100B064A6 /* PublishCell.m */; };
+		AD37CF781BCE926900B064A6 /* PublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF771BCE926900B064A6 /* PublishService.m */; settings = {ASSET_TAGS = (); }; };
 		AD4C58831BCA756700C3E83C /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C587D1BCA756700C3E83C /* DetailModel.m */; };
 		AD4C58841BCA756700C3E83C /* CollectCommdityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58801BCA756700C3E83C /* CollectCommdityService.m */; };
 		AD4C58851BCA756700C3E83C /* DetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58821BCA756700C3E83C /* DetailService.m */; };
@@ -573,6 +574,8 @@
 		AD37CF711BCBFEAE00B064A6 /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
 		AD37CF731BCC006100B064A6 /* PublishCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishCell.h; sourceTree = "<group>"; };
 		AD37CF741BCC006100B064A6 /* PublishCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishCell.m; sourceTree = "<group>"; };
+		AD37CF761BCE926900B064A6 /* PublishService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishService.h; sourceTree = "<group>"; };
+		AD37CF771BCE926900B064A6 /* PublishService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishService.m; sourceTree = "<group>"; };
 		AD4C587C1BCA756700C3E83C /* DetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailModel.h; sourceTree = "<group>"; };
 		AD4C587D1BCA756700C3E83C /* DetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailModel.m; sourceTree = "<group>"; };
 		AD4C587F1BCA756700C3E83C /* CollectCommdityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectCommdityService.h; sourceTree = "<group>"; };
@@ -1569,6 +1572,8 @@
 		AD37CF6D1BCBFE7C00B064A6 /* PublishService */ = {
 			isa = PBXGroup;
 			children = (
+				AD37CF761BCE926900B064A6 /* PublishService.h */,
+				AD37CF771BCE926900B064A6 /* PublishService.m */,
 			);
 			path = PublishService;
 			sourceTree = "<group>";
@@ -2866,6 +2871,7 @@
 				334A52DE1BCCF74700F5ECDD /* TagCell.m in Sources */,
 				AD51D5031BB7CD1300A75753 /* SDWebImagePrefetcher.m in Sources */,
 				33B2B6B01BCE2FC4007809FC /* AddTagViewController.m in Sources */,
+				AD37CF781BCE926900B064A6 /* PublishService.m in Sources */,
 				AD9BEB261BC0DC0F004D662B /* UserViewController.m in Sources */,
 				AD5267EB1BC0CC3F007350F9 /* MessageHeaderView.m in Sources */,
 				AD4D20811BC81CCA00732CC0 /* UserCollectService.m in Sources */,
@@ -3061,7 +3067,7 @@
 				INFOPLIST_FILE = HaiTunJia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lizhe.HaiTunJia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.dfb365.ihHouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -3077,7 +3083,7 @@
 				INFOPLIST_FILE = HaiTunJia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lizhe.HaiTunJia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.dfb365.ihHouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

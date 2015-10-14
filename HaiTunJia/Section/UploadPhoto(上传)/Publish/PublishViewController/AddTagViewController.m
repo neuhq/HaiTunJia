@@ -61,7 +61,7 @@ CustomeSearchBarDelegate>
 {
     if (!_searchBar)
     {
-        _searchBar = [[CustomSearchBar alloc]initWithFrame:CGRectMake(25.0f, kNavigationBarHeight - 10 - 30, kScreenWidth - 2*25.0f, 30.0f)];
+        _searchBar = [[CustomSearchBar alloc]initWithFrame:CGRectMake(10.0f, kNavigationBarHeight - 10 - 30, kScreenWidth - 10.0f - self.rightBarButton.width-10.0f, 30.0f)];
         _searchBar.delegate = self;
         _searchBar.backgroundColor = [UIColor clearColor];
     }

@@ -3,7 +3,7 @@
 #import "TagCell.h"
 #import "PhotoAlbumViewController.h"
 #import "AddTagViewController.h"
-
+#import "PublishService.h"
 @interface PublishViewController ()
 <UITableViewDelegate,
 UITableViewDataSource,
@@ -12,6 +12,8 @@ UITextFieldDelegate>
 @property(nonatomic,strong) UITableView *publishTable;
 
 @property(nonatomic,strong) UITextField *linkTF;
+
+@property(nonatomic,strong) UITextView *contentTV;
 
 @property(nonatomic,strong) NSMutableArray *tagArray;
 
@@ -90,6 +92,41 @@ UITextFieldDelegate>
     }
     return _publishTable;
 }
+#pragma mark -- HTTP
+-(void)publish
+{
+    
+    PublishService *service = [[PublishService alloc]init];
+    [service startRequestPublish:^{
+        if (self.tagArray.count == 3)
+        {
+            service.tag1 = self.tagArray[0];
+            service.tag2 = self.tagArray[1];
+            service.tag3 = self.tagArray[2];
+        }
+        else if (self.tagArray.count == 2)
+        {
+            service.tag1 = self.tagArray[0];
+            service.tag2 = self.tagArray[1];
+            service.tag3 = @"";
+        }
+        else if (self.tagArray.count == 1)
+        {
+            service.tag1 = self.tagArray[0];
+            service.tag2 = @"";
+            service.tag3 = @"";
+        }
+        service.moneyType = @"人民币";
+        service.name = @"测试商品";
+        service.price = @"100";
+        service.source = @"海淘";
+        service.content = self.contentTV.text;
+    } respons:^(id object) {
+        
+    } failed:^(NSError *error) {
+        
+    }];
+}
 #pragma mark  -- Delegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -101,6 +138,11 @@ UITextFieldDelegate>
     PublishCell *cell1 = (PublishCell *)[self.publishTable cellForRowAtIndexPath:indexPath1];
     [cell1.linkTF resignFirstResponder];
     
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -156,6 +198,7 @@ UITextFieldDelegate>
                 cell = [[PublishCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifer withSection:indexPath.section];
             }
             [cell setFirstCellData:self.publishImage];
+            self.contentTV = cell.contentTV;
             return cell;
         }
         else
@@ -234,7 +277,10 @@ UITextFieldDelegate>
     [super goBackAction];
     [HTJCommon sharedManager].isAddImage = NO;
 }
-
+-(void)rightButtonAction
+{
+    [self publish];
+}
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
