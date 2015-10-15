@@ -149,7 +149,7 @@
 		AD37CF6B1BCBFCFB00B064A6 /* icon_smalllabel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD37CF681BCBFCFB00B064A6 /* icon_smalllabel@3x.png */; };
 		AD37CF721BCBFEAE00B064A6 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF711BCBFEAE00B064A6 /* PublishViewController.m */; };
 		AD37CF751BCC006100B064A6 /* PublishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF741BCC006100B064A6 /* PublishCell.m */; };
-		AD37CF781BCE926900B064A6 /* PublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF771BCE926900B064A6 /* PublishService.m */; settings = {ASSET_TAGS = (); }; };
+		AD37CF781BCE926900B064A6 /* PublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF771BCE926900B064A6 /* PublishService.m */; };
 		AD4C58831BCA756700C3E83C /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C587D1BCA756700C3E83C /* DetailModel.m */; };
 		AD4C58841BCA756700C3E83C /* CollectCommdityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58801BCA756700C3E83C /* CollectCommdityService.m */; };
 		AD4C58851BCA756700C3E83C /* DetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58821BCA756700C3E83C /* DetailService.m */; };
@@ -2993,7 +2993,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3015,6 +3016,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "c57bc6a7-6bd8-4dd5-858f-bd7c8c172825";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3036,7 +3038,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3051,6 +3054,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "c57bc6a7-6bd8-4dd5-858f-bd7c8c172825";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3061,6 +3065,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HaiTunJia.pch";
@@ -3069,6 +3074,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.dfb365.ihHouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c57bc6a7-6bd8-4dd5-858f-bd7c8c172825";
 			};
 			name = Debug;
 		};
@@ -3077,6 +3083,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HaiTunJia.pch";
@@ -3085,6 +3093,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.dfb365.ihHouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c57bc6a7-6bd8-4dd5-858f-bd7c8c172825";
 			};
 			name = Release;
 		};

@@ -64,4 +64,8 @@ typedef void(^SetParamsBlock)(void);          // 设置参数d的block
 
 -(void)showResponsMessage:(NSString *) message;
 
+- (void)upLoadImage:(UIImage *)image WithParamsBlcok:(SetParamsBlock)paramsBlock
+        FinishBlock:(FinishBlock)finishBlock
+       failureBlock:(FailureBlock)failureBlock;
+
 @end

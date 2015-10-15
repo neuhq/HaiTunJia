@@ -8,7 +8,9 @@
 <UITableViewDelegate,
 UITableViewDataSource,
 UITextFieldDelegate>
-
+{
+    PublishService *service;
+}
 @property(nonatomic,strong) UITableView *publishTable;
 
 @property(nonatomic,strong) UITextField *linkTF;
@@ -17,7 +19,7 @@ UITextFieldDelegate>
 
 @property(nonatomic,strong) NSMutableArray *tagArray;
 
-
+@property(nonatomic,strong)  PublishService *service;
 @end
 
 @implementation PublishViewController
@@ -95,37 +97,38 @@ UITextFieldDelegate>
 #pragma mark -- HTTP
 -(void)publish
 {
-    
-    PublishService *service = [[PublishService alloc]init];
-    [service startRequestPublish:^{
+    _service = [[PublishService alloc]init];
+    [_service startRequestWithImage:self.addImage Publish:^{
         if (self.tagArray.count == 3)
         {
-            service.tag1 = self.tagArray[0];
-            service.tag2 = self.tagArray[1];
-            service.tag3 = self.tagArray[2];
+            _service.tag1 = self.tagArray[0];
+            _service.tag2 = self.tagArray[1];
+            _service.tag3 = self.tagArray[2];
         }
         else if (self.tagArray.count == 2)
         {
-            service.tag1 = self.tagArray[0];
-            service.tag2 = self.tagArray[1];
-            service.tag3 = @"";
+            _service.tag1 = self.tagArray[0];
+            _service.tag2 = self.tagArray[1];
+            _service.tag3 = @"";
         }
         else if (self.tagArray.count == 1)
         {
-            service.tag1 = self.tagArray[0];
-            service.tag2 = @"";
-            service.tag3 = @"";
+            _service.tag1 = self.tagArray[0];
+            _service.tag2 = @"";
+            _service.tag3 = @"";
         }
-        service.moneyType = @"人民币";
-        service.name = @"测试商品";
-        service.price = @"100";
-        service.source = @"海淘";
-        service.content = self.contentTV.text;
+        _service.moneyType = @"人民币";
+        _service.name = @"测试商品";
+        _service.price = @"100";
+        _service.source = @"海淘";
+        _service.content = self.contentTV.text;
     } respons:^(id object) {
-        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        [HTJCommon sharedManager].isAddImage = NO;
     } failed:^(NSError *error) {
         
     }];
+    
 }
 #pragma mark  -- Delegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView

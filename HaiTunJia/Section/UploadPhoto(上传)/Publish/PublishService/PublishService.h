@@ -21,9 +21,8 @@ typedef void(^PublishBlock)(id object);
 
 @property(nonatomic,strong) NSString *content;
 
-//@property(nonatomic,strong) NSString *portrait;
 
--(void)startRequestPublish:(SetParamsBlock) params
+-(void)startRequestWithImage:(UIImage *) image Publish:(SetParamsBlock) params
                    respons:(PublishBlock) pulishInfo
                     failed:(FailureBlock) failed;
 

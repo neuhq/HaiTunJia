@@ -110,6 +110,38 @@
     }];
     NSLog(@"%@",_requestOperation);
 }
+- (void)upLoadImage:(UIImage *) image WithParamsBlcok:(SetParamsBlock)paramsBlock
+                       FinishBlock:(FinishBlock)finishBlock
+                      failureBlock:(FailureBlock)failureBlock
+{
+    // 添加请求对象参数配置设置block
+    if (paramsBlock != nil) {
+        paramsBlock();
+    }
+
+    NSMutableDictionary *attributes = [self getMyClassAttributeNameAndValue];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:self.api_url parameters:attributes constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        // 设置时间格式
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
+        [formData appendPartWithFileData:imageData name:@"portrait" fileName:fileName mimeType:@"image/jpeg"];
+
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"[UploadVC] success = %@", responseObject);
+        NSDictionary *result = [responseObject objectFromJSONData];
+        NSString *string = [result JSONString];
+        NSLog(@"string:%@",string);
+        //        [WSProgressHUD dismiss];
+        finishBlock(result);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"[UploadVC] error response.object = %@", operation.responseObject);
+    }];
+}
 // 获取当前对象已经设置内容的数据名字和对应的内容
 - (NSMutableDictionary *)getMyClassAttributeNameAndValue
 {
