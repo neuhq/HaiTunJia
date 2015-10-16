@@ -9,7 +9,7 @@
 #import "DetailController.h"
 #import "UserModel.h"
 #import "UserInfoService.h"
-
+#import "SetViewController.h"
 static NSString *const kUserCollectionCellIndentifer =  @"kUserCollectionCellIndentifer";
 static NSString *const kUserHeaderViewIndentifer = @"kUserHeaderViewIndentifer";
 @interface UserViewController ()
@@ -303,7 +303,8 @@ UserHeaderViewDelegate>
 #pragma mark -- Action
 -(void)rightButtonAction
 {
-    
+    SetViewController *set = [[SetViewController alloc]init];
+    [self.navigationController pushViewController:set animated:YES];
 }
 -(void)praiseAction:(UIButton *) sender
 {

@@ -123,53 +123,6 @@
             endingLineNumber = "13"
             landmarkName = "-startRequestPublish:respons:failed:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[PublishService startRequestPublish:respons:failed:]"
-                  moduleName = "HaiTunJia"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Section/UploadPhoto(%E4%B8%8A%E4%BC%A0)/Publish/PublishService/PublishService.m"
-                  timestampString = "466557921.628857"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "368">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__53-[PublishService startRequestPublish:respons:failed:]_block_invoke10"
-                  moduleName = "HaiTunJia"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Section/UploadPhoto(%E4%B8%8A%E4%BC%A0)/Publish/PublishService/PublishService.m"
-                  timestampString = "466557921.629058"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__53-[PublishService startRequestPublish:respons:failed:]_block_invoke_2"
-                  moduleName = "HaiTunJia"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Section/UploadPhoto(%E4%B8%8A%E4%BC%A0)/Publish/PublishService/PublishService.m"
-                  timestampString = "466557921.629232"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "40">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,6 +139,38 @@
             endingLineNumber = "101"
             landmarkName = "-publish"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PublishViewController publish]"
+                  moduleName = "HaiTunJia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Section/UploadPhoto(%E4%B8%8A%E4%BC%A0)/Publish/PublishViewController/PublishViewController.m"
+                  timestampString = "466704530.603295"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__32-[PublishViewController publish]_block_invoke"
+                  moduleName = "HaiTunJia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Section/UploadPhoto(%E4%B8%8A%E4%BC%A0)/Publish/PublishViewController/PublishViewController.m"
+                  timestampString = "466704530.603455"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -200,8 +185,72 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "271"
             endingLineNumber = "271"
-            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
+            landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HaiTunJia/Section/Home(&#x9996;&#x9875;)/DetailPage(&#x5546;&#x54c1;&#x8be6;&#x60c5;)/DetailController/DetailController.m"
+            timestampString = "466705211.75521"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
+            landmarkName = "-keyboardShow:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HaiTunJia/Section/Home(&#x9996;&#x9875;)/DetailPage(&#x5546;&#x54c1;&#x8be6;&#x60c5;)/DetailController/DetailController.m"
+            timestampString = "466705211.75521"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
+            landmarkName = "-keyboardHide:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DetailController keyboardHide:]"
+                  moduleName = "HaiTunJia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Section/Home(%E9%A6%96%E9%A1%B5)/DetailPage(%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85)/DetailController/DetailController.m"
+                  timestampString = "466704530.608307"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "335"
+                  endingLineNumber = "335"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__33-[DetailController keyboardHide:]_block_invoke"
+                  moduleName = "HaiTunJia"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Section/Home(%E9%A6%96%E9%A1%B5)/DetailPage(%E5%95%86%E5%93%81%E8%AF%A6%E6%83%85)/DetailController/DetailController.m"
+                  timestampString = "466704530.608508"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "335"
+                  endingLineNumber = "335"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

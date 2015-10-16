@@ -22,6 +22,8 @@ typedef NS_ENUM(NSInteger, DetailBottomViewButtonType) {
 @end
 
 @class  DetailModel;
+extern const CGFloat kDetailBottomViewHeight;
+
 @interface DetailBottomView : UIView
 
 @property(nonatomic,strong) UIButton *buyButton;

@@ -6,16 +6,25 @@
 #import "CollectCommdityService.h"
 #import "CommentListCell.h"
 #import "PraiseCommodityService.h"
+#import "DetailTableViewFooterView.h"
+#import "YcKeyBoardView.h"
 
 @interface DetailController ()
 <DetailBottomViewDelegate,
-NoteDetailInfoCellDelegate>
+NoteDetailInfoCellDelegate,
+YcKeyBoardViewDelegate>
 
 @property(nonatomic,assign) BOOL isScrollDown;
 
 @property(nonatomic,assign) CGFloat lastOffset_y;
 
 @property(nonatomic,strong) DetailModel *detailModel;
+
+@property(nonatomic,strong) DetailTableViewFooterView *footerView;
+
+@property(nonatomic,strong) YcKeyBoardView *keyBoradView;
+
+@property (nonatomic,assign) CGFloat keyBoardHeight;
 
 @end
 
@@ -27,6 +36,8 @@ NoteDetailInfoCellDelegate>
     if (self)
     {
         self.noteId = noteId;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide:) name:UIKeyboardWillHideNotification object:nil];
     }
     return self;
 }
@@ -60,6 +71,7 @@ NoteDetailInfoCellDelegate>
         _detailTableView.bounces = YES;
         _detailTableView.hidden = YES;
         _detailTableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+        _detailTableView.tableFooterView = self.footerView;
     }
     return _detailTableView;
 }
@@ -67,13 +79,34 @@ NoteDetailInfoCellDelegate>
 {
     if (!_bottomView)
     {
-        _bottomView = [[DetailBottomView alloc]initWithFrame:CGRectMake(0, kScreenHeight - 44.0f, kScreenWidth, 44.0f)];
+        _bottomView = [[DetailBottomView alloc]initWithFrame:CGRectMake(0, kScreenHeight - kDetailBottomViewHeight, kScreenWidth, kDetailBottomViewHeight)];
         _bottomView.backgroundColor = [UIColor whiteColor];
         _bottomView.delegate = self;
         _bottomView.hidden = YES;
     }
     return _bottomView;
 }
+-(DetailTableViewFooterView *) footerView
+{
+    if (!_footerView)
+    {
+        _footerView = [[DetailTableViewFooterView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kDetailTableViewFooterViewHeight)];
+        _footerView.backgroundColor = [UIColor whiteColor];
+        [_footerView.addCommentTF addTarget:self action:@selector(addComment) forControlEvents:UIControlEventTouchDown];
+    }
+    return _footerView;
+}
+//-(YcKeyBoardView *) keyBoradView
+//{
+//    if (!_keyBoradView)
+//    {
+//        _keyBoradView=[[YcKeyBoardView alloc]initWithFrame:CGRectMake(0, kScreenHeight-44, kScreenWidth, 44)];
+//        _keyBoradView.delegate=self;
+//        [_keyBoradView.textView becomeFirstResponder];
+//        _keyBoradView.textView.returnKeyType=UIReturnKeySend;
+//    }
+//    return _keyBoradView;
+//}
 #pragma mark -- helper
 -(void)viewConfig
 {
@@ -253,6 +286,9 @@ NoteDetailInfoCellDelegate>
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    [self.footerView.addCommentTF resignFirstResponder];
+    [self.keyBoradView.textView resignFirstResponder];
+    
         CGFloat newOffset_y = scrollView.contentOffset.y;
         if (_lastOffset_y == 0) {
             _lastOffset_y = newOffset_y;
@@ -275,4 +311,50 @@ NoteDetailInfoCellDelegate>
         }
     }];
 }
+-(void)touchesBegan:(UITouch *)touches withEvent:(UIEvent *)event
+{
+    [self.footerView.addCommentTF resignFirstResponder];
+}
+#pragma mark -- Methord
+-(void)addComment
+{
+    if(self.keyBoradView==nil){
+        self.keyBoradView=[[YcKeyBoardView alloc]initWithFrame:CGRectMake(0, kScreenHeight-44, kScreenWidth, 44)];
+    }
+    self.keyBoradView.delegate=self;
+    [self.keyBoradView.textView becomeFirstResponder];
+    self.keyBoradView.textView.returnKeyType=UIReturnKeySend;
+    [self.view addSubview:self.keyBoradView];
+
+    [self.view addSubview:self.keyBoradView];
+}
+-(void)keyboardShow:(NSNotification *)note
+{
+    CGRect keyBoardRect=[note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat deltaY=keyBoardRect.size.height;
+    self.keyBoardHeight=deltaY;
+    [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+        
+        self.keyBoradView.transform=CGAffineTransformMakeTranslation(0, -deltaY);
+    }];
+}
+-(void)keyboardHide:(NSNotification *)note
+{
+    [UIView animateWithDuration:[note.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue] animations:^{
+        
+        self.keyBoradView.transform=CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        
+        self.keyBoradView.textView.text=@"";
+        [self.keyBoradView removeFromSuperview];
+    }];
+    
+}
+-(void)keyBoardViewHide:(YcKeyBoardView *)keyBoardView textView:(UITextView *)contentView
+{
+    [contentView resignFirstResponder];
+    //接口请求
+    
+}
+
 @end

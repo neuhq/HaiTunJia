@@ -3,6 +3,8 @@
 #import "DetailBottomView.h"
 #import "DetailModel.h"
 
+const CGFloat  kDetailBottomViewHeight = 44.0f;
+
 @interface DetailBottomView ()
 
 @property(nonatomic,strong) NSArray *normalImageArray;

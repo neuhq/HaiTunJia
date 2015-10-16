@@ -36,9 +36,9 @@ UIGestureRecognizerDelegate>
     self = [super init];
     if (self)
     {
-        [self initArray];
-        [self.view addSubview:self.photoCollectionView];
-        [self performSelectorInBackground:@selector(getPhotoAllGroup) withObject:nil];
+//        [self initArray];
+//        [self.view addSubview:self.photoCollectionView];
+//        [self performSelectorInBackground:@selector(getPhotoAllGroup) withObject:nil];
 
     }
     return self;
@@ -48,14 +48,14 @@ UIGestureRecognizerDelegate>
 {
     [super viewDidLoad];
     
-//    [self initArray];
-//    
-//    [self viewConfig];
-//    
-//    
-//    [self getPhotoAllGroup];
-//    
-//            [self.view addSubview:self.photoCollectionView];
+    [self initArray];
+    
+    [self viewConfig];
+    
+    
+    [self getPhotoAllGroup];
+    
+            [self.view addSubview:self.photoCollectionView];
 
 }
 

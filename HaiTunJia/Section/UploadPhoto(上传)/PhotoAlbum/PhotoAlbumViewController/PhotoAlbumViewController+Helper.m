@@ -44,6 +44,7 @@
 -(void)getAllphotoData:(NSInteger) tag
 {
     [self.imageListArray removeAllObjects];
+    [self.fullImageArray removeAllObjects];
     if (self.photoGroupArray.count) {
       self.group = [self.photoGroupArray objectAtIndex:tag];
         self.navTitleView.hidden = NO;

@@ -157,6 +157,13 @@
 		AD37CF721BCBFEAE00B064A6 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF711BCBFEAE00B064A6 /* PublishViewController.m */; };
 		AD37CF751BCC006100B064A6 /* PublishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF741BCC006100B064A6 /* PublishCell.m */; };
 		AD37CF781BCE926900B064A6 /* PublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF771BCE926900B064A6 /* PublishService.m */; };
+		AD37CF7B1BD1406400B064A6 /* DetailTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF7A1BD1406400B064A6 /* DetailTableViewFooterView.m */; settings = {ASSET_TAGS = (); }; };
+		AD37CF7F1BD14F9100B064A6 /* YcKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF7E1BD14F9100B064A6 /* YcKeyBoardView.m */; settings = {ASSET_TAGS = (); }; };
+		AD37CF821BD15C0300B064A6 /* GetCommentService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF811BD15C0300B064A6 /* GetCommentService.m */; settings = {ASSET_TAGS = (); }; };
+		AD37CF851BD15CDA00B064A6 /* AddCommentService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF841BD15CDA00B064A6 /* AddCommentService.m */; settings = {ASSET_TAGS = (); }; };
+		AD37CF9D1BD167BE00B064A6 /* PersonalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF9A1BD167BE00B064A6 /* PersonalDataViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AD37CF9E1BD167BE00B064A6 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF9C1BD167BE00B064A6 /* SetViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AD37CFA11BD167F800B064A6 /* PersonViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CFA01BD167F800B064A6 /* PersonViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		AD4C58831BCA756700C3E83C /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C587D1BCA756700C3E83C /* DetailModel.m */; };
 		AD4C58841BCA756700C3E83C /* CollectCommdityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58801BCA756700C3E83C /* CollectCommdityService.m */; };
 		AD4C58851BCA756700C3E83C /* DetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58821BCA756700C3E83C /* DetailService.m */; };
@@ -597,6 +604,20 @@
 		AD37CF741BCC006100B064A6 /* PublishCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishCell.m; sourceTree = "<group>"; };
 		AD37CF761BCE926900B064A6 /* PublishService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishService.h; sourceTree = "<group>"; };
 		AD37CF771BCE926900B064A6 /* PublishService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishService.m; sourceTree = "<group>"; };
+		AD37CF791BD1406400B064A6 /* DetailTableViewFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewFooterView.h; sourceTree = "<group>"; };
+		AD37CF7A1BD1406400B064A6 /* DetailTableViewFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewFooterView.m; sourceTree = "<group>"; };
+		AD37CF7D1BD14F9100B064A6 /* YcKeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YcKeyBoardView.h; sourceTree = "<group>"; };
+		AD37CF7E1BD14F9100B064A6 /* YcKeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YcKeyBoardView.m; sourceTree = "<group>"; };
+		AD37CF801BD15C0300B064A6 /* GetCommentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCommentService.h; sourceTree = "<group>"; };
+		AD37CF811BD15C0300B064A6 /* GetCommentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCommentService.m; sourceTree = "<group>"; };
+		AD37CF831BD15CDA00B064A6 /* AddCommentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommentService.h; sourceTree = "<group>"; };
+		AD37CF841BD15CDA00B064A6 /* AddCommentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCommentService.m; sourceTree = "<group>"; };
+		AD37CF991BD167BE00B064A6 /* PersonalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDataViewController.h; sourceTree = "<group>"; };
+		AD37CF9A1BD167BE00B064A6 /* PersonalDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDataViewController.m; sourceTree = "<group>"; };
+		AD37CF9B1BD167BE00B064A6 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
+		AD37CF9C1BD167BE00B064A6 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
+		AD37CF9F1BD167F800B064A6 /* PersonViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonViewCell.h; sourceTree = "<group>"; };
+		AD37CFA01BD167F800B064A6 /* PersonViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonViewCell.m; sourceTree = "<group>"; };
 		AD4C587C1BCA756700C3E83C /* DetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailModel.h; sourceTree = "<group>"; };
 		AD4C587D1BCA756700C3E83C /* DetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailModel.m; sourceTree = "<group>"; };
 		AD4C587F1BCA756700C3E83C /* CollectCommdityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectCommdityService.h; sourceTree = "<group>"; };
@@ -1256,21 +1277,6 @@
 			path = SystemFramework;
 			sourceTree = "<group>";
 		};
-		33F3A6FA1BD0EE4F0024BC8B /* Set */ = {
-			isa = PBXGroup;
-			children = (
-				33F3A6FB1BD0EE4F0024BC8B /* SetViewContorller */,
-			);
-			path = Set;
-			sourceTree = "<group>";
-		};
-		33F3A6FB1BD0EE4F0024BC8B /* SetViewContorller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SetViewContorller;
-			sourceTree = "<group>";
-		};
 		AD13B7D21BBC2EE700AA3142 /* CustomTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1316,7 +1322,7 @@
 		AD13B7EE1BBC303600AA3142 /* User(用户) */ = {
 			isa = PBXGroup;
 			children = (
-				33F3A6FA1BD0EE4F0024BC8B /* Set */,
+				AD37CF961BD167BE00B064A6 /* Set */,
 				AD9BEB1E1BC0DBD3004D662B /* User */,
 				AD51BAAD1BBE725800C94388 /* Login */,
 			);
@@ -1503,6 +1509,8 @@
 				AD83781C1BC5199800EC679C /* DetailBottomView.m */,
 				AD4D20901BC9611400732CC0 /* CommentListCell.h */,
 				AD4D20911BC9611400732CC0 /* CommentListCell.m */,
+				AD37CF791BD1406400B064A6 /* DetailTableViewFooterView.h */,
+				AD37CF7A1BD1406400B064A6 /* DetailTableViewFooterView.m */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -1639,6 +1647,44 @@
 			path = PublishViewController;
 			sourceTree = "<group>";
 		};
+		AD37CF7C1BD14F9100B064A6 /* KeyBoardView */ = {
+			isa = PBXGroup;
+			children = (
+				AD37CF7D1BD14F9100B064A6 /* YcKeyBoardView.h */,
+				AD37CF7E1BD14F9100B064A6 /* YcKeyBoardView.m */,
+			);
+			path = KeyBoardView;
+			sourceTree = "<group>";
+		};
+		AD37CF961BD167BE00B064A6 /* Set */ = {
+			isa = PBXGroup;
+			children = (
+				AD37CF971BD167BE00B064A6 /* SetView */,
+				AD37CF981BD167BE00B064A6 /* SetViewController */,
+			);
+			path = Set;
+			sourceTree = "<group>";
+		};
+		AD37CF971BD167BE00B064A6 /* SetView */ = {
+			isa = PBXGroup;
+			children = (
+				AD37CF9F1BD167F800B064A6 /* PersonViewCell.h */,
+				AD37CFA01BD167F800B064A6 /* PersonViewCell.m */,
+			);
+			path = SetView;
+			sourceTree = "<group>";
+		};
+		AD37CF981BD167BE00B064A6 /* SetViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD37CF991BD167BE00B064A6 /* PersonalDataViewController.h */,
+				AD37CF9A1BD167BE00B064A6 /* PersonalDataViewController.m */,
+				AD37CF9B1BD167BE00B064A6 /* SetViewController.h */,
+				AD37CF9C1BD167BE00B064A6 /* SetViewController.m */,
+			);
+			path = SetViewController;
+			sourceTree = "<group>";
+		};
 		AD4C587B1BCA756700C3E83C /* DetailModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1655,6 +1701,10 @@
 				AD4C58801BCA756700C3E83C /* CollectCommdityService.m */,
 				AD4C58811BCA756700C3E83C /* DetailService.h */,
 				AD4C58821BCA756700C3E83C /* DetailService.m */,
+				AD37CF801BD15C0300B064A6 /* GetCommentService.h */,
+				AD37CF811BD15C0300B064A6 /* GetCommentService.m */,
+				AD37CF831BD15CDA00B064A6 /* AddCommentService.h */,
+				AD37CF841BD15CDA00B064A6 /* AddCommentService.m */,
 			);
 			path = DetailService;
 			sourceTree = "<group>";
@@ -1885,6 +1935,7 @@
 		AD51D4381BB7CACC00A75753 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				AD37CF7C1BD14F9100B064A6 /* KeyBoardView */,
 				3397401F1BCBB89300551BF6 /* common */,
 				AD4C588E1BCA76AD00C3E83C /* GeneralService */,
 				AD4C58861BCA758800C3E83C /* GeneralModel */,
@@ -2853,6 +2904,7 @@
 				AD51D4EB1BB7CD1300A75753 /* iToast.m in Sources */,
 				33F3A6F61BD0D8220024BC8B /* OtherUserCollectService.m in Sources */,
 				AD9BEB331BC0F1BC004D662B /* CustomTabView.m in Sources */,
+				AD37CF7F1BD14F9100B064A6 /* YcKeyBoardView.m in Sources */,
 				33747E811BC8DA900076D921 /* UserNoteListService.m in Sources */,
 				AD51D4FF1BB7CD1300A75753 /* SDWebImageDecoder.m in Sources */,
 				3397400C1BCB890300551BF6 /* RegisterViewController.m in Sources */,
@@ -2871,6 +2923,7 @@
 				AD51D4E71BB7CD1300A75753 /* AFURLConnectionOperation.m in Sources */,
 				AD51D4EC1BB7CD1300A75753 /* JSONKit.m in Sources */,
 				33D4A9F21BB91F550086D442 /* CHTCollectionViewWaterfallLayout.m in Sources */,
+				AD37CF9E1BD167BE00B064A6 /* SetViewController.m in Sources */,
 				AD13B87F1BBCC96B00AA3142 /* UIScrollView+MJRefresh.m in Sources */,
 				AD51D50E1BB7D20C00A75753 /* BaseViewController.m in Sources */,
 				AD13B8731BBCC96B00AA3142 /* MJRefreshAutoGifFooter.m in Sources */,
@@ -2898,6 +2951,7 @@
 				AD9BEB471BC20B32004D662B /* PhotoAlbumCollectionViewCell.m in Sources */,
 				AD51D4FA1BB7CD1300A75753 /* NSData+ImageContentType.m in Sources */,
 				AD8378211BC53DFE00EC679C /* DWTagList.m in Sources */,
+				AD37CFA11BD167F800B064A6 /* PersonViewCell.m in Sources */,
 				33CDF00D1BC771E70023CF09 /* SearchWithTagService.m in Sources */,
 				33747E9A1BC8EEBB0076D921 /* PraiseViewController.m in Sources */,
 				AD13B8711BBCC96B00AA3142 /* MJRefreshFooter.m in Sources */,
@@ -2923,6 +2977,7 @@
 				AD13B8FB1BBD9A8D00AA3142 /* TLCollectionWaterFallFlow.m in Sources */,
 				AD13B86F1BBCC96B00AA3142 /* MJRefreshBackFooter.m in Sources */,
 				33D4AA161BB9213F0086D442 /* NSArray+Additions.m in Sources */,
+				AD37CF7B1BD1406400B064A6 /* DetailTableViewFooterView.m in Sources */,
 				334A52DE1BCCF74700F5ECDD /* TagCell.m in Sources */,
 				AD51D5031BB7CD1300A75753 /* SDWebImagePrefetcher.m in Sources */,
 				33B2B6B01BCE2FC4007809FC /* AddTagViewController.m in Sources */,
@@ -2952,6 +3007,8 @@
 				AD51BAB71BBE735300C94388 /* LoginView.m in Sources */,
 				ADF614651BC4F834004FCABE /* ForgetPasswordViewController.m in Sources */,
 				AD13B8791BBCC96B00AA3142 /* MJRefreshGifHeader.m in Sources */,
+				AD37CF851BD15CDA00B064A6 /* AddCommentService.m in Sources */,
+				AD37CF9D1BD167BE00B064A6 /* PersonalDataViewController.m in Sources */,
 				33D4AA1E1BB9213F0086D442 /* UIColor+Expanded.m in Sources */,
 				AD51D4E31BB7CD1300A75753 /* AFHTTPRequestOperationManager.m in Sources */,
 				AD51D4E41BB7CD1300A75753 /* AFHTTPSessionManager.m in Sources */,
@@ -2983,6 +3040,7 @@
 				AD13B8991BBCF7ED00AA3142 /* HomeCollectionViewCell.m in Sources */,
 				AD51D5011BB7CD1300A75753 /* SDWebImageDownloaderOperation.m in Sources */,
 				ADCD76DC1BBF7BBB004B6493 /* HotCategoryViewCell.m in Sources */,
+				AD37CF821BD15C0300B064A6 /* GetCommentService.m in Sources */,
 				ADC13D3A1BBAA20400AD6289 /* Reachability.m in Sources */,
 				33973FD31BCB585D00551BF6 /* WSProgressHUD.m in Sources */,
 				AD51D4F11BB7CD1300A75753 /* MASLayoutConstraint.m in Sources */,
