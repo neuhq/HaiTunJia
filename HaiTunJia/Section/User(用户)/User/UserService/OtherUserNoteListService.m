@@ -1,14 +1,14 @@
 
-#import "UserNoteListService.h"
+
+#import "OtherUserNoteListService.h"
 #import "WaterFallFlowListDataModel.h"
 
-@implementation UserNoteListService
-
+@implementation OtherUserNoteListService
 -(void)startRequestUserNoteListWithParams:(SetParamsBlock) params
-                    responsDataWithResult:(UserNoteListBlock) notelList
-                         failedWithResult:(FailureBlock) failed
+                    responsDataWithResult:(OtherUserNoteListBlock) notelList
+                         failedWithResult:(FailureBlock) failed;
 {
-    UserNoteListService *service = [self initWithApiUrl:kApi_GetUserReleaseList];
+    OtherUserNoteListService *service = [self initWithApiUrl:kApi_GetOtherUserRlist];
     [service requestDataWithParamsBlcok:^{
         self.userId = kUSERID;
         params();
@@ -26,9 +26,10 @@
         {
             [self showResponsMessage:list.state.message];
         }
-
+        
     } failureBlock:^(NSError *error) {
         failed(error);
     }];
+
 }
 @end

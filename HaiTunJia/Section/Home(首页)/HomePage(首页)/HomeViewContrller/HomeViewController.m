@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "PraiseCommodityService.h"
 #import "RegisterViewController.h"
+#import "OtherUserViewController.h"
+
 //collectionViewCell标识
 static NSString *const HomeViewCollectionViewIndentifer =  @"HomeViewCollectionViewIndentifer";
 
@@ -237,7 +239,9 @@ UICollectionViewDelegateFlowLayout>
     cell.zanImageButton.tag = indexPath.item;
     cell.bottomRightView.tag = indexPath.item;
     cell.bottomLeftView.tag = indexPath.item;
-
+    cell.avatarImageView.tag = indexPath.item;
+    
+    [cell.avatarImageView addTarget:self action:@selector(seeUserInfo:) forControlEvents:UIControlEventTouchUpInside];
     [cell.zanImageButton addTarget:self action:@selector(praiseAction:) forControlEvents:UIControlEventTouchUpInside];
     [cell.bottomRightView addTarget:self action:@selector(praiseAction:) forControlEvents:UIControlEventTouchUpInside];
     [cell.bottomLeftView addTarget:self action:@selector(seeComment:) forControlEvents:UIControlEventTouchUpInside];
@@ -289,6 +293,13 @@ UICollectionViewDelegateFlowLayout>
     DataModel *dataModel = [self.listArray objectAtIndex:sender.tag];
     DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
     [self.navigationController pushViewController:detail animated:YES];
+}
+-(void)seeUserInfo:(UIButton *) sender
+{
+    DataModel *dataModel = [self.listArray objectAtIndex:sender.tag];
+    OtherUserViewController *otherUserVC = [[OtherUserViewController alloc]init];
+    otherUserVC.commodityId = [NSString stringWithFormat:@"%ld",dataModel.iD];
+    [self.navigationController pushViewController:otherUserVC animated:YES];
 }
 #pragma mark -- Jump
 //跳转商品详情

@@ -21,8 +21,10 @@
     
     for(DataModel *model in listModel.data)
     {
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.picture]];
-        UIImage *image = [UIImage imageWithData:imageData];
+        NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:model.picture]];
+        UIImage *image  = [[UIImage alloc]initWithData:imageData];
+//        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.picture]];
+//        UIImage *image = [UIImage imageWithData:imageData];
         model.imageHeight = (image.size.height/image.size.width * width);
         CGSize size = [model.name sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0f]}];
 //        float height = [model.name heightForWidth:width usingFont:[UIFont systemFontOfSize:12.0f]];

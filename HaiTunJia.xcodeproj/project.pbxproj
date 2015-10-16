@@ -73,6 +73,13 @@
 		33D4AA471BB9288F0086D442 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D4AA461BB9288F0086D442 /* CoreImage.framework */; };
 		33D4AA491BB928970086D442 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D4AA481BB928970086D442 /* ImageIO.framework */; };
 		33D4AA4D1BB92A9D0086D442 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4AA4C1BB92A9D0086D442 /* UIImage+Additions.m */; };
+		33E18E721BD0A8250067FBE9 /* OtherUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E18E711BD0A8250067FBE9 /* OtherUserViewController.m */; };
+		33E18E751BD0A8590067FBE9 /* OtherUserHeaderVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E18E741BD0A8590067FBE9 /* OtherUserHeaderVIew.m */; };
+		33F3A6ED1BD0D2280024BC8B /* UserInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F3A6EC1BD0D2280024BC8B /* UserInfoService.m */; };
+		33F3A6F01BD0D2390024BC8B /* OtherUserInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F3A6EF1BD0D2390024BC8B /* OtherUserInfoService.m */; };
+		33F3A6F31BD0D2EF0024BC8B /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F3A6F21BD0D2EF0024BC8B /* UserModel.m */; };
+		33F3A6F61BD0D8220024BC8B /* OtherUserCollectService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F3A6F51BD0D8220024BC8B /* OtherUserCollectService.m */; };
+		33F3A6F91BD0D8440024BC8B /* OtherUserNoteListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F3A6F81BD0D8440024BC8B /* OtherUserNoteListService.m */; };
 		AD13B7D71BBC2EE700AA3142 /* LeveyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AD13B7D41BBC2EE700AA3142 /* LeveyTabBar.m */; };
 		AD13B7D81BBC2EE700AA3142 /* LeveyTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD13B7D61BBC2EE700AA3142 /* LeveyTabBarController.m */; };
 		AD13B86E1BBCC96B00AA3142 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AD13B8441BBCC96B00AA3142 /* MJRefreshAutoFooter.m */; };
@@ -468,6 +475,20 @@
 		33D4AA4B1BB92A9D0086D442 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
 		33D4AA4C1BB92A9D0086D442 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
 		33D4AA4E1BB92B410086D442 /* HeaderMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderMacro.h; sourceTree = "<group>"; };
+		33E18E701BD0A8250067FBE9 /* OtherUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherUserViewController.h; sourceTree = "<group>"; };
+		33E18E711BD0A8250067FBE9 /* OtherUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherUserViewController.m; sourceTree = "<group>"; };
+		33E18E731BD0A8590067FBE9 /* OtherUserHeaderVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherUserHeaderVIew.h; sourceTree = "<group>"; };
+		33E18E741BD0A8590067FBE9 /* OtherUserHeaderVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherUserHeaderVIew.m; sourceTree = "<group>"; };
+		33F3A6EB1BD0D2280024BC8B /* UserInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoService.h; sourceTree = "<group>"; };
+		33F3A6EC1BD0D2280024BC8B /* UserInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoService.m; sourceTree = "<group>"; };
+		33F3A6EE1BD0D2390024BC8B /* OtherUserInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherUserInfoService.h; sourceTree = "<group>"; };
+		33F3A6EF1BD0D2390024BC8B /* OtherUserInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherUserInfoService.m; sourceTree = "<group>"; };
+		33F3A6F11BD0D2EF0024BC8B /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = "HaiTunJia/Section/User(用户)/User/UserService/UserModel.h"; sourceTree = SOURCE_ROOT; };
+		33F3A6F21BD0D2EF0024BC8B /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = "HaiTunJia/Section/User(用户)/User/UserService/UserModel.m"; sourceTree = SOURCE_ROOT; };
+		33F3A6F41BD0D8220024BC8B /* OtherUserCollectService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherUserCollectService.h; sourceTree = "<group>"; };
+		33F3A6F51BD0D8220024BC8B /* OtherUserCollectService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherUserCollectService.m; sourceTree = "<group>"; };
+		33F3A6F71BD0D8440024BC8B /* OtherUserNoteListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherUserNoteListService.h; sourceTree = "<group>"; };
+		33F3A6F81BD0D8440024BC8B /* OtherUserNoteListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherUserNoteListService.m; sourceTree = "<group>"; };
 		AD13B7D31BBC2EE700AA3142 /* LeveyTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeveyTabBar.h; sourceTree = "<group>"; };
 		AD13B7D41BBC2EE700AA3142 /* LeveyTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeveyTabBar.m; sourceTree = "<group>"; };
 		AD13B7D51BBC2EE700AA3142 /* LeveyTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeveyTabBarController.h; sourceTree = "<group>"; };
@@ -2210,6 +2231,8 @@
 		AD9BEB1F1BC0DBD3004D662B /* UserModel */ = {
 			isa = PBXGroup;
 			children = (
+				33F3A6F11BD0D2EF0024BC8B /* UserModel.h */,
+				33F3A6F21BD0D2EF0024BC8B /* UserModel.m */,
 			);
 			path = UserModel;
 			sourceTree = "<group>";
@@ -2221,6 +2244,14 @@
 				AD4D20801BC81CCA00732CC0 /* UserCollectService.m */,
 				33747E7F1BC8DA900076D921 /* UserNoteListService.h */,
 				33747E801BC8DA900076D921 /* UserNoteListService.m */,
+				33F3A6EB1BD0D2280024BC8B /* UserInfoService.h */,
+				33F3A6EC1BD0D2280024BC8B /* UserInfoService.m */,
+				33F3A6EE1BD0D2390024BC8B /* OtherUserInfoService.h */,
+				33F3A6EF1BD0D2390024BC8B /* OtherUserInfoService.m */,
+				33F3A6F41BD0D8220024BC8B /* OtherUserCollectService.h */,
+				33F3A6F51BD0D8220024BC8B /* OtherUserCollectService.m */,
+				33F3A6F71BD0D8440024BC8B /* OtherUserNoteListService.h */,
+				33F3A6F81BD0D8440024BC8B /* OtherUserNoteListService.m */,
 			);
 			path = UserService;
 			sourceTree = "<group>";
@@ -2230,6 +2261,8 @@
 			children = (
 				AD9BEB241BC0DC0F004D662B /* UserViewController.h */,
 				AD9BEB251BC0DC0F004D662B /* UserViewController.m */,
+				33E18E701BD0A8250067FBE9 /* OtherUserViewController.h */,
+				33E18E711BD0A8250067FBE9 /* OtherUserViewController.m */,
 			);
 			path = UserViewController;
 			sourceTree = "<group>";
@@ -2239,6 +2272,8 @@
 			children = (
 				AD9BEB271BC0DD54004D662B /* UserHeaderView.h */,
 				AD9BEB281BC0DD54004D662B /* UserHeaderView.m */,
+				33E18E731BD0A8590067FBE9 /* OtherUserHeaderVIew.h */,
+				33E18E741BD0A8590067FBE9 /* OtherUserHeaderVIew.m */,
 			);
 			path = UserView;
 			sourceTree = "<group>";
@@ -2800,6 +2835,7 @@
 				ADCD771E1BBFB86E004B6493 /* SearchResultViewController.m in Sources */,
 				ADCD772D1BBFD926004B6493 /* NetworkErrorCode.m in Sources */,
 				AD51D4EB1BB7CD1300A75753 /* iToast.m in Sources */,
+				33F3A6F61BD0D8220024BC8B /* OtherUserCollectService.m in Sources */,
 				AD9BEB331BC0F1BC004D662B /* CustomTabView.m in Sources */,
 				33747E811BC8DA900076D921 /* UserNoteListService.m in Sources */,
 				AD51D4FF1BB7CD1300A75753 /* SDWebImageDecoder.m in Sources */,
@@ -2837,7 +2873,9 @@
 				AD893BBD1BC375140050C5AD /* GetVerifyCodeService.m in Sources */,
 				AD9B3D1C1BBBAA4B001078B9 /* MJPropertyKey.m in Sources */,
 				ADCD771B1BBFADFC004B6493 /* WaterFallListCell.m in Sources */,
+				33F3A6F31BD0D2EF0024BC8B /* UserModel.m in Sources */,
 				33D4AA171BB9213F0086D442 /* NSDate+Additions.m in Sources */,
+				33E18E721BD0A8250067FBE9 /* OtherUserViewController.m in Sources */,
 				ADCD77341BC013F5004B6493 /* AppDelegateHelper.m in Sources */,
 				AD51D4F41BB7CD1300A75753 /* NSArray+MASAdditions.m in Sources */,
 				AD51D5081BB7CD1300A75753 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -2848,6 +2886,7 @@
 				33747E9A1BC8EEBB0076D921 /* PraiseViewController.m in Sources */,
 				AD13B8711BBCC96B00AA3142 /* MJRefreshFooter.m in Sources */,
 				AD51D4EE1BB7CD1300A75753 /* MASCompositeConstraint.m in Sources */,
+				33E18E751BD0A8590067FBE9 /* OtherUserHeaderVIew.m in Sources */,
 				33747E921BC8E52B0076D921 /* CommentService.m in Sources */,
 				33B2B6B31BCE315F007809FC /* TagListCell.m in Sources */,
 				AD51D5091BB7CD1300A75753 /* UIImageView+WebCache.m in Sources */,
@@ -2901,6 +2940,7 @@
 				AD51D4E31BB7CD1300A75753 /* AFHTTPRequestOperationManager.m in Sources */,
 				AD51D4E41BB7CD1300A75753 /* AFHTTPSessionManager.m in Sources */,
 				AD13B8771BBCC96B00AA3142 /* MJRefreshBackNormalFooter.m in Sources */,
+				33F3A6F91BD0D8440024BC8B /* OtherUserNoteListService.m in Sources */,
 				AD13B8961BBCF7ED00AA3142 /* HomeListModel.m in Sources */,
 				339740221BCBB8A300551BF6 /* HTJCommon.m in Sources */,
 				33973FD01BCB585D00551BF6 /* MMMaterialDesignSpinner.m in Sources */,
@@ -2919,6 +2959,7 @@
 				AD4D20921BC9611400732CC0 /* CommentListCell.m in Sources */,
 				AD13B8721BBCC96B00AA3142 /* MJRefreshHeader.m in Sources */,
 				AD51D4E81BB7CD1300A75753 /* AFURLRequestSerialization.m in Sources */,
+				33F3A6F01BD0D2390024BC8B /* OtherUserInfoService.m in Sources */,
 				AD9B3D1F1BBBAA4B001078B9 /* NSObject+MJCoding.m in Sources */,
 				33D4AA241BB9213F0086D442 /* UIView+Additions.m in Sources */,
 				AD51D43F1BB7CADF00A75753 /* AppDelegate.m in Sources */,
@@ -2941,6 +2982,7 @@
 				33D4AA261BB9213F0086D442 /* UIWindow+Additions.m in Sources */,
 				AD51BAB41BBE727000C94388 /* LoginViewController.m in Sources */,
 				33D4AA4D1BB92A9D0086D442 /* UIImage+Additions.m in Sources */,
+				33F3A6ED1BD0D2280024BC8B /* UserInfoService.m in Sources */,
 				AD13B8801BBCC96B00AA3142 /* UIView+MJExtension.m in Sources */,
 				AD13B8761BBCC96B00AA3142 /* MJRefreshBackGifFooter.m in Sources */,
 				AD13B8781BBCC96B00AA3142 /* MJRefreshBackStateFooter.m in Sources */,
@@ -2993,8 +3035,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3016,7 +3058,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "c57bc6a7-6bd8-4dd5-858f-bd7c8c172825";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3038,8 +3080,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3054,7 +3096,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "c57bc6a7-6bd8-4dd5-858f-bd7c8c172825";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3065,7 +3107,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HaiTunJia.pch";
@@ -3074,7 +3116,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.dfb365.ihHouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c57bc6a7-6bd8-4dd5-858f-bd7c8c172825";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3083,8 +3125,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HaiTunJia.pch";
@@ -3093,7 +3135,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.dfb365.ihHouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c57bc6a7-6bd8-4dd5-858f-bd7c8c172825";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

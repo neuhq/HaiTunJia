@@ -2,7 +2,6 @@
 #import "NoteDetailInfoCell.h"
 #import "UIImageView+WebCache.h"
 #import "DWTagList.h"
-#import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
 const CGFloat kNoteDetailInfoCellFirstPartHeight  = 60.0f;
 const CGFloat kNoteDetailInfoCellAvatarImageViewHeight   = 40.0f;
@@ -20,7 +19,7 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
 @property(nonatomic,strong) UIView *bottomView;
 
 //头像
-@property(nonatomic,strong) UIImageView *avatarImageView;
+@property(nonatomic,strong) UIButton *avatarImageView;
 
 //姓名
 @property(nonatomic,strong) UILabel *name;
@@ -112,11 +111,11 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     }
     return _topView;
 }
--(UIImageView *) avatarImageView
+-(UIButton *) avatarImageView
 {
     if (!_avatarImageView)
     {
-        _avatarImageView = [[UIImageView alloc]initWithFrame:CGRectMake(kNoteDetailInfoCellLeftOffset, (kNoteDetailInfoCellFirstPartHeight - kNoteDetailInfoCellAvatarImageViewHeight)/2, kNoteDetailInfoCellAvatarImageViewHeight, kNoteDetailInfoCellAvatarImageViewHeight)];
+        _avatarImageView = [[UIButton alloc]initWithFrame:CGRectMake(kNoteDetailInfoCellLeftOffset, (kNoteDetailInfoCellFirstPartHeight - kNoteDetailInfoCellAvatarImageViewHeight)/2, kNoteDetailInfoCellAvatarImageViewHeight, kNoteDetailInfoCellAvatarImageViewHeight)];
 //        _avatarImageView.image = [UIImage imageNamed:@"classfy_muying"];
         _avatarImageView.backgroundColor = [UIColor clearColor];
         _avatarImageView.layer.masksToBounds = YES;
@@ -302,7 +301,8 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
 {
     self.tagArray = [NSArray arrayWithObjects:detailModel.commodity.tag1,detailModel.commodity.tag2,detailModel.commodity.tag3 ,nil];
     self.name.text = detailModel.follow.userName;
-    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] placeholderImage:nil];
+    [self.avatarImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] forState:UIControlStateNormal];
+    [self.avatarImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] forState:UIControlStateHighlighted];
     NSString *string = detailModel.commodity.picture;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:string]];
     UIImage *image = [UIImage imageWithData:imageData];

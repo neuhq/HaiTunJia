@@ -4,6 +4,7 @@
 #import "HomeListModel.h"
 #import "UIImageView+WebCache.h"
 #import "UILabel+Additions.h"
+#import "UIButton+WebCache.h"
 static const CGFloat kHomeCellLeftOffset              = 10.0f;
 static const CGFloat kHomeCellTopOffset              = 10.0f;
 static const CGFloat kHomeCellAvatarHeight         =  30.0f;
@@ -12,11 +13,11 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
 
 #pragma mark -- UI
 //头像
--(UIImageView *)avatarImageView
+-(UIButton *)avatarImageView
 {
     if (!_avatarImageView)
     {
-        _avatarImageView = [[UIImageView alloc]init];
+        _avatarImageView = [[UIButton alloc]init];
         _avatarImageView.frame  = CGRectMake(kHomeCellLeftOffset,
                                                  kHomeCellTopOffset,
                                                  kHomeCellAvatarHeight,
@@ -246,7 +247,8 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
 -(void)setCellData:(DataModel *)dataModel{
     self.dataModel = dataModel;
     //头像
-    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.dataModel.userPic] placeholderImage:nil];
+    [self.avatarImageView  sd_setBackgroundImageWithURL:[NSURL URLWithString:self.dataModel.userPic] forState:UIControlStateNormal];
+    [self.avatarImageView  sd_setBackgroundImageWithURL:[NSURL URLWithString:self.dataModel.userPic] forState:UIControlStateHighlighted];
     
     //姓名
     NSString *nameString  = self.dataModel.userName;

@@ -1,19 +1,21 @@
+
 #import <UIKit/UIKit.h>
 #import "UserModel.h"
 
-@protocol UserHeaderViewDelegate <NSObject>
+@protocol OtherUserHeaderVIewDelegate <NSObject>
 
 
 -(void)selectTabAtIndex:(NSInteger )index;
 
 @end
 
-@interface UserHeaderView : UICollectionReusableView
+@interface OtherUserHeaderVIew : UICollectionReusableView
 
-@property(weak,nonatomic) id<UserHeaderViewDelegate> delegate;
+@property(weak,nonatomic) id<OtherUserHeaderVIewDelegate> delegate;
 
 +(CGFloat) getHeaderHeight;
 
 -(void)reloadUserInfo:(UserModel *) userModel;
+
 
 @end

@@ -9,8 +9,8 @@
     CGFloat width =(kScreenWidth - 30)/2;
     for(ListModel *listModel in array)
     {
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:listModel.picture]];
-        UIImage *image = [UIImage imageWithData:imageData];
+        NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:listModel.picture]];
+        UIImage *image  = [[UIImage alloc]initWithData:imageData];
         listModel.bigImageHeight = image.size.height/image.size.width * width;
         CGSize size = [listModel.content sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0f]}];
         listModel.cellHeight = listModel.bigImageHeight + (size.height * 2+ 20) + (5+ 5 + messageImage.size.height);

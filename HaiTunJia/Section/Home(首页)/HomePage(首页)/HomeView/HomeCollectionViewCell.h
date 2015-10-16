@@ -11,7 +11,7 @@
 @interface HomeCollectionViewCell : UICollectionViewCell
 
 /**头像*/
-@property(nonatomic,strong) UIImageView *avatarImageView;
+@property(nonatomic,strong) UIButton *avatarImageView;
 
 /**姓名*/
 @property(nonatomic,strong) UILabel *name;

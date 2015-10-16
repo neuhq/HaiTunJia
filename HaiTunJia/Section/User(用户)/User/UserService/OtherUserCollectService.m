@@ -1,14 +1,13 @@
 
-#import "UserNoteListService.h"
+
+#import "OtherUserCollectService.h"
 #import "WaterFallFlowListDataModel.h"
-
-@implementation UserNoteListService
-
--(void)startRequestUserNoteListWithParams:(SetParamsBlock) params
-                    responsDataWithResult:(UserNoteListBlock) notelList
-                         failedWithResult:(FailureBlock) failed
+@implementation OtherUserCollectService
+-(void)startRequestOtherUserCollect:(SetParamsBlock) params
+                            respons:(OtherUserCollectInfoBlock) info
+                             failed:(FailureBlock) failed
 {
-    UserNoteListService *service = [self initWithApiUrl:kApi_GetUserReleaseList];
+    OtherUserCollectService *service = [self initWithApiUrl:kApi_GetOtherUserRlist];
     [service requestDataWithParamsBlcok:^{
         self.userId = kUSERID;
         params();
@@ -20,11 +19,12 @@
             {
                 [list computeCellHeight:list.data];
             }
-            notelList(list.data);
+            info(list.data);
         }
         else
         {
-            [self showResponsMessage:list.state.message];
+            iToast *toast = [[iToast alloc]initWithText:list.state.message];
+            [toast show];
         }
 
     } failureBlock:^(NSError *error) {

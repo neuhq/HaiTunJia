@@ -1,4 +1,6 @@
-#import "UserViewController.h"
+
+
+#import "OtherUserViewController.h"
 #import "WaterFallListCell.h"
 #import "CHTCollectionViewWaterfallLayout.h"
 #import "UserHeaderView.h"
@@ -7,19 +9,21 @@
 #import "UserNoteListService.h"
 #import "PraiseResult.h"
 #import "DetailController.h"
+#import "OtherUserInfoService.h"
 #import "UserModel.h"
-#import "UserInfoService.h"
+#import "OtherUserCollectService.h"
+#import "OtherUserNoteListService.h"
+#import "OtherUserHeaderVIew.h"
 
 static NSString *const kUserCollectionCellIndentifer =  @"kUserCollectionCellIndentifer";
 static NSString *const kUserHeaderViewIndentifer = @"kUserHeaderViewIndentifer";
-@interface UserViewController ()
+
+@interface OtherUserViewController ()
 <UICollectionViewDataSource,
 CHTCollectionViewDelegateWaterfallLayout,
 UICollectionViewDelegate,
 UICollectionViewDelegateFlowLayout,
-UserHeaderViewDelegate>
-
-
+OtherUserHeaderVIewDelegate>
 
 @property(nonatomic,strong) UICollectionView *userCollectionView;
 
@@ -32,7 +36,7 @@ UserHeaderViewDelegate>
 //用于分页
 @property (nonatomic,strong) NSString * lastCommodityId;
 
-@property (nonatomic,strong) UserHeaderView *hearderView;
+@property (nonatomic,strong) OtherUserHeaderVIew *hearderView;
 
 @property (nonatomic,assign) NSInteger tabAtIndex;
 
@@ -40,7 +44,7 @@ UserHeaderViewDelegate>
 
 @end
 
-@implementation UserViewController
+@implementation OtherUserViewController
 #pragma mark -- life cycle
 - (void)viewDidLoad
 {
@@ -57,17 +61,15 @@ UserHeaderViewDelegate>
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self  hideTabbar:NO];
     if (self.isLoadView)
     {
-        [self getUserInfo];
+        [self getOtherUserInfo];
         [self selectTabAtIndex:0];
     }
     [super viewDidAppear:animated];
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [self hideTabbar:YES];
     [super viewWillDisappear:animated];
 }
 #pragma mark -- UI
@@ -79,19 +81,19 @@ UserHeaderViewDelegate>
         layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
         layout.minimumColumnSpacing = 10;
         layout.minimumInteritemSpacing = 10;
-        layout.headerHeight = [UserHeaderView getHeaderHeight];
-        _userCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth,kScreenHeight - kNavigationBarHeight - CONTENT_TABBAR_HEIGHT) collectionViewLayout:layout];
+        layout.headerHeight = [OtherUserHeaderVIew getHeaderHeight];
+        _userCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth,kScreenHeight - kNavigationBarHeight ) collectionViewLayout:layout];
         _userCollectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _userCollectionView.dataSource = self;
         _userCollectionView.delegate = self;
         _userCollectionView.backgroundColor = [UIColor whiteColor];
-
+        
         [_userCollectionView registerClass:[WaterFallListCell class]
-                       forCellWithReuseIdentifier:kUserCollectionCellIndentifer];
-        [_userCollectionView registerClass:[UserHeaderView  class]
+                forCellWithReuseIdentifier:kUserCollectionCellIndentifer];
+        [_userCollectionView registerClass:[OtherUserHeaderVIew  class]
                 forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader
                        withReuseIdentifier:kUserHeaderViewIndentifer];
-
+        
     }
     return _userCollectionView;
 }
@@ -99,10 +101,6 @@ UserHeaderViewDelegate>
 -(void)viewConfig
 {
     self.isNavigationBar = NO;
-    [self setTitle:@"海豚小溪"];
-    self.leftBarButton.hidden = YES;
-    self.rightBarButton.hidden = NO;
-    self.rightView = [UIImage imageNamed:@"icon_setting"];
 }
 -(void)initArray
 {
@@ -113,7 +111,7 @@ UserHeaderViewDelegate>
 {
     // 下拉刷新
     // 上拉刷新
-    __weak UserViewController *weakSelf = self;
+    __weak OtherUserViewController *weakSelf = self;
     self.userCollectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         // 进入刷新状态后会自动调用这个block
         weakSelf.isLoadMore = YES;
@@ -133,13 +131,15 @@ UserHeaderViewDelegate>
 }
 
 #pragma mark -- HTTP
--(void)getUserInfo
+-(void)getOtherUserInfo
 {
-    UserInfoService *service = [[UserInfoService alloc]init];
-    [service startRefrashUserInfo:^{
-        
+    OtherUserInfoService *service = [[OtherUserInfoService alloc]init];
+    [service starRequestUserInfo:^{
+        service.commodityId = self.commodityId;
     } respons:^(id object) {
-        self.userModel = object;
+        UserModel *userModel = object;
+        self.userModel = userModel;
+        [self setTitle:userModel.data.nick];
         [self.hearderView reloadUserInfo:self.userModel];
     } failed:^(NSError *error) {
         
@@ -149,6 +149,7 @@ UserHeaderViewDelegate>
 {
     UserCollectService *service = [[UserCollectService alloc]init];
     [service startRequestUserCollectWithParams:^{
+        service.userId = kUSERID;
         service.lastCommodityId = self.lastCommodityId;
     } withResponsDataWithUserColletInfo:^(id object) {
         NSArray *array = object;
@@ -178,14 +179,15 @@ UserHeaderViewDelegate>
     } withFailed:^(NSError *error) {
         [self endRefrashLoad];
     }];
-
+    
 }
 -(void)getNoteListData
 {
-    __weak UserViewController *weakSelf = self;
-    UserNoteListService *service = [[UserNoteListService alloc]init];
+    __weak OtherUserViewController *weakSelf = self;
+    OtherUserNoteListService *service = [[OtherUserNoteListService alloc]init];
     [service startRequestUserNoteListWithParams:^{
         service.lastCommodityId = weakSelf.lastCommodityId;
+        service.commodityId = self.commodityId;
     } responsDataWithResult:^(id object) {
         NSArray *array = object;
         
@@ -211,10 +213,10 @@ UserHeaderViewDelegate>
         }
         [weakSelf.userCollectionView reloadData];
         [weakSelf endRefrashLoad];
-
+        
     } failedWithResult:^(NSError *error) {
         [self endRefrashLoad];
-
+        
     }];
 }
 #pragma mark -- delegate
@@ -235,12 +237,12 @@ UserHeaderViewDelegate>
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-        if(self.listArray)
-        {
-            return self.listArray.count;
-        }
-        else
-            return 0;
+    if(self.listArray)
+    {
+        return self.listArray.count;
+    }
+    else
+        return 0;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -274,9 +276,9 @@ UserHeaderViewDelegate>
     UICollectionReusableView *reusableView = nil;
     if ([kind isEqualToString:CHTCollectionElementKindSectionHeader])
     {
-         self.hearderView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                                                   withReuseIdentifier:kUserHeaderViewIndentifer
-                                                                                          forIndexPath:indexPath];
+        self.hearderView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                              withReuseIdentifier:kUserHeaderViewIndentifer
+                                                                     forIndexPath:indexPath];
         self.hearderView.delegate = self;
         reusableView = self.hearderView;
     }
@@ -287,7 +289,7 @@ UserHeaderViewDelegate>
     ListModel *dataModel = [self.listArray objectAtIndex:indexPath.row];
     DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
     [self.navigationController pushViewController:detail animated:YES];
-
+    
 }
 #pragma mark -- Action
 -(void)rightButtonAction
