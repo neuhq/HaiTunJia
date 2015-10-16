@@ -1256,6 +1256,21 @@
 			path = SystemFramework;
 			sourceTree = "<group>";
 		};
+		33F3A6FA1BD0EE4F0024BC8B /* Set */ = {
+			isa = PBXGroup;
+			children = (
+				33F3A6FB1BD0EE4F0024BC8B /* SetViewContorller */,
+			);
+			path = Set;
+			sourceTree = "<group>";
+		};
+		33F3A6FB1BD0EE4F0024BC8B /* SetViewContorller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SetViewContorller;
+			sourceTree = "<group>";
+		};
 		AD13B7D21BBC2EE700AA3142 /* CustomTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1301,6 +1316,7 @@
 		AD13B7EE1BBC303600AA3142 /* User(用户) */ = {
 			isa = PBXGroup;
 			children = (
+				33F3A6FA1BD0EE4F0024BC8B /* Set */,
 				AD9BEB1E1BC0DBD3004D662B /* User */,
 				AD51BAAD1BBE725800C94388 /* Login */,
 			);

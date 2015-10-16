@@ -15,7 +15,7 @@
         NSDictionary *dic = result[@"state"];
         iToast *toast = [[iToast alloc]initWithText:dic[@"message"]];
         [toast show];
-        info(dic);
+        info(dic[@"code"]);
 
     } failureBlock:^(NSError *error) {
         fail(error);

@@ -31,21 +31,34 @@ UIGestureRecognizerDelegate>
     });
     return sharedAccountManagerInstance;
 }
+-(id)init
+{
+    self = [super init];
+    if (self)
+    {
+        [self initArray];
+        [self.view addSubview:self.photoCollectionView];
+        [self performSelectorInBackground:@selector(getPhotoAllGroup) withObject:nil];
 
+    }
+    return self;
+}
 #pragma mark  --- life cycle
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self initArray];
-    
-    [self viewConfig];
-    
-    [self getPhotoAllGroup];
-    
-    [self.view addSubview:self.photoCollectionView];
+//    [self initArray];
+//    
+//    [self viewConfig];
+//    
+//    
+//    [self getPhotoAllGroup];
+//    
+//            [self.view addSubview:self.photoCollectionView];
 
 }
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];

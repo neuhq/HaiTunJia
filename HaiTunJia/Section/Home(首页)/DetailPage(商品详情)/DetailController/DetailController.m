@@ -5,6 +5,8 @@
 #import "DetailModel.h"
 #import "CollectCommdityService.h"
 #import "CommentListCell.h"
+#import "PraiseCommodityService.h"
+
 @interface DetailController ()
 <DetailBottomViewDelegate,
 NoteDetailInfoCellDelegate>
@@ -56,6 +58,7 @@ NoteDetailInfoCellDelegate>
         _detailTableView.dataSource = self;
         _detailTableView.backgroundColor = [UIColor clearColor];
         _detailTableView.bounces = YES;
+        _detailTableView.hidden = YES;
         _detailTableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     }
     return _detailTableView;
@@ -67,6 +70,7 @@ NoteDetailInfoCellDelegate>
         _bottomView = [[DetailBottomView alloc]initWithFrame:CGRectMake(0, kScreenHeight - 44.0f, kScreenWidth, 44.0f)];
         _bottomView.backgroundColor = [UIColor whiteColor];
         _bottomView.delegate = self;
+        _bottomView.hidden = YES;
     }
     return _bottomView;
 }
@@ -84,6 +88,9 @@ NoteDetailInfoCellDelegate>
         service.commodityId = self.noteId;
     } withDetailInfo:^(id object) {
         self.detailModel = object;
+        self.detailTableView.hidden = NO;
+        self.bottomView.hidden = NO;
+        [self.bottomView reloadState:self.detailModel];
         [self.detailTableView reloadData];
     } withFailed:^(NSError *error) {
         
@@ -96,8 +103,34 @@ NoteDetailInfoCellDelegate>
     [service startRequestUserCollectWithParams:^{
         service.commodityId = self.noteId;
     } withResponsDataWithUserColletInfo:^(id object) {
-        
+        if ([object integerValue] == 0)
+        {
+            [self.bottomView reloadCollectState:YES];
+        }
+        else
+        {
+            [self.bottomView reloadCollectState:NO];
+        }
     } withFailed:^(NSError *error) {
+        
+    }];
+}
+-(void)praiseCommodidy
+{
+    PraiseCommodityService *service = [[PraiseCommodityService alloc]init];
+    [service startRquestPraiseCommodity:^{
+        service.commodityId = [NSString stringWithFormat:@"%ld",self.detailModel.data.commodity.iD];
+    } praiseRespons:^(id obj) {
+        if ([obj[@"code"] integerValue] == 0 )
+        {
+            [self.bottomView reloadPraiseState:YES];
+        }
+        else
+        {
+            [self.bottomView reloadPraiseState:NO];
+        }
+        
+    } failed:^(NSError *error) {
         
     }];
 }
@@ -118,7 +151,7 @@ NoteDetailInfoCellDelegate>
             break;
         case DetailBottomViewButtonType_like:
         {
-            
+            [self praiseCommodidy];
         }
             break;
         case DetailBottomViewButtonType_collect:

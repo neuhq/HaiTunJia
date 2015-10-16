@@ -13,6 +13,7 @@
         params();
     } FinishBlock:^(id result) {
         UserModel *userModel = [UserModel objectWithKeyValues:result];
+//        [userModel getAvatarImageHeight:userModel];
         if ([userModel.state.code integerValue] == 0)
         {
             info(userModel);

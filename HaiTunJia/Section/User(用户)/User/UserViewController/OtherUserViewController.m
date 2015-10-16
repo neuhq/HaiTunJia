@@ -42,6 +42,8 @@ OtherUserHeaderVIewDelegate>
 
 @property (nonatomic,strong) UserModel *userModel;
 
+@property (nonatomic,strong) UIImageView *bigImageView;
+
 @end
 
 @implementation OtherUserViewController
@@ -51,6 +53,7 @@ OtherUserHeaderVIewDelegate>
     [super viewDidLoad];
     [self initArray];
     [self viewConfig];
+//    [self.view addSubview:self.bigImageView];
     [self.view addSubview:self.userCollectionView];
     [self setRefrashControl];
 }
@@ -96,6 +99,15 @@ OtherUserHeaderVIewDelegate>
         
     }
     return _userCollectionView;
+}
+-(UIImageView *) bigImageView
+{
+    if (!_bigImageView)
+    {
+        _bigImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth, kScreenHeight - kNavigationBarHeight)];
+        _bigImageView.backgroundColor = [UIColor redColor];
+    }
+    return _bigImageView;
 }
 #pragma mark -- helper
 -(void)viewConfig

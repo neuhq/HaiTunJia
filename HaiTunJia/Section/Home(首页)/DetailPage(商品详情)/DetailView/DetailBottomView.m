@@ -1,7 +1,7 @@
 
 
 #import "DetailBottomView.h"
-
+#import "DetailModel.h"
 
 @interface DetailBottomView ()
 
@@ -9,7 +9,6 @@
 
 @property(nonatomic,strong) NSArray *selectImageArray;
 
-@property(nonatomic,strong) NSMutableArray *buttonArray;
 
 @end
 
@@ -80,5 +79,40 @@
 {
     if(self.delegate && [self.delegate respondsToSelector:@selector(selectBottomButtonAnIndx:)])
         [self.delegate selectBottomButtonAnIndx:sender.tag];
+}
+-(void)reloadState:(DetailModel *) detailModel
+{
+    if (detailModel.data.commodity.isPraised == 0)
+    {
+        UIButton *button = self.buttonArray[2];
+        button.selected = NO;
+    }
+    else
+    {
+        UIButton *button = self.buttonArray[2];
+        button.selected = YES;
+    }
+    
+    if (detailModel.data.commodity.isCollected == 0)
+    {
+        UIButton *button = self.buttonArray[3];
+        button.selected = NO;
+    }
+    else
+    {
+        UIButton *button = self.buttonArray[3];
+        button.selected = YES;
+    }
+}
+-(void)reloadCollectState:(BOOL) isSeleted
+{
+    UIButton *button = self.buttonArray[3];
+    button.selected = isSeleted;
+}
+
+-(void)reloadPraiseState:(BOOL) isSeleted
+{
+    UIButton *button = self.buttonArray[2];
+    button.selected = isSeleted;
 }
 @end

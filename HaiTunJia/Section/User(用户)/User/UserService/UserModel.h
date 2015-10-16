@@ -9,6 +9,8 @@
 
 @property (nonatomic, strong) UserData *data;
 
+-(void)getAvatarImageHeight:(UserModel *) userModel;
+
 @end
 
 
@@ -59,6 +61,8 @@
 @property (nonatomic, assign) NSInteger isBan;
 
 @property (nonatomic, assign) NSInteger integral;
+
+@property (nonatomic,assign) CGFloat bigAvtarHeight;
 
 @end
 

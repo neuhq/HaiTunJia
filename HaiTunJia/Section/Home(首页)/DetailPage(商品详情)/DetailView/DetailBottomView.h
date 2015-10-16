@@ -21,10 +21,19 @@ typedef NS_ENUM(NSInteger, DetailBottomViewButtonType) {
 
 @end
 
+@class  DetailModel;
 @interface DetailBottomView : UIView
 
 @property(nonatomic,strong) UIButton *buyButton;
 
 @property(nonatomic,weak) id<DetailBottomViewDelegate> delegate;
+
+@property(nonatomic,strong) NSMutableArray *buttonArray;
+
+-(void)reloadState:(DetailModel *) detailModel;
+
+-(void)reloadCollectState:(BOOL) isSeleted;
+
+-(void)reloadPraiseState:(BOOL) isSeleted;
 
 @end

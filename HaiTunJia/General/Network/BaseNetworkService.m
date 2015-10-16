@@ -69,7 +69,7 @@
                               FinishBlock:(FinishBlock)finishBlock
                              failureBlock:(FailureBlock)failureBlock
 {
-//    [WSProgressHUD showWithStatus:@"Loading..." maskType:WSProgressHUDMaskTypeDefault];
+    [WSProgressHUD showWithStatus:@"Loading..." maskType:WSProgressHUDMaskTypeDefault];
 
     
     // 判断当前是否有网络
@@ -98,7 +98,7 @@
                 NSDictionary *result = [responseObject objectFromJSONData];
         NSString *string = [result JSONString];
         NSLog(@"string:%@",string);
-//        [WSProgressHUD dismiss];
+        [WSProgressHUD dismiss];
                 finishBlock(result);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

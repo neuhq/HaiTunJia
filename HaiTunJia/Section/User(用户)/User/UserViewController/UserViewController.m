@@ -38,6 +38,8 @@ UserHeaderViewDelegate>
 
 @property (nonatomic,strong) UserModel *userModel;
 
+@property (nonatomic,strong) UIImageView *bigImageView;
+
 @end
 
 @implementation UserViewController
@@ -94,6 +96,15 @@ UserHeaderViewDelegate>
 
     }
     return _userCollectionView;
+}
+-(UIImageView *) bigImageView
+{
+    if (!_bigImageView)
+    {
+        _bigImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+        _bigImageView.backgroundColor = [UIColor redColor];
+    }
+    return _bigImageView;
 }
 #pragma mark -- helper
 -(void)viewConfig

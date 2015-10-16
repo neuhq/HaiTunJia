@@ -51,6 +51,7 @@
         if ([title isEqualToString:@"Camera Roll"])
             title = @"相机胶卷";
             self.navTitle = title;
+        self.isTapNavBarTitleView = YES;
         [self.group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
             if (result)
             {
