@@ -40,6 +40,7 @@
 		339984971BC63E1000AEECB7 /* PhotoGroupViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 339984961BC63E1000AEECB7 /* PhotoGroupViewCell.m */; };
 		33B2B6B01BCE2FC4007809FC /* AddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B2B6AF1BCE2FC4007809FC /* AddTagViewController.m */; };
 		33B2B6B31BCE315F007809FC /* TagListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B2B6B21BCE315F007809FC /* TagListCell.m */; };
+		33BF2AC21BD21FD400770D41 /* CommodityTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BF2AC11BD21FD400770D41 /* CommodityTagViewController.m */; };
 		33CDF00C1BC771E70023CF09 /* SearchWithKeywordService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF0091BC771E70023CF09 /* SearchWithKeywordService.m */; };
 		33CDF00D1BC771E70023CF09 /* SearchWithTagService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33CDF00B1BC771E70023CF09 /* SearchWithTagService.m */; };
 		33D4A9F21BB91F550086D442 /* CHTCollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4A9F11BB91F550086D442 /* CHTCollectionViewWaterfallLayout.m */; };
@@ -75,6 +76,8 @@
 		33D4AA4D1BB92A9D0086D442 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D4AA4C1BB92A9D0086D442 /* UIImage+Additions.m */; };
 		33E18E721BD0A8250067FBE9 /* OtherUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E18E711BD0A8250067FBE9 /* OtherUserViewController.m */; };
 		33E18E751BD0A8590067FBE9 /* OtherUserHeaderVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E18E741BD0A8590067FBE9 /* OtherUserHeaderVIew.m */; };
+		33EEE92D1BD23E6000F6DA16 /* TagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EEE92C1BD23E6000F6DA16 /* TagView.m */; };
+		33EEE9301BD24CC600F6DA16 /* ChangeFollowRelationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EEE92F1BD24CC600F6DA16 /* ChangeFollowRelationService.m */; };
 		33F3A6ED1BD0D2280024BC8B /* UserInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F3A6EC1BD0D2280024BC8B /* UserInfoService.m */; };
 		33F3A6F01BD0D2390024BC8B /* OtherUserInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F3A6EF1BD0D2390024BC8B /* OtherUserInfoService.m */; };
 		33F3A6F31BD0D2EF0024BC8B /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F3A6F21BD0D2EF0024BC8B /* UserModel.m */; };
@@ -157,13 +160,13 @@
 		AD37CF721BCBFEAE00B064A6 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF711BCBFEAE00B064A6 /* PublishViewController.m */; };
 		AD37CF751BCC006100B064A6 /* PublishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF741BCC006100B064A6 /* PublishCell.m */; };
 		AD37CF781BCE926900B064A6 /* PublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF771BCE926900B064A6 /* PublishService.m */; };
-		AD37CF7B1BD1406400B064A6 /* DetailTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF7A1BD1406400B064A6 /* DetailTableViewFooterView.m */; settings = {ASSET_TAGS = (); }; };
-		AD37CF7F1BD14F9100B064A6 /* YcKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF7E1BD14F9100B064A6 /* YcKeyBoardView.m */; settings = {ASSET_TAGS = (); }; };
-		AD37CF821BD15C0300B064A6 /* GetCommentService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF811BD15C0300B064A6 /* GetCommentService.m */; settings = {ASSET_TAGS = (); }; };
-		AD37CF851BD15CDA00B064A6 /* AddCommentService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF841BD15CDA00B064A6 /* AddCommentService.m */; settings = {ASSET_TAGS = (); }; };
-		AD37CF9D1BD167BE00B064A6 /* PersonalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF9A1BD167BE00B064A6 /* PersonalDataViewController.m */; settings = {ASSET_TAGS = (); }; };
-		AD37CF9E1BD167BE00B064A6 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF9C1BD167BE00B064A6 /* SetViewController.m */; settings = {ASSET_TAGS = (); }; };
-		AD37CFA11BD167F800B064A6 /* PersonViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CFA01BD167F800B064A6 /* PersonViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		AD37CF7B1BD1406400B064A6 /* DetailTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF7A1BD1406400B064A6 /* DetailTableViewFooterView.m */; };
+		AD37CF7F1BD14F9100B064A6 /* YcKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF7E1BD14F9100B064A6 /* YcKeyBoardView.m */; };
+		AD37CF821BD15C0300B064A6 /* GetCommentService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF811BD15C0300B064A6 /* GetCommentService.m */; };
+		AD37CF851BD15CDA00B064A6 /* AddCommentService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF841BD15CDA00B064A6 /* AddCommentService.m */; };
+		AD37CF9D1BD167BE00B064A6 /* PersonalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF9A1BD167BE00B064A6 /* PersonalDataViewController.m */; };
+		AD37CF9E1BD167BE00B064A6 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CF9C1BD167BE00B064A6 /* SetViewController.m */; };
+		AD37CFA11BD167F800B064A6 /* PersonViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD37CFA01BD167F800B064A6 /* PersonViewCell.m */; };
 		AD4C58831BCA756700C3E83C /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C587D1BCA756700C3E83C /* DetailModel.m */; };
 		AD4C58841BCA756700C3E83C /* CollectCommdityService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58801BCA756700C3E83C /* CollectCommdityService.m */; };
 		AD4C58851BCA756700C3E83C /* DetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4C58821BCA756700C3E83C /* DetailService.m */; };
@@ -430,6 +433,8 @@
 		33B2B6AF1BCE2FC4007809FC /* AddTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTagViewController.m; sourceTree = "<group>"; };
 		33B2B6B11BCE315F007809FC /* TagListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagListCell.h; sourceTree = "<group>"; };
 		33B2B6B21BCE315F007809FC /* TagListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagListCell.m; sourceTree = "<group>"; };
+		33BF2AC01BD21FD400770D41 /* CommodityTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommodityTagViewController.h; sourceTree = "<group>"; };
+		33BF2AC11BD21FD400770D41 /* CommodityTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommodityTagViewController.m; sourceTree = "<group>"; };
 		33CDF0081BC771E70023CF09 /* SearchWithKeywordService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWithKeywordService.h; sourceTree = "<group>"; };
 		33CDF0091BC771E70023CF09 /* SearchWithKeywordService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchWithKeywordService.m; sourceTree = "<group>"; };
 		33CDF00A1BC771E70023CF09 /* SearchWithTagService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchWithTagService.h; sourceTree = "<group>"; };
@@ -486,6 +491,10 @@
 		33E18E711BD0A8250067FBE9 /* OtherUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherUserViewController.m; sourceTree = "<group>"; };
 		33E18E731BD0A8590067FBE9 /* OtherUserHeaderVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherUserHeaderVIew.h; sourceTree = "<group>"; };
 		33E18E741BD0A8590067FBE9 /* OtherUserHeaderVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherUserHeaderVIew.m; sourceTree = "<group>"; };
+		33EEE92B1BD23E6000F6DA16 /* TagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagView.h; sourceTree = "<group>"; };
+		33EEE92C1BD23E6000F6DA16 /* TagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagView.m; sourceTree = "<group>"; };
+		33EEE92E1BD24CC600F6DA16 /* ChangeFollowRelationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeFollowRelationService.h; sourceTree = "<group>"; };
+		33EEE92F1BD24CC600F6DA16 /* ChangeFollowRelationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeFollowRelationService.m; sourceTree = "<group>"; };
 		33F3A6EB1BD0D2280024BC8B /* UserInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoService.h; sourceTree = "<group>"; };
 		33F3A6EC1BD0D2280024BC8B /* UserInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoService.m; sourceTree = "<group>"; };
 		33F3A6EE1BD0D2390024BC8B /* OtherUserInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherUserInfoService.h; sourceTree = "<group>"; };
@@ -1158,6 +1167,8 @@
 		339740171BCB9F7A00551BF6 /* EditPhotoView */ = {
 			isa = PBXGroup;
 			children = (
+				33EEE92B1BD23E6000F6DA16 /* TagView.h */,
+				33EEE92C1BD23E6000F6DA16 /* TagView.m */,
 			);
 			path = EditPhotoView;
 			sourceTree = "<group>";
@@ -1167,6 +1178,8 @@
 			children = (
 				339740191BCB9FAD00551BF6 /* EditPhotoViewController.h */,
 				3397401A1BCB9FAD00551BF6 /* EditPhotoViewController.m */,
+				33BF2AC01BD21FD400770D41 /* CommodityTagViewController.h */,
+				33BF2AC11BD21FD400770D41 /* CommodityTagViewController.m */,
 			);
 			path = EditPhotoViewController;
 			sourceTree = "<group>";
@@ -1735,6 +1748,8 @@
 				AD4C58901BCA76AD00C3E83C /* PraiseCommodityService.m */,
 				AD4C58931BCAA4C000C3E83C /* PraiseResult.h */,
 				AD4C58941BCAA4C000C3E83C /* PraiseResult.m */,
+				33EEE92E1BD24CC600F6DA16 /* ChangeFollowRelationService.h */,
+				33EEE92F1BD24CC600F6DA16 /* ChangeFollowRelationService.m */,
 			);
 			path = GeneralService;
 			sourceTree = "<group>";
@@ -2892,6 +2907,8 @@
 				33D4AA1F1BB9213F0086D442 /* UIColor+HSV.m in Sources */,
 				AD51D4F71BB7CD1300A75753 /* ViewController+MASAdditions.m in Sources */,
 				AD8378101BC5070700EC679C /* NoteDetailInfoCell.m in Sources */,
+				33BF2AC21BD21FD400770D41 /* CommodityTagViewController.m in Sources */,
+				33EEE92D1BD23E6000F6DA16 /* TagView.m in Sources */,
 				AD9B3D1B1BBBAA4B001078B9 /* MJProperty.m in Sources */,
 				AD9B3D221BBBAA4B001078B9 /* NSString+MJExtension.m in Sources */,
 				ADF614621BC4E4C2004FCABE /* LoginViewPasswordView.m in Sources */,
@@ -2924,6 +2941,7 @@
 				AD51D4EC1BB7CD1300A75753 /* JSONKit.m in Sources */,
 				33D4A9F21BB91F550086D442 /* CHTCollectionViewWaterfallLayout.m in Sources */,
 				AD37CF9E1BD167BE00B064A6 /* SetViewController.m in Sources */,
+				33EEE9301BD24CC600F6DA16 /* ChangeFollowRelationService.m in Sources */,
 				AD13B87F1BBCC96B00AA3142 /* UIScrollView+MJRefresh.m in Sources */,
 				AD51D50E1BB7D20C00A75753 /* BaseViewController.m in Sources */,
 				AD13B8731BBCC96B00AA3142 /* MJRefreshAutoGifFooter.m in Sources */,

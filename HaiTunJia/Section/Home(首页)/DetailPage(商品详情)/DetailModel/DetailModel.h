@@ -90,6 +90,8 @@
 
 @property (nonatomic, assign) NSInteger followerId;
 
+@property (nonatomic, assign) NSInteger followType;
+
 @end
 
 @interface PraisesModel : NSObject

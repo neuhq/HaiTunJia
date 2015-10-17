@@ -27,8 +27,7 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
 //地址
 @property(nonatomic,strong) UILabel *address;
 
-//关注
-@property(nonatomic,strong) UIButton *concern;
+
 
 //商品图
 @property(nonatomic,strong) UIImageView *goodsImageView;
@@ -165,8 +164,8 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
         _concern.layer.cornerRadius = 4.0f;
         _concern.layer.borderWidth = 0.5f;
         _concern.layer.borderColor = [[UIColor colorWithHexString:@"aeaeb2"] CGColor];
-        [_concern setTitle:@"关注" forState:UIControlStateNormal];
-        [_concern setTitle:@"关注" forState:UIControlStateHighlighted];
+//        [_concern setTitle:@"关注" forState:UIControlStateNormal];
+//        [_concern setTitle:@"关注" forState:UIControlStateHighlighted];
         _concern.titleLabel.font = [UIFont systemFontOfSize:12.0f];
         [_concern setTitleColor:[UIColor colorWithHexString:@"'aeaeb2"] forState:UIControlStateNormal];
         [_concern setTitleColor:[UIColor colorWithHexString:@"'aeaeb2"] forState:UIControlStateHighlighted];
@@ -303,6 +302,16 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     self.name.text = detailModel.follow.userName;
     [self.avatarImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] forState:UIControlStateNormal];
     [self.avatarImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] forState:UIControlStateHighlighted];
+    if (detailModel.follow.followType == 0) //未关注
+    {
+        [_concern setTitle:@"关注" forState:UIControlStateNormal];
+        [_concern setTitle:@"关注" forState:UIControlStateHighlighted];
+    }
+    else
+    {
+        [_concern setTitle:@"取消关注" forState:UIControlStateNormal];
+        [_concern setTitle:@"取消关注" forState:UIControlStateHighlighted];
+    }
     NSString *string = detailModel.commodity.picture;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:string]];
     UIImage *image = [UIImage imageWithData:imageData];

@@ -97,38 +97,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Section/UploadPhoto(&#x4e0a;&#x4f20;)/PhotoAlbum/PhotoAlbumViewController/PhotoAlbumViewController.m"
-            timestampString = "466683631.860013"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Section/UploadPhoto(&#x4e0a;&#x4f20;)/PhotoAlbum/PhotoAlbumViewController/PhotoAlbumViewController.m"
-            timestampString = "466683397.613046"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-init"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "HaiTunJia/Section/UploadPhoto(&#x4e0a;&#x4f20;)/PhotoAlbum/PhotoAlbumViewController/PhotoAlbumViewController+Helper.m"
             timestampString = "466684033.180337"
             startingColumnNumber = "9223372036854775807"

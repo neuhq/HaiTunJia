@@ -8,6 +8,8 @@
 #import "PraiseCommodityService.h"
 #import "DetailTableViewFooterView.h"
 #import "YcKeyBoardView.h"
+#import "AddCommentService.h"
+#import "ChangeFollowRelationService.h"
 
 @interface DetailController ()
 <DetailBottomViewDelegate,
@@ -25,6 +27,8 @@ YcKeyBoardViewDelegate>
 @property(nonatomic,strong) YcKeyBoardView *keyBoradView;
 
 @property (nonatomic,assign) CGFloat keyBoardHeight;
+
+@property (nonatomic,strong) NSString *commentContent;
 
 @end
 
@@ -167,6 +171,30 @@ YcKeyBoardViewDelegate>
         
     }];
 }
+-(void)addCommentRequest
+{
+    AddCommentService *service = [[AddCommentService alloc]init];
+    [service startRequestComment:^{
+        service.commodityId = self.noteId;
+        service.content = self.commentContent;
+        service.parentId = @"0";
+    } respons:^(id object) {
+        [self getNoteDetailInfo];
+    } failed:^(NSError *error) {
+        
+    }];
+}
+-(void)followRequest
+{
+    ChangeFollowRelationService *service = [[ChangeFollowRelationService alloc]init];
+    [service startRequestChangeFollow:^{
+        service.followId = [NSString stringWithFormat:@"%ld",self.detailModel.data.follow.userId];
+    } respons:^(id object) {
+        [self getNoteDetailInfo];
+    } failed:^(NSError *error) {
+        
+    }];
+}
 #pragma mark -- Delegate
 -(void)selectBottomButtonAnIndx:(DetailBottomViewButtonType)type
 {
@@ -212,7 +240,13 @@ YcKeyBoardViewDelegate>
     else if (section == DetailCellType_CommentAndLike)
         return 1;
     else if (section == DetailCellType_CommentList)
-        return self.detailModel.data.comments.count + 1;
+    {
+        if(self.detailModel.data.comments.count != 0)
+           return self.detailModel.data.comments.count + 1;
+        else
+            return 0;
+    }
+    
     return 0;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -232,6 +266,7 @@ YcKeyBoardViewDelegate>
         }
         if(self.detailModel)
            [cell setDataWithModel:self.detailModel.data];
+        [cell.concern addTarget:self action:@selector(concernMethord) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     else if (indexPath.section == DetailCellType_CommentAndLike)
@@ -353,8 +388,15 @@ YcKeyBoardViewDelegate>
 -(void)keyBoardViewHide:(YcKeyBoardView *)keyBoardView textView:(UITextView *)contentView
 {
     [contentView resignFirstResponder];
-    //接口请求
+    if (![contentView.text isEqualToString:@""] && contentView.text != nil)
+    {
+        self.commentContent = contentView.text;
+        [self addCommentRequest];
+    }//接口请求
     
 }
-
+-(void)concernMethord
+{
+    [self followRequest];
+}
 @end

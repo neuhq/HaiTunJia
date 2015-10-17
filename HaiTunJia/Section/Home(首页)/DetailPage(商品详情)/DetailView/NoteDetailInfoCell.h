@@ -11,6 +11,8 @@
 
 @interface NoteDetailInfoCell : UITableViewCell
 
+//关注
+@property(nonatomic,strong) UIButton *concern;
 
 @property(nonatomic,weak) id<NoteDetailInfoCellDelegate> delegate;
 
