@@ -47,6 +47,7 @@
     photo.isHidenLeftButton = YES;
     MessageIndexViewController *message = [[MessageIndexViewController alloc]init];
     UserViewController *user = [[UserViewController alloc]init];
+    [HTJCommon sharedManager].userVC = user;
     NSArray *array = [NSArray arrayWithObjects:home,hot,photo,message, user,nil];
     NSMutableArray *mutArray= [[NSMutableArray alloc]init];
     for(UIViewController *vc in array)

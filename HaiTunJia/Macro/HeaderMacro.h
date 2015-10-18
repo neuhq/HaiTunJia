@@ -46,6 +46,7 @@
 
 #import "UINavigationController+FDFullscreenPopGesture.h"
 
+#import "LoginViewController.h"
 
 #endif
 

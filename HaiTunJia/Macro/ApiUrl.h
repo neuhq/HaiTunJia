@@ -14,6 +14,12 @@
 //1.获取验证码
 #define kApi_GetVerifyCode                     [kApi_Base stringByAppendingString:@"api/v1/code"]
 
+//获取登陆验证码
+#define kApi_GetLoginCode                      [kApi_Base stringByAppendingString:@"api/v1/getLoginCode"]
+
+//验证码登陆
+#define kApi_CodeLogin                            [kApi_Base stringByAppendingString:@"api/v1/loginWithCode"]
+
 //2.用户注册
 #define kApi_UserRegist                           [kApi_Base stringByAppendingString:@"api/v1/regist"]
 

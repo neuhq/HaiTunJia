@@ -11,8 +11,11 @@
         params();
     } FinishBlock:^(id result) {
         NSDictionary *dic = result[@"state"];
+        NSDictionary *data = result[@"data"];
         if (dic[@"code"] == 0)
         {
+            [[NSUserDefaults standardUserDefaults] setObject:data[@"id"] forKey:kUserIdIndntifer];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             resultInfo(dic);
         }
         else

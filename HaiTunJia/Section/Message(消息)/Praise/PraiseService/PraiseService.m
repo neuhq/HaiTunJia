@@ -9,7 +9,7 @@
 {
     PraiseService *service = [self initWithApiUrl:kApi_GetLikeList];
     [service requestDataWithParamsBlcok:^{
-        self.userId = kUSERID;
+        self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         params();
     } FinishBlock:^(id result) {
         PraiseModel *praiseModel = [PraiseModel objectWithKeyValues:result];

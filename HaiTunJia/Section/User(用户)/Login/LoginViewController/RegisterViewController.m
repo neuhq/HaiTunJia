@@ -4,6 +4,7 @@
 #import "RegisterTextField.h"
 #import "RegisterService.h"
 #import "HomeViewController.h"
+#import "UserViewController.h"
 
 @interface RegisterViewController ()
 <UITextFieldDelegate>
@@ -70,14 +71,13 @@
         _registerButton.layer.masksToBounds = YES;
         _registerButton.layer.cornerRadius = 2.0f;
         _registerButton.tag = 0;
-        _registerButton.enabled = NO;
         [_registerButton setTitle:@"注册" forState:UIControlStateNormal];
         [_registerButton setTitle:@"注册" forState:UIControlStateHighlighted];
         [_registerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_registerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         _registerButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-        [_registerButton setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithHexString:@"cccccc"] rect:_registerButton.bounds] forState:UIControlStateNormal];
-        [_registerButton setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithHex:@"#cccccc" withAlpha:0.8f] rect:_registerButton.bounds] forState:UIControlStateHighlighted];
+        [_registerButton setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithHexString:@"03a9f6"] rect:_registerButton.bounds] forState:UIControlStateNormal];
+        [_registerButton setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithHex:@"#03a9f6" withAlpha:0.8f] rect:_registerButton.bounds] forState:UIControlStateHighlighted];
         [_registerButton addTarget:self action:@selector(registerAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _registerButton;
@@ -114,8 +114,13 @@
         service.nickName = self.registerTF1.text;
         service.password = self.registerTF2.text;
     } repons:^(id object) {
-        HomeViewController *home = [[HomeViewController alloc]init];
-        [self.navigationController pushViewController:home animated:YES];
+        NSArray *array = self.navigationController.viewControllers;
+        UIViewController *vc = array[0];
+        if ([vc isKindOfClass:[UserViewController class]])
+        {
+            [[HTJCommon sharedManager].userVC reloadUserData];
+        }
+        [self.navigationController popToRootViewControllerAnimated:YES];
     } failed:^(NSError *error) {
         
     }];
@@ -127,20 +132,20 @@
     toBeString = [toBeString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet ]];
     if(textField == self.registerTF1)
     {
-        if(toBeString.length < 2)
-            [self isEnableRegisterButton:NO];
-        else
-            [self isEnableRegisterButton:YES];
+//        if(toBeString.length < 2)
+//            [self isEnableRegisterButton:NO];
+//        else
+//            [self isEnableRegisterButton:YES];
         
-        if(toBeString.length > 5)
+        if(toBeString.length > 8)
             return NO;
     }
     else if (textField == self.registerTF2)
     {
-        if(toBeString.length < 12)
-            [self isEnableRegisterButton:NO];
-        else
-            [self isEnableRegisterButton:YES];
+//        if(toBeString.length < 12)
+//            [self isEnableRegisterButton:NO];
+//        else
+//            [self isEnableRegisterButton:YES];
         
         
         if (toBeString.length > 15)
@@ -151,7 +156,6 @@
 }
 -(BOOL)textFieldShouldClear:(UITextField *)textField
 {
-    [self isEnableRegisterButton:NO];
     return YES;
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField

@@ -7,9 +7,9 @@ typedef void(^LoginResultBlock) ();
 
 @property(nonatomic,strong) NSString *name;
 
-@property(nonatomic,strong) NSString *password;
+@property(nonatomic,strong) NSString *code;
 
 -(void)startLoginWithParams:(SetParamsBlock) params
-                             withResult:(LoginResultBlock) result
+                             withResult:(LoginResultBlock) results
                             withFailed:(FailureBlock) failed;
 @end

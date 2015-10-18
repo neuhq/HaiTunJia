@@ -51,7 +51,21 @@ YcKeyBoardViewDelegate>
     [super viewDidLoad];
     [self viewConfig];
     [self.view addSubview:self.detailTableView];
-    [self getNoteDetailInfo];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer])
+    {
+        [self getNoteDetailInfo];
+
+    }
+    else
+    {
+        __weak DetailController *this = self;
+        LoginViewController *login = [[LoginViewController alloc]init];
+        login.endBlock = ^(){
+            [this getNoteDetailInfo];
+        };
+        [self.navigationController pushViewController:login animated:YES];
+    }
+
     [self.view addSubview:self.bottomView];
 }
 -(void)viewWillAppear:(BOOL)animated

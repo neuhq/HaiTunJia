@@ -44,6 +44,13 @@ typedef NS_ENUM(NSInteger,LoginType)  {
 
 @property(nonatomic,strong) UITextField *codeTextField;
 
+//登陆按钮
+@property(nonatomic,strong) UIButton *loginButton;
+
+//使用密码登陆
+@property(nonatomic,strong) UIButton *passWordButton;
+
+
 @property(nonatomic,weak) id<LoginViewDelegate> delegate;
 
 @property(nonatomic,strong) NSTimer *timer;

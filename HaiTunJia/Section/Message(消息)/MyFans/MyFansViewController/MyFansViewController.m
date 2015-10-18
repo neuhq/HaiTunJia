@@ -27,7 +27,9 @@ UITableViewDataSource>
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    if (self.isLoadView)
+//    if (self.isLoadView)
+//    {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer])
     {
         if (self.type == MyFansOrFocusType_Myfans)
         {
@@ -37,8 +39,27 @@ UITableViewDataSource>
         {
             [self getFollowListData];
         }
-    }
 
+    }
+    else
+    {
+        __weak MyFansViewController *this = self;
+        LoginViewController *login = [[LoginViewController alloc]init];
+        login.endBlock = ^(){
+            if (this.type == MyFansOrFocusType_Myfans)
+            {
+                [this getFansListData];
+            }
+            else
+            {
+                [this getFollowListData];
+            }
+        };
+        [self.navigationController pushViewController:login animated:YES];
+        
+    }
+//    }
+//
     [super viewDidAppear:animated];
 }
 -(void)viewWillDisappear:(BOOL)animated

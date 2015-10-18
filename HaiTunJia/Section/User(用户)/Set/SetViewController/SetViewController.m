@@ -1,4 +1,5 @@
 #import "SetViewController.h"
+#import "PersonalDataViewController.h"
 
 @interface SetViewController ()
 <UITableViewDelegate,
@@ -142,6 +143,14 @@ UITableViewDataSource>
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0)
+    {
+        if (indexPath.row == 0)
+        {
+            PersonalDataViewController *person = [[PersonalDataViewController alloc]init];
+            [self.navigationController pushViewController:person animated:YES];
+        }
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {

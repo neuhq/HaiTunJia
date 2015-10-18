@@ -21,13 +21,6 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
 
 @property(nonatomic,strong) UIView *horizontalLine1;
 
-
-//登陆按钮
-@property(nonatomic,strong) UIButton *loginButton;
-
-//使用密码登陆
-@property(nonatomic,strong) UIButton *passWordButton;
-
 //微信登陆
 @property(nonatomic,strong) UIButton *wechatButton;
 
@@ -55,9 +48,9 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
         [self addSubview:self.codeTextField];
         [self addSubview:self.horizontalLine1];
         [self addSubview:self.loginButton];
-        [self addSubview:self.passWordButton];
-        [self addSubview:self.wechatButton];
-        [self addSubview:self.thirdLogin];
+//        [self addSubview:self.passWordButton];
+//        [self addSubview:self.wechatButton];
+//        [self addSubview:self.thirdLogin];
     }
     return self;
 }
@@ -123,18 +116,18 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
     if (!_loginButton)
     {
         _loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _loginButton.frame = CGRectMake(kLoginViewLeftOffset, self.horizontalLine.bottom + kLoginViewMidleOffset, kScreenWidth - 2*kLoginViewLeftOffset, kLoginButtonHeight);
+        _loginButton.frame = CGRectMake(kLoginViewLeftOffset, self.horizontalLine.bottom + kLoginViewMidleOffset + 40, kScreenWidth - 2*kLoginViewLeftOffset, kLoginButtonHeight);
         _loginButton.layer.masksToBounds = YES;
         _loginButton.layer.cornerRadius = 2.0f;
-        _loginButton.tag = 0;
-        _loginButton.enabled = NO;
-        [_loginButton setTitle:@"发送验证码" forState:UIControlStateNormal];
-        [_loginButton setTitle:@"发送验证码" forState:UIControlStateHighlighted];
+        _loginButton.tag = 1;
+        [_loginButton setTitle:@"登陆" forState:UIControlStateNormal];
+        [_loginButton setTitle:@"登陆" forState:UIControlStateHighlighted];
         [_loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         _loginButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-        [_loginButton setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithHexString:@"cccccc"] rect:_loginButton.bounds] forState:UIControlStateNormal];
-        [_loginButton setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithHex:@"#cccccc" withAlpha:0.8f] rect:_loginButton.bounds] forState:UIControlStateHighlighted];
+        [_loginButton setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithHexString:@"03a9f6"] rect:self.loginButton.bounds] forState:UIControlStateNormal];
+        [_loginButton setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithHex:@"#03a9f6" withAlpha:0.8f] rect:_loginButton.bounds] forState:UIControlStateHighlighted];
+
         [_loginButton addTarget:self action:@selector(sendVerfifyCode:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _loginButton;
@@ -196,13 +189,13 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
 {
     if (!_sendCode)
     {
-        NSString *passwordString = @"重新发送";
+        NSString *passwordString = @"获取验证码";
         CGSize size = [passwordString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0f]}];
         _sendCode = [UIButton buttonWithType:UIButtonTypeCustom];
-        _sendCode.hidden = YES;
         _sendCode.tag = 0;
         _sendCode.frame = CGRectMake(self.horizontalLine.right- size.width, self.horizontalLine.bottom + (44 - 15 - self.phoneTextField.height), size.width, self.code.height);
         _sendCode.titleLabel.font = [UIFont systemFontOfSize:12.0f];
+        [_sendCode setTitle:passwordString forState:UIControlStateNormal];
         [_sendCode setTitleColor:[UIColor colorWithHexString:@"03a9f6"] forState:UIControlStateNormal];
         [_sendCode setTitleColor:[UIColor colorWithHex:@"#03a9f6" withAlpha:0.8f] forState:UIControlStateHighlighted];
         _sendCode.backgroundColor = [UIColor clearColor];
@@ -217,7 +210,6 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
     {
         // 02 创建手机号输入文本框
         _codeTextField = [[UITextField alloc] initWithFrame:CGRectMake(self.horizontalLine.left, self.sendCode.top,self.horizontalLine.width - self.sendCode.width - 10, self.code.height)];
-        _codeTextField.hidden = YES;
         _codeTextField.font = [UIFont systemFontOfSize:16];
         _codeTextField.textColor = [UIColor colorWithHexString:@"4a4b4d"];
         _codeTextField.delegate = self;
@@ -236,7 +228,6 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
     if (!_horizontalLine1)
     {
         _horizontalLine1 = [[UIView alloc]initWithFrame:CGRectMake(kLoginViewLeftOffset  , self.codeTextField.bottom + 15.0f, kScreenWidth - 2*kLoginViewLeftOffset, kLoginViewLineHeight)];
-        _horizontalLine1.hidden = YES;
         _horizontalLine1.backgroundColor = [UIColor colorWithHexString:@"a3a5a8"];
     }
     return _horizontalLine1;
@@ -247,23 +238,23 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
     NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     if(textField == self.phoneTextField)
     {
-        if(toBeString.length < 11)
-            [self isEnableLoginButton:NO];
-        else
-            [self isEnableLoginButton:YES];
-        
+//        if(toBeString.length < 11)
+//            [self isEnableLoginButton:NO];
+//        else
+//            [self isEnableLoginButton:YES];
+    
         if(toBeString.length > 11)
             return NO;
     }
     else if (textField == self.codeTextField)
     {
-        if(toBeString.length < 4)
-            [self isEnableLoginButton:NO];
-        else
-            [self isEnableLoginButton:YES];
-
-        
-        if (toBeString.length > 4)
+//        if(toBeString.length < 4)
+//            [self isEnableLoginButton:NO];
+//        else
+//            [self isEnableLoginButton:YES];
+//
+//        
+        if (toBeString.length > 6)
             return NO;
     }
     return YES;
@@ -279,7 +270,7 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
 }
 - (BOOL)textFieldShouldClear:(UITextField *)textField
 {
-    [self isEnableLoginButton:NO];
+//    [self isEnableLoginButton:NO];
     return YES;
 }
 #pragma mark -- Action
@@ -292,22 +283,22 @@ static const CGFloat kLoginViewLineHeight   = 0.5f;
 //点击发送验证码或登陆
 -(void)sendVerfifyCode:(UIButton *) sender
 {
-    sender.tag++;
-    if (sender.tag > 1)
+//    sender.tag++;
+    if (sender.tag == 1)
     {
         if(self.delegate && [self.delegate respondsToSelector:@selector(getVerifyCodeOrLogin:)])
             [self.delegate getVerifyCodeOrLogin:LoginViewTapButtonActionType_Login];
     }
     else
     {
-        [UIView animateWithDuration:0.5f animations:^{
-            [self moveFrame];
-            [self showVerifyCodeTextField];
+//        [UIView animateWithDuration:0.5f animations:^{
+//            [self moveFrame];
+//            [self showVerifyCodeTextField];
             if(self.delegate && [self.delegate respondsToSelector:@selector(getVerifyCodeOrLogin:)])
                 [self.delegate getVerifyCodeOrLogin:LoginViewTapButtonActionType_GetVerifyCode];
-        } completion:^(BOOL finished) {
-            
-        }];
+//        } completion:^(BOOL finished) {
+//            
+//        }];
     }
 }
 #pragma mark -- helper

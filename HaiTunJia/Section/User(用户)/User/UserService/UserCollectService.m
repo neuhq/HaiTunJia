@@ -9,7 +9,7 @@
 {
     UserCollectService *service = [self initWithApiUrl:kApi_GetUserCollectList];
     [service requestDataWithParamsBlcok:^{
-        self.userId = kUSERID;
+        self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         params();
     } FinishBlock:^(id result) {
         WaterFallFlowListDataModel *list = [WaterFallFlowListDataModel objectWithKeyValues:result];

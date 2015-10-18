@@ -7,7 +7,7 @@
 {
     FollowService *service = [self initWithApiUrl:kApi_GetFollowList];
     [service requestDataWithParamsBlcok:^{
-        self.userId = kUSERID;
+        self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         params();
     } FinishBlock:^(id result) {
         FollowInfoModel *model = [FollowInfoModel objectWithKeyValues:result];

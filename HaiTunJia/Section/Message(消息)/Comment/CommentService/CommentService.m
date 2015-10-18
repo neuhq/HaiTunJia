@@ -10,7 +10,7 @@
 {
     CommentService *service = [self initWithApiUrl:kApi_GetCommentList];
     [service requestDataWithParamsBlcok:^{
-        self.userId = kUSERID;
+        self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         params();
     } FinishBlock:^(id result) {
         CommentModel *comment = [CommentModel objectWithKeyValues:result];

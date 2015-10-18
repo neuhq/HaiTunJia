@@ -10,6 +10,8 @@
 #import "UserModel.h"
 #import "UserInfoService.h"
 #import "SetViewController.h"
+#import "LoginViewController.h"
+
 static NSString *const kUserCollectionCellIndentifer =  @"kUserCollectionCellIndentifer";
 static NSString *const kUserHeaderViewIndentifer = @"kUserHeaderViewIndentifer";
 @interface UserViewController ()
@@ -62,8 +64,22 @@ UserHeaderViewDelegate>
     [self  hideTabbar:NO];
     if (self.isLoadView)
     {
-        [self getUserInfo];
-        [self selectTabAtIndex:0];
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer])
+        {
+            [self getUserInfo];
+            [self selectTabAtIndex:0];
+        }
+        else
+        {
+            __weak UserViewController *this = self;
+            LoginViewController *loginVC = [[LoginViewController alloc]init];
+            loginVC.endBlock = ^()
+            {
+                [this reloadUserData];
+            };
+            [self.navigationController pushViewController:loginVC animated:YES];
+            
+        }
     }
     [super viewDidAppear:animated];
 }
@@ -110,7 +126,6 @@ UserHeaderViewDelegate>
 -(void)viewConfig
 {
     self.isNavigationBar = NO;
-    [self setTitle:@"海豚小溪"];
     self.leftBarButton.hidden = YES;
     self.rightBarButton.hidden = NO;
     self.rightView = [UIImage imageNamed:@"icon_setting"];
@@ -151,6 +166,7 @@ UserHeaderViewDelegate>
         
     } respons:^(id object) {
         self.userModel = object;
+        [self setTitle:self.userModel.data.nick];
         [self.hearderView reloadUserInfo:self.userModel];
     } failed:^(NSError *error) {
         
@@ -318,5 +334,9 @@ UserHeaderViewDelegate>
     DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
     [self.navigationController pushViewController:detail animated:YES];
 }
-
+-(void)reloadUserData
+{
+    [self getUserInfo];
+    [self selectTabAtIndex:0];
+}
 @end

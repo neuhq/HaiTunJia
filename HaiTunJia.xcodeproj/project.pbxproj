@@ -307,6 +307,11 @@
 		AD9BEB781BC21B45004D662B /* label_rightbg_big@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9BEB621BC21B45004D662B /* label_rightbg_big@3x.png */; };
 		AD9BEB7C1BC222C6004D662B /* PhotoAlbumViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9BEB7B1BC222C6004D662B /* PhotoAlbumViewController+Helper.m */; };
 		ADC13D3A1BBAA20400AD6289 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC13D391BBAA20400AD6289 /* Reachability.m */; };
+		ADCB03081BD33B090084EEEE /* PersonalDataViewController+helper.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB03071BD33B090084EEEE /* PersonalDataViewController+helper.m */; settings = {ASSET_TAGS = (); }; };
+		ADCB030B1BD343E50084EEEE /* CustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB030A1BD343E50084EEEE /* CustomPickerView.m */; settings = {ASSET_TAGS = (); }; };
+		ADCB030F1BD347AC0084EEEE /* VerifyUserInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB030E1BD347AC0084EEEE /* VerifyUserInfoService.m */; settings = {ASSET_TAGS = (); }; };
+		ADCB03121BD36AEB0084EEEE /* GetLoginCodeService.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB03111BD36AEB0084EEEE /* GetLoginCodeService.m */; settings = {ASSET_TAGS = (); }; };
+		ADCB03151BD3710D0084EEEE /* RegisterWithPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB03141BD3710D0084EEEE /* RegisterWithPhoneViewController.m */; settings = {ASSET_TAGS = (); }; };
 		ADCD76DC1BBF7BBB004B6493 /* HotCategoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD76DB1BBF7BBB004B6493 /* HotCategoryViewCell.m */; };
 		ADCD76DF1BBF7BEA004B6493 /* HotCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD76DE1BBF7BEA004B6493 /* HotCategoryViewController.m */; };
 		ADCD76E21BBF7CDE004B6493 /* CustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD76E11BBF7CDE004B6493 /* CustomSearchBar.m */; };
@@ -867,6 +872,16 @@
 		AD9BEB7B1BC222C6004D662B /* PhotoAlbumViewController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PhotoAlbumViewController+Helper.m"; sourceTree = "<group>"; };
 		ADC13D381BBAA20400AD6289 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		ADC13D391BBAA20400AD6289 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		ADCB03061BD33B090084EEEE /* PersonalDataViewController+helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PersonalDataViewController+helper.h"; sourceTree = "<group>"; };
+		ADCB03071BD33B090084EEEE /* PersonalDataViewController+helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PersonalDataViewController+helper.m"; sourceTree = "<group>"; };
+		ADCB03091BD343E50084EEEE /* CustomPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPickerView.h; sourceTree = "<group>"; };
+		ADCB030A1BD343E50084EEEE /* CustomPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPickerView.m; sourceTree = "<group>"; };
+		ADCB030D1BD347AC0084EEEE /* VerifyUserInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyUserInfoService.h; sourceTree = "<group>"; };
+		ADCB030E1BD347AC0084EEEE /* VerifyUserInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyUserInfoService.m; sourceTree = "<group>"; };
+		ADCB03101BD36AEB0084EEEE /* GetLoginCodeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetLoginCodeService.h; sourceTree = "<group>"; };
+		ADCB03111BD36AEB0084EEEE /* GetLoginCodeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetLoginCodeService.m; sourceTree = "<group>"; };
+		ADCB03131BD3710D0084EEEE /* RegisterWithPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterWithPhoneViewController.h; sourceTree = "<group>"; };
+		ADCB03141BD3710D0084EEEE /* RegisterWithPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterWithPhoneViewController.m; sourceTree = "<group>"; };
 		ADCD76DA1BBF7BBB004B6493 /* HotCategoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCategoryViewCell.h; sourceTree = "<group>"; };
 		ADCD76DB1BBF7BBB004B6493 /* HotCategoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCategoryViewCell.m; sourceTree = "<group>"; };
 		ADCD76DD1BBF7BEA004B6493 /* HotCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCategoryViewController.h; sourceTree = "<group>"; };
@@ -1672,6 +1687,7 @@
 		AD37CF961BD167BE00B064A6 /* Set */ = {
 			isa = PBXGroup;
 			children = (
+				ADCB030C1BD3478C0084EEEE /* SetService */,
 				AD37CF971BD167BE00B064A6 /* SetView */,
 				AD37CF981BD167BE00B064A6 /* SetViewController */,
 			);
@@ -1683,6 +1699,8 @@
 			children = (
 				AD37CF9F1BD167F800B064A6 /* PersonViewCell.h */,
 				AD37CFA01BD167F800B064A6 /* PersonViewCell.m */,
+				ADCB03091BD343E50084EEEE /* CustomPickerView.h */,
+				ADCB030A1BD343E50084EEEE /* CustomPickerView.m */,
 			);
 			path = SetView;
 			sourceTree = "<group>";
@@ -1694,6 +1712,8 @@
 				AD37CF9A1BD167BE00B064A6 /* PersonalDataViewController.m */,
 				AD37CF9B1BD167BE00B064A6 /* SetViewController.h */,
 				AD37CF9C1BD167BE00B064A6 /* SetViewController.m */,
+				ADCB03061BD33B090084EEEE /* PersonalDataViewController+helper.h */,
+				ADCB03071BD33B090084EEEE /* PersonalDataViewController+helper.m */,
 			);
 			path = SetViewController;
 			sourceTree = "<group>";
@@ -1806,6 +1826,8 @@
 				AD893BBC1BC375140050C5AD /* GetVerifyCodeService.m */,
 				339740131BCB98CD00551BF6 /* RegisterService.h */,
 				339740141BCB98CD00551BF6 /* RegisterService.m */,
+				ADCB03101BD36AEB0084EEEE /* GetLoginCodeService.h */,
+				ADCB03111BD36AEB0084EEEE /* GetLoginCodeService.m */,
 			);
 			path = LoginService;
 			sourceTree = "<group>";
@@ -1836,6 +1858,8 @@
 				ADF614641BC4F834004FCABE /* ForgetPasswordViewController.m */,
 				3397400A1BCB890300551BF6 /* RegisterViewController.h */,
 				3397400B1BCB890300551BF6 /* RegisterViewController.m */,
+				ADCB03131BD3710D0084EEEE /* RegisterWithPhoneViewController.h */,
+				ADCB03141BD3710D0084EEEE /* RegisterWithPhoneViewController.m */,
 			);
 			path = LoginViewController;
 			sourceTree = "<group>";
@@ -2481,6 +2505,15 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		ADCB030C1BD3478C0084EEEE /* SetService */ = {
+			isa = PBXGroup;
+			children = (
+				ADCB030D1BD347AC0084EEEE /* VerifyUserInfoService.h */,
+				ADCB030E1BD347AC0084EEEE /* VerifyUserInfoService.m */,
+			);
+			path = SetService;
+			sourceTree = "<group>";
+		};
 		ADCD76D31BBF7B14004B6493 /* HotCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -2934,6 +2967,7 @@
 				AD51D5071BB7CD1300A75753 /* UIImage+WebP.m in Sources */,
 				AD51D4F91BB7CD1300A75753 /* MKAnnotationView+WebCache.m in Sources */,
 				33747EAB1BC8F1C60076D921 /* NoticeViewController.m in Sources */,
+				ADCB03121BD36AEB0084EEEE /* GetLoginCodeService.m in Sources */,
 				ADCD77311BC012FF004B6493 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				AD13B8701BBCC96B00AA3142 /* MJRefreshComponent.m in Sources */,
 				33D4AA231BB9213F0086D442 /* UITableView+Additions.m in Sources */,
@@ -2941,6 +2975,7 @@
 				AD51D4EC1BB7CD1300A75753 /* JSONKit.m in Sources */,
 				33D4A9F21BB91F550086D442 /* CHTCollectionViewWaterfallLayout.m in Sources */,
 				AD37CF9E1BD167BE00B064A6 /* SetViewController.m in Sources */,
+				ADCB030B1BD343E50084EEEE /* CustomPickerView.m in Sources */,
 				33EEE9301BD24CC600F6DA16 /* ChangeFollowRelationService.m in Sources */,
 				AD13B87F1BBCC96B00AA3142 /* UIScrollView+MJRefresh.m in Sources */,
 				AD51D50E1BB7D20C00A75753 /* BaseViewController.m in Sources */,
@@ -2969,6 +3004,7 @@
 				AD9BEB471BC20B32004D662B /* PhotoAlbumCollectionViewCell.m in Sources */,
 				AD51D4FA1BB7CD1300A75753 /* NSData+ImageContentType.m in Sources */,
 				AD8378211BC53DFE00EC679C /* DWTagList.m in Sources */,
+				ADCB030F1BD347AC0084EEEE /* VerifyUserInfoService.m in Sources */,
 				AD37CFA11BD167F800B064A6 /* PersonViewCell.m in Sources */,
 				33CDF00D1BC771E70023CF09 /* SearchWithTagService.m in Sources */,
 				33747E9A1BC8EEBB0076D921 /* PraiseViewController.m in Sources */,
@@ -2983,6 +3019,7 @@
 				AD51D5061BB7CD1300A75753 /* UIImage+MultiFormat.m in Sources */,
 				AD4C58911BCA76AD00C3E83C /* PraiseCommodityService.m in Sources */,
 				3397401B1BCB9FAD00551BF6 /* EditPhotoViewController.m in Sources */,
+				ADCB03081BD33B090084EEEE /* PersonalDataViewController+helper.m in Sources */,
 				AD9B3D211BBBAA4B001078B9 /* NSObject+MJProperty.m in Sources */,
 				AD51D5041BB7CD1300A75753 /* UIButton+WebCache.m in Sources */,
 				AD13B8741BBCC96B00AA3142 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -3059,6 +3096,7 @@
 				AD51D5011BB7CD1300A75753 /* SDWebImageDownloaderOperation.m in Sources */,
 				ADCD76DC1BBF7BBB004B6493 /* HotCategoryViewCell.m in Sources */,
 				AD37CF821BD15C0300B064A6 /* GetCommentService.m in Sources */,
+				ADCB03151BD3710D0084EEEE /* RegisterWithPhoneViewController.m in Sources */,
 				ADC13D3A1BBAA20400AD6289 /* Reachability.m in Sources */,
 				33973FD31BCB585D00551BF6 /* WSProgressHUD.m in Sources */,
 				AD51D4F11BB7CD1300A75753 /* MASLayoutConstraint.m in Sources */,

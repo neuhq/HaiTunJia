@@ -31,10 +31,22 @@ UITableViewDataSource>
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    if (self.isLoadView)
+//    if (self.isLoadView)
+//    {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer])
     {
         [self getCommentList];
     }
+    else
+    {
+        __weak CommentViewController *this = self;
+        LoginViewController *login = [[LoginViewController alloc]init];
+        login.endBlock = ^{
+            [this getCommentList];
+        };
+        [self.navigationController pushViewController:login animated:YES];
+    }
+    
     [super viewDidAppear:animated];
 }
 

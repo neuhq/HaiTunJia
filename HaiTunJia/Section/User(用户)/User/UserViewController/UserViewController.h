@@ -6,4 +6,6 @@
 
 @interface UserViewController : BaseViewController
 
+-(void)reloadUserData;
+
 @end

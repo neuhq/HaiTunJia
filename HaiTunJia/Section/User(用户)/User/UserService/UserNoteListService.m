@@ -10,7 +10,7 @@
 {
     UserNoteListService *service = [self initWithApiUrl:kApi_GetUserReleaseList];
     [service requestDataWithParamsBlcok:^{
-        self.userId = kUSERID;
+        self.userId =  [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         params();
     } FinishBlock:^(id result) {
         WaterFallFlowListDataModel *list = [WaterFallFlowListDataModel objectWithKeyValues:result];

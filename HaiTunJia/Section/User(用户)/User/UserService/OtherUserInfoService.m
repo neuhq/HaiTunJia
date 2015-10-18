@@ -9,7 +9,7 @@
 {
     OtherUserInfoService *infoService = [self initWithApiUrl:kApi_CheckUserInfo];
     [infoService requestDataWithParamsBlcok:^{
-        self.userId = kUSERID;
+        self.userId =  [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         params();
     } FinishBlock:^(id result) {
         UserModel *userModel = [UserModel objectWithKeyValues:result];

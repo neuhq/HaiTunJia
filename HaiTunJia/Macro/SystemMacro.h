@@ -79,4 +79,6 @@ _Pragma("clang diagnostic pop") \
 
 #define kUSERID      @"90"
 
+#define kUserIdIndntifer     @"kUserIdIndntifer"
+
 #endif

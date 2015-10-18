@@ -117,7 +117,6 @@ const CGFloat kUserHeaderSamllAvatarHeight   = 74.0;
     {
         _bigAvatar = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 104)];
         _bigAvatar.backgroundColor = [UIColor clearColor];
-        [_bigAvatar sd_setImageWithURL:[NSURL URLWithString:@"http://p1.so.qhimg.com/t01a430ba22a2f43b0b.jpg"]];
     }
     return _bigAvatar;
 }
@@ -145,7 +144,6 @@ const CGFloat kUserHeaderSamllAvatarHeight   = 74.0;
         _smallAvatar.layer.masksToBounds = YES;
         _smallAvatar.layer.cornerRadius = kUserHeaderSamllAvatarHeight/2;
         _smallAvatar.backgroundColor = [UIColor clearColor];
-        [_smallAvatar sd_setImageWithURL:[NSURL URLWithString:@"http://p1.so.qhimg.com/t01a430ba22a2f43b0b.jpg"] forState:UIControlStateNormal];
     }
     return _smallAvatar;
 }
@@ -157,81 +155,12 @@ const CGFloat kUserHeaderSamllAvatarHeight   = 74.0;
         UIFont *font = [UIFont boldSystemFontOfSize:18.0f];
         CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
         _name = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, kScreenWidth, size.height)];
-        _name.text = string;
         _name.textColor = [UIColor colorWithHex:@"#464b51"];
         _name.font = [UIFont systemFontOfSize:18.0f];
         _name.textAlignment = NSTextAlignmentCenter;
         _name.backgroundColor = [UIColor clearColor];
     }
     return _name;
-}
--(UILabel *)concerNum
-{
-    if (!_concerNum)
-    {
-        NSString *string= @"809";
-        UIFont *font = [UIFont fontWithName:@"Helvetica-Bold" size:13.0f];
-        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
-        _concerNum = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth/2 - size.width - 10, self.name.bottom + 12.0f, size.width,size.height)];
-        _concerNum.text = string;
-        _concerNum.textColor = [UIColor colorWithHex:@"#9696a0"];
-        _concerNum.font = font;
-        _concerNum.textAlignment = NSTextAlignmentCenter;
-        _concerNum.backgroundColor = [UIColor clearColor];
-    }
-    return _concerNum;
-}
-
--(UILabel *)concernLabel
-{
-    if (!_concernLabel)
-    {
-        NSString *string= @"关注：";
-        UIFont *font = [UIFont systemFontOfSize:13.0f];
-        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
-        _concernLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.concerNum.left - size.width, self.name.bottom + 12.0f,size.width, size.height)];
-        _concernLabel.text = string;
-        _concernLabel.textColor = [UIColor colorWithHex:@"#9696a0"];
-        _concernLabel.font = [UIFont systemFontOfSize:13.0f];
-        _concernLabel.textAlignment = NSTextAlignmentCenter;
-        _concernLabel.backgroundColor = [UIColor clearColor];
-    }
-    return _concernLabel;
-}
-
--(UILabel *) fansLabel
-{
-    if (!_fansLabel)
-    {
-        NSString *string= @"粉丝：";
-        UIFont *font = [UIFont systemFontOfSize:13.0f];
-        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
-        _fansLabel = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth/2 + 10, self.concerNum.top,size.width, size.height)];
-        _fansLabel.text = string;
-        _fansLabel.textColor = [UIColor colorWithHex:@"#9696a0"];
-        _fansLabel.font = [UIFont systemFontOfSize:13.0f];
-        _fansLabel.textAlignment = NSTextAlignmentCenter;
-        _fansLabel.backgroundColor = [UIColor clearColor];
-
-    }
-    return _fansLabel;
-}
--(UILabel *) fansNum
-{
-    if (!_fansNum)
-    {
-        NSString *string= @"809";
-        UIFont *font = [UIFont fontWithName:@"Helvetica-Bold" size:13.0f];
-        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
-        _fansNum = [[UILabel alloc]initWithFrame:CGRectMake(self.fansLabel.right, self.fansLabel.top, size.width,size.height)];
-        _fansNum.text = string;
-        _fansNum.textColor = [UIColor colorWithHex:@"#9696a0"];
-        _fansNum.font = font;
-        _fansNum.textAlignment = NSTextAlignmentCenter;
-        _fansNum.backgroundColor = [UIColor clearColor];
-    }
-    return _fansNum;
-
 }
 -(UIButton *) concernButton
 {
@@ -240,8 +169,6 @@ const CGFloat kUserHeaderSamllAvatarHeight   = 74.0;
         _concernButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _concernButton.frame = CGRectMake(0, self.name.bottom + 12.0f, kScreenWidth/2, 25.0f);
         _concernButton.backgroundColor = [UIColor whiteColor];
-        [_concernButton setTitle:@"关注：809" forState:UIControlStateNormal];
-        [_concernButton setTitle:@"关注：809" forState:UIControlStateHighlighted];
         UIFont *font = [UIFont fontWithName:@"Helvetica-Bold" size:13.0f];
         _concernButton.titleLabel.font = font;
         [_concernButton setTitleColor:[UIColor colorWithHex:@"#9696a0"] forState:UIControlStateNormal];
@@ -255,8 +182,6 @@ const CGFloat kUserHeaderSamllAvatarHeight   = 74.0;
         _fansButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _fansButton.frame = CGRectMake(kScreenWidth/2, self.concernButton.top, self.concernButton.width, 25.0f);
         _fansButton.backgroundColor = [UIColor whiteColor];
-        [_fansButton setTitle:@"粉丝：809" forState:UIControlStateNormal];
-        [_fansButton setTitle:@"粉丝：809" forState:UIControlStateHighlighted];
         UIFont *font = [UIFont fontWithName:@"Helvetica-Bold" size:13.0f];
         _fansButton.titleLabel.font = font;
         [_fansButton setTitleColor:[UIColor colorWithHex:@"#9696a0"] forState:UIControlStateNormal];

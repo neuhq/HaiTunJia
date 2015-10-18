@@ -10,7 +10,7 @@
 {
     UserInfoService *service = [self initWithApiUrl:kApi_RefreshUserInfo];
     [service requestDataWithParamsBlcok:^{
-        self.userId = kUSERID;
+        self.userId =  [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         params();
     } FinishBlock:^(id result) {
         UserModel *userModel = [UserModel objectWithKeyValues:result];

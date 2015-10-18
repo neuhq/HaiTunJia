@@ -8,7 +8,7 @@
     [service requestDataWithParamsBlcok:^{
         params();
     } FinishBlock:^(id result) {
-        NSDictionary *dic = (NSDictionary *) result;
+        NSDictionary *dic = result[@"state"];
         resultBlock(dic);
     } failureBlock:^(NSError *error) {
         failed(error);

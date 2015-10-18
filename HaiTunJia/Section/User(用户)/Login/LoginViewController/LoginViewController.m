@@ -3,9 +3,15 @@
 #import "LoginServiceWithVerifyCode.h"
 #import "GetVerifyCodeService.h"
 #import "LoginWithPasswordViewController.h"
+#import "GetLoginCodeService.h"
+#import "RegisterViewController.h"
+#import "RegisterWithPhoneViewController.h"
+
  static NSString *kLoginViewControllerTitleName = @"登陆";
 @interface LoginViewController ()
-<LoginViewDelegate>
+<LoginViewDelegate,
+UIAlertViewDelegate>
+
 
 //登陆view
 @property(nonatomic,strong) LoginView *loginView;
@@ -26,6 +32,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
+    self.fd_interactivePopDisabled = YES;
     [super viewWillAppear:animated];
 }
 #pragma mark  -- UI
@@ -46,6 +53,25 @@
     [self setTitle:kLoginViewControllerTitleName];
 }
 #pragma mark --- HTTP
+-(void)getLoginCode
+{
+    GetLoginCodeService *service = [[GetLoginCodeService alloc]init];
+    [service startRequestLoginCode:^{
+        service.name = self.loginView.phoneTextField.text;
+    } respons:^(id object) {
+        if ([object[@"code"] integerValue] == 0)
+        {
+            [service showResponsMessage:object[@"message"]];
+        }
+        else if([object[@"code"] integerValue] == 30011)
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"该手机号码尚未注册，是否注册?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            [alert show];
+        }
+    } failed:^(NSError *error) {
+        
+    }];
+}
 //获取验证码
 -(void)getVerifyCode
 {
@@ -54,8 +80,6 @@
         service.name = self.loginView.phoneTextField.text;
     } withResult:^(NSDictionary *result) {
         NSDictionary *stateDic = result[@"state"];
-        NSDictionary *dataDic  = result[@"data"];
-        self.verifyCode = dataDic[@"validateCode"];
         if([stateDic[@"code"] integerValue] == 0)
         {
             [self.loginView beginTime:60];
@@ -72,9 +96,14 @@
     LoginServiceWithVerifyCode *service = [[LoginServiceWithVerifyCode alloc]init];
     [service startLoginWithParams:^{
         service.name = self.loginView.phoneTextField.text;
-        service.password = self.verifyCode;
+        service.code = self.loginView.codeTextField.text;
     } withResult:^{
-        
+        LoginEndBlock endBlock = self.endBlock;
+        if (endBlock)
+        {
+            endBlock();
+        }
+        [self.navigationController popViewControllerAnimated:YES];
     } withFailed:^(NSError *error) {
         
     }];
@@ -89,7 +118,7 @@
     }
     else
     {
-        [self getVerifyCode];
+        [self getLoginCode];
     }
 }
 -(void)getLoginType:(LoginType)loginType
@@ -100,7 +129,19 @@
     }
     else
     {
+    }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
         
+    }
+    else
+    {
+        RegisterWithPhoneViewController *registerVC = [[RegisterWithPhoneViewController alloc]init];
+        [self.navigationController pushViewController:registerVC animated:YES];
+
     }
 }
 #pragma mark -- Jump
