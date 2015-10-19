@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>EAA66C6F-B5B1-46A5-ACD0-B1EB74A1B8A3</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>HaiTunJia</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>69CEB0F523F6FB6D96FE1CBF9C85D275253F2AE9</key>
 		<string>https://github.com/840203602/HaiTunJia.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>HaiTunJia.xcodeproj/project.xcworkspace</string>
+	<string>HaiTunJia.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>69CEB0F523F6FB6D96FE1CBF9C85D275253F2AE9</key>

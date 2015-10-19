@@ -14,6 +14,7 @@
 #import "OtherUserCollectService.h"
 #import "OtherUserNoteListService.h"
 #import "OtherUserHeaderVIew.h"
+#import "MyFansViewController.h"
 
 static NSString *const kUserCollectionCellIndentifer =  @"kUserCollectionCellIndentifer";
 static NSString *const kUserHeaderViewIndentifer = @"kUserHeaderViewIndentifer";
@@ -174,7 +175,7 @@ OtherUserHeaderVIewDelegate>
 {
     UserCollectService *service = [[UserCollectService alloc]init];
     [service startRequestUserCollectWithParams:^{
-        service.userId = kUSERID;
+        service.userId =  [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         service.lastCommodityId = self.lastCommodityId;
     } withResponsDataWithUserColletInfo:^(id object) {
         NSArray *array = object;
@@ -305,6 +306,8 @@ OtherUserHeaderVIewDelegate>
                                                               withReuseIdentifier:kUserHeaderViewIndentifer
                                                                      forIndexPath:indexPath];
         self.hearderView.delegate = self;
+        [self.hearderView.concernButton addTarget:self action:@selector(concerAction) forControlEvents:UIControlEventTouchUpInside];
+        [self.hearderView.fansButton addTarget:self action:@selector(fansAction) forControlEvents:UIControlEventTouchUpInside];
         reusableView = self.hearderView;
     }
     return reusableView;
@@ -333,5 +336,18 @@ OtherUserHeaderVIewDelegate>
     DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
     [self.navigationController pushViewController:detail animated:YES];
 }
-
+-(void)concerAction
+{
+    MyFansViewController *myfans = [[MyFansViewController alloc]init];
+    myfans.type = MyFansOrFocusType_Focus;
+    myfans.useId = self.userModel.data.iD;
+    [self.navigationController pushViewController:myfans animated:YES];
+}
+-(void)fansAction
+{
+    MyFansViewController *myfans = [[MyFansViewController alloc]init];
+    myfans.type = MyFansOrFocusType_Myfans;
+    myfans.useId = self.userModel.data.iD;
+    [self.navigationController pushViewController:myfans animated:YES];
+}
 @end

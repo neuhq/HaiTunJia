@@ -11,4 +11,6 @@ typedef enum MyFansOrFocusType{
 
 @property(nonatomic,assign) MyFansOrFocusType type;
 
+@property(nonatomic,assign) NSInteger useId;
+
 @end

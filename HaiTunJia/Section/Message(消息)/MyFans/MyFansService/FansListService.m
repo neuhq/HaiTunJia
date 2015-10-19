@@ -7,6 +7,7 @@
     FansListService *service = [self initWithApiUrl:kApi_GetFansList];
     [service requestDataWithParamsBlcok:^{
         self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
+//        self.userId = kUSERID;
     } FinishBlock:^(id result) {
         if ([result[@"code"] integerValue] == 0)
         {

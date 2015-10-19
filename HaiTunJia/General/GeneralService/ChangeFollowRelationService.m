@@ -8,7 +8,7 @@
 {
     ChangeFollowRelationService *service  = [self initWithApiUrl:kApi_ChangeFollow];
     [service requestDataWithParamsBlcok:^{
-        self.userId = kUSERID;
+        self.userId =  [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         params();
     } FinishBlock:^(id result) {
         NSDictionary *dic  = result[@"state"];

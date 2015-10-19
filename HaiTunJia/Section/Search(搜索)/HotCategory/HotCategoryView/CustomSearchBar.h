@@ -18,4 +18,7 @@
 
 @property(nonatomic,weak) id<CustomeSearchBarDelegate> delegate;
 
+@property(nonatomic,strong) UISearchBar *searchBar;
+
 @end
+

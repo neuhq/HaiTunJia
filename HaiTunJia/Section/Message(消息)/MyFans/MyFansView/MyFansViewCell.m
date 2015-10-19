@@ -96,6 +96,7 @@ const CGFloat kMyFansViewCellHeight = 65.0f;
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+    
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.dataModel.userPic] placeholderImage:nil];
     self.name.text = self.dataModel.userName;
     self.content.text = self.dataModel.publishTime;

@@ -19,7 +19,7 @@
 {
     PublishService *service = [self initWithApiUrl:kApi_ReleaseGoods];
     [service upLoadImage:image WithParamsBlcok:^{
-        self.userId = kUSERID;
+        self.userId =  [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         params();
     } FinishBlock:^(id result) {
         NSDictionary *dic = result[@"state"];

@@ -179,4 +179,8 @@ UICollectionViewDataSource>
     SearchResultViewController *searchResultVC = [[SearchResultViewController alloc]initWithIsKeywordSearch:isKeywordSearch withTag:self.keyword withKeyword:self.keyword];
     [self.navigationController pushViewController:searchResultVC animated:YES];
 }
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.searchBar.searchBar resignFirstResponder];
+}
 @end

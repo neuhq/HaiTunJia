@@ -62,6 +62,7 @@ UIAlertViewDelegate>
         if ([object[@"code"] integerValue] == 0)
         {
             [service showResponsMessage:object[@"message"]];
+            [self.loginView  beginTime:60];
         }
         else if([object[@"code"] integerValue] == 30011)
         {

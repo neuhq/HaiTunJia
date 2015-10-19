@@ -50,9 +50,7 @@ const CGFloat kUserHeaderSamllAvatarHeight   = 74.0;
 
 @property(nonatomic,strong) UIView *line;
 
-@property(nonatomic,strong) UIButton *concernButton;
 
-@property(nonatomic,strong) UIButton *fansButton;
 
 @end
 @implementation OtherUserHeaderVIew

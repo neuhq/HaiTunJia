@@ -11,6 +11,7 @@
 #import "UserInfoService.h"
 #import "SetViewController.h"
 #import "LoginViewController.h"
+#import "MyFansViewController.h"
 
 static NSString *const kUserCollectionCellIndentifer =  @"kUserCollectionCellIndentifer";
 static NSString *const kUserHeaderViewIndentifer = @"kUserHeaderViewIndentifer";
@@ -305,6 +306,9 @@ UserHeaderViewDelegate>
                                                                                    withReuseIdentifier:kUserHeaderViewIndentifer
                                                                                           forIndexPath:indexPath];
         self.hearderView.delegate = self;
+        [self.hearderView.concernButton addTarget:self action:@selector(concerAction) forControlEvents:UIControlEventTouchUpInside];
+        [self.hearderView.fansButton addTarget:self action:@selector(fansAction) forControlEvents:UIControlEventTouchUpInside];
+        
         reusableView = self.hearderView;
     }
     return reusableView;
@@ -338,5 +342,17 @@ UserHeaderViewDelegate>
 {
     [self getUserInfo];
     [self selectTabAtIndex:0];
+}
+-(void)concerAction
+{
+    MyFansViewController *myfans = [[MyFansViewController alloc]init];
+    myfans.type = MyFansOrFocusType_Focus;
+    [self.navigationController pushViewController:myfans animated:YES];
+}
+-(void)fansAction
+{
+    MyFansViewController *myfans = [[MyFansViewController alloc]init];
+    myfans.type = MyFansOrFocusType_Myfans;
+    [self.navigationController pushViewController:myfans animated:YES];
 }
 @end

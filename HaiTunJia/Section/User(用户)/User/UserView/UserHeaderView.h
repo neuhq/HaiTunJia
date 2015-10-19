@@ -12,6 +12,10 @@
 
 @property(weak,nonatomic) id<UserHeaderViewDelegate> delegate;
 
+@property(nonatomic,strong) UIButton *concernButton;
+
+@property(nonatomic,strong) UIButton *fansButton;
+
 +(CGFloat) getHeaderHeight;
 
 -(void)reloadUserInfo:(UserModel *) userModel;

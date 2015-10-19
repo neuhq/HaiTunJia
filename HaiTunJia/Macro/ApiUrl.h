@@ -32,6 +32,12 @@
 //5.关注列表
 #define kApi_GetFollowList                        [kApi_Base stringByAppendingString:@"api/v1/followList"]
 
+//其他用户粉丝列表
+#define kApi_GetOtherUserFansList                 [kApi_Base stringByAppendingString:@"api/v1/selectedFollowerList"]
+
+//其他用户关注列表
+#define kApi_GetOtherUserFollowList             [kApi_Base stringByAppendingString:@"api/v1/selectedFollowList"]
+
 //6.刷新个人信息
 #define kApi_RefreshUserInfo                    [kApi_Base stringByAppendingString:@"api/v1/refreshUser"]
 

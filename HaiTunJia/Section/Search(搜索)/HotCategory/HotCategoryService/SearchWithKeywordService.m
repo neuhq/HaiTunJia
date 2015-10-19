@@ -16,7 +16,14 @@
     //TODO:根据关键字搜索
     SearchWithKeywordService *search = [self initWithApiUrl:kApi_Search];
     [search requestDataWithParamsBlcok:^{
-        self.userId = kUSERID;
+        if([[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer])
+        {
+            self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
+        }
+        else
+        {
+            self.userId = @"0";
+        }
         paramsBlock();
     } FinishBlock:^(id result) {
         WaterFallFlowListDataModel *list = [WaterFallFlowListDataModel objectWithKeyValues:result];

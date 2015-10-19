@@ -3,7 +3,6 @@
 
 @interface CustomSearchBar ()
 <UISearchBarDelegate>
-@property(nonatomic,strong) UISearchBar *searchBar;
 
 @end
 

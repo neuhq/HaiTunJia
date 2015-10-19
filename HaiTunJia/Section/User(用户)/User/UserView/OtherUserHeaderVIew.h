@@ -17,5 +17,7 @@
 
 -(void)reloadUserInfo:(UserModel *) userModel;
 
+@property(nonatomic,strong) UIButton *concernButton;
 
+@property(nonatomic,strong) UIButton *fansButton;
 @end

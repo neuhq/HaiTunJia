@@ -3,6 +3,9 @@
 #import "MyFansViewCell.h"
 #import "FansListService.h"
 #import "FollowService.h"
+#import "OtherUserFansService.h"
+#import "OtherUserFollowService.h"
+
 @interface MyFansViewController ()
 <UITableViewDelegate,
 UITableViewDataSource>
@@ -29,36 +32,81 @@ UITableViewDataSource>
 {
 //    if (self.isLoadView)
 //    {
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer])
+    if (self.useId)
     {
-        if (self.type == MyFansOrFocusType_Myfans)
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer])
         {
-            [self getFansListData];
+            if (self.type == MyFansOrFocusType_Myfans)
+            {
+                [self setTitle:@"新的粉丝"];
+                [self getOtherUserFansList];
+            }
+            else
+            {
+                [self setTitle:@"新的关注"];
+                [self getOtherUserFollowList];
+            }
+            
         }
         else
         {
-            [self getFollowListData];
+            __weak MyFansViewController *this = self;
+            LoginViewController *login = [[LoginViewController alloc]init];
+            login.endBlock = ^(){
+                if (this.type == MyFansOrFocusType_Myfans)
+                {
+                    [self setTitle:@"新的粉丝"];
+                    [this getOtherUserFollowList];
+                }
+                else
+                {
+                    [self setTitle:@"新的关注"];
+                    [this getOtherUserFollowList];
+                }
+            };
+            [self.navigationController pushViewController:login animated:YES];
+            
         }
 
     }
     else
     {
-        __weak MyFansViewController *this = self;
-        LoginViewController *login = [[LoginViewController alloc]init];
-        login.endBlock = ^(){
-            if (this.type == MyFansOrFocusType_Myfans)
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer])
+        {
+            if (self.type == MyFansOrFocusType_Myfans)
             {
-                [this getFansListData];
+                [self setTitle:@"新的粉丝"];
+                [self getFansListData];
             }
             else
             {
-                [this getFollowListData];
+                [self setTitle:@"新的关注"];
+                [self getFollowListData];
             }
-        };
-        [self.navigationController pushViewController:login animated:YES];
-        
+            
+        }
+        else
+        {
+            __weak MyFansViewController *this = self;
+            LoginViewController *login = [[LoginViewController alloc]init];
+            login.endBlock = ^(){
+                if (this.type == MyFansOrFocusType_Myfans)
+                {
+                    [self setTitle:@"新的粉丝"];
+                    [this getFansListData];
+                }
+                else
+                {
+                    [self setTitle:@"新的关注"];
+                    [this getFollowListData];
+                }
+            };
+            [self.navigationController pushViewController:login animated:YES];
+            
+        }
+
     }
-//    }
+    //    }
 //
     [super viewDidAppear:animated];
 }
@@ -88,7 +136,6 @@ UITableViewDataSource>
 #pragma mark -- helper
 -(void)viewConfig
 {
-    [self setTitle:@"新的粉丝"];
 }
 -(void)initArray
 {
@@ -103,6 +150,31 @@ UITableViewDataSource>
         self.listArray = obj;
         [self.fansTableView reloadData];
     } withFailed:^(NSError *error) {
+        
+    }];
+    
+}
+-(void)getOtherUserFansList
+{
+    OtherUserFansService *service = [[OtherUserFansService alloc]init];
+    [service startRequestOtherUserFans:^{
+        service.selectId = [NSString stringWithFormat:@"%ld",self.useId];
+    } respons:^(id object) {
+        self.listArray = object;
+        [self.fansTableView reloadData];
+    } failed:^(NSError *error) {
+        
+    }];
+}
+-(void)getOtherUserFollowList
+{
+    OtherUserFollowService *service = [[OtherUserFollowService alloc]init];
+    [service startRequestOtherUserFollow:^{
+        service.selectId = [NSString stringWithFormat:@"%ld",self.useId];
+    } repons:^(id object) {
+        self.listArray = object;
+        [self.fansTableView reloadData];
+    } failed:^(NSError *error) {
         
     }];
 }

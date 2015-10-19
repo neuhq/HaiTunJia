@@ -11,7 +11,14 @@
     //TODO:根据标签tag搜索
     SearchWithTagService *search = [self initWithApiUrl:kApi_GetHotTagSeachList];
     [search requestDataWithParamsBlcok:^{
-        self.userId = kUSERID;
+        if([[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer])
+        {
+            self.userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
+        }
+        else
+        {
+            self.userId = @"0";
+        }
         paramsBlock();
     } FinishBlock:^(id result) {
         WaterFallFlowListDataModel *list = [WaterFallFlowListDataModel objectWithKeyValues:result];
