@@ -2,8 +2,9 @@
 
 #import "EditPhotoViewController.h"
 #import "PublishViewController.h"
-
+#import "CommodityTagViewController.h"
 @interface EditPhotoViewController ()
+<UIGestureRecognizerDelegate>
 
 @property(nonatomic,strong) UIView *bottomView;
 
@@ -12,6 +13,7 @@
 @property(nonatomic,strong) UIButton *backButton;
 
 @property(nonatomic,strong) UIImageView *photo;
+
 
 @end
 
@@ -75,8 +77,12 @@
             _photo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,kScreenWidth, height)];
         }
         _photo.image = self.photoImage;
+        _photo.userInteractionEnabled = YES;
         _photo.backgroundColor = [UIColor clearColor];
         
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap)];
+        tap.delegate = self;
+        [self.photo addGestureRecognizer:tap];
     }
     return _photo;
 }
@@ -146,4 +152,15 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+-(void)tap
+{
+    CommodityTagViewController *vc = [[CommodityTagViewController alloc]init];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    CGPoint point = [touch locationInView:self.photo];
+    return YES;
+}
+
 @end

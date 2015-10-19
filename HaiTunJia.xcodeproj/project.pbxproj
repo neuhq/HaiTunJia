@@ -312,6 +312,7 @@
 		ADCB030F1BD347AC0084EEEE /* VerifyUserInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB030E1BD347AC0084EEEE /* VerifyUserInfoService.m */; settings = {ASSET_TAGS = (); }; };
 		ADCB03121BD36AEB0084EEEE /* GetLoginCodeService.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB03111BD36AEB0084EEEE /* GetLoginCodeService.m */; settings = {ASSET_TAGS = (); }; };
 		ADCB03151BD3710D0084EEEE /* RegisterWithPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB03141BD3710D0084EEEE /* RegisterWithPhoneViewController.m */; settings = {ASSET_TAGS = (); }; };
+		ADCC27001BD3C1B700B714F5 /* CommdityTagViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCC26FF1BD3C1B700B714F5 /* CommdityTagViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		ADCD76DC1BBF7BBB004B6493 /* HotCategoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD76DB1BBF7BBB004B6493 /* HotCategoryViewCell.m */; };
 		ADCD76DF1BBF7BEA004B6493 /* HotCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD76DE1BBF7BEA004B6493 /* HotCategoryViewController.m */; };
 		ADCD76E21BBF7CDE004B6493 /* CustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCD76E11BBF7CDE004B6493 /* CustomSearchBar.m */; };
@@ -882,6 +883,8 @@
 		ADCB03111BD36AEB0084EEEE /* GetLoginCodeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetLoginCodeService.m; sourceTree = "<group>"; };
 		ADCB03131BD3710D0084EEEE /* RegisterWithPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterWithPhoneViewController.h; sourceTree = "<group>"; };
 		ADCB03141BD3710D0084EEEE /* RegisterWithPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterWithPhoneViewController.m; sourceTree = "<group>"; };
+		ADCC26FE1BD3C1B700B714F5 /* CommdityTagViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommdityTagViewCell.h; sourceTree = "<group>"; };
+		ADCC26FF1BD3C1B700B714F5 /* CommdityTagViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommdityTagViewCell.m; sourceTree = "<group>"; };
 		ADCD76DA1BBF7BBB004B6493 /* HotCategoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCategoryViewCell.h; sourceTree = "<group>"; };
 		ADCD76DB1BBF7BBB004B6493 /* HotCategoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCategoryViewCell.m; sourceTree = "<group>"; };
 		ADCD76DD1BBF7BEA004B6493 /* HotCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCategoryViewController.h; sourceTree = "<group>"; };
@@ -1184,6 +1187,8 @@
 			children = (
 				33EEE92B1BD23E6000F6DA16 /* TagView.h */,
 				33EEE92C1BD23E6000F6DA16 /* TagView.m */,
+				ADCC26FE1BD3C1B700B714F5 /* CommdityTagViewCell.h */,
+				ADCC26FF1BD3C1B700B714F5 /* CommdityTagViewCell.m */,
 			);
 			path = EditPhotoView;
 			sourceTree = "<group>";
@@ -2743,6 +2748,7 @@
 				TargetAttributes = {
 					AD51D3DF1BB6A90F00A75753 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = E6LT434MSK;
 					};
 					AD51D3F81BB6A90F00A75753 = {
 						CreatedOnToolsVersion = 7.0;
@@ -3021,6 +3027,7 @@
 				3397401B1BCB9FAD00551BF6 /* EditPhotoViewController.m in Sources */,
 				ADCB03081BD33B090084EEEE /* PersonalDataViewController+helper.m in Sources */,
 				AD9B3D211BBBAA4B001078B9 /* NSObject+MJProperty.m in Sources */,
+				ADCC27001BD3C1B700B714F5 /* CommdityTagViewCell.m in Sources */,
 				AD51D5041BB7CD1300A75753 /* UIButton+WebCache.m in Sources */,
 				AD13B8741BBCC96B00AA3142 /* MJRefreshAutoNormalFooter.m in Sources */,
 				AD51D4E21BB7CD1300A75753 /* AFHTTPRequestOperation.m in Sources */,
@@ -3165,8 +3172,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3188,7 +3195,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "44985714-fad6-44b9-a9c6-a3661843cd95";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3210,8 +3217,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3226,7 +3233,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "44985714-fad6-44b9-a9c6-a3661843cd95";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3237,16 +3244,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HaiTunJia.pch";
 				INFOPLIST_FILE = HaiTunJia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.dfb365.ihHouse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "e124c528-be6e-4496-a48b-5ee20f598fcc";
 			};
 			name = Debug;
 		};
@@ -3255,17 +3263,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HaiTunJia.pch";
 				INFOPLIST_FILE = HaiTunJia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.dfb365.ihHouse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "e124c528-be6e-4496-a48b-5ee20f598fcc";
 			};
 			name = Release;
 		};

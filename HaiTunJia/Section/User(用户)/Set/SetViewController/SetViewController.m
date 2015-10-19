@@ -147,8 +147,8 @@ UITableViewDataSource>
     {
         if (indexPath.row == 0)
         {
-            PersonalDataViewController *person = [[PersonalDataViewController alloc]init];
-            [self.navigationController pushViewController:person animated:YES];
+//            PersonalDataViewController *person = [[PersonalDataViewController alloc]init];
+//            [self.navigationController pushViewController:person animated:YES];
         }
     }
 }

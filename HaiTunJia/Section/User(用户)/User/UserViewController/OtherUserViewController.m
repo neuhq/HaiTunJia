@@ -64,12 +64,25 @@ OtherUserHeaderVIewDelegate>
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    if (self.isLoadView)
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer])
     {
-        [self getOtherUserInfo];
-        [self selectTabAtIndex:0];
+        if (self.isLoadView)
+        {
+            [self getOtherUserInfo];
+            [self selectTabAtIndex:0];
+        }
+
     }
-    [super viewDidAppear:animated];
+    else
+    {
+        __weak OtherUserViewController *this = self;
+        LoginViewController *login = [[LoginViewController alloc]init];
+        login.endBlock = ^{
+            [this getOtherUserInfo];
+            [this selectTabAtIndex:0];
+        };
+    }
+        [super viewDidAppear:animated];
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
