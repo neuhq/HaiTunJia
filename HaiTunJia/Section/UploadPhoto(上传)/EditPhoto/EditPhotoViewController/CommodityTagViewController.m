@@ -3,11 +3,13 @@
 #import "CommodityTagViewController.h"
 #import "CustomSearchBar.h"
 #import "CommdityTagViewCell.h"
+#import "PublishModel.h"
 
 @interface CommodityTagViewController ()
 <CustomeSearchBarDelegate,
 UITableViewDelegate,
-UITableViewDataSource>
+UITableViewDataSource,
+UITextFieldDelegate>
 
 
 @property(nonatomic,strong) CustomSearchBar *searchBar;
@@ -18,6 +20,20 @@ UITableViewDataSource>
 
 @property(nonatomic,strong) NSArray *secondArray;
 
+@property(nonatomic,strong) UITextField *brand;
+
+@property(nonatomic,strong) UITextField *commdityName;
+
+@property(nonatomic,strong) UITextField *price;
+
+@property(nonatomic,strong) UITextField *currency;
+
+@property(nonatomic,strong) UITextField *type;
+
+@property(nonatomic,strong) UITextField *address;
+
+
+
 @end
 
 @implementation CommodityTagViewController
@@ -27,7 +43,8 @@ UITableViewDataSource>
     [super viewDidLoad];
     [self initArray];
     self.leftBarButton.hidden = YES;
-    [self.customNavigationBar addSubview:self.searchBar];
+//    [self.customNavigationBar addSubview:self.searchBar];
+    [self setTitle:@"添加标签"];
     self.rightBarButton.hidden = NO;
     self.rightView = @"完成";
     [self.view addSubview:self.tableView];
@@ -93,6 +110,20 @@ UITableViewDataSource>
             cell = [[CommdityTagViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifer1 row:indexPath.row];
         }
         [cell reloadFirstImage:self.firstArray[indexPath.row] row:indexPath.row];
+        if(indexPath.row == 0)
+        {
+            self.brand = cell.leftTextField;
+            self.brand.delegate = self;
+            self.commdityName = cell.rightTextField;
+            self.commdityName.delegate = self;
+        }
+        else
+        {
+            self.currency = cell.leftTextField;
+            self.currency.delegate = self;
+            self.price = cell.rightTextField;
+            self.price.delegate = self;
+        }
         return cell;
     }
     else
@@ -104,6 +135,16 @@ UITableViewDataSource>
             cell = [[CommdityTagViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifer2 row:indexPath.row];
         }
         [cell reloadSecondImage:self.firstArray[indexPath.row] row:indexPath.row];
+        if(indexPath.row == 2)
+        {
+            self.type = cell.oneTextField;
+            self.type.delegate = self;
+        }
+        else
+        {
+            self.address = cell.oneTextField;
+            self.address.delegate = self;
+        }
         return cell;
 
     }
@@ -119,6 +160,17 @@ UITableViewDataSource>
 }
 -(void)rightButtonAction
 {
+    PublishModel *model = [PublishModel sharedManager];
+    model.moneyType = self.currency.text;
+    model.name = self.commdityName.text;
+    model.price = self.price.text;
+    model.source = self.address.text;
+    AddTagEndBlock block = self.endBlock;
+    if (block)
+    {
+        block(model);
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 @end

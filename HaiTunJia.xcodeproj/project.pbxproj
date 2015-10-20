@@ -24,6 +24,7 @@
 		33747EAB1BC8F1C60076D921 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33747EAA1BC8F1C60076D921 /* NoticeViewController.m */; };
 		33747EB41BC8F8720076D921 /* FollowService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33747EB31BC8F8720076D921 /* FollowService.m */; };
 		33747EB81BC8F9B10076D921 /* FollowInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33747EB71BC8F9B10076D921 /* FollowInfoModel.m */; };
+		337B81E61BD6135200A31511 /* PublishModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 337B81E51BD6135200A31511 /* PublishModel.m */; };
 		3396E7371BD4E5310081BB83 /* OtherUserFansService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3396E7361BD4E5310081BB83 /* OtherUserFansService.m */; };
 		3396E73A1BD4E5610081BB83 /* OtherUserFollowService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3396E7391BD4E5610081BB83 /* OtherUserFollowService.m */; };
 		3396E75E1BD4ECA00081BB83 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3396E73D1BD4ECA00081BB83 /* UMSocialLocalizable.strings */; };
@@ -422,6 +423,8 @@
 		33747EB31BC8F8720076D921 /* FollowService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowService.m; sourceTree = "<group>"; };
 		33747EB61BC8F9B10076D921 /* FollowInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowInfoModel.h; sourceTree = "<group>"; };
 		33747EB71BC8F9B10076D921 /* FollowInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowInfoModel.m; sourceTree = "<group>"; };
+		337B81E41BD6135200A31511 /* PublishModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishModel.h; sourceTree = "<group>"; };
+		337B81E51BD6135200A31511 /* PublishModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishModel.m; sourceTree = "<group>"; };
 		3396E7351BD4E5310081BB83 /* OtherUserFansService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherUserFansService.h; sourceTree = "<group>"; };
 		3396E7361BD4E5310081BB83 /* OtherUserFansService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherUserFansService.m; sourceTree = "<group>"; };
 		3396E7381BD4E5610081BB83 /* OtherUserFollowService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherUserFollowService.h; sourceTree = "<group>"; };
@@ -1205,6 +1208,15 @@
 			path = FollowModel;
 			sourceTree = "<group>";
 		};
+		337B81E31BD6132F00A31511 /* PublishModel */ = {
+			isa = PBXGroup;
+			children = (
+				337B81E41BD6135200A31511 /* PublishModel.h */,
+				337B81E51BD6135200A31511 /* PublishModel.m */,
+			);
+			path = PublishModel;
+			sourceTree = "<group>";
+		};
 		3396E73B1BD4ECA00081BB83 /* UMSocial_Sdk */ = {
 			isa = PBXGroup;
 			children = (
@@ -1766,6 +1778,7 @@
 		AD37CF6C1BCBFE7C00B064A6 /* Publish */ = {
 			isa = PBXGroup;
 			children = (
+				337B81E31BD6132F00A31511 /* PublishModel */,
 				AD37CF6D1BCBFE7C00B064A6 /* PublishService */,
 				AD37CF6E1BCBFE7C00B064A6 /* PublishView */,
 				AD37CF6F1BCBFE7C00B064A6 /* PublishViewController */,
@@ -3182,6 +3195,7 @@
 				AD13B86F1BBCC96B00AA3142 /* MJRefreshBackFooter.m in Sources */,
 				33D4AA161BB9213F0086D442 /* NSArray+Additions.m in Sources */,
 				AD37CF7B1BD1406400B064A6 /* DetailTableViewFooterView.m in Sources */,
+				337B81E61BD6135200A31511 /* PublishModel.m in Sources */,
 				334A52DE1BCCF74700F5ECDD /* TagCell.m in Sources */,
 				AD51D5031BB7CD1300A75753 /* SDWebImagePrefetcher.m in Sources */,
 				33B2B6B01BCE2FC4007809FC /* AddTagViewController.m in Sources */,

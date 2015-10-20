@@ -155,6 +155,9 @@
 -(void)tap
 {
     CommodityTagViewController *vc = [[CommodityTagViewController alloc]init];
+    vc.endBlock = ^(id object){
+        
+    };
     [self presentViewController:vc animated:YES completion:nil];
 }
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch

@@ -39,11 +39,11 @@
     {
         _leftTextField = [[UITextField alloc] initWithFrame:CGRectMake(self.leftImageView.right + 20.0f,0,(kScreenWidth - 4*20 -self.leftImageView.size.width)/2,41.0f)];
         _leftTextField.font = [UIFont systemFontOfSize:13];
+        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
+        _leftTextField.leftView = view;
+        _leftTextField.leftViewMode = UITextFieldViewModeAlways;
         _leftTextField.borderStyle = UITextBorderStyleNone;
-        [_leftTextField setValue:[UIColor colorWithHexString:@"ffffff"] forKeyPath:@"_placeholderLabel.textColor"];
         _leftTextField.textColor = [UIColor colorWithHexString:@"ffffff"];
-        [_leftTextField setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
-        _leftTextField.delegate = self;
         _leftTextField.placeholder = @"fddkdg";
         _leftTextField.keyboardType = UIKeyboardTypeNumberPad;
         _leftTextField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -64,9 +64,11 @@
         _rightTextField = [[UITextField alloc] initWithFrame:CGRectMake(self.leftTextField.right + 20.0f,0,(kScreenWidth - 4*20 -self.leftImageView.size.width)/2,41.0f)];
         _rightTextField.font = [UIFont systemFontOfSize:13];
         _rightTextField.borderStyle = UITextBorderStyleNone;
+        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
+        _rightTextField.leftView = view;
+        _rightTextField.leftViewMode = UITextFieldViewModeAlways;
         [_rightTextField setValue:[UIColor colorWithHexString:@"ffffff"] forKeyPath:@"_placeholderLabel.textColor"];
         _rightTextField.textColor = [UIColor colorWithHexString:@"ffffff"];
-        _rightTextField.delegate = self;
         _rightTextField.keyboardType = UIKeyboardTypeNumberPad;
         _rightTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         _rightTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -87,9 +89,11 @@
         _oneTextField = [[UITextField alloc] initWithFrame:CGRectMake(self.leftTextField.left ,0,kScreenWidth - 3*20 -self.leftImageView.size.width ,41.0f)];
         _oneTextField.font = [UIFont systemFontOfSize:13];
         _oneTextField.borderStyle = UITextBorderStyleNone;
+        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
+        _oneTextField.leftView = view;
+        _oneTextField.leftViewMode = UITextFieldViewModeAlways;
         [_oneTextField setValue:[UIColor colorWithHexString:@"ffffff"] forKeyPath:@"_placeholderLabel.textColor"];
         _oneTextField.textColor = [UIColor colorWithHexString:@"ffffff"];
-        _oneTextField.delegate = self;
         _oneTextField.keyboardType = UIKeyboardTypeNumberPad;
         _oneTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         _oneTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -107,13 +111,15 @@
     self.leftImageView.image = image;
     if (row == 0)
     {
-        self.leftTextField.placeholder = @"品牌";
-        self.rightTextField.placeholder = @"商品名";
+           self.leftTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"品牌" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
+         self.rightTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"商品名" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
     }
     else
     {
-        self.leftTextField.placeholder = @"币种";
-        self.rightTextField.placeholder = @"价格";
+        self.leftTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"币种" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
+        self.rightTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"价格" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
+//        self.leftTextField.placeholder = @"币种";
+//        self.rightTextField.placeholder = @"价格";
     }
 }
 
@@ -122,11 +128,11 @@
     self.leftImageView.image = image;
     if (row == 3)
     {
-        self.oneTextField.placeholder = @"电商名称/具体购买地点";
+        self.oneTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString: @"电商名称/具体购买地点" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
     }
     else
     {
-        self.oneTextField.placeholder = @"类别";
+        self.oneTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString: @"类别" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
     }
 }
 @end
