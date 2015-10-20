@@ -9,6 +9,8 @@ extern const CGFloat kPersonViewSecondCell;
 
 @property(nonatomic,strong) UILabel *detail;
 
+@property(nonatomic,strong) UIButton *avatarButton;
+
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier row:(NSInteger) row;
 
 -(void)reloadSecondCellData:(UserModel *) userModel row:(NSInteger) row ;

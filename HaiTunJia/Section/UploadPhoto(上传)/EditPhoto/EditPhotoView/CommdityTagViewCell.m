@@ -44,7 +44,6 @@
         _leftTextField.leftViewMode = UITextFieldViewModeAlways;
         _leftTextField.borderStyle = UITextBorderStyleNone;
         _leftTextField.textColor = [UIColor colorWithHexString:@"ffffff"];
-        _leftTextField.placeholder = @"fddkdg";
         _leftTextField.keyboardType = UIKeyboardTypeNumberPad;
         _leftTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         _leftTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;

@@ -3,13 +3,16 @@
 #import "UserInfoService.h"
 #import "UserModel.h"
 #import "PersonalDataViewController+helper.h"
+#import "VerifyUserInfoService.h"
 
 @interface PersonalDataViewController ()
 <UITableViewDelegate,
 UITableViewDataSource,
 UIAlertViewDelegate,
 UIPickerViewDataSource,
-UIPickerViewDelegate>
+UIPickerViewDelegate,
+UINavigationControllerDelegate,
+UIImagePickerControllerDelegate>
 
 
 @property(nonatomic,strong) NSString *nickName;
@@ -23,6 +26,12 @@ UIPickerViewDelegate>
 @property(nonatomic,strong) NSArray *sexArray;
 
 @property(nonatomic,strong) UIView *sureView;
+
+@property(nonatomic,strong) NSString *sexString;
+
+@property(nonatomic,strong) UIImage *avatarImage;
+
+@property(nonatomic,strong) UIImagePickerController *imagePickerController;
 @end
 
 @implementation PersonalDataViewController
@@ -99,12 +108,14 @@ UIPickerViewDelegate>
 #pragma mark -- helper
 -(void)initArray
 {
-    self.titleArray = [NSArray arrayWithObjects:@"昵称",@"性别",@"常住地",@"个性签名", nil];
+    self.titleArray = [NSArray arrayWithObjects:@"昵称",@"性别", nil];
     self.sexArray = [NSArray arrayWithObjects:@"男",@"女",@"神秘", nil];
 }
 -(void)viewConfig
 {
     [self setTitle:@"个人资料"];
+    self.rightBarButton.hidden = NO;
+    self.rightView = @"完成";
 }
 #pragma mark -- HTTP
 -(void)getUserInfo
@@ -120,7 +131,16 @@ UIPickerViewDelegate>
     }];
 
 }
-
+-(void)verifyUserInfo
+{
+    VerifyUserInfoService *service = [[VerifyUserInfoService alloc]init];
+    [service startRequestVerifyUserInfoWithParams:^{
+    } respons:^(id object) {
+        
+    } failed:^(NSError *error) {
+        
+    }];
+}
 #pragma mark -- UITableViewDelegate/UITableVIewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -128,7 +148,7 @@ UIPickerViewDelegate>
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 3;
 }
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -153,6 +173,10 @@ UIPickerViewDelegate>
         }
         [cell reloadTitle:self.titleArray[indexPath.row - 1]];
         [cell reloadSecondCellData:self.userModel row:indexPath.row];
+        if(indexPath.row == 1)
+            self.nickName = cell.detail.text;
+        else
+            self.sexString = cell.detail.text;
         return cell;
     }
 }
@@ -166,7 +190,16 @@ UIPickerViewDelegate>
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == 1)
+    if (indexPath.row == 0)
+    {
+        _imagePickerController = [[UIImagePickerController alloc]init];
+        _imagePickerController.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+        _imagePickerController.delegate = (id<UINavigationControllerDelegate, UIImagePickerControllerDelegate>)self;
+       _imagePickerController.allowsEditing = YES;
+        _imagePickerController.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+        [self presentViewController:_imagePickerController animated:YES completion:nil];
+    }
+    else if  (indexPath.row == 1)
     {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"请输入新的名字" message:@"使用中英文，数字和下划线，昵称一个月内只能允许修改一次" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         alertView.tag = 1;
@@ -212,6 +245,8 @@ UIPickerViewDelegate>
         {
             UITextField *textField = [alertView textFieldAtIndex:0];
             self.nickName = textField.text;
+            self.userModel.data.nick = self.nickName;
+            [self.personTableView reloadData];
         }
     }
     if (alertView.tag == 3)
@@ -240,6 +275,27 @@ UIPickerViewDelegate>
     }
 
 }
+#pragma mark - UIImagePickerControllerDelegate Method
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    if (picker == _imagePickerController)
+    {
+        UIImage  *image    = [info objectForKey:UIImagePickerControllerEditedImage];
+        self.avatarImage = image;
+        PersonViewCell *cell = [self.personTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        [cell.avatarButton setBackgroundImage:self.avatarImage forState:UIControlStateNormal];
+        NSData *imgData = UIImageJPEGRepresentation(image, 0.5);
+        [picker dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark Picker Delegate Methods
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
@@ -250,16 +306,28 @@ UIPickerViewDelegate>
     return [self.sexArray count];
 }
 
-#pragma mark Picker Delegate Methods
-
-//返回当前行的内容,此处是将数组中数值添加到滚动的那个显示栏上
 -(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     return [self.sexArray objectAtIndex:row];
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.sexString = [self.sexArray objectAtIndex:row];
 }
 -(void)buttonPressed
 {
     [self.pickerView removeFromSuperview];
     [self.sureView removeFromSuperview];
+    self.userModel.data.sexDesc  = self.sexString;
+    [self.personTableView reloadData];
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.pickerView removeFromSuperview];
+    [self.sureView removeFromSuperview];
+}
+-(void)rightButtonAction
+{
+    
 }
 @end

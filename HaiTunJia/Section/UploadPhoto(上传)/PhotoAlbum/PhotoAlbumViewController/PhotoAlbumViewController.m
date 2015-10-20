@@ -48,14 +48,17 @@ UIGestureRecognizerDelegate>
 {
     [super viewDidLoad];
     
+    [WSProgressHUD showWithStatus:@"Loading..." maskType:WSProgressHUDMaskTypeDefault];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [WSProgressHUD dismiss];
+    });
     [self initArray];
     
     [self viewConfig];
-    
-    
+    [self.view addSubview:self.photoCollectionView];
+
     [self getPhotoAllGroup];
     
-            [self.view addSubview:self.photoCollectionView];
 
 }
 
@@ -132,6 +135,8 @@ UIGestureRecognizerDelegate>
 #pragma mark -- helper
 -(void)viewConfig
 {
+    self.navTitleView.hidden = NO;
+    self.navTitle = @"相机胶卷";
 //    self.leftBarButton.hidden = YES;
 //    [self.customNavigationBar addSubview:self.leftButtonWithWord];
 //    self.leftButtonWithWordString = @"取消";

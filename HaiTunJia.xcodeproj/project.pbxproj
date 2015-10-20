@@ -3433,7 +3433,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "57b5dad6-9fc7-429c-a05a-02ac521d0129";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3462,7 +3462,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "57b5dad6-9fc7-429c-a05a-02ac521d0129";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

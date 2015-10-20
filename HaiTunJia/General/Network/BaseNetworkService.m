@@ -78,6 +78,7 @@
         NSError *error= [NSError errorWithDomain:@"当前无网络" code:9999 userInfo:nil];  //直接返回网络错误
         failureBlock(error);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
+        [WSProgressHUD dismiss];
         return;
      }
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES ;

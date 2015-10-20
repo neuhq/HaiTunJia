@@ -136,6 +136,15 @@ OtherUserHeaderVIewDelegate>
 -(void)setRefrashControl
 {
     // 下拉刷新
+    // 下拉刷新
+    self.userCollectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        // 进入刷新状态后会自动调用这个block
+        self.isLoadMore = NO;
+        self.lastCommodityId = @"";
+        [self getOtherUserInfo];
+        [self selectTabAtIndex:0];
+    }];
+
     // 上拉刷新
     __weak OtherUserViewController *weakSelf = self;
     self.userCollectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{

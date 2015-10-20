@@ -7,7 +7,6 @@ const CGFloat kPersonViewCellAvatarHeight = 50.0f;
 
 @interface PersonViewCell ()
 
-@property(nonatomic,strong) UIButton *avatarButton;
 
 @property(nonatomic,strong) UILabel *title;
 
