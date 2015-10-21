@@ -97,8 +97,8 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     _requestOperation =   [manager POST:_api_url parameters:attributes success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSDictionary *result = [responseObject objectFromJSONData];
-        NSString *string = [result JSONString];
-        NSLog(@"string:%@",string);
+//        NSString *string = [result JSONString];
+//        NSLog(@"string:%@",string);
         [WSProgressHUD dismiss];
                 finishBlock(result);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
@@ -135,8 +135,8 @@
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"[UploadVC] success = %@", responseObject);
         NSDictionary *result = [responseObject objectFromJSONData];
-        NSString *string = [result JSONString];
-        NSLog(@"string:%@",string);
+//        NSString *string = [result JSONString];
+//        NSLog(@"string:%@",string);
         //        [WSProgressHUD dismiss];
         finishBlock(result);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -10,7 +10,12 @@
         self.useId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         params();
     } FinishBlock:^(id result) {
-        
+        NSDictionary *dic = result[@"state"];
+        if ([dic[@"code"] integerValue] == 0)
+        {
+            info(dic);
+        }
+        [self showResponsMessage:dic[@"message"]];
     } failureBlock:^(NSError *error) {
         failed(error);
     }];

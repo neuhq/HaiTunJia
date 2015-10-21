@@ -10,10 +10,10 @@
 #import "CustomTabView.h"
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
-const CGFloat kUserHeaderTopBgViewHeight  =  124.0f;
-const CGFloat kUserHeaderBottomBgViewHeight  = 55.0f;
-const CGFloat kUserHeaderSamllAvatarBgHeight   = 85.0f;
-const CGFloat kUserHeaderSamllAvatarHeight   = 74.0;
+static const CGFloat kUserHeaderTopBgViewHeight  =  124.0f;
+ static const CGFloat kUserHeaderBottomBgViewHeight  = 55.0f;
+static const CGFloat kUserHeaderSamllAvatarBgHeight   = 85.0f;
+static const CGFloat kUserHeaderSamllAvatarHeight   = 74.0;
 
 @interface OtherUserHeaderVIew ()
 <CustomTabViewDelegete>

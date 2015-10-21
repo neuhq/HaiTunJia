@@ -241,6 +241,6 @@ UIGestureRecognizerDelegate>
 }
 -(void)goBackAction
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [super goBackAction];
 }
 @end

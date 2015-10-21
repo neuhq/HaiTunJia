@@ -75,7 +75,7 @@
         self.titleLabel.frame = CGRectMake(10, ((smallBg.size.height - sizeHeight.height)/2), size.width, sizeHeight.height);
         self.titleLabel.text = string;
         
-        smallBg = [smallBg stretchableImageWithLeftCapWidth:10 topCapHeight:5];
+        smallBg = [smallBg stretchableImageWithLeftCapWidth:10 topCapHeight:0];
         self.contentView.frame = CGRectMake(self.smallDot.right, 0, self.titleLabel.width + 10, smallBg.size.height);
         self.contentView.image = smallBg;
     }
@@ -90,7 +90,7 @@
         self.titleLabel.text = string;
 //        self.titleLabel.numberOfLines = 1;
 //        [self.titleLabel sizeToFit];
-        image = [image stretchableImageWithLeftCapWidth:10 topCapHeight:5];
+        image = [image stretchableImageWithLeftCapWidth:10 topCapHeight:0];
         self.contentView.frame = CGRectMake(0, 0, size.width + 10, image.size.height);
         self.contentView.image = image;
         self.smallDot.frame = CGRectMake(self.contentView.right, (image.size.height - dotImage.size.height)/2, dotImage.size.width, dotImage.size.height);

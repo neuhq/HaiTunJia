@@ -74,6 +74,8 @@
 
 @property (nonatomic, assign) NSInteger userId;
 
+@property (nonatomic, copy) NSString *coordinate;
+
 @end
 
 @interface FollowModel : NSObject

@@ -55,6 +55,7 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
 //喜欢或赞的图片
 @property(nonatomic,strong) UIButton *commentAndLikeImagevView;
 
+
 @property(nonatomic,strong) UIView *line1;
 
 @property(nonatomic,strong) UIView *line2;
@@ -79,6 +80,7 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
             [self.topView addSubview:self.concern];
             [self.middleView addSubview:self.goodsImageView];
             [self.middleView addSubview:self.content];
+            [self.goodsImageView addSubview:self.tags];
             [self.contentView addSubview:self.middleView];
             
             [self.bottomView addSubview:self.tagImageView];
@@ -191,6 +193,15 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     }
     return _goodsImageView;
 }
+-(TagView *) tags
+{
+    if (!_tags)
+    {
+        _tags = [[TagView alloc]init];
+        _tags.backgroundColor = [UIColor clearColor];
+    }
+    return _tags;
+}
 -(UILabel *) content
 {
     if (!_content)
@@ -298,6 +309,10 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
 #pragma mark -- layout
 -(void)setDataWithModel:(DetailDataModel*) detailModel
 {
+    PublishModel *publishModel = [[PublishModel alloc]init];
+    publishModel.name = detailModel.commodity.name;
+    publishModel.price = [NSString stringWithFormat:@"%ld",detailModel.commodity.price];
+    publishModel.moneyType = detailModel.commodity.moneyType;
     self.tagArray = [NSArray arrayWithObjects:detailModel.commodity.tag1,detailModel.commodity.tag2,detailModel.commodity.tag3 ,nil];
     self.name.text = detailModel.follow.userName;
     [self.avatarImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] forState:UIControlStateNormal];
@@ -318,6 +333,31 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     CGFloat imageHeight = image.size.height/image.size.width*kScreenWidth;
     self.goodsImageView.frame = CGRectMake(0, 0, kScreenWidth, imageHeight);
     [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:string] placeholderImage:nil];
+    
+    if (![detailModel.commodity.coordinate isEqualToString:@""] && detailModel.commodity.coordinate != nil)
+    {
+        NSArray *array = [detailModel.commodity.coordinate componentsSeparatedByString:@","];
+        if (array.count != 0)
+        {
+            NSInteger x = [array[0] integerValue];
+            NSInteger y = [array[1] integerValue];
+            if (x < kScreenWidth/2)
+            {
+                UIImage *image = [UIImage imageNamed:@"label_leftbg_small"];
+                [self.tags reloadViewWithString:publishModel withXPosition:x withSuperViewWidth:kScreenWidth withDirection:DotDirection_Left];
+                CGFloat width =  [self.tags reloadTagViewWidth];
+                self.tags.frame = CGRectMake(x, y, width, image.size.height);
+            }
+            else
+            {
+                [self.tags reloadViewWithString:publishModel withXPosition:x withSuperViewWidth:kScreenWidth withDirection:DotDirection_Right];
+                CGFloat width =  [self.tags reloadTagViewWidth];
+                self.tags.frame = CGRectMake(x - width, y, width, image.size.height);
+                
+            }
+            
+        }
+    }
     
     self.content.frame = CGRectMake(kNoteDetailInfoCellLeftOffset, self.goodsImageView.bottom + kNoteDetailInfoCellLeftOffset, kScreenWidth - 2*kNoteDetailInfoCellLeftOffset, 0);
     NSString *contentString =detailModel.commodity.content;

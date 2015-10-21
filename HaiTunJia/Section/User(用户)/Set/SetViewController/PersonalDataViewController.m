@@ -109,7 +109,7 @@ UIImagePickerControllerDelegate>
 -(void)initArray
 {
     self.titleArray = [NSArray arrayWithObjects:@"昵称",@"性别", nil];
-    self.sexArray = [NSArray arrayWithObjects:@"男",@"女",@"神秘", nil];
+    self.sexArray = [NSArray arrayWithObjects:@"男",@"女", nil];
 }
 -(void)viewConfig
 {
@@ -133,10 +133,24 @@ UIImagePickerControllerDelegate>
 }
 -(void)verifyUserInfo
 {
+    __weak PersonalDataViewController *this = self;
     VerifyUserInfoService *service = [[VerifyUserInfoService alloc]init];
     [service startRequestVerifyUserInfoWithParams:^{
+        if ([this.sexString isEqualToString:@"男"])
+        {
+            service.gender = @"1";
+        }
+        else
+        {
+            service.gender = @"0";
+        }
+        service.nick = this.nickName;
     } respons:^(id object) {
-        
+        VerifyUserInfoEndBlock endBlock = this.endBlock;
+        if (endBlock)
+        {
+            endBlock();
+        }
     } failed:^(NSError *error) {
         
     }];
@@ -328,6 +342,13 @@ UIImagePickerControllerDelegate>
 }
 -(void)rightButtonAction
 {
-    
+    if (self.avatarImage == nil)
+    {
+        [self verifyUserInfo];
+    }
+    else
+    {
+        
+    }
 }
 @end

@@ -97,6 +97,10 @@ UITextFieldDelegate>
 #pragma mark -- HTTP
 -(void)publish
 {
+//    if([self.publishModel.content isEqualToString:@""] || self.publishModel.content == nil)
+//    {
+//        
+//    }
     if (self.publishModel.publishImage != nil)
     {
         _service = [[PublishService alloc]init];
@@ -238,7 +242,7 @@ UITextFieldDelegate>
         if(self.publishModel.publishImage == nil)
             [cell setSecendCellData:[UIImage imageNamed:@"add"]];
         else
-            [cell setSecendCellData:self.addImage];
+            [cell setSecendCellData:self.publishModel.publishImage];
         return cell;
 
     }
