@@ -3,6 +3,9 @@
 #import "EditPhotoViewController.h"
 #import "PublishViewController.h"
 #import "CommodityTagViewController.h"
+#import "TagView.h"
+#import "PublishModel.h"
+
 @interface EditPhotoViewController ()
 <UIGestureRecognizerDelegate>
 
@@ -14,6 +17,22 @@
 
 @property(nonatomic,strong) UIImageView *photo;
 
+@property(nonatomic,assign)CGPoint point;
+
+@property(nonatomic,strong) TagView *tagView;
+
+@property(nonatomic,strong) NSMutableArray *tagViewArray;
+
+@property(nonatomic,assign) NSInteger tagIndex;
+
+@property(nonatomic,assign) NSInteger tapCount;
+
+
+@property(nonatomic,assign) NSInteger selectedTag;
+
+@property(nonatomic,strong) UIView *tagBgView;
+
+@property(nonatomic,strong) PublishModel *publishModel;
 
 @end
 
@@ -30,6 +49,9 @@
 #pragma mark -- life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tagViewArray = [[NSMutableArray alloc]init];
+    self.tagIndex = 0;
+    self.tapCount = 0;
     self.isNavigationBar = YES;
     self.view.backgroundColor = [UIColor colorWithHexString:@"f2f2f2"];
     [self.view addSubview:self.photo];
@@ -77,6 +99,7 @@
             _photo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,kScreenWidth, height)];
         }
         _photo.image = self.photoImage;
+        _photo.tag = 100000;
         _photo.userInteractionEnabled = YES;
         _photo.backgroundColor = [UIColor clearColor];
         
@@ -122,15 +145,25 @@
     }
     return _backButton;
 }
+//-(TagView *)tagView
+//{
+//    if (!_tagView)
+//    {
+//        
+//    }
+//    return _tagView;
+//}
 #pragma mark -- Action
 -(void)sureAction:(UIButton *) sender
 {
     if ([HTJCommon sharedManager].isAddImage == YES)
     {
 //        PublishViewController *publish =[PublishViewController sharedManager];
+        self.publishModel.publishImage = self.photoImage;
         NSArray *array = self.navigationController.viewControllers;
         PublishViewController *publish = array[2];
-        publish.addImage = self.photoImage;
+        publish.publishModel = self.publishModel;
+//        publish.addImage = self.photoImage;
         [publish addNewImage:self.photoImage];
         [HTJCommon sharedManager].isAddImage = NO;
 
@@ -142,6 +175,7 @@
     else
     {
         PublishViewController *publish = [[PublishViewController alloc]init];
+        publish.publishModel = self.publishModel;
         publish.publishImage = self.photoImage;
         [self.navigationController pushViewController:publish animated:YES];
 //        [self presentViewController:publish animated:YES completion:nil];
@@ -154,15 +188,107 @@
 }
 -(void)tap
 {
-    CommodityTagViewController *vc = [[CommodityTagViewController alloc]init];
-    vc.endBlock = ^(id object){
+    _tapCount++;
+    if (_tapCount == 1)
+    {
+        UIImage *image = [UIImage imageNamed:@"label_leftbg_small"];
+        __weak EditPhotoViewController *this = self;
+        CommodityTagViewController *vc = [[CommodityTagViewController alloc]init];
+        vc.endBlock = ^(id object,BOOL isEdit,BOOL isDelete){
+            PublishModel *model = object;
+            self.publishModel = model;
+            self.publishModel.tagLocation = [NSString stringWithFormat:@"%.f,%.f",self.point.x,self.point.y];
+            if (model)
+            {
+                this.tagView = [[TagView alloc]initWithFrame:CGRectZero];
+                //            this.tagView.tag = self.tagIndex ++;
+                this.tagView.backgroundColor = [UIColor clearColor];
+                this.tagView.userInteractionEnabled = YES;
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:this action:@selector(tapTagMethord)];
+                tap.delegate = this;
+                [this.tagView addGestureRecognizer:tap];
+                if (this.point.x <= this.photo.size.width/2)
+                {
+                    [this.tagView reloadViewWithString:model withXPosition:this.point.x withSuperViewWidth:this.photo.size.width withDirection:DotDirection_Left];
+                    CGFloat width =  [_tagView reloadTagViewWidth];
+                    this.tagView.frame = CGRectMake(this.point.x, this.point.y, width, image.size.height);
+                }
+                else
+                {
+                    [this.tagView reloadViewWithString:model withXPosition:this.point.x withSuperViewWidth:this.photo.size.width withDirection:DotDirection_Right];
+                    CGFloat width =  [this.tagView reloadTagViewWidth];
+                    this.tagView.frame = CGRectMake(this.point.x - width, this.point.y, width, image.size.height);
+                    
+                }
+                [this.photo addSubview:this.tagView];
+                //            [this.tagViewArray addObject:this.tagView];
+                
+            }
+            
+        };
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+   
+}
+-(void)tapTagMethord
+{
+    __weak EditPhotoViewController *this = self;
+    UIImage *image = [UIImage imageNamed:@"label_leftbg_small"];
+    CommodityTagViewController *tag = [[CommodityTagViewController alloc]init];
+    tag.isEdit = YES;
+    tag.endBlock = ^(id object,BOOL isEdit,BOOL isDelete){
+        PublishModel *model = object;
+        self.publishModel = model;
+        if (model)
+        {
+            if (isEdit == YES)
+            {
+                if (this.point.x <= this.photo.size.width/2)
+                {
+                    [this.tagView reloadViewWithString:model withXPosition:this.point.x withSuperViewWidth:this.photo.size.width withDirection:DotDirection_Left];
+                    CGFloat width =  [_tagView reloadTagViewWidth];
+                    this.tagView.frame = CGRectMake(this.point.x, this.point.y, width, image.size.height);
+                }
+                else
+                {
+                    [this.tagView reloadViewWithString:model withXPosition:this.point.x withSuperViewWidth:this.photo.size.width withDirection:DotDirection_Right];
+                    CGFloat width =  [this.tagView reloadTagViewWidth];
+                    this.tagView.frame = CGRectMake(this.point.x - width, this.point.y, width, image.size.height);
+                    
+                }
+                
+            }
+
+        }
+        else
+        {
+            [self.tagBgView removeFromSuperview];
+            self.tapCount = 0;
+        }
         
     };
-    [self presentViewController:vc animated:YES completion:nil];
+    [self presentViewController:tag animated:YES completion:nil];
 }
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    CGPoint point = [touch locationInView:self.photo];
+    UIView *view = gestureRecognizer.view;
+    if(view.tag == 100000)
+    {
+        UIImage *image = [UIImage imageNamed:@"label_leftbg_small"];
+        self.point = [touch locationInView:self.photo];
+        if (self.photo.size.height - self.point.y < image.size.height)
+        {
+            CGPoint point = self.point;
+            point.y = self.photo.size.height - image.size.height;
+            self.point = point;
+        }
+
+    }
+    else
+    {
+        self.selectedTag = view.tag;
+        self.tagBgView = view;
+    }
     return YES;
 }
 

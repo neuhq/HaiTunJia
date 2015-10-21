@@ -321,6 +321,8 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     
     self.content.frame = CGRectMake(kNoteDetailInfoCellLeftOffset, self.goodsImageView.bottom + kNoteDetailInfoCellLeftOffset, kScreenWidth - 2*kNoteDetailInfoCellLeftOffset, 0);
     NSString *contentString =detailModel.commodity.content;
+    if(contentString== nil)
+        contentString = @"";
     NSMutableAttributedString * attributedString1 = [[NSMutableAttributedString alloc] initWithString:contentString];
     NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle1 setLineSpacing:10];

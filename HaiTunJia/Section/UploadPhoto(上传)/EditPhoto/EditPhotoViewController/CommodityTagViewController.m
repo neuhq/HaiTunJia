@@ -32,6 +32,11 @@ UITextFieldDelegate>
 
 @property(nonatomic,strong) UITextField *address;
 
+@property(nonatomic,strong) UIButton *deleteFooterButton;
+
+@property(nonatomic,strong) UIView *footerView;
+
+//@property(nonatomic,strong)
 
 
 @end
@@ -50,13 +55,28 @@ UITextFieldDelegate>
     [self.view addSubview:self.tableView];
     // Do any additional setup after loading the view.
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    if(self.isEdit == YES)
+        _tableView.tableFooterView = self.footerView;
+    [super viewDidAppear:animated];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark  -- UI
+-(UIView *)footerView
+{
+    if (!_footerView)
+    {
+        _footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 50.0f)];
+        _footerView.backgroundColor = [UIColor clearColor];
+        [_footerView addSubview:self.deleteFooterButton];
+    }
+    return _footerView;
+}
 -(CustomSearchBar *) searchBar
 {
     if (!_searchBar)
@@ -77,8 +97,31 @@ UITextFieldDelegate>
         _tableView.dataSource = self;
         _tableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor colorWithHexString:@"000000"];
+      
     }
     return _tableView;
+}
+-(UIButton *) deleteFooterButton
+{
+    if (!_deleteFooterButton)
+    {
+        _deleteFooterButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _deleteFooterButton.frame = CGRectMake((self.footerView.width - 80)*0.5f, 0, 80, self.footerView.height);
+        _deleteFooterButton.backgroundColor = [UIColor clearColor];
+        _deleteFooterButton.layer.masksToBounds = YES;
+        _deleteFooterButton.layer.cornerRadius = 20.0f;
+        _deleteFooterButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+        _deleteFooterButton.layer.borderWidth = 0.5f;
+        [_deleteFooterButton setTitle:@"删除" forState:UIControlStateNormal];
+        [_deleteFooterButton setTitle:@"删除" forState:UIControlStateHighlighted];
+        [_deleteFooterButton setBackgroundImage:[UIImage createImageWithColor:[UIColor clearColor] rect:_deleteFooterButton.bounds] forState:UIControlStateNormal];
+        [_deleteFooterButton setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithHex:@"#ffffff" withAlpha:0.8f] rect:_deleteFooterButton.bounds] forState:UIControlStateHighlighted];
+        [_deleteFooterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_deleteFooterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        _deleteFooterButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+        [_deleteFooterButton addTarget:self action:@selector(deleteAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _deleteFooterButton;
 }
 #pragma mark -- helper
 -(void)initArray
@@ -158,9 +201,10 @@ UITextFieldDelegate>
 {
     return 32.0f;
 }
+
 -(void)rightButtonAction
 {
-    PublishModel *model = [PublishModel sharedManager];
+    PublishModel *model = [[PublishModel alloc]init];
     model.moneyType = self.currency.text;
     model.name = self.commdityName.text;
     model.price = self.price.text;
@@ -168,9 +212,40 @@ UITextFieldDelegate>
     AddTagEndBlock block = self.endBlock;
     if (block)
     {
-        block(model);
+        block(model,self.isEdit,nil);
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.type resignFirstResponder];
+    [self.price resignFirstResponder];
+    [self.commdityName resignFirstResponder];
+    [self.address resignFirstResponder];
+    [self.currency resignFirstResponder];
+    [self.brand resignFirstResponder];
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.type resignFirstResponder];
+    [self.price resignFirstResponder];
+    [self.commdityName resignFirstResponder];
+    [self.address resignFirstResponder];
+    [self.currency resignFirstResponder];
+    [self.brand resignFirstResponder];
+}
+-(void)deleteAction
+{
+    AddTagEndBlock block = self.endBlock;
+    if (block)
+    {
+        block(nil,YES,YES);
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

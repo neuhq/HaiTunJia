@@ -17,7 +17,7 @@
 @end
 @implementation TagView
 
--(id)initWithFrame:(CGRect)frame withDirection:(DotDirection) directon
+-(id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self)
@@ -59,17 +59,50 @@
     }
     return _contentView;
 }
--(void)reloadViewWithString:(NSString *) string withXPosition:(CGFloat) position withSuperViewWidth:(CGFloat) width withDirection:(DotDirection) direction
+-(void)reloadViewWithString:(PublishModel *) publishModel withXPosition:(CGFloat) position withSuperViewWidth:(CGFloat) width withDirection:(DotDirection) direction;
 {
+    UIImage *dotImage = [UIImage imageNamed:@"label_dot_small"];
+    UIImage *smallBg = [UIImage imageNamed:@"label_leftbg_small"];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:14],NSFontAttributeName, nil];
     if (direction == DotDirection_Left)
     {
-        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:14],NSFontAttributeName, nil];
-        CGSize size = [string boundingRectWithSize:CGSizeMake(width - position - 10.0f, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
+        CGFloat viewWidth = width - position - 10 - 10;
+        NSString *string = [NSString stringWithFormat:@"%@%@%@%@",publishModel.name,publishModel.price,publishModel.moneyType,publishModel.source];
+        CGSize size = [string boundingRectWithSize:CGSizeMake(viewWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
+        CGSize sizeHeight = [string sizeWithAttributes:@{NSFontAttributeName:self.titleLabel.font}];
+        self.smallDot.frame = CGRectMake(0, (smallBg.size.height - dotImage.size.height)/2, dotImage.size.width, dotImage.size.height);
+        self.smallDot.image = dotImage;
+        self.titleLabel.frame = CGRectMake(10, ((smallBg.size.height - sizeHeight.height)/2), size.width, sizeHeight.height);
+        self.titleLabel.text = string;
+        
+        smallBg = [smallBg stretchableImageWithLeftCapWidth:10 topCapHeight:5];
+        self.contentView.frame = CGRectMake(self.smallDot.right, 0, self.titleLabel.width + 10, smallBg.size.height);
+        self.contentView.image = smallBg;
     }
     else
     {
-        
+        UIImage *image = [UIImage imageNamed:@"label_rightbg_small"];
+        CGFloat viewWidth = position - 10 - 10;
+        NSString *string = [NSString stringWithFormat:@"%@%@%@%@",publishModel.name,publishModel.price,publishModel.moneyType,publishModel.source];
+        CGSize size = [string boundingRectWithSize:CGSizeMake(viewWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
+        CGSize sizeHeight = [string sizeWithAttributes:@{NSFontAttributeName:self.titleLabel.font}];
+        self.titleLabel.frame = CGRectMake(0, ((image.size.height - sizeHeight.height)/2), size.width, sizeHeight.height);
+        self.titleLabel.text = string;
+//        self.titleLabel.numberOfLines = 1;
+//        [self.titleLabel sizeToFit];
+        image = [image stretchableImageWithLeftCapWidth:10 topCapHeight:5];
+        self.contentView.frame = CGRectMake(0, 0, size.width + 10, image.size.height);
+        self.contentView.image = image;
+        self.smallDot.frame = CGRectMake(self.contentView.right, (image.size.height - dotImage.size.height)/2, dotImage.size.width, dotImage.size.height);
+        self.smallDot.image = dotImage;
     }
+    
+  
    
+}
+-(CGFloat)reloadTagViewWidth
+{
+    CGFloat  width = self.smallDot.width + self.contentView.width;
+    return width;
 }
 @end

@@ -93,7 +93,7 @@
         _oneTextField.leftViewMode = UITextFieldViewModeAlways;
         [_oneTextField setValue:[UIColor colorWithHexString:@"ffffff"] forKeyPath:@"_placeholderLabel.textColor"];
         _oneTextField.textColor = [UIColor colorWithHexString:@"ffffff"];
-        _oneTextField.keyboardType = UIKeyboardTypeNumberPad;
+        _oneTextField.keyboardType = UIKeyboardTypeDefault;
         _oneTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         _oneTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         _oneTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -112,13 +112,16 @@
     {
            self.leftTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"品牌" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
          self.rightTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"商品名" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
+        self.leftTextField.keyboardType = UIKeyboardTypeDefault;
+         self.rightTextField.keyboardType = UIKeyboardTypeDefault;
     }
     else
     {
         self.leftTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"币种" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
         self.rightTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"价格" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
-//        self.leftTextField.placeholder = @"币种";
-//        self.rightTextField.placeholder = @"价格";
+        self.leftTextField.keyboardType = UIKeyboardTypeDefault;
+        self.rightTextField.keyboardType = UIKeyboardTypeNumberPad;
+
     }
 }
 

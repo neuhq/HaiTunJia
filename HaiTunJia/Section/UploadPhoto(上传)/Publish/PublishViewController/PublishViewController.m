@@ -49,7 +49,7 @@ UITextFieldDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.fd_interactivePopDisabled = NO;
-    self.addImage = [UIImage imageNamed:@"add"];
+//    self.addImage = [UIImage imageNamed:@"add"];
     self.rightView = @"发布";
     self.rightBarButton.hidden = NO;
     [self.rightBarButton setTitleColor:[UIColor colorWithHexString:@"03a9f6"] forState:UIControlStateNormal];
@@ -97,38 +97,47 @@ UITextFieldDelegate>
 #pragma mark -- HTTP
 -(void)publish
 {
-    _service = [[PublishService alloc]init];
-    [_service startRequestWithImage:self.addImage Publish:^{
-        if (self.tagArray.count == 3)
-        {
-            _service.tag1 = self.tagArray[0];
-            _service.tag2 = self.tagArray[1];
-            _service.tag3 = self.tagArray[2];
-        }
-        else if (self.tagArray.count == 2)
-        {
-            _service.tag1 = self.tagArray[0];
-            _service.tag2 = self.tagArray[1];
-            _service.tag3 = @"";
-        }
-        else if (self.tagArray.count == 1)
-        {
-            _service.tag1 = self.tagArray[0];
-            _service.tag2 = @"";
-            _service.tag3 = @"";
-        }
-        _service.moneyType = @"人民币";
-        _service.name = @"测试商品";
-        _service.price = @"100";
-        _service.source = @"海淘";
-        _service.content = self.contentTV.text;
-    } respons:^(id object) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-        [HTJCommon sharedManager].isAddImage = NO;
-    } failed:^(NSError *error) {
-        
-    }];
-    
+    if (self.publishModel.publishImage != nil)
+    {
+        _service = [[PublishService alloc]init];
+        [_service startRequestWithImage:self.publishModel.publishImage Publish:^{
+            if (self.tagArray.count == 3)
+            {
+                _service.tag1 = self.tagArray[0];
+                _service.tag2 = self.tagArray[1];
+                _service.tag3 = self.tagArray[2];
+            }
+            else if (self.tagArray.count == 2)
+            {
+                _service.tag1 = self.tagArray[0];
+                _service.tag2 = self.tagArray[1];
+                _service.tag3 = @"";
+            }
+            else if (self.tagArray.count == 1)
+            {
+                _service.tag1 = self.tagArray[0];
+                _service.tag2 = @"";
+                _service.tag3 = @"";
+            }
+            _service.moneyType = self.publishModel.moneyType;
+            _service.name = self.publishModel.name;
+            _service.price = self.publishModel.price;
+            _service.source = self.publishModel.source;
+            _service.content = self.publishModel.content;
+            _service.coordinate = self.publishModel.tagLocation;
+        } respons:^(id object) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            [HTJCommon sharedManager].isAddImage = NO;
+        } failed:^(NSError *error) {
+            
+        }];
+
+    }
+    else
+    {
+        iToast *toast = [[iToast alloc]initWithText:@"最少添加一张图片"];
+        [toast show];
+    }
 }
 #pragma mark  -- Delegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -202,6 +211,7 @@ UITextFieldDelegate>
             }
             [cell setFirstCellData:self.publishImage];
             self.contentTV = cell.contentTV;
+            self.publishModel.content = self.contentTV.text;
             return cell;
         }
         else
@@ -225,7 +235,10 @@ UITextFieldDelegate>
             cell = [[PublishCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifer1 withSection:indexPath.section];
         }
         [cell.addImageButton addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
-        [cell setSecendCellData:self.addImage];
+        if(self.publishModel.publishImage == nil)
+            [cell setSecendCellData:[UIImage imageNamed:@"add"]];
+        else
+            [cell setSecendCellData:self.addImage];
         return cell;
 
     }

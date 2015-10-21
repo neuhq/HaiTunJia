@@ -20,6 +20,10 @@
 
 @property(nonatomic,strong) NSString *content;
 
+@property(nonatomic,strong) NSString *tagLocation;
+
+@property(nonatomic,strong) UIImage *publishImage;
+
 + (PublishModel *)sharedManager;
 
 @end

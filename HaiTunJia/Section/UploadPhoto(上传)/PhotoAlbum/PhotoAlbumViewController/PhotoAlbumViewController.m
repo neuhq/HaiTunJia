@@ -135,8 +135,8 @@ UIGestureRecognizerDelegate>
 #pragma mark -- helper
 -(void)viewConfig
 {
-    self.navTitleView.hidden = NO;
-    self.navTitle = @"相机胶卷";
+//    self.navTitleView.hidden = NO;
+//    self.navTitle = @"相机胶卷";
 //    self.leftBarButton.hidden = YES;
 //    [self.customNavigationBar addSubview:self.leftButtonWithWord];
 //    self.leftButtonWithWordString = @"取消";

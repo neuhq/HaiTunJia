@@ -141,6 +141,7 @@
         finishBlock(result);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"[UploadVC] error response.object = %@", operation.responseObject);
+        [self showResponsMessage:@"网络错误"];
     }];
 }
 // 获取当前对象已经设置内容的数据名字和对应的内容

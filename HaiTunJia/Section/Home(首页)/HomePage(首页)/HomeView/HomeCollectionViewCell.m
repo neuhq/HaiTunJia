@@ -260,7 +260,7 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
     self.name.text    = nameString;
     
     //地点
-    NSString *addressString = @"日本，东京，美国";
+    NSString *addressString = @"暂无地址";
     CGSize addressSize = [addressString sizeWithAttributes:@{NSFontAttributeName:self.address.font}];
     self.address.frame  = CGRectMake(self.name.left,
                                                               self.name.bottom + 5.0f,

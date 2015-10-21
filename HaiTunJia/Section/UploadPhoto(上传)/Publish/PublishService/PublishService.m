@@ -27,10 +27,9 @@
         {
             pulishInfo(result);
         }
-        else
-        {
-            [self showResponsMessage:dic[@"state"]];
-        }
+       
+         [self showResponsMessage:dic[@"message"]];
+    
     } failureBlock:^(NSError *error) {
         failed(error);
     }];

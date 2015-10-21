@@ -1,5 +1,6 @@
 
 #import "BaseViewController.h"
+#import "PublishModel.h"
 
 @interface PublishViewController : BaseViewController
 
@@ -7,6 +8,8 @@
 @property(nonatomic,strong) UIImage *publishImage;
 
 @property(nonatomic,strong) UIImage *addImage;
+
+@property(nonatomic,strong) PublishModel *publishModel;
 
 + (PublishViewController *)sharedManager;
 
