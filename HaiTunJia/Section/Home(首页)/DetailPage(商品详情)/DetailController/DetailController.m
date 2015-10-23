@@ -10,6 +10,7 @@
 #import "YcKeyBoardView.h"
 #import "AddCommentService.h"
 #import "ChangeFollowRelationService.h"
+#import "OtherUserViewController.h"
 
 @interface DetailController ()
 <DetailBottomViewDelegate,
@@ -180,7 +181,9 @@ YcKeyBoardViewDelegate>
         {
             [self.bottomView reloadPraiseState:NO];
         }
-        
+        PraiseSuccessBlock block = self.praiseSuccessBlock;
+        if(block)
+            block();
     } failed:^(NSError *error) {
         
     }];
@@ -240,7 +243,12 @@ YcKeyBoardViewDelegate>
 }
 -(void)seeUser:(NSInteger)index
 {
-    
+    PraisesModel *model = [self.detailModel.data.praises objectAtIndex:index];
+    OtherUserViewController *otherUserVC = [[OtherUserViewController alloc]init];
+    otherUserVC.userId = [NSString stringWithFormat:@"%ld",model.userId];
+//    otherUserVC.commodityId = [NSString stringWithFormat:@"%ld",model.commodityId];
+    [self.navigationController pushViewController:otherUserVC animated:YES];
+
 }
 #pragma mark -- TableViewDelegate/TableViewDataSource
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView

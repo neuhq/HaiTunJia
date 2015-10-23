@@ -3,6 +3,8 @@
 #import "CustomTabView.h"
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
+#import "UIImage+ImageEffects.h"
+
 const CGFloat kUserHeaderTopBgViewHeight  =  124.0f;
 const CGFloat kUserHeaderBottomBgViewHeight  = 55.0f;
 const CGFloat kUserHeaderSamllAvatarBgHeight   = 85.0f;
@@ -114,6 +116,7 @@ const CGFloat kUserHeaderSamllAvatarHeight   = 74.0;
     if (!_bigAvatar)
     {
         _bigAvatar = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 104)];
+//        _bigAvatar = [[UIImageView alloc]init];
         _bigAvatar.backgroundColor = [UIColor clearColor];
     }
     return _bigAvatar;
@@ -227,11 +230,13 @@ const CGFloat kUserHeaderSamllAvatarHeight   = 74.0;
 
 -(void)reloadUserInfo:(UserModel *) userModel
 {
-    [self.smallAvatar sd_setBackgroundImageWithURL:[NSURL URLWithString:userModel.data.pic] forState:UIControlStateNormal];
-    [self.smallAvatar sd_setBackgroundImageWithURL:[NSURL URLWithString:userModel.data.pic] forState:UIControlStateHighlighted];
+    [self.smallAvatar sd_setBackgroundImageWithURL:[NSURL URLWithString:userModel.data.pic] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"Icon-76"]];
+    [self.smallAvatar sd_setBackgroundImageWithURL:[NSURL URLWithString:userModel.data.pic] forState:UIControlStateHighlighted placeholderImage:[UIImage imageNamed:@"Icon-76"]];
     
-    [self.bigAvatar sd_setImageWithURL:[NSURL URLWithString:userModel.data.pic] placeholderImage:nil];
-    
+    [self.bigAvatar sd_setImageWithURL:[NSURL URLWithString:userModel.data.pic] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        image = [UIImage scaleToSize:image size:CGSizeMake(kScreenWidth, 104.0f)];
+        [image applyBlurWithRadius:0.4 tintColor:[UIColor blackColor] saturationDeltaFactor:0.4 maskImage:image];
+    }];    
     self.name.text = userModel.data.nick;
     [self.concernButton setTitle:[NSString stringWithFormat:@"关注：%ld",userModel.data.followNum] forState:UIControlStateNormal];
     [self.fansButton setTitle:[NSString stringWithFormat:@"粉丝：%ld",userModel.data.followerNum] forState:UIControlStateNormal];

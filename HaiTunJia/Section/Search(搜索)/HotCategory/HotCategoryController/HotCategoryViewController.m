@@ -111,7 +111,7 @@ UICollectionViewDataSource>
                                                                               [UIImage imageNamed:@"classfy_muying"],
                                                                               [UIImage imageNamed:@"classfy_nanren"],
                                                                               [UIImage imageNamed:@"classfy_qita"],nil];
-      self.titleArray = [NSMutableArray arrayWithObjects:@"护肤",@"包包",@"彩妆",@"配饰",@"鞋子",@"家居",@"服装",@"饰品",@"数码",@"母婴",@"男人",@"其他", nil];
+      self.titleArray = [NSMutableArray arrayWithObjects:@"护肤",@"包包",@"彩妆",@"配饰",@"鞋子",@"家居",@"服装",@"食品",@"数码",@"母婴",@"男人",@"其他", nil];
 }
 
 #pragma mark  --- Delegate

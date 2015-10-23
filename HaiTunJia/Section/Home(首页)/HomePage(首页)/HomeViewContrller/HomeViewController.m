@@ -266,9 +266,14 @@ UICollectionViewDelegateFlowLayout>
         return;
 //    RegisterViewController *registerVC = [[RegisterViewController alloc]init];
 //    [self.navigationController pushViewController:registerVC animated:YES];
-    
+    __weak HomeViewController *this = self;
     DataModel *dataModel = [self.listArray objectAtIndex:indexPath.item];
     DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
+    detail.praiseSuccessBlock = ^(){
+        self.isLoadMore = NO;
+        self.lastCommodityId = @"";
+        [this getHomeListData];
+    };
     [self.navigationController pushViewController:detail animated:YES];
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

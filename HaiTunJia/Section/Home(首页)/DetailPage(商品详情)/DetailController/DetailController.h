@@ -13,6 +13,10 @@ typedef enum DetailCellType{
 }DetailCellType;
 
 @class DetailBottomView;
+
+//用于详情页点赞的同时刷新首页
+typedef void(^PraiseSuccessBlock)(void);
+
 @interface DetailController : BaseViewController
 <UITableViewDataSource,
 UITableViewDelegate>
@@ -23,6 +27,8 @@ UITableViewDelegate>
 
 //笔记id
 @property(nonatomic,strong) NSString *noteId;
+
+@property(nonatomic,copy) PraiseSuccessBlock praiseSuccessBlock;
 
 @property(nonatomic,strong) DetailBottomView *bottomView;
 

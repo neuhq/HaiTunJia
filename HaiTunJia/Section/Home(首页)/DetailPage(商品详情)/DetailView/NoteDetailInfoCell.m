@@ -121,6 +121,8 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
         _avatarImageView.backgroundColor = [UIColor clearColor];
         _avatarImageView.layer.masksToBounds = YES;
         _avatarImageView.layer.cornerRadius = kNoteDetailInfoCellAvatarImageViewHeight/2;
+        _avatarImageView.layer.borderColor = [UIColor colorWithHexString:@"bbbbbb"].CGColor;
+        _avatarImageView.layer.borderWidth = 0.5f;
     }
     return _avatarImageView;
 }
@@ -315,8 +317,8 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     publishModel.moneyType = detailModel.commodity.moneyType;
     self.tagArray = [NSArray arrayWithObjects:detailModel.commodity.tag1,detailModel.commodity.tag2,detailModel.commodity.tag3 ,nil];
     self.name.text = detailModel.follow.userName;
-    [self.avatarImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] forState:UIControlStateNormal];
-    [self.avatarImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] forState:UIControlStateHighlighted];
+    [self.avatarImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"Icon-Small-40"]];
+    [self.avatarImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] forState:UIControlStateHighlighted placeholderImage:[UIImage imageNamed:@"Icon-Small-40"]];
     if (detailModel.follow.followType == 0) //未关注
     {
         [_concern setTitle:@"关注" forState:UIControlStateNormal];
@@ -428,10 +430,12 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
         UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(44*i+15, self.commentAndLike.bottom + 10.0f, 30.0f, 30.0f)];
         button.tag = i;
         self.commentAndLikeImagevView = button;
-        [button sd_setImageWithURL:url forState:UIControlStateNormal] ;
-        [button sd_setImageWithURL:url forState:UIControlStateHighlighted] ;
+        [button sd_setImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"Icon-60"]] ;
+        [button sd_setImageWithURL:url forState:UIControlStateHighlighted placeholderImage:[UIImage imageNamed:@"Icon-60"]] ;
         button.layer.masksToBounds = YES;
         button.layer.cornerRadius = 30.0/2;
+        button.layer.borderColor = [UIColor colorWithHexString:@"bbbbbb"].CGColor;
+        button.layer.borderWidth = 0.5f;
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:button];
     }

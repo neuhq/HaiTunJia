@@ -10,7 +10,6 @@
 {
     OtherUserNoteListService *service = [self initWithApiUrl:kApi_GetOtherUserRlist];
     [service requestDataWithParamsBlcok:^{
-        self.userId =  [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         params();
     } FinishBlock:^(id result) {
         WaterFallFlowListDataModel *list = [WaterFallFlowListDataModel objectWithKeyValues:result];

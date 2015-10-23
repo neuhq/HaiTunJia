@@ -172,7 +172,7 @@ UserHeaderViewDelegate>
 {
     UserInfoService *service = [[UserInfoService alloc]init];
     [service startRefrashUserInfo:^{
-        
+        service.userId =  [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
     } respons:^(id object) {
         self.userModel = object;
         [self setTitle:self.userModel.data.nick];
@@ -221,6 +221,7 @@ UserHeaderViewDelegate>
     __weak UserViewController *weakSelf = self;
     UserNoteListService *service = [[UserNoteListService alloc]init];
     [service startRequestUserNoteListWithParams:^{
+        service.userId =  [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
         service.lastCommodityId = weakSelf.lastCommodityId;
     } responsDataWithResult:^(id object) {
         NSArray *array = object;
@@ -323,8 +324,14 @@ UserHeaderViewDelegate>
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    __weak UserViewController *this = self;
     ListModel *dataModel = [self.listArray objectAtIndex:indexPath.row];
     DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
+    detail.praiseSuccessBlock = ^(){
+        this.isLoadMore = NO;
+        this.lastCommodityId = @"";
+        [this selectTabAtIndex:0];
+    };
     [self.navigationController pushViewController:detail animated:YES];
 
 }

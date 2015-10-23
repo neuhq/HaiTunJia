@@ -149,8 +149,8 @@ const CGFloat kCommentListCellTopOffset    =  15.0f;
         self.hot.hidden = YES;
         self.avatarButton.frame = CGRectMake(kCommentListCellLeftOffset,  13.0f, 30.0f, 30.0f);
     }
-    [self.avatarButton sd_setImageWithURL:[NSURL URLWithString:commentsModel.userPic] forState:UIControlStateNormal];
-    [self.avatarButton sd_setImageWithURL:[NSURL URLWithString:commentsModel.userPic] forState:UIControlStateHighlighted];
+    [self.avatarButton sd_setImageWithURL:[NSURL URLWithString:commentsModel.userPic] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"Icon-60"]];
+    [self.avatarButton sd_setImageWithURL:[NSURL URLWithString:commentsModel.userPic] forState:UIControlStateHighlighted placeholderImage:[UIImage imageNamed:@"Icon-60"]];
     
     NSString *titleString = commentsModel.userName;
     CGSize titleSize = [titleString sizeWithAttributes:@{NSFontAttributeName:self.title.font}];

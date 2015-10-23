@@ -271,7 +271,11 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
     self.zanNum.text = zanNumStr;
     
     
-    UIImage *loveImage = [UIImage imageNamed:@"icon_love_normal"];
+    UIImage *loveImage;
+    if (self.listModel.isPraised == 0)
+        loveImage = [UIImage imageNamed:@"icon_love_normal"];
+    else
+        loveImage = [UIImage imageNamed:@"icon_love_active"];
     self.zanImageButton.frame = CGRectMake(self.zanNum.left - loveImage.size.width,
                                            5.0f,
                                            loveImage.size.width,
@@ -284,9 +288,6 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
                                          self.width,
                                          self.commentImageButton.bottom + 5.0f);
     self.bigBgView.frame = CGRectMake(0, 0, self.width, self.bottomBgView.bottom);
-    [self.bottomLeftView addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
-    [self.bottomRightView addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 -(void)test
 {

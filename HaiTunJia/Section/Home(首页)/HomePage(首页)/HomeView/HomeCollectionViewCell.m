@@ -25,6 +25,9 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
         _avatarImageView.backgroundColor = [UIColor whiteColor];
         _avatarImageView.layer.masksToBounds = YES;
         _avatarImageView.layer.cornerRadius = kHomeCellAvatarHeight / 2;
+        _avatarImageView.layer.borderColor = [UIColor colorWithHexString:@"bbbbbb"].CGColor;
+        _avatarImageView.layer.borderWidth = 0.5f;
+        
     }
     return _avatarImageView;
 }
@@ -247,8 +250,8 @@ static const CGFloat kHomeCellLineHeight            = 0.5f;
 -(void)setCellData:(DataModel *)dataModel{
     self.dataModel = dataModel;
     //头像
-    [self.avatarImageView  sd_setBackgroundImageWithURL:[NSURL URLWithString:self.dataModel.userPic] forState:UIControlStateNormal];
-    [self.avatarImageView  sd_setBackgroundImageWithURL:[NSURL URLWithString:self.dataModel.userPic] forState:UIControlStateHighlighted];
+    [self.avatarImageView  sd_setBackgroundImageWithURL:[NSURL URLWithString:self.dataModel.userPic] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"Icon-60"]];
+    [self.avatarImageView  sd_setBackgroundImageWithURL:[NSURL URLWithString:self.dataModel.userPic] forState:UIControlStateHighlighted placeholderImage:[UIImage imageNamed:@"Icon-60"]];
     
     //姓名
     NSString *nameString  = self.dataModel.userName;

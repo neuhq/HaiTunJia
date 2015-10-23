@@ -284,8 +284,17 @@ UICollectionViewDelegateFlowLayout>
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    __weak SearchResultViewController *this = self;
     ListModel *model = [self.listArray objectAtIndex:indexPath.item];
     DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",model.iD]];
+    detail.praiseSuccessBlock = ^(){
+        this.isLoadMore = NO;
+        this.lastCommodityId = nil;
+        if(this.isKeywordSearch == YES)
+            [this getSearchResultDataWithKeyword];
+        else
+            [this getSearchResultDataWithTag];
+    };
     [self.navigationController pushViewController:detail animated:YES];
 }
 #pragma mark -- Action

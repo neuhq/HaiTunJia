@@ -15,6 +15,7 @@
 #import "OtherUserNoteListService.h"
 #import "OtherUserHeaderVIew.h"
 #import "MyFansViewController.h"
+#import "UserInfoService.h"
 
 static NSString *const kUserCollectionCellIndentifer =  @"kUserCollectionCellIndentifer";
 static NSString *const kUserHeaderViewIndentifer = @"kUserHeaderViewIndentifer";
@@ -65,21 +66,27 @@ OtherUserHeaderVIewDelegate>
 }
 -(void)viewDidAppear:(BOOL)animated
 {
+    __weak OtherUserViewController *this = self;
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer])
     {
-        if (self.isLoadView)
+        if (this.isLoadView)
         {
-            [self getOtherUserInfo];
-            [self selectTabAtIndex:0];
+            if (this.commodityId == nil)
+                [this getUserInfo];
+            else
+                [this getOtherUserInfo];
+            [this selectTabAtIndex:0];
         }
 
     }
     else
     {
-        __weak OtherUserViewController *this = self;
         LoginViewController *login = [[LoginViewController alloc]init];
         login.endBlock = ^{
-            [this getOtherUserInfo];
+            if(this.commodityId == nil)
+                [this getUserInfo];
+            else
+                [this getOtherUserInfo];
             [this selectTabAtIndex:0];
         };
     }
@@ -141,8 +148,11 @@ OtherUserHeaderVIewDelegate>
         // 进入刷新状态后会自动调用这个block
         self.isLoadMore = NO;
         self.lastCommodityId = @"";
-        [self getOtherUserInfo];
-        [self selectTabAtIndex:0];
+        if(self.commodityId == nil)
+            [self getUserInfo];
+        else
+            [self getOtherUserInfo];
+            [self selectTabAtIndex:0];
     }];
 
     // 上拉刷新
@@ -166,6 +176,20 @@ OtherUserHeaderVIewDelegate>
 }
 
 #pragma mark -- HTTP
+-(void)getUserInfo
+{
+    UserInfoService *service = [[UserInfoService alloc]init];
+    [service startRefrashUserInfo:^{
+        service.userId =  self.userId;
+    } respons:^(id object) {
+        self.userModel = object;
+        [self setTitle:self.userModel.data.nick];
+        [self.hearderView reloadUserInfo:self.userModel];
+    } failed:^(NSError *error) {
+        
+    }];
+}
+
 -(void)getOtherUserInfo
 {
     OtherUserInfoService *service = [[OtherUserInfoService alloc]init];
@@ -180,6 +204,7 @@ OtherUserHeaderVIewDelegate>
         
     }];
 }
+
 -(void)getUserCollectList
 {
     UserCollectService *service = [[UserCollectService alloc]init];
@@ -221,8 +246,16 @@ OtherUserHeaderVIewDelegate>
     __weak OtherUserViewController *weakSelf = self;
     OtherUserNoteListService *service = [[OtherUserNoteListService alloc]init];
     [service startRequestUserNoteListWithParams:^{
+        if(self.userId == nil)
+        {
+            service.userId =  [[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer];
+            service.commodityId = self.commodityId;
+        }
+        else
+        {
+            service.userId = self.userId;
+        }
         service.lastCommodityId = weakSelf.lastCommodityId;
-        service.commodityId = self.commodityId;
     } responsDataWithResult:^(id object) {
         NSArray *array = object;
         
@@ -323,8 +356,15 @@ OtherUserHeaderVIewDelegate>
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    __weak OtherUserViewController *this = self;
     ListModel *dataModel = [self.listArray objectAtIndex:indexPath.row];
     DetailController *detail = [[DetailController alloc]initWithId:[NSString stringWithFormat:@"%ld",dataModel.iD]];
+    detail.praiseSuccessBlock = ^(){
+        this.isLoadMore = NO;
+        this.lastCommodityId = @"";
+        [this selectTabAtIndex:0];
+    };
+
     [self.navigationController pushViewController:detail animated:YES];
     
 }
