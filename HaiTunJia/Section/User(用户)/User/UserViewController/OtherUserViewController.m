@@ -81,14 +81,19 @@ OtherUserHeaderVIewDelegate>
     }
     else
     {
-        LoginViewController *login = [[LoginViewController alloc]init];
-        login.endBlock = ^{
-            if(this.commodityId == nil)
-                [this getUserInfo];
-            else
-                [this getOtherUserInfo];
-            [this selectTabAtIndex:0];
-        };
+        if (this.isLoadView)
+        {
+            LoginViewController *login = [[LoginViewController alloc]init];
+            login.endBlock = ^{
+                if(this.commodityId == nil)
+                    [this getUserInfo];
+                else
+                    [this getOtherUserInfo];
+                [this selectTabAtIndex:0];
+            };
+            [self.navigationController pushViewController:login animated:YES];
+
+        }
     }
         [super viewDidAppear:animated];
 }

@@ -245,25 +245,25 @@
 		AD51D5151BB7F13D00A75753 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD51D5131BB7F13D00A75753 /* main.m */; };
 		AD5267E81BC0C357007350F9 /* MessageIndexViewController+helper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5267E71BC0C357007350F9 /* MessageIndexViewController+helper.m */; };
 		AD5267EB1BC0CC3F007350F9 /* MessageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5267EA1BC0CC3F007350F9 /* MessageHeaderView.m */; };
-		AD74C5171BDA690900D8E8A2 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5051BDA690900D8E8A2 /* Icon-60.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5181BDA690900D8E8A2 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5061BDA690900D8E8A2 /* Icon-60@2x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5191BDA690900D8E8A2 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5071BDA690900D8E8A2 /* Icon-60@3x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C51A1BDA690900D8E8A2 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5081BDA690900D8E8A2 /* Icon-72.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C51B1BDA690900D8E8A2 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5091BDA690900D8E8A2 /* Icon-72@2x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C51C1BDA690900D8E8A2 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C50A1BDA690900D8E8A2 /* Icon-76.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C51D1BDA690900D8E8A2 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C50B1BDA690900D8E8A2 /* Icon-76@2x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C51E1BDA690900D8E8A2 /* Icon-Small-40.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C50C1BDA690900D8E8A2 /* Icon-Small-40.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C51F1BDA690900D8E8A2 /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C50D1BDA690900D8E8A2 /* Icon-Small-40@2x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5201BDA690900D8E8A2 /* Icon-Small-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C50E1BDA690900D8E8A2 /* Icon-Small-40@3x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5211BDA690900D8E8A2 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C50F1BDA690900D8E8A2 /* Icon-Small-50.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5221BDA690900D8E8A2 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5101BDA690900D8E8A2 /* Icon-Small-50@2x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5231BDA690900D8E8A2 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5111BDA690900D8E8A2 /* Icon-Small.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5241BDA690900D8E8A2 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5121BDA690900D8E8A2 /* Icon-Small@2x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5251BDA690900D8E8A2 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5131BDA690900D8E8A2 /* Icon-Small@3x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5261BDA690900D8E8A2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5141BDA690900D8E8A2 /* Icon.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5271BDA690900D8E8A2 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5151BDA690900D8E8A2 /* Icon@2x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5281BDA690900D8E8A2 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5161BDA690900D8E8A2 /* iTunesArtwork@2x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C52B1BDA8A1800D8E8A2 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C52A1BDA8A1800D8E8A2 /* UIImage+ImageEffects.m */; settings = {ASSET_TAGS = (); }; };
+		AD74C5171BDA690900D8E8A2 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5051BDA690900D8E8A2 /* Icon-60.png */; };
+		AD74C5181BDA690900D8E8A2 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5061BDA690900D8E8A2 /* Icon-60@2x.png */; };
+		AD74C5191BDA690900D8E8A2 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5071BDA690900D8E8A2 /* Icon-60@3x.png */; };
+		AD74C51A1BDA690900D8E8A2 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5081BDA690900D8E8A2 /* Icon-72.png */; };
+		AD74C51B1BDA690900D8E8A2 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5091BDA690900D8E8A2 /* Icon-72@2x.png */; };
+		AD74C51C1BDA690900D8E8A2 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C50A1BDA690900D8E8A2 /* Icon-76.png */; };
+		AD74C51D1BDA690900D8E8A2 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C50B1BDA690900D8E8A2 /* Icon-76@2x.png */; };
+		AD74C51E1BDA690900D8E8A2 /* Icon-Small-40.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C50C1BDA690900D8E8A2 /* Icon-Small-40.png */; };
+		AD74C51F1BDA690900D8E8A2 /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C50D1BDA690900D8E8A2 /* Icon-Small-40@2x.png */; };
+		AD74C5201BDA690900D8E8A2 /* Icon-Small-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C50E1BDA690900D8E8A2 /* Icon-Small-40@3x.png */; };
+		AD74C5211BDA690900D8E8A2 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C50F1BDA690900D8E8A2 /* Icon-Small-50.png */; };
+		AD74C5221BDA690900D8E8A2 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5101BDA690900D8E8A2 /* Icon-Small-50@2x.png */; };
+		AD74C5231BDA690900D8E8A2 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5111BDA690900D8E8A2 /* Icon-Small.png */; };
+		AD74C5241BDA690900D8E8A2 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5121BDA690900D8E8A2 /* Icon-Small@2x.png */; };
+		AD74C5251BDA690900D8E8A2 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5131BDA690900D8E8A2 /* Icon-Small@3x.png */; };
+		AD74C5261BDA690900D8E8A2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5141BDA690900D8E8A2 /* Icon.png */; };
+		AD74C5271BDA690900D8E8A2 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5151BDA690900D8E8A2 /* Icon@2x.png */; };
+		AD74C5281BDA690900D8E8A2 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5161BDA690900D8E8A2 /* iTunesArtwork@2x.png */; };
+		AD74C52B1BDA8A1800D8E8A2 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C52A1BDA8A1800D8E8A2 /* UIImage+ImageEffects.m */; };
 		AD8378101BC5070700EC679C /* NoteDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83780F1BC5070700EC679C /* NoteDetailInfoCell.m */; };
 		AD83781D1BC5199800EC679C /* DetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83781C1BC5199800EC679C /* DetailBottomView.m */; };
 		AD8378211BC53DFE00EC679C /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8378201BC53DFE00EC679C /* DWTagList.m */; };
@@ -2957,7 +2957,7 @@
 				TargetAttributes = {
 					AD51D3DF1BB6A90F00A75753 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 835PL3RF7B;
+						DevelopmentTeam = E6LT434MSK;
 					};
 					AD51D3F81BB6A90F00A75753 = {
 						CreatedOnToolsVersion = 7.0;
@@ -3427,8 +3427,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3450,7 +3450,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "e124c528-be6e-4496-a48b-5ee20f598fcc";
+				PROVISIONING_PROFILE = "24a344dc-98ae-4d44-acc0-db2e5f0de2b2";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3472,8 +3472,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3488,7 +3488,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "e124c528-be6e-4496-a48b-5ee20f598fcc";
+				PROVISIONING_PROFILE = "24a344dc-98ae-4d44-acc0-db2e5f0de2b2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3499,8 +3499,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3519,7 +3519,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e124c528-be6e-4496-a48b-5ee20f598fcc";
+				PROVISIONING_PROFILE = "24a344dc-98ae-4d44-acc0-db2e5f0de2b2";
 			};
 			name = Debug;
 		};
@@ -3528,8 +3528,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3548,7 +3548,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e124c528-be6e-4496-a48b-5ee20f598fcc";
+				PROVISIONING_PROFILE = "24a344dc-98ae-4d44-acc0-db2e5f0de2b2";
 			};
 			name = Release;
 		};
