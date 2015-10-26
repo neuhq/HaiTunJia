@@ -10,6 +10,7 @@
 #import "PraiseCommodityService.h"
 #import "RegisterViewController.h"
 #import "OtherUserViewController.h"
+#import "GetBannerListService.h"
 
 //collectionViewCell标识
 static NSString *const HomeViewCollectionViewIndentifer =  @"HomeViewCollectionViewIndentifer";
@@ -37,6 +38,8 @@ UICollectionViewDelegateFlowLayout>
 
 //用于分页
 @property (nonatomic,strong) NSString * lastCommodityId;
+
+@property(nonatomic,strong) NSArray *bannerList;
 
 @end
 
@@ -67,8 +70,11 @@ UICollectionViewDelegateFlowLayout>
 {
     [self hideTabbar:NO];
     if(self.isLoadView)
+    {
         //获取首页商品数据
         [self getHomeListData];
+//                [self getBannerList];
+    }
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [super viewDidAppear:animated];
@@ -175,6 +181,18 @@ UICollectionViewDelegateFlowLayout>
         
     }];
 }
+-(void)getBannerList
+{
+    GetBannerListService *service = [[GetBannerListService alloc]init];
+    [service startRequestBannerList:^{
+        
+    } respons:^(id object) {
+        self.bannerList = object;
+        [self.homeCollectionView reloadData];
+    } failed:^(NSError *error) {
+        
+    }];
+}
 #pragma mark -- helper
 //上下拉刷新控件
 -(void)setRefrashControl
@@ -255,6 +273,7 @@ UICollectionViewDelegateFlowLayout>
         HomeCollectionHeaderView *hearderView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                           withReuseIdentifier:HomeViewHeaderViewIndentifer
                                                                 forIndexPath:indexPath];
+//        [hearderView setImage:self.bannerList];
         [hearderView setImage];
         reusableView = hearderView;
     }

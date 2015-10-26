@@ -88,7 +88,7 @@
     }
 
     // 1.设置请求对象的请求地址
-    _urlRequest.URL = [NSURL URLWithString:_api_url];
+//    _urlRequest.URL = [NSURL URLWithString:_api_url];
     // 获取当前对象的参数
     NSMutableDictionary *attributes = [self getMyClassAttributeNameAndValue];
     // 4.设置网络请求

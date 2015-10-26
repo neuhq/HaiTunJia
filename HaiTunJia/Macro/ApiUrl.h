@@ -111,7 +111,8 @@
 //发布商品
 #define kApi_ReleaseGoods                                        [kApi_Base stringByAppendingString:@"api/v1/applyCommodity"]
 
-
+//首页banner
+#define kApi_GetBannerList                                         [kApi_Base stringByAppendingString:@"api/v1/ bannerList"]
 
 #pragma mark -- 系统相关
 

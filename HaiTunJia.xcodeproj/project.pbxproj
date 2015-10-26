@@ -264,6 +264,8 @@
 		AD74C5271BDA690900D8E8A2 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5151BDA690900D8E8A2 /* Icon@2x.png */; };
 		AD74C5281BDA690900D8E8A2 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5161BDA690900D8E8A2 /* iTunesArtwork@2x.png */; };
 		AD74C52B1BDA8A1800D8E8A2 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C52A1BDA8A1800D8E8A2 /* UIImage+ImageEffects.m */; };
+		AD74C52E1BDE6D8F00D8E8A2 /* GetBannerListService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C52D1BDE6D8F00D8E8A2 /* GetBannerListService.m */; settings = {ASSET_TAGS = (); }; };
+		AD74C5311BDE6EB500D8E8A2 /* BannerListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C5301BDE6EB500D8E8A2 /* BannerListModel.m */; settings = {ASSET_TAGS = (); }; };
 		AD8378101BC5070700EC679C /* NoteDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83780F1BC5070700EC679C /* NoteDetailInfoCell.m */; };
 		AD83781D1BC5199800EC679C /* DetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83781C1BC5199800EC679C /* DetailBottomView.m */; };
 		AD8378211BC53DFE00EC679C /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8378201BC53DFE00EC679C /* DWTagList.m */; };
@@ -852,6 +854,10 @@
 		AD74C5161BDA690900D8E8A2 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		AD74C5291BDA8A1800D8E8A2 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		AD74C52A1BDA8A1800D8E8A2 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		AD74C52C1BDE6D8F00D8E8A2 /* GetBannerListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetBannerListService.h; sourceTree = "<group>"; };
+		AD74C52D1BDE6D8F00D8E8A2 /* GetBannerListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetBannerListService.m; sourceTree = "<group>"; };
+		AD74C52F1BDE6EB500D8E8A2 /* BannerListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerListModel.h; sourceTree = "<group>"; };
+		AD74C5301BDE6EB500D8E8A2 /* BannerListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerListModel.m; sourceTree = "<group>"; };
 		AD83780E1BC5070700EC679C /* NoteDetailInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDetailInfoCell.h; sourceTree = "<group>"; };
 		AD83780F1BC5070700EC679C /* NoteDetailInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDetailInfoCell.m; sourceTree = "<group>"; };
 		AD83781B1BC5199800EC679C /* DetailBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBottomView.h; sourceTree = "<group>"; };
@@ -1659,6 +1665,8 @@
 			children = (
 				AD13B8891BBCF7ED00AA3142 /* HomeListModel.h */,
 				AD13B88A1BBCF7ED00AA3142 /* HomeListModel.m */,
+				AD74C52F1BDE6EB500D8E8A2 /* BannerListModel.h */,
+				AD74C5301BDE6EB500D8E8A2 /* BannerListModel.m */,
 			);
 			path = HomeModel;
 			sourceTree = "<group>";
@@ -1668,6 +1676,8 @@
 			children = (
 				AD13B88C1BBCF7ED00AA3142 /* HomeService.h */,
 				AD13B88D1BBCF7ED00AA3142 /* HomeService.m */,
+				AD74C52C1BDE6D8F00D8E8A2 /* GetBannerListService.h */,
+				AD74C52D1BDE6D8F00D8E8A2 /* GetBannerListService.m */,
 			);
 			path = HomeService;
 			sourceTree = "<group>";
@@ -3191,6 +3201,7 @@
 				AD9B3D221BBBAA4B001078B9 /* NSString+MJExtension.m in Sources */,
 				ADF614621BC4E4C2004FCABE /* LoginViewPasswordView.m in Sources */,
 				AD51D5021BB7CD1300A75753 /* SDWebImageManager.m in Sources */,
+				AD74C5311BDE6EB500D8E8A2 /* BannerListModel.m in Sources */,
 				AD4C588C1BCA758800C3E83C /* StateModel.m in Sources */,
 				AD13B7D71BBC2EE700AA3142 /* LeveyTabBar.m in Sources */,
 				33D4AA181BB9213F0086D442 /* NSDateFormatter+Additions.m in Sources */,
@@ -3245,6 +3256,7 @@
 				33F3A6F31BD0D2EF0024BC8B /* UserModel.m in Sources */,
 				33D4AA171BB9213F0086D442 /* NSDate+Additions.m in Sources */,
 				33E18E721BD0A8250067FBE9 /* OtherUserViewController.m in Sources */,
+				AD74C52E1BDE6D8F00D8E8A2 /* GetBannerListService.m in Sources */,
 				ADCD77341BC013F5004B6493 /* AppDelegateHelper.m in Sources */,
 				AD51D4F41BB7CD1300A75753 /* NSArray+MASAdditions.m in Sources */,
 				AD51D5081BB7CD1300A75753 /* UIImageView+HighlightedWebCache.m in Sources */,

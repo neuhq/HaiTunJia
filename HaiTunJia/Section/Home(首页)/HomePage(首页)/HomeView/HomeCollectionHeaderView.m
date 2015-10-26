@@ -69,9 +69,24 @@
     }
     return _pageControl;
 }
--(void)setImage
+-(void)setImage:(NSArray *) array
 {
 //    [super layoutSubviews];
+    _pageControl.numberOfPages = array.count;
+    for (int i=0; i<array.count; i++)
+    {
+        BannerData *data = array[i];
+        UIButton *hotelImage=[[UIButton alloc]initWithFrame:CGRectMake(self.bounds.size.width*i, 0,self.scrollView.size.width, self.scrollView.frame.size.height - 10)];
+        [hotelImage sd_setBackgroundImageWithURL:[NSURL URLWithString:data.imgurl]forState: UIControlStateNormal placeholderImage:nil];
+        hotelImage.backgroundColor=[UIColor whiteColor];
+        hotelImage.userInteractionEnabled=YES;
+        [self.scrollView addSubview:hotelImage];
+        self.scrollView.contentSize=CGSizeMake(self.bounds.size.width*(i+1), 0);
+    }
+
+}
+-(void)setImage
+{
     _pageControl.numberOfPages = self.picArr.count;
     for (int i=0; i<self.picArr.count; i++)
     {
@@ -83,7 +98,7 @@
         self.scrollView.contentSize=CGSizeMake(self.bounds.size.width*(i+1), 0);
         
     }
-
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
