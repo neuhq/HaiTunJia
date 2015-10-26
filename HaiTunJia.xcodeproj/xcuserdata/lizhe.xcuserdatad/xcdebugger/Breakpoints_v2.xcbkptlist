@@ -164,11 +164,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HaiTunJia/Section/User(&#x7528;&#x6237;)/User/UserViewController/OtherUserViewController.m"
-            timestampString = "467305934.793209"
+            timestampString = "467476369.851706"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
+            landmarkName = "-getNoteListData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HaiTunJia/Section/User(&#x7528;&#x6237;)/User/UserViewController/OtherUserViewController.m"
+            timestampString = "467476375.393178"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
+            landmarkName = "-getNoteListData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HaiTunJia/Section/User(&#x7528;&#x6237;)/User/UserViewController/OtherUserViewController.m"
+            timestampString = "467476685.727715"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
+            landmarkName = "-getNoteListData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HaiTunJia/Section/Message(&#x6d88;&#x606f;)/MyFans/MyFansViewController/MyFansViewController.m"
+            timestampString = "467479609.891789"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -179,14 +227,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Section/User(&#x7528;&#x6237;)/User/UserViewController/OtherUserViewController.m"
-            timestampString = "467306737.778886"
+            filePath = "HaiTunJia/Section/Message(&#x6d88;&#x606f;)/MyFans/MyFansViewController/MyFansViewController.m"
+            timestampString = "467479657.506827"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "-getNoteListData"
-            landmarkType = "5">
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "@implementation MyFansViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -195,13 +243,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Section/User(&#x7528;&#x6237;)/User/UserViewController/OtherUserViewController.m"
-            timestampString = "467306737.778886"
+            filePath = "HaiTunJia/Section/Message(&#x6d88;&#x606f;)/MyFans/MyFansViewController/MyFansViewController.m"
+            timestampString = "467479684.162432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
-            landmarkName = "-getNoteListData"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "-getFansListData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
