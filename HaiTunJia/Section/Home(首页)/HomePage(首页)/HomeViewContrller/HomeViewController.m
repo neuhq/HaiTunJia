@@ -72,8 +72,8 @@ UICollectionViewDelegateFlowLayout>
     if(self.isLoadView)
     {
         //获取首页商品数据
+        [self getBannerList];
         [self getHomeListData];
-//                [self getBannerList];
     }
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     

@@ -11,11 +11,14 @@
 #import "AddCommentService.h"
 #import "ChangeFollowRelationService.h"
 #import "OtherUserViewController.h"
+#import "EditNoteView.h"
+#import "DeleteNoteService.h"
 
 @interface DetailController ()
 <DetailBottomViewDelegate,
 NoteDetailInfoCellDelegate,
-YcKeyBoardViewDelegate>
+YcKeyBoardViewDelegate,
+EditNoteViewDelegate>
 
 @property(nonatomic,assign) BOOL isScrollDown;
 
@@ -30,6 +33,8 @@ YcKeyBoardViewDelegate>
 @property (nonatomic,assign) CGFloat keyBoardHeight;
 
 @property (nonatomic,strong) NSString *commentContent;
+
+@property(nonatomic,strong) EditNoteView *editNoteView;
 
 @end
 
@@ -68,6 +73,7 @@ YcKeyBoardViewDelegate>
     }
 
     [self.view addSubview:self.bottomView];
+    [self.view addSubview:self.editNoteView];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -115,6 +121,16 @@ YcKeyBoardViewDelegate>
     }
     return _footerView;
 }
+-(EditNoteView *) editNoteView
+{
+    if (!_editNoteView)
+    {
+        _editNoteView = [[EditNoteView alloc]initWithFrame:CGRectMake(0, kNavigationBarHeight, kScreenWidth, kScreenHeight - kNavigationBarHeight)];
+        _editNoteView.hidden = YES;
+        _editNoteView.delegate = self;
+    }
+    return _editNoteView;
+}
 //-(YcKeyBoardView *) keyBoradView
 //{
 //    if (!_keyBoradView)
@@ -130,6 +146,7 @@ YcKeyBoardViewDelegate>
 -(void)viewConfig
 {
     [self setTitle:@"笔记详情"];
+    self.rightView = [UIImage imageNamed:@"icon_more"];
 }
 #pragma mark -- HTTP
 //详情请求
@@ -143,7 +160,11 @@ YcKeyBoardViewDelegate>
         self.detailTableView.hidden = NO;
         self.bottomView.hidden = NO;
         [self.bottomView reloadState:self.detailModel];
-        [self.detailTableView reloadData];
+        if (self.detailModel.data.follow.userId == [[[NSUserDefaults standardUserDefaults] objectForKey:kUserIdIndntifer]integerValue])
+            self.rightBarButton.hidden = NO;
+        else
+            self.rightBarButton.hidden = YES;
+            [self.detailTableView reloadData];
     } withFailed:^(NSError *error) {
         
     }];
@@ -212,6 +233,22 @@ YcKeyBoardViewDelegate>
         
     }];
 }
+-(void)deleteNote
+{
+    DeleteNoteService *service = [[DeleteNoteService alloc]init];
+    [service startRequestDeleteNoteWithParams:^{
+        service.commodityId = self.noteId;
+    } respons:^(id object) {
+        PraiseSuccessBlock block = self.praiseSuccessBlock;
+        if (block)
+        {
+            block();
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    } failed:^(NSError *error) {
+        
+    }];
+}
 #pragma mark -- Delegate
 -(void)selectBottomButtonAnIndx:(DetailBottomViewButtonType)type
 {
@@ -249,6 +286,17 @@ YcKeyBoardViewDelegate>
 //    otherUserVC.commodityId = [NSString stringWithFormat:@"%ld",model.commodityId];
     [self.navigationController pushViewController:otherUserVC animated:YES];
 
+}
+-(void)selectedButtonIndex:(NSInteger)index
+{
+    if (index == EditNoteView_Fix)
+    {
+        
+    }
+    else if ( index == EditNoteView_Delete)
+    {
+        [self deleteNote];
+    }
 }
 #pragma mark -- TableViewDelegate/TableViewDataSource
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
@@ -289,6 +337,7 @@ YcKeyBoardViewDelegate>
         if(self.detailModel)
            [cell setDataWithModel:self.detailModel.data];
         [cell.concern addTarget:self action:@selector(concernMethord) forControlEvents:UIControlEventTouchUpInside];
+        [cell.avatarImageView addTarget:self action:@selector(avatarImageViewButtonMethord) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     else if (indexPath.section == DetailCellType_CommentAndLike)
@@ -318,11 +367,13 @@ YcKeyBoardViewDelegate>
             {
                 CommentsModel *model = [self.detailModel.data.comments objectAtIndex:indexPath.row];
                 [cell setCellDataWithCommentModel:model row:indexPath.row];
+                [cell.avatarButton addTarget:self action:@selector(avatarButtonMethord:) forControlEvents:UIControlEventTouchUpInside];
             }
             else
             {
                 CommentsModel *model = [self.detailModel.data.comments objectAtIndex:indexPath.row - 1];
                 [cell setCellDataWithCommentModel:model row:indexPath.row];
+                [cell.avatarButton addTarget:self action:@selector(avatarButtonMethord:) forControlEvents:UIControlEventTouchUpInside];
             }
         }
         return cell;
@@ -382,8 +433,6 @@ YcKeyBoardViewDelegate>
     [self.keyBoradView.textView becomeFirstResponder];
     self.keyBoradView.textView.returnKeyType=UIReturnKeySend;
     [self.view addSubview:self.keyBoradView];
-
-    [self.view addSubview:self.keyBoradView];
 }
 -(void)keyboardShow:(NSNotification *)note
 {
@@ -420,5 +469,27 @@ YcKeyBoardViewDelegate>
 -(void)concernMethord
 {
     [self followRequest];
+}
+
+#pragma mark  -- Action
+-(void)avatarImageViewButtonMethord
+{
+    OtherUserViewController *otherUserVC = [[OtherUserViewController alloc]init];
+    otherUserVC.userId = [NSString stringWithFormat:@"%ld",self.detailModel.data.commodity.userId];
+    //    otherUserVC.commodityId = [NSString stringWithFormat:@"%ld",model.commodityId];
+    [self.navigationController pushViewController:otherUserVC animated:YES];
+
+}
+-(void)avatarButtonMethord:(UIButton * ) sender
+{
+    CommentsModel *model = [self.detailModel.data.comments objectAtIndex:sender.tag];
+    OtherUserViewController *otherUserVC = [[OtherUserViewController alloc]init];
+    otherUserVC.userId = [NSString stringWithFormat:@"%ld",model.userId];
+    //    otherUserVC.commodityId = [NSString stringWithFormat:@"%ld",model.commodityId];
+    [self.navigationController pushViewController:otherUserVC animated:YES];
+}
+-(void)rightButtonAction
+{
+    self.editNoteView.hidden = NO;
 }
 @end

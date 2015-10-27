@@ -18,6 +18,8 @@
 
 @property(nonatomic,weak) id<NoteDetailInfoCellDelegate> delegate;
 
+//头像
+@property(nonatomic,strong) UIButton *avatarImageView;
 
 @property(nonatomic,strong) TagView *tags;
 

@@ -8,8 +8,6 @@ const CGFloat kCommentListCellTopOffset    =  15.0f;
 
 @property(nonatomic,strong) UILabel *hot;
 
-@property(nonatomic,strong) UIButton *avatarButton;
-
 @property(nonatomic,strong) UILabel *content;
 
 @property(nonatomic,strong) UILabel *praiseNum;

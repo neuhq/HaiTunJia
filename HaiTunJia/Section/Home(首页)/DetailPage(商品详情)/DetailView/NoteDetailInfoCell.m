@@ -18,9 +18,6 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
 //下部背景
 @property(nonatomic,strong) UIView *bottomView;
 
-//头像
-@property(nonatomic,strong) UIButton *avatarImageView;
-
 //姓名
 @property(nonatomic,strong) UILabel *name;
 
@@ -145,10 +142,11 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
 {
     if (!_address)
     {
-        NSString *string = @"北京，海淀区，上地十街，上地世界是世界世界世界";
+        NSString *string = @"北京，海淀区，上地十街";
         UIFont *font = [UIFont systemFontOfSize:11.0f];
         CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
-        _address = [[UILabel alloc]initWithFrame:CGRectMake(self.avatarImageView.right + 10.0f, self.name.bottom + 10.0f, size.width, size.height)];
+        _address = [[UILabel alloc]initWithFrame:CGRectMake(self.avatarImageView.right + 10.0f, self.name.bottom + 5, size.width, size.height)];
+        _address.text = string;
         _address.textAlignment = NSTextAlignmentLeft;
         _address.textColor = [UIColor colorWithHexString:@"aeaeb2"];
         _address.font = font;
@@ -316,18 +314,29 @@ const CGFloat kNoteDetailInfoCellLeftOffset   = 15.0f;
     publishModel.price = [NSString stringWithFormat:@"%ld",detailModel.commodity.price];
     publishModel.moneyType = detailModel.commodity.moneyType;
     self.tagArray = [NSArray arrayWithObjects:detailModel.commodity.tag1,detailModel.commodity.tag2,detailModel.commodity.tag3 ,nil];
+    if(self.tagArray.count != 0)
+        self.tagImageView.hidden = NO;
+    else
+        self.tagImageView.hidden = YES;
     self.name.text = detailModel.follow.userName;
     [self.avatarImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"Icon-Small-40"]];
     [self.avatarImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:detailModel.follow.userPic] forState:UIControlStateHighlighted placeholderImage:[UIImage imageNamed:@"Icon-Small-40"]];
-    if (detailModel.follow.followType == 0) //未关注
+    if (detailModel.follow.userId == [[[NSUserDefaults standardUserDefaults]objectForKey:kUserIdIndntifer ] integerValue])
     {
-        [_concern setTitle:@"关注" forState:UIControlStateNormal];
-        [_concern setTitle:@"关注" forState:UIControlStateHighlighted];
+        self.concern.hidden = YES;
     }
     else
     {
-        [_concern setTitle:@"取消关注" forState:UIControlStateNormal];
-        [_concern setTitle:@"取消关注" forState:UIControlStateHighlighted];
+        if (detailModel.follow.followType == 0) //未关注
+        {
+            [_concern setTitle:@"关注" forState:UIControlStateNormal];
+            [_concern setTitle:@"关注" forState:UIControlStateHighlighted];
+        }
+        else
+        {
+            [_concern setTitle:@"取消关注" forState:UIControlStateNormal];
+            [_concern setTitle:@"取消关注" forState:UIControlStateHighlighted];
+        }
     }
     NSString *string = detailModel.commodity.picture;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:string]];

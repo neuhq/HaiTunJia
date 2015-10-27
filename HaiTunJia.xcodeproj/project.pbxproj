@@ -266,6 +266,10 @@
 		AD74C52B1BDA8A1800D8E8A2 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C52A1BDA8A1800D8E8A2 /* UIImage+ImageEffects.m */; };
 		AD74C52E1BDE6D8F00D8E8A2 /* GetBannerListService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C52D1BDE6D8F00D8E8A2 /* GetBannerListService.m */; settings = {ASSET_TAGS = (); }; };
 		AD74C5311BDE6EB500D8E8A2 /* BannerListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C5301BDE6EB500D8E8A2 /* BannerListModel.m */; settings = {ASSET_TAGS = (); }; };
+		AD74C5331BDFD90400D8E8A2 /* icon_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5321BDFD90400D8E8A2 /* icon_more@2x.png */; settings = {ASSET_TAGS = (); }; };
+		AD74C5351BDFD91500D8E8A2 /* icon_more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5341BDFD91500D8E8A2 /* icon_more@3x.png */; settings = {ASSET_TAGS = (); }; };
+		AD74C5381BDFD9F500D8E8A2 /* EditNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C5371BDFD9F500D8E8A2 /* EditNoteView.m */; settings = {ASSET_TAGS = (); }; };
+		AD74C53B1BDFE1D900D8E8A2 /* DeleteNoteService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C53A1BDFE1D900D8E8A2 /* DeleteNoteService.m */; settings = {ASSET_TAGS = (); }; };
 		AD8378101BC5070700EC679C /* NoteDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83780F1BC5070700EC679C /* NoteDetailInfoCell.m */; };
 		AD83781D1BC5199800EC679C /* DetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83781C1BC5199800EC679C /* DetailBottomView.m */; };
 		AD8378211BC53DFE00EC679C /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8378201BC53DFE00EC679C /* DWTagList.m */; };
@@ -858,6 +862,12 @@
 		AD74C52D1BDE6D8F00D8E8A2 /* GetBannerListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetBannerListService.m; sourceTree = "<group>"; };
 		AD74C52F1BDE6EB500D8E8A2 /* BannerListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerListModel.h; sourceTree = "<group>"; };
 		AD74C5301BDE6EB500D8E8A2 /* BannerListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerListModel.m; sourceTree = "<group>"; };
+		AD74C5321BDFD90400D8E8A2 /* icon_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_more@2x.png"; sourceTree = "<group>"; };
+		AD74C5341BDFD91500D8E8A2 /* icon_more@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_more@3x.png"; sourceTree = "<group>"; };
+		AD74C5361BDFD9F500D8E8A2 /* EditNoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNoteView.h; sourceTree = "<group>"; };
+		AD74C5371BDFD9F500D8E8A2 /* EditNoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNoteView.m; sourceTree = "<group>"; };
+		AD74C5391BDFE1D900D8E8A2 /* DeleteNoteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteNoteService.h; sourceTree = "<group>"; };
+		AD74C53A1BDFE1D900D8E8A2 /* DeleteNoteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteNoteService.m; sourceTree = "<group>"; };
 		AD83780E1BC5070700EC679C /* NoteDetailInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDetailInfoCell.h; sourceTree = "<group>"; };
 		AD83780F1BC5070700EC679C /* NoteDetailInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDetailInfoCell.m; sourceTree = "<group>"; };
 		AD83781B1BC5199800EC679C /* DetailBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailBottomView.h; sourceTree = "<group>"; };
@@ -1733,6 +1743,8 @@
 				AD4D20911BC9611400732CC0 /* CommentListCell.m */,
 				AD37CF791BD1406400B064A6 /* DetailTableViewFooterView.h */,
 				AD37CF7A1BD1406400B064A6 /* DetailTableViewFooterView.m */,
+				AD74C5361BDFD9F500D8E8A2 /* EditNoteView.h */,
+				AD74C5371BDFD9F500D8E8A2 /* EditNoteView.m */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -1933,6 +1945,8 @@
 				AD37CF811BD15C0300B064A6 /* GetCommentService.m */,
 				AD37CF831BD15CDA00B064A6 /* AddCommentService.h */,
 				AD37CF841BD15CDA00B064A6 /* AddCommentService.m */,
+				AD74C5391BDFE1D900D8E8A2 /* DeleteNoteService.h */,
+				AD74C53A1BDFE1D900D8E8A2 /* DeleteNoteService.m */,
 			);
 			path = DetailService;
 			sourceTree = "<group>";
@@ -2674,6 +2688,7 @@
 		AD9BEB4C1BC21B45004D662B /* 2x */ = {
 			isa = PBXGroup;
 			children = (
+				AD74C5321BDFD90400D8E8A2 /* icon_more@2x.png */,
 				334A52E31BCD0EDD00F5ECDD /* add@2x.png */,
 				334A52DF1BCD0A4F00F5ECDD /* icon_link@2x.png */,
 				AD37CF601BCBFCEA00B064A6 /* buy_amazon@2x.png */,
@@ -2699,6 +2714,7 @@
 		AD9BEB581BC21B45004D662B /* 3x */ = {
 			isa = PBXGroup;
 			children = (
+				AD74C5341BDFD91500D8E8A2 /* icon_more@3x.png */,
 				334A52E51BCD0EE500F5ECDD /* add@3x.png */,
 				334A52E11BCD0A5B00F5ECDD /* icon_link@3x.png */,
 				AD37CF661BCBFCFB00B064A6 /* buy_amazon@3x.png */,
@@ -2967,7 +2983,7 @@
 				TargetAttributes = {
 					AD51D3DF1BB6A90F00A75753 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = E6LT434MSK;
+						DevelopmentTeam = 835PL3RF7B;
 					};
 					AD51D3F81BB6A90F00A75753 = {
 						CreatedOnToolsVersion = 7.0;
@@ -3025,6 +3041,7 @@
 				ADCD76FF1BBFA012004B6493 /* classfy_caizhuang@2x.png in Resources */,
 				AD13B8DD1BBD023300AA3142 /* icon_clock@2x.png in Resources */,
 				ADCD77481BC01F5B004B6493 /* list_gonggao@3x.png in Resources */,
+				AD74C5331BDFD90400D8E8A2 /* icon_more@2x.png in Resources */,
 				AD8905871BB9987F00D90221 /* tab_personal_active@2x.png in Resources */,
 				AD13B8EE1BBD023300AA3142 /* icon_labelcolor@3x.png in Resources */,
 				AD13B8EF1BBD023300AA3142 /* icon_love_normal1@3x.png in Resources */,
@@ -3053,6 +3070,7 @@
 				ADCD77061BBFA012004B6493 /* classfy_qita@2x.png in Resources */,
 				AD9BEB651BC21B45004D662B /* icon_shangla@2x.png in Resources */,
 				AD13B8E31BBD023300AA3142 /* icon_pengyouquan@2x.png in Resources */,
+				AD74C5351BDFD91500D8E8A2 /* icon_more@3x.png in Resources */,
 				AD8905891BB9987F00D90221 /* tab_search_active@2x.png in Resources */,
 				ADCD77011BBFA012004B6493 /* classfy_fuzhuang@3x.png in Resources */,
 				AD74C5181BDA690900D8E8A2 /* Icon-60@2x.png in Resources */,
@@ -3226,6 +3244,7 @@
 				AD51D4F91BB7CD1300A75753 /* MKAnnotationView+WebCache.m in Sources */,
 				33747EAB1BC8F1C60076D921 /* NoticeViewController.m in Sources */,
 				ADCB03121BD36AEB0084EEEE /* GetLoginCodeService.m in Sources */,
+				AD74C53B1BDFE1D900D8E8A2 /* DeleteNoteService.m in Sources */,
 				ADCD77311BC012FF004B6493 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				AD13B8701BBCC96B00AA3142 /* MJRefreshComponent.m in Sources */,
 				33D4AA231BB9213F0086D442 /* UITableView+Additions.m in Sources */,
@@ -3277,6 +3296,7 @@
 				AD9B3D1E1BBBAA4B001078B9 /* NSObject+MJClass.m in Sources */,
 				AD51D5061BB7CD1300A75753 /* UIImage+MultiFormat.m in Sources */,
 				AD4C58911BCA76AD00C3E83C /* PraiseCommodityService.m in Sources */,
+				AD74C5381BDFD9F500D8E8A2 /* EditNoteView.m in Sources */,
 				3397401B1BCB9FAD00551BF6 /* EditPhotoViewController.m in Sources */,
 				ADCB03081BD33B090084EEEE /* PersonalDataViewController+helper.m in Sources */,
 				AD9B3D211BBBAA4B001078B9 /* NSObject+MJProperty.m in Sources */,
@@ -3439,8 +3459,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3462,7 +3482,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "24a344dc-98ae-4d44-acc0-db2e5f0de2b2";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3484,8 +3504,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3500,7 +3520,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "24a344dc-98ae-4d44-acc0-db2e5f0de2b2";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3511,8 +3531,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3531,7 +3551,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "24a344dc-98ae-4d44-acc0-db2e5f0de2b2";
+				PROVISIONING_PROFILE = "e124c528-be6e-4496-a48b-5ee20f598fcc";
 			};
 			name = Debug;
 		};
@@ -3540,8 +3560,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Changwei Technology Development Co.,LTD";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3560,7 +3580,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "24a344dc-98ae-4d44-acc0-db2e5f0de2b2";
+				PROVISIONING_PROFILE = "e124c528-be6e-4496-a48b-5ee20f598fcc";
 			};
 			name = Release;
 		};

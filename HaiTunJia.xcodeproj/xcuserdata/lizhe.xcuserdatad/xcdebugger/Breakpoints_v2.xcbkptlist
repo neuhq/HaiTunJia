@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/General/Network/BaseNetworkService.m"
-            timestampString = "467564037.590462"
+            filePath = "HaiTunJia/Section/Home(&#x9996;&#x9875;)/HomePage(&#x9996;&#x9875;)/HomeView/HomeCollectionHeaderView.m"
+            timestampString = "467651191.014054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "-requestDataWithParamsBlcok:FinishBlock:failureBlock:"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-setImage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/General/Network/BaseNetworkService.m"
-            timestampString = "467564038.975891"
+            filePath = "HaiTunJia/Section/Home(&#x9996;&#x9875;)/DetailPage(&#x5546;&#x54c1;&#x8be6;&#x60c5;)/DetailController/DetailController.m"
+            timestampString = "467657825.463038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-requestDataWithParamsBlcok:FinishBlock:failureBlock:"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
+            landmarkName = "-selectedButtonIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Vendor/AFNetworking/AFHTTPRequestOperationManager.m"
-            timestampString = "467564071.627421"
+            filePath = "HaiTunJia/Section/Home(&#x9996;&#x9875;)/DetailPage(&#x5546;&#x54c1;&#x8be6;&#x60c5;)/DetailController/DetailController.m"
+            timestampString = "467658163.065016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "-POST:parameters:success:failure:"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
+            landmarkName = "-keyBoardViewHide:textView:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -67,62 +67,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Vendor/AFNetworking/AFHTTPRequestOperationManager.m"
-            timestampString = "467564087.50744"
+            filePath = "HaiTunJia/Section/Home(&#x9996;&#x9875;)/DetailPage(&#x5546;&#x54c1;&#x8be6;&#x60c5;)/DetailController/DetailController.m"
+            timestampString = "467658122.029861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-HTTPRequestOperationWithHTTPMethod:URLString:parameters:success:failure:"
+            startingLineNumber = "429"
+            endingLineNumber = "429"
+            landmarkName = "-addComment"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Vendor/AFNetworking/AFURLRequestSerialization.m"
-            timestampString = "467564879.831182"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
-            landmarkName = "-requestWithMethod:URLString:parameters:error:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AFHTTPRequestSerializer requestWithMethod:URLString:parameters:error:]"
-                  moduleName = "HaiTunJia"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Vendor/AFNetworking/AFURLRequestSerialization.m"
-                  timestampString = "467565633.676324"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "366"
-                  endingLineNumber = "366"
-                  offsetFromSymbolStart = "172">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AFHTTPRequestSerializer requestWithMethod:URLString:parameters:error:]"
-                  moduleName = "HaiTunJia"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lizhe/Documents/HaiTunJia/HaiTunJia/Vendor/AFNetworking/AFURLRequestSerialization.m"
-                  timestampString = "467565633.676481"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "366"
-                  endingLineNumber = "366"
-                  offsetFromSymbolStart = "196">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
