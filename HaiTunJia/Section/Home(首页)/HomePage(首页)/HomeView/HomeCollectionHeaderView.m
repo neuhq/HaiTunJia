@@ -19,7 +19,7 @@
     {
         [self addSubview:self.scrollView];
         [self addSubview:self.pageControl];
-        [self initArray];
+//        [self initArray];
     }
     return self;
 }
@@ -73,6 +73,7 @@
 {
 //    [super layoutSubviews];
     _pageControl.numberOfPages = array.count;
+    self.picArr = [array copy];
     for (int i=0; i<array.count; i++)
     {
         BannerData *data = array[i];
@@ -81,6 +82,7 @@
         hotelImage.backgroundColor=[UIColor whiteColor];
         hotelImage.userInteractionEnabled=YES;
         [self.scrollView addSubview:hotelImage];
+        [hotelImage addTarget:self action:@selector(buttonMethord:) forControlEvents:UIControlEventTouchUpInside];
         self.scrollView.contentSize=CGSizeMake(self.bounds.size.width*(i+1), 0);
     }
 
@@ -92,8 +94,10 @@
     {
         UIButton *hotelImage=[[UIButton alloc]initWithFrame:CGRectMake(self.bounds.size.width*i, 0,self.scrollView.size.width, self.scrollView.frame.size.height - 10)];
         [hotelImage sd_setBackgroundImageWithURL:[NSURL URLWithString:self.picArr[i]] forState: UIControlStateNormal placeholderImage:nil];
+        hotelImage.tag = i;
         hotelImage.backgroundColor=[UIColor whiteColor];
         hotelImage.userInteractionEnabled=YES;
+        [hotelImage addTarget:self action:@selector(buttonMethord:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:hotelImage];
         self.scrollView.contentSize=CGSizeMake(self.bounds.size.width*(i+1), 0);
         
@@ -108,5 +112,13 @@
     
     // 设置页码
     _pageControl.currentPage = page;
+}
+-(void)buttonMethord:(UIButton *) sender
+{
+    BannerData *data = self.picArr[sender.tag];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedBannerAtIndexWithObject:)])
+    {
+        [self.delegate selectedBannerAtIndexWithObject:data];
+    }
 }
 @end

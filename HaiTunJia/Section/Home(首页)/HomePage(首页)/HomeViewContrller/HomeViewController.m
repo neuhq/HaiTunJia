@@ -11,6 +11,7 @@
 #import "RegisterViewController.h"
 #import "OtherUserViewController.h"
 #import "GetBannerListService.h"
+#import "WebViewController.h"
 
 //collectionViewCell标识
 static NSString *const HomeViewCollectionViewIndentifer =  @"HomeViewCollectionViewIndentifer";
@@ -23,7 +24,8 @@ static NSString *const HomeViewHeaderViewIndentifer =  @"HomeViewHeaderViewInden
 <UICollectionViewDataSource,
 CHTCollectionViewDelegateWaterfallLayout,
  UICollectionViewDelegate,
-UICollectionViewDelegateFlowLayout>
+UICollectionViewDelegateFlowLayout,
+HomeCollectionHeaderViewDelegate>
 
 @property(nonatomic,strong) UICollectionView *homeCollectionView;
 
@@ -238,7 +240,13 @@ UICollectionViewDelegateFlowLayout>
 
 
 #pragma mark -- Delegate
-
+-(void)selectedBannerAtIndexWithObject:(BannerData *)bannerModel
+{
+    WebViewController *web = [[WebViewController alloc]init];
+    web.hotelUrlString = bannerModel.linkurl;
+    web.title = bannerModel.title;
+    [self.navigationController pushViewController:web animated:YES];
+}
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -282,8 +290,9 @@ UICollectionViewDelegateFlowLayout>
         HomeCollectionHeaderView *hearderView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                           withReuseIdentifier:HomeViewHeaderViewIndentifer
                                                                 forIndexPath:indexPath];
-//        [hearderView setImage:self.bannerList];
-        [hearderView setImage];
+        hearderView.delegate = self;
+        [hearderView setImage:self.bannerList];
+//        [hearderView setImage];
         reusableView = hearderView;
     }
     return reusableView;
