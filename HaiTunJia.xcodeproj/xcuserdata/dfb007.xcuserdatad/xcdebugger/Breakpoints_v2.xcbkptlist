@@ -49,13 +49,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HaiTunJia/Section/UploadPhoto(&#x4e0a;&#x4f20;)/Publish/PublishViewController/PublishViewController.m"
-            timestampString = "467116601.280546"
+            filePath = "HaiTunJia/Section/UploadPhoto(&#x4e0a;&#x4f20;)/EditPhoto/EditPhotoViewController/EditPhotoViewController.m"
+            timestampString = "467703119.416329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-publish"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "-sureAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HaiTunJia/Section/UploadPhoto(&#x4e0a;&#x4f20;)/EditPhoto/EditPhotoView/TagView.m"
+            timestampString = "467695796.424919"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-reloadViewWithString:withXPosition:withSuperViewWidth:withDirection:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HaiTunJia/Section/UploadPhoto(&#x4e0a;&#x4f20;)/EditPhoto/EditPhotoViewController/EditPhotoViewController.m"
+            timestampString = "467703119.416329"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "-tap"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HaiTunJia/Section/UploadPhoto(&#x4e0a;&#x4f20;)/EditPhoto/EditPhotoViewController/CommodityTagViewController.m"
+            timestampString = "467701399.791539"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "-rightButtonAction"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -132,6 +132,7 @@ UITextFieldDelegate>
         } respons:^(id object) {
             [self.navigationController popToRootViewControllerAnimated:YES];
             [HTJCommon sharedManager].isAddImage = NO;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kHomeViewReloadDataNotificationName object:nil];
         } failed:^(NSError *error) {
             
         }];
@@ -304,6 +305,10 @@ UITextFieldDelegate>
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
+}
+-(void)setModel:(PublishModel *) model
+{
+    self.publishModel = model;
 }
 
 

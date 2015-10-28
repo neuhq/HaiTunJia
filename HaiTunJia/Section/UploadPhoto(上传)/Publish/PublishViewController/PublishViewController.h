@@ -17,4 +17,6 @@
 
 -(id)initWithPublishImge:(UIImage *) image;
 
+-(void)setModel:(PublishModel *) model;
+
 @end

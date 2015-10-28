@@ -97,8 +97,8 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     _requestOperation =   [manager POST:_api_url parameters:attributes success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSDictionary *result = [responseObject objectFromJSONData];
-//        NSString *string = [result JSONString];
-//        NSLog(@"string:%@",string);
+        NSString *string = [result JSONString];
+        NSLog(@"string:%@",string);
         [WSProgressHUD dismiss];
                 finishBlock(result);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
@@ -115,6 +115,20 @@
                        FinishBlock:(FinishBlock)finishBlock
                       failureBlock:(FailureBlock)failureBlock
 {
+    [WSProgressHUD showWithStatus:@"Loading..." maskType:WSProgressHUDMaskTypeDefault];
+    
+    
+    // 判断当前是否有网络
+    if (![Reachability reachabilityWithHostname:@"www.baidu.com"].isReachable)
+    {
+        NSError *error= [NSError errorWithDomain:@"当前无网络" code:9999 userInfo:nil];  //直接返回网络错误
+        failureBlock(error);
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO ;
+        [WSProgressHUD dismiss];
+        return;
+    }
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES ;
+
     // 添加请求对象参数配置设置block
     if (paramsBlock != nil) {
         paramsBlock();
@@ -135,9 +149,9 @@
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"[UploadVC] success = %@", responseObject);
         NSDictionary *result = [responseObject objectFromJSONData];
-//        NSString *string = [result JSONString];
-//        NSLog(@"string:%@",string);
-        //        [WSProgressHUD dismiss];
+        NSString *string = [result JSONString];
+        NSLog(@"string:%@",string);
+                [WSProgressHUD dismiss];
         finishBlock(result);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"[UploadVC] error response.object = %@", operation.responseObject);

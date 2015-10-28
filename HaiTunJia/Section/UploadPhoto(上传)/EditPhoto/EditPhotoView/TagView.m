@@ -64,10 +64,13 @@
     UIImage *dotImage = [UIImage imageNamed:@"label_dot_small"];
     UIImage *smallBg = [UIImage imageNamed:@"label_leftbg_small"];
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:14],NSFontAttributeName, nil];
+    if([publishModel.name isEqualToString:@""] && [publishModel.price isEqualToString:@""] && [publishModel.moneyType isEqualToString:@""])
+        return;
+    
     if (direction == DotDirection_Left)
     {
         CGFloat viewWidth = width - position - 10 - 10;
-        NSString *string = [NSString stringWithFormat:@"%@%@%@%@",publishModel.name,publishModel.price,publishModel.moneyType,publishModel.source];
+        NSString *string = [NSString stringWithFormat:@"%@%@%@",publishModel.name,publishModel.price,publishModel.moneyType];
         CGSize size = [string boundingRectWithSize:CGSizeMake(viewWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
         CGSize sizeHeight = [string sizeWithAttributes:@{NSFontAttributeName:self.titleLabel.font}];
         self.smallDot.frame = CGRectMake(0, (smallBg.size.height - dotImage.size.height)/2, dotImage.size.width, dotImage.size.height);

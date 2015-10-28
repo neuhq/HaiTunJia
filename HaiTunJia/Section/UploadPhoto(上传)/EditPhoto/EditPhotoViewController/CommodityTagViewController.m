@@ -52,13 +52,20 @@ UITextFieldDelegate>
     [self setTitle:@"添加标签"];
     self.rightBarButton.hidden = NO;
     self.rightView = @"完成";
-    [self.view addSubview:self.tableView];
     // Do any additional setup after loading the view.
 }
 -(void)viewDidAppear:(BOOL)animated
 {
+    if (self.isLoadView)
+    {
+        [self.view addSubview:self.tableView];
+        
+    }
     if(self.isEdit == YES)
+    {
         _tableView.tableFooterView = self.footerView;
+    }
+  
     [super viewDidAppear:animated];
 }
 - (void)didReceiveMemoryWarning {
@@ -152,7 +159,7 @@ UITextFieldDelegate>
         {
             cell = [[CommdityTagViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifer1 row:indexPath.row];
         }
-        [cell reloadFirstImage:self.firstArray[indexPath.row] row:indexPath.row];
+        [cell reloadFirstImage:self.firstArray[indexPath.row] row:indexPath.row model:self.publishModel];
         if(indexPath.row == 0)
         {
             self.brand = cell.leftTextField;
@@ -177,7 +184,7 @@ UITextFieldDelegate>
         {
             cell = [[CommdityTagViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifer2 row:indexPath.row];
         }
-        [cell reloadSecondImage:self.firstArray[indexPath.row] row:indexPath.row];
+        [cell reloadSecondImage:self.firstArray[indexPath.row] row:indexPath.row model:_publishModel];
         if(indexPath.row == 2)
         {
             self.type = cell.oneTextField;
@@ -204,17 +211,35 @@ UITextFieldDelegate>
 
 -(void)rightButtonAction
 {
-    PublishModel *model = [[PublishModel alloc]init];
-    model.moneyType = self.currency.text;
-    model.name = self.commdityName.text;
-    model.price = self.price.text;
-    model.source = self.address.text;
-    AddTagEndBlock block = self.endBlock;
-    if (block)
+    StringToNull(self.currency.text);
+    StringToNull(self.commdityName.text);
+    StringToNull(self.price.text);
+    StringToNull(self.address.text);
+
+    if ([self.currency.text isEqualToString:@""] && [self.commdityName.text isEqualToString:@""] && [self.price.text isEqualToString:@""] && [self.address.text isEqualToString:@""])
     {
-        block(model,self.isEdit,nil);
+        AddTagEndBlock block = self.endBlock;
+        if (block)
+        {
+            block(nil,self.isEdit,nil);
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    else
+    {
+        PublishModel *model = [[PublishModel alloc]init];
+        model.moneyType = self.currency.text;
+        model.name = self.commdityName.text;
+        model.price = self.price.text;
+        model.source = self.address.text;
+        AddTagEndBlock block = self.endBlock;
+        if (block)
+        {
+            block(model,self.isEdit,nil);
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {

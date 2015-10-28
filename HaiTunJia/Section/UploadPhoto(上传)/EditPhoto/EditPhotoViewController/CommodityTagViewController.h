@@ -1,6 +1,7 @@
 
 
 #import "BaseViewController.h"
+#import "PublishModel.h"
 
 typedef void(^AddTagEndBlock)(id object,BOOL isEdit,BOOL isDelete);
 @interface CommodityTagViewController : BaseViewController
@@ -10,5 +11,7 @@ typedef void(^AddTagEndBlock)(id object,BOOL isEdit,BOOL isDelete);
 
 //是否有标签进来编辑
 @property(nonatomic,assign) BOOL isEdit;
+
+@property(nonatomic,strong) PublishModel *publishModel;
 
 @end

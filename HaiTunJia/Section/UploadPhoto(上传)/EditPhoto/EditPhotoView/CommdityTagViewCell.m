@@ -105,18 +105,23 @@
     }
     return _oneTextField;
 }
--(void)reloadFirstImage:(UIImage *) image row:(NSInteger) row
+-(void)reloadFirstImage:(UIImage *) image row:(NSInteger) row model:(PublishModel *) model
 {
     self.leftImageView.image = image;
     if (row == 0)
     {
-           self.leftTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"品牌" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
+       
+        self.leftTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"品牌" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
          self.rightTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"商品名" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
         self.leftTextField.keyboardType = UIKeyboardTypeDefault;
-         self.rightTextField.keyboardType = UIKeyboardTypeDefault;
+        self.rightTextField.keyboardType = UIKeyboardTypeDefault;
+        self.leftTextField.text = model.pinPai;
+        self.rightTextField.text = model.name;
     }
     else
     {
+        self.leftTextField.text = model.moneyType;
+        self.rightTextField.text = model.price;
         self.leftTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"币种" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
         self.rightTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"价格" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"f9f7f7"]}];
         self.leftTextField.keyboardType = UIKeyboardTypeDefault;
@@ -125,7 +130,7 @@
     }
 }
 
--(void)reloadSecondImage:(UIImage *) image row:(NSInteger) row
+-(void)reloadSecondImage:(UIImage *) image row:(NSInteger) row model:(PublishModel *)model
 {
     self.leftImageView.image = image;
     if (row == 3)

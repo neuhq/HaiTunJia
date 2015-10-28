@@ -264,12 +264,12 @@
 		AD74C5271BDA690900D8E8A2 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5151BDA690900D8E8A2 /* Icon@2x.png */; };
 		AD74C5281BDA690900D8E8A2 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5161BDA690900D8E8A2 /* iTunesArtwork@2x.png */; };
 		AD74C52B1BDA8A1800D8E8A2 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C52A1BDA8A1800D8E8A2 /* UIImage+ImageEffects.m */; };
-		AD74C52E1BDE6D8F00D8E8A2 /* GetBannerListService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C52D1BDE6D8F00D8E8A2 /* GetBannerListService.m */; settings = {ASSET_TAGS = (); }; };
-		AD74C5311BDE6EB500D8E8A2 /* BannerListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C5301BDE6EB500D8E8A2 /* BannerListModel.m */; settings = {ASSET_TAGS = (); }; };
-		AD74C5331BDFD90400D8E8A2 /* icon_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5321BDFD90400D8E8A2 /* icon_more@2x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5351BDFD91500D8E8A2 /* icon_more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5341BDFD91500D8E8A2 /* icon_more@3x.png */; settings = {ASSET_TAGS = (); }; };
-		AD74C5381BDFD9F500D8E8A2 /* EditNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C5371BDFD9F500D8E8A2 /* EditNoteView.m */; settings = {ASSET_TAGS = (); }; };
-		AD74C53B1BDFE1D900D8E8A2 /* DeleteNoteService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C53A1BDFE1D900D8E8A2 /* DeleteNoteService.m */; settings = {ASSET_TAGS = (); }; };
+		AD74C52E1BDE6D8F00D8E8A2 /* GetBannerListService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C52D1BDE6D8F00D8E8A2 /* GetBannerListService.m */; };
+		AD74C5311BDE6EB500D8E8A2 /* BannerListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C5301BDE6EB500D8E8A2 /* BannerListModel.m */; };
+		AD74C5331BDFD90400D8E8A2 /* icon_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5321BDFD90400D8E8A2 /* icon_more@2x.png */; };
+		AD74C5351BDFD91500D8E8A2 /* icon_more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74C5341BDFD91500D8E8A2 /* icon_more@3x.png */; };
+		AD74C5381BDFD9F500D8E8A2 /* EditNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C5371BDFD9F500D8E8A2 /* EditNoteView.m */; };
+		AD74C53B1BDFE1D900D8E8A2 /* DeleteNoteService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD74C53A1BDFE1D900D8E8A2 /* DeleteNoteService.m */; };
 		AD8378101BC5070700EC679C /* NoteDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83780F1BC5070700EC679C /* NoteDetailInfoCell.m */; };
 		AD83781D1BC5199800EC679C /* DetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83781C1BC5199800EC679C /* DetailBottomView.m */; };
 		AD8378211BC53DFE00EC679C /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8378201BC53DFE00EC679C /* DWTagList.m */; };
@@ -3531,8 +3531,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3551,7 +3551,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e124c528-be6e-4496-a48b-5ee20f598fcc";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3560,8 +3560,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Huaqiang Wen (L93K4BYU8A)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3580,7 +3580,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.changwei.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e124c528-be6e-4496-a48b-5ee20f598fcc";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

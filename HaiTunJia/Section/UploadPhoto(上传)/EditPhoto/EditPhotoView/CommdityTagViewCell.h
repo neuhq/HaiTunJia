@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+#import "PublishModel.h"
 
 @interface CommdityTagViewCell : UITableViewCell
 <UITextFieldDelegate>
@@ -14,9 +15,9 @@
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier row:(NSInteger ) row;
 
 
--(void)reloadFirstImage:(UIImage *) image row:(NSInteger) row;
+-(void)reloadFirstImage:(UIImage *) image row:(NSInteger) row model:(PublishModel *) model;
 
--(void)reloadSecondImage:(UIImage *) image row:(NSInteger) row;
+-(void)reloadSecondImage:(UIImage *) image row:(NSInteger) row model:(PublishModel *) model;
 
 
 @end

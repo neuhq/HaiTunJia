@@ -71,7 +71,8 @@ CustomeSearchBarDelegate>
 {
     if(self.tagList.count == 3)
     {
-        
+        iToast *toast = [[iToast alloc]initWithText:@"最多只能添加三个标签"];
+        [toast show];
     }
     else
     {

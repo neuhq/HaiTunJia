@@ -34,6 +34,10 @@
 
 @property(nonatomic,strong) PublishModel *publishModel;
 
+@property(nonatomic,strong) UILabel *discription;
+
+@property(nonatomic,strong) UILabel *titleLabel;
+
 @end
 
 @implementation EditPhotoViewController
@@ -56,8 +60,10 @@
     self.view.backgroundColor = [UIColor colorWithHexString:@"f2f2f2"];
     [self.view addSubview:self.photo];
     [self.view addSubview:self.bottomView];
+    [self.bottomView addSubview:self.titleLabel];
     [self.bottomView addSubview:self.sureButton];
     [self.bottomView addSubview:self.backButton];
+    [self.view addSubview:self.discription];
     // Do any additional setup after loading the view.
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -145,6 +151,39 @@
     }
     return _backButton;
 }
+-(UILabel *) discription
+{
+    if (!_discription)
+    {
+        NSString *string = @"点击图片添加标签";
+        UIFont *font = [UIFont systemFontOfSize:14.0f];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        _discription = [[UILabel alloc]initWithFrame:CGRectMake(0, kScreenHeight - self.bottomView.height - 50.0f, kScreenWidth, size.height)];
+        _discription.text = string;
+        _discription.textColor = [UIColor blackColor];
+        _discription.textAlignment = NSTextAlignmentCenter;
+        _discription.font = font;
+        _discription.backgroundColor = [UIColor clearColor];
+    }
+    return _discription;
+}
+-(UILabel *) titleLabel
+{
+    if (!_titleLabel)
+    {
+        NSString *string = @"标签";
+        UIFont *font = [UIFont systemFontOfSize:14.0f];
+        CGSize size = [string sizeWithAttributes:@{NSFontAttributeName:font}];
+        _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake((kScreenWidth - size.width)/2, 0, size.width,self.bottomView.height)];
+        _titleLabel.text = string;
+        _titleLabel.textColor = [UIColor colorWithHex:@"#03a9f6"];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.font = font;
+        _titleLabel.backgroundColor = [UIColor clearColor];
+    }
+    return _titleLabel;
+}
+
 //-(TagView *)tagView
 //{
 //    if (!_tagView)
@@ -159,10 +198,15 @@
     if ([HTJCommon sharedManager].isAddImage == YES)
     {
 //        PublishViewController *publish =[PublishViewController sharedManager];
+        if(self.publishModel == nil)
+        {
+            self.publishModel = [[PublishModel alloc]init];
+        }
         self.publishModel.publishImage = self.photoImage;
         NSArray *array = self.navigationController.viewControllers;
         PublishViewController *publish = array[2];
         publish.publishModel = self.publishModel;
+        [publish setModel:self.publishModel];
 //        publish.addImage = self.photoImage;
         [publish addNewImage:self.photoImage];
         [HTJCommon sharedManager].isAddImage = NO;
@@ -189,17 +233,18 @@
 -(void)tap
 {
     _tapCount++;
-    if (_tapCount == 1)
+    if (_tapCount == 1 || self.publishModel == nil)
     {
         UIImage *image = [UIImage imageNamed:@"label_leftbg_small"];
         __weak EditPhotoViewController *this = self;
         CommodityTagViewController *vc = [[CommodityTagViewController alloc]init];
+        vc.publishModel = self.publishModel;
         vc.endBlock = ^(id object,BOOL isEdit,BOOL isDelete){
             PublishModel *model = object;
             self.publishModel = model;
-            self.publishModel.tagLocation = [NSString stringWithFormat:@"%.f,%.f",self.point.x,self.point.y];
             if (model)
             {
+                self.publishModel.tagLocation = [NSString stringWithFormat:@"%.f,%.f",self.point.x,self.point.y];
                 this.tagView = [[TagView alloc]initWithFrame:CGRectZero];
                 //            this.tagView.tag = self.tagIndex ++;
                 this.tagView.backgroundColor = [UIColor clearColor];
@@ -224,9 +269,19 @@
                 //            [this.tagViewArray addObject:this.tagView];
                 
             }
+            else
+            {
+                [this.tagBgView removeFromSuperview];
+                this.tapCount = 0;
+            }
             
         };
         [self presentViewController:vc animated:YES completion:nil];
+    }
+    else
+    {
+        iToast *toast = [[iToast alloc]initWithText:@"标签暂时只允许添加一个,您可以点击标签来更改标签内容或删除标签"];
+        [toast show];
     }
    
 }
@@ -235,10 +290,11 @@
     __weak EditPhotoViewController *this = self;
     UIImage *image = [UIImage imageNamed:@"label_leftbg_small"];
     CommodityTagViewController *tag = [[CommodityTagViewController alloc]init];
+    tag.publishModel = self.publishModel;
     tag.isEdit = YES;
     tag.endBlock = ^(id object,BOOL isEdit,BOOL isDelete){
         PublishModel *model = object;
-        self.publishModel = model;
+        this.publishModel = model;
         if (model)
         {
             if (isEdit == YES)
@@ -262,8 +318,8 @@
         }
         else
         {
-            [self.tagBgView removeFromSuperview];
-            self.tapCount = 0;
+            [this.tagBgView removeFromSuperview];
+            this.tapCount = 0;
         }
         
     };

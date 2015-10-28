@@ -13,6 +13,8 @@
 #import "OtherUserViewController.h"
 #import "EditNoteView.h"
 #import "DeleteNoteService.h"
+#import "PublishViewController.h"
+#import "PublishModel.h"
 
 @interface DetailController ()
 <DetailBottomViewDelegate,
@@ -291,7 +293,20 @@ EditNoteViewDelegate>
 {
     if (index == EditNoteView_Fix)
     {
-        
+        PublishModel *model = [[PublishModel alloc]init];
+        model.content = self.detailModel.data.commodity.content;
+        model.tag1 = self.detailModel.data.commodity.tag1;
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.detailModel.data.commodity.picture]];
+        UIImage *image = [UIImage imageWithData:data];
+        model.publishImage = image;
+        PublishViewController *publish = [[PublishViewController alloc]initWithPublishImge:image];
+        publish.publishModel = model;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [publish addNewImage:image];
+        });
+//        publish.publishModel = self.publishModel;
+//        publish.publishImage = self.photoImage;
+        [self.navigationController pushViewController:publish animated:YES];
     }
     else if ( index == EditNoteView_Delete)
     {

@@ -7,5 +7,5 @@
 
 #define KSearchResultNotificationName             @"KSearchResultNotificationName"
 
-
+#define kHomeViewReloadDataNotificationName         @"kHomeViewReloadDataNotificationName"
 #endif /* NotificationNameMacro_h */

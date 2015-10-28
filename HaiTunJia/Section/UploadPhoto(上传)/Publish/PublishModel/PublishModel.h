@@ -10,6 +10,8 @@
 
 @property(nonatomic,strong) NSString *tag3;
 
+@property(nonatomic,strong) NSString *pinPai;
+
 @property(nonatomic,strong) NSString *moneyType;
 
 @property(nonatomic,strong) NSString *name;

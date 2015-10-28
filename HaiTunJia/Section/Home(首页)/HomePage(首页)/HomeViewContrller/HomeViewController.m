@@ -46,6 +46,15 @@ UICollectionViewDelegateFlowLayout>
 @implementation HomeViewController
 
 #pragma mark -- life cycle
+-(id)init
+{
+    self = [super init];
+    if (self)
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadHomeData) name:kHomeViewReloadDataNotificationName object:nil];
+    }
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -324,6 +333,12 @@ UICollectionViewDelegateFlowLayout>
     OtherUserViewController *otherUserVC = [[OtherUserViewController alloc]init];
     otherUserVC.commodityId = [NSString stringWithFormat:@"%ld",dataModel.iD];
     [self.navigationController pushViewController:otherUserVC animated:YES];
+}
+-(void)reloadHomeData
+{
+    self.isLoadMore = NO;
+    self.lastCommodityId = @"";
+    [self getHomeListData];
 }
 #pragma mark -- Jump
 //跳转商品详情
